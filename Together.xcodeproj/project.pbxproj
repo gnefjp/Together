@@ -36,6 +36,8 @@
 		18BFDFD61724573B00186828 /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFD51724573B00186828 /* room_test.png */; };
 		18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFD917245C8B00186828 /* RoomGridView.m */; };
 		18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFDB17245C9D00186828 /* RoomGridView.xib */; };
+		18BFDFE717246A4700186828 /* RoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFE517246A4700186828 /* RoomCell.m */; };
+		18BFDFE817246A4700186828 /* RoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFE617246A4700186828 /* RoomCell.xib */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -102,6 +104,9 @@
 		18BFDFD817245C8B00186828 /* RoomGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGridView.h; sourceTree = "<group>"; };
 		18BFDFD917245C8B00186828 /* RoomGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGridView.m; sourceTree = "<group>"; };
 		18BFDFDB17245C9D00186828 /* RoomGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomGridView.xib; sourceTree = "<group>"; };
+		18BFDFE417246A4700186828 /* RoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCell.h; sourceTree = "<group>"; };
+		18BFDFE517246A4700186828 /* RoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCell.m; sourceTree = "<group>"; };
+		18BFDFE617246A4700186828 /* RoomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomCell.xib; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -260,6 +265,9 @@
 		18BFDFD717245C6400186828 /* RoomGridView */ = {
 			isa = PBXGroup;
 			children = (
+				18BFDFE417246A4700186828 /* RoomCell.h */,
+				18BFDFE517246A4700186828 /* RoomCell.m */,
+				18BFDFE617246A4700186828 /* RoomCell.xib */,
 				18BFDFD817245C8B00186828 /* RoomGridView.h */,
 				18BFDFD917245C8B00186828 /* RoomGridView.m */,
 				18BFDFDB17245C9D00186828 /* RoomGridView.xib */,
@@ -458,6 +466,7 @@
 				18BFDFD61724573B00186828 /* room_test.png in Resources */,
 				18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */,
 				388887611724687200B2D2F0 /* UserCenterView.xib in Resources */,
+				18BFDFE817246A4700186828 /* RoomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +499,7 @@
 				18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */,
 				18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */,
 				388887601724687200B2D2F0 /* UserCenterView.m in Sources */,
+				18BFDFE717246A4700186828 /* RoomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
