@@ -8,31 +8,73 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()
-
-@end
+#import "NavigationView.h"
+#import "RoomListView.h"
 
 @implementation HomeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    _mainView = [RoomListView loadFromNib];
+    [self.view addSubview:_mainView];
+    
+    _navigationView = [NavigationView loadFromNib];
+    _navigationView.delegate = self;
+    [self.view addSubview:_navigationView];
+    
+    [self _isShowNavigation:NO animation:NO];
 }
 
-- (void)didReceiveMemoryWarning
+
+#pragma mark- 导航栏
+- (void) _isShowNavigation:(BOOL)isShow animation:(BOOL)animation
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (animation)
+    {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.5];
+    }
+    
+    _navigationView.frameX = isShow ? 0.0 : -236.0;
+    _mainView.frameX = isShow ? 236.0 : 0.0;
+    
+    if (animation)
+    {
+        [UIView commitAnimations];
+    }
+}
+
+
+#pragma mark- NavigationViewDelegate
+- (void) NavigationViewWantInModulWithType:(ModulType)modulType
+{
+    [_mainView removeFromSuperview];
+    
+    switch (modulType)
+    {
+        case ModulType_RoomList:
+        {
+            _mainView = [RoomListView loadFromNib];
+            break;
+        }
+        default:
+            break;
+    }
+    
+    
+    [self.view insertSubview:_mainView belowSubview:_navigationView];
+    [self _isShowNavigation:NO animation:YES];
+}
+
+
+- (void) NavigationViewShowBtnPressed:(NavigationView *)navigationView
+{
+    BOOL isShowingNavigation = (_navigationView.frameX > -1.0);
+    
+    [self _isShowNavigation:!isShowingNavigation animation:YES];
 }
 
 @end

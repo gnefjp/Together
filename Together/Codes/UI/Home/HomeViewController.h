@@ -6,8 +6,11 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface HomeViewController : UIViewController
+#import "NavigationView.h"
+@interface HomeViewController : UIViewController <NavigationViewDelegate>
+{
+    NavigationView          *_navigationView;
+    UIView                  *_mainView;
+}
 
 @end

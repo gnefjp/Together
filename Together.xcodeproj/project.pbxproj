@@ -27,6 +27,10 @@
 		18BFDEAD17244DF600186828 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BFDEAC17244DF600186828 /* QuartzCore.framework */; };
 		18BFDEB017244DF600186828 /* GMETLibs+DataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */; };
 		18BFDF4817244DF600186828 /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDF4717244DF600186828 /* NetRoomList.m */; };
+		18BFDFBC17244DF600186828 /* RoomListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFBB17244DF600186828 /* RoomListView.m */; };
+		18BFDFBE17244DF600186828 /* RoomListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFBD17244DF600186828 /* RoomListView.xib */; };
+		18BFDFC217244DF600186828 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFC117244DF600186828 /* NavigationView.m */; };
+		18BFDFC417244DF600186828 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFC317244DF600186828 /* NavigationView.xib */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -78,6 +82,12 @@
 		18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+DataContainer.m"; sourceTree = "<group>"; };
 		18BFDF4617244DF600186828 /* NetRoomList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomList.h; sourceTree = SOURCE_ROOT; };
 		18BFDF4717244DF600186828 /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = SOURCE_ROOT; };
+		18BFDFBA17244DF600186828 /* RoomListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListView.h; sourceTree = "<group>"; };
+		18BFDFBB17244DF600186828 /* RoomListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListView.m; sourceTree = "<group>"; };
+		18BFDFBD17244DF600186828 /* RoomListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomListView.xib; sourceTree = "<group>"; };
+		18BFDFC017244DF600186828 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
+		18BFDFC117244DF600186828 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
+		18BFDFC317244DF600186828 /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,6 +190,26 @@
 				18BFDF4717244DF600186828 /* NetRoomList.m */,
 			);
 			path = DataFormat;
+			sourceTree = "<group>";
+		};
+		18BFDFB917244DF600186828 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				18BFDFBA17244DF600186828 /* RoomListView.h */,
+				18BFDFBB17244DF600186828 /* RoomListView.m */,
+				18BFDFBD17244DF600186828 /* RoomListView.xib */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		18BFDFBF17244DF600186828 /* NavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				18BFDFC017244DF600186828 /* NavigationView.h */,
+				18BFDFC117244DF600186828 /* NavigationView.m */,
+				18BFDFC317244DF600186828 /* NavigationView.xib */,
+			);
+			path = NavigationView;
 			sourceTree = "<group>";
 		};
 		18EAB29B17241702003E742D = {
@@ -299,6 +329,8 @@
 		18EAB2D3172418C6003E742D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				18BFDFBF17244DF600186828 /* NavigationView */,
+				18BFDFB917244DF600186828 /* Room */,
 				18BFDE7417244DF600186828 /* Home */,
 			);
 			path = UI;
@@ -377,6 +409,8 @@
 				18EAB2BC17241702003E742D /* Default@2x.png in Resources */,
 				18EAB2BE17241702003E742D /* Default-568h@2x.png in Resources */,
 				18BFDE7917244DF600186828 /* HomeViewController.xib in Resources */,
+				18BFDFBE17244DF600186828 /* RoomListView.xib in Resources */,
+				18BFDFC417244DF600186828 /* NavigationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +438,8 @@
 				18BFDEA117244DF600186828 /* Reachability.m in Sources */,
 				18BFDEB017244DF600186828 /* GMETLibs+DataContainer.m in Sources */,
 				18BFDF4817244DF600186828 /* NetRoomList.m in Sources */,
+				18BFDFBC17244DF600186828 /* RoomListView.m in Sources */,
+				18BFDFC217244DF600186828 /* NavigationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
