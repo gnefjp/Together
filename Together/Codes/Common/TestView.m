@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        NSLog(@"ssgg");
+        NSLog(@"ssggtttttt");
     }
     return self;
 }
