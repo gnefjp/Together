@@ -47,7 +47,8 @@
 		18EAB2CF172417F0003E742D /* TogetherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2CE172417F0003E742D /* TogetherAppDelegate.m */; };
 		18EAB2DD17241F0B003E742D /* NetItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DC17241F0B003E742D /* NetItemList.m */; };
 		18EAB2E01724245E003E742D /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DF1724245E003E742D /* NetRequest.m */; };
-		38CE36A217246133007268B4 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CE36A117246133007268B4 /* TestView.m */; };
+		388887601724687200B2D2F0 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888875E1724687200B2D2F0 /* UserCenterView.m */; };
+		388887611724687200B2D2F0 /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3888875F1724687200B2D2F0 /* UserCenterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,8 +121,9 @@
 		18EAB2DC17241F0B003E742D /* NetItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetItemList.m; sourceTree = "<group>"; };
 		18EAB2DE1724245E003E742D /* NetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRequest.h; sourceTree = "<group>"; };
 		18EAB2DF1724245E003E742D /* NetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
-		38CE36A017246133007268B4 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
-		38CE36A117246133007268B4 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		3888875D1724687200B2D2F0 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterView.h; sourceTree = "<group>"; };
+		3888875E1724687200B2D2F0 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterView.m; sourceTree = "<group>"; };
+		3888875F1724687200B2D2F0 /* UserCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,8 +236,6 @@
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				38CE36A017246133007268B4 /* TestView.h */,
-				38CE36A117246133007268B4 /* TestView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -361,6 +361,7 @@
 		18EAB2D3172418C6003E742D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3888875C1724687200B2D2F0 /* UserCenter */,
 				18BFDFBF17244DF600186828 /* NavigationView */,
 				18BFDFB917244DF600186828 /* Room */,
 				18BFDE7417244DF600186828 /* Home */,
@@ -383,6 +384,16 @@
 				18BFDE8117244DF600186828 /* ASIHTTPRequest */,
 			);
 			path = ThirdPart;
+			sourceTree = "<group>";
+		};
+		3888875C1724687200B2D2F0 /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				3888875D1724687200B2D2F0 /* UserCenterView.h */,
+				3888875E1724687200B2D2F0 /* UserCenterView.m */,
+				3888875F1724687200B2D2F0 /* UserCenterView.xib */,
+			);
+			path = UserCenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +457,7 @@
 				18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */,
 				18BFDFD61724573B00186828 /* room_test.png in Resources */,
 				18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */,
+				388887611724687200B2D2F0 /* UserCenterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +489,7 @@
 				18BFDFCB1724544100186828 /* RoomViewController.m in Sources */,
 				18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */,
 				18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */,
-				38CE36A217246133007268B4 /* TestView.m in Sources */,
+				388887601724687200B2D2F0 /* UserCenterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
