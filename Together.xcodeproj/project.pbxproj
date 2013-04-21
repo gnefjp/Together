@@ -47,6 +47,7 @@
 		18EAB2CF172417F0003E742D /* TogetherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2CE172417F0003E742D /* TogetherAppDelegate.m */; };
 		18EAB2DD17241F0B003E742D /* NetItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DC17241F0B003E742D /* NetItemList.m */; };
 		18EAB2E01724245E003E742D /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DF1724245E003E742D /* NetRequest.m */; };
+		38CE36A217246133007268B4 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CE36A117246133007268B4 /* TestView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,8 @@
 		18EAB2DC17241F0B003E742D /* NetItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetItemList.m; sourceTree = "<group>"; };
 		18EAB2DE1724245E003E742D /* NetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRequest.h; sourceTree = "<group>"; };
 		18EAB2DF1724245E003E742D /* NetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
+		38CE36A017246133007268B4 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		38CE36A117246133007268B4 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,8 @@
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				38CE36A017246133007268B4 /* TestView.h */,
+				38CE36A117246133007268B4 /* TestView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				18BFDFCB1724544100186828 /* RoomViewController.m in Sources */,
 				18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */,
 				18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */,
+				38CE36A217246133007268B4 /* TestView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
