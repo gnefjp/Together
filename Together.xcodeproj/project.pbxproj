@@ -26,11 +26,14 @@
 		18BFDEAB17244DF600186828 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BFDEAA17244DF600186828 /* libz.1.2.5.dylib */; };
 		18BFDEAD17244DF600186828 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BFDEAC17244DF600186828 /* QuartzCore.framework */; };
 		18BFDEB017244DF600186828 /* GMETLibs+DataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */; };
-		18BFDF4817244DF600186828 /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDF4717244DF600186828 /* NetRoomList.m */; };
 		18BFDFBC17244DF600186828 /* RoomListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFBB17244DF600186828 /* RoomListView.m */; };
 		18BFDFBE17244DF600186828 /* RoomListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFBD17244DF600186828 /* RoomListView.xib */; };
 		18BFDFC217244DF600186828 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFC117244DF600186828 /* NavigationView.m */; };
 		18BFDFC417244DF600186828 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFC317244DF600186828 /* NavigationView.xib */; };
+		18BFDFCB1724544100186828 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFC91724544000186828 /* RoomViewController.m */; };
+		18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFCA1724544100186828 /* RoomViewController.xib */; };
+		18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFD0172456CE00186828 /* NetRoomList.m */; };
+		18BFDFD61724573B00186828 /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFD51724573B00186828 /* room_test.png */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -80,14 +83,18 @@
 		18BFDEAC17244DF600186828 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		18BFDEAE17244DF600186828 /* GMETLibs+DataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMETLibs+DataContainer.h"; sourceTree = "<group>"; };
 		18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+DataContainer.m"; sourceTree = "<group>"; };
-		18BFDF4617244DF600186828 /* NetRoomList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomList.h; sourceTree = SOURCE_ROOT; };
-		18BFDF4717244DF600186828 /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = SOURCE_ROOT; };
 		18BFDFBA17244DF600186828 /* RoomListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListView.h; sourceTree = "<group>"; };
 		18BFDFBB17244DF600186828 /* RoomListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListView.m; sourceTree = "<group>"; };
 		18BFDFBD17244DF600186828 /* RoomListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomListView.xib; sourceTree = "<group>"; };
 		18BFDFC017244DF600186828 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
 		18BFDFC117244DF600186828 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
 		18BFDFC317244DF600186828 /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
+		18BFDFC81724544000186828 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		18BFDFC91724544000186828 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		18BFDFCA1724544100186828 /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
+		18BFDFCF172456CE00186828 /* NetRoomList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomList.h; sourceTree = "<group>"; };
+		18BFDFD0172456CE00186828 /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = "<group>"; };
+		18BFDFD51724573B00186828 /* room_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_test.png; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -175,29 +182,15 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		18BFDEB117244DF600186828 /* Room */ = {
-			isa = PBXGroup;
-			children = (
-				18BFDEB217244DF600186828 /* DataFormat */,
-			);
-			path = Room;
-			sourceTree = "<group>";
-		};
-		18BFDEB217244DF600186828 /* DataFormat */ = {
-			isa = PBXGroup;
-			children = (
-				18BFDF4617244DF600186828 /* NetRoomList.h */,
-				18BFDF4717244DF600186828 /* NetRoomList.m */,
-			);
-			path = DataFormat;
-			sourceTree = "<group>";
-		};
 		18BFDFB917244DF600186828 /* Room */ = {
 			isa = PBXGroup;
 			children = (
 				18BFDFBA17244DF600186828 /* RoomListView.h */,
 				18BFDFBB17244DF600186828 /* RoomListView.m */,
 				18BFDFBD17244DF600186828 /* RoomListView.xib */,
+				18BFDFC81724544000186828 /* RoomViewController.h */,
+				18BFDFC91724544000186828 /* RoomViewController.m */,
+				18BFDFCA1724544100186828 /* RoomViewController.xib */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -212,11 +205,52 @@
 			path = NavigationView;
 			sourceTree = "<group>";
 		};
+		18BFDFCD172456CD00186828 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				18BFDFCE172456CE00186828 /* DataFormat */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		18BFDFCE172456CE00186828 /* DataFormat */ = {
+			isa = PBXGroup;
+			children = (
+				18BFDFCF172456CE00186828 /* NetRoomList.h */,
+				18BFDFD0172456CE00186828 /* NetRoomList.m */,
+			);
+			path = DataFormat;
+			sourceTree = "<group>";
+		};
+		18BFDFD2172456FB00186828 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		18BFDFD31724572B00186828 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18BFDFD51724573B00186828 /* room_test.png */,
+			);
+			name = Resources;
+			path = Together/Resources;
+			sourceTree = "<group>";
+		};
+		18BFDFD41724572B00186828 /* Resources_Blue */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources_Blue;
+			path = Together/Resources_Blue;
+			sourceTree = "<group>";
+		};
 		18EAB29B17241702003E742D = {
 			isa = PBXGroup;
 			children = (
-				18EAB2CA17241722003E742D /* Resources */,
-				18EAB2CB17241722003E742D /* Resources_Blue */,
+				18BFDFD31724572B00186828 /* Resources */,
+				18BFDFD41724572B00186828 /* Resources_Blue */,
 				18EAB2CC172417AD003E742D /* Codes */,
 				18EAB2A617241702003E742D /* Frameworks */,
 				18EAB2A517241702003E742D /* Products */,
@@ -262,28 +296,12 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		18EAB2CA17241722003E742D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
-			path = Together/Resources;
-			sourceTree = "<group>";
-		};
-		18EAB2CB17241722003E742D /* Resources_Blue */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources_Blue;
-			path = Together/Resources_Blue;
-			sourceTree = "<group>";
-		};
 		18EAB2CC172417AD003E742D /* Codes */ = {
 			isa = PBXGroup;
 			children = (
 				18EAB2D4172418D8003E742D /* Config */,
 				18EAB2D1172418C6003E742D /* GMETLibs */,
-				18EAB2D0172418C6003E742D /* Common */,
+				18BFDFD2172456FB00186828 /* Common */,
 				18EAB2D2172418C6003E742D /* Network */,
 				18EAB2D3172418C6003E742D /* UI */,
 				18EAB2CD172417F0003E742D /* TogetherAppDelegate.h */,
@@ -293,13 +311,6 @@
 			);
 			name = Codes;
 			path = Together/Codes;
-			sourceTree = "<group>";
-		};
-		18EAB2D0172418C6003E742D /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		18EAB2D1172418C6003E742D /* GMETLibs */ = {
@@ -321,7 +332,7 @@
 				18EAB2DC17241F0B003E742D /* NetItemList.m */,
 				18EAB2DE1724245E003E742D /* NetRequest.h */,
 				18EAB2DF1724245E003E742D /* NetRequest.m */,
-				18BFDEB117244DF600186828 /* Room */,
+				18BFDFCD172456CD00186828 /* Room */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -411,6 +422,8 @@
 				18BFDE7917244DF600186828 /* HomeViewController.xib in Resources */,
 				18BFDFBE17244DF600186828 /* RoomListView.xib in Resources */,
 				18BFDFC417244DF600186828 /* NavigationView.xib in Resources */,
+				18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */,
+				18BFDFD61724573B00186828 /* room_test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,9 +450,10 @@
 				18BFDE9D17244DF600186828 /* ASINetworkQueue.m in Sources */,
 				18BFDEA117244DF600186828 /* Reachability.m in Sources */,
 				18BFDEB017244DF600186828 /* GMETLibs+DataContainer.m in Sources */,
-				18BFDF4817244DF600186828 /* NetRoomList.m in Sources */,
 				18BFDFBC17244DF600186828 /* RoomListView.m in Sources */,
 				18BFDFC217244DF600186828 /* NavigationView.m in Sources */,
+				18BFDFCB1724544100186828 /* RoomViewController.m in Sources */,
+				18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

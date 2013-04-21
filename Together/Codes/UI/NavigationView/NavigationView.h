@@ -11,7 +11,8 @@ typedef enum
 {
     ModulType_RoomList      = 0,
     
-} ModulType;
+} ModulType;   
+
 
 @class NavigationView;
 @protocol NavigationViewDelegate <NSObject>
