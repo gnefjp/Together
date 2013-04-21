@@ -1,5 +1,5 @@
 //
-//  RoomViewController.h
+//  RoomGridView.h
 //  Together
 //
 //  Created by Gnef_jp on 13-4-22.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomViewController : UIViewController
-
-- (IBAction)closeBtnPressed:(id)sender;
+@interface RoomGridView : UIView
 
 @end

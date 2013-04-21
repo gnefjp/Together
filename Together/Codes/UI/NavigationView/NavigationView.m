@@ -8,6 +8,10 @@
 
 #import "NavigationView.h"
 
+#define kHomeModul_BtnTag   1000
+#define kMatchModul_BtnTag  1001
+#define kMineModul_BtnTag   1002
+
 @implementation NavigationView
 
 - (void) awakeFromNib
@@ -20,4 +24,9 @@
 {
     [_delegate NavigationViewShowBtnPressed:self];
 }
+
+- (IBAction)modulBtnPressed:(id)sender {
+}
+
+
 @end

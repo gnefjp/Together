@@ -34,6 +34,8 @@
 		18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFCA1724544100186828 /* RoomViewController.xib */; };
 		18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFD0172456CE00186828 /* NetRoomList.m */; };
 		18BFDFD61724573B00186828 /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFD51724573B00186828 /* room_test.png */; };
+		18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFD917245C8B00186828 /* RoomGridView.m */; };
+		18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFDB17245C9D00186828 /* RoomGridView.xib */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -95,6 +97,9 @@
 		18BFDFCF172456CE00186828 /* NetRoomList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomList.h; sourceTree = "<group>"; };
 		18BFDFD0172456CE00186828 /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = "<group>"; };
 		18BFDFD51724573B00186828 /* room_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_test.png; sourceTree = "<group>"; };
+		18BFDFD817245C8B00186828 /* RoomGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGridView.h; sourceTree = "<group>"; };
+		18BFDFD917245C8B00186828 /* RoomGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGridView.m; sourceTree = "<group>"; };
+		18BFDFDB17245C9D00186828 /* RoomGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomGridView.xib; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -185,6 +190,7 @@
 		18BFDFB917244DF600186828 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				18BFDFD717245C6400186828 /* RoomGridView */,
 				18BFDFBA17244DF600186828 /* RoomListView.h */,
 				18BFDFBB17244DF600186828 /* RoomListView.m */,
 				18BFDFBD17244DF600186828 /* RoomListView.xib */,
@@ -244,6 +250,16 @@
 			);
 			name = Resources_Blue;
 			path = Together/Resources_Blue;
+			sourceTree = "<group>";
+		};
+		18BFDFD717245C6400186828 /* RoomGridView */ = {
+			isa = PBXGroup;
+			children = (
+				18BFDFD817245C8B00186828 /* RoomGridView.h */,
+				18BFDFD917245C8B00186828 /* RoomGridView.m */,
+				18BFDFDB17245C9D00186828 /* RoomGridView.xib */,
+			);
+			path = RoomGridView;
 			sourceTree = "<group>";
 		};
 		18EAB29B17241702003E742D = {
@@ -424,6 +440,7 @@
 				18BFDFC417244DF600186828 /* NavigationView.xib in Resources */,
 				18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */,
 				18BFDFD61724573B00186828 /* room_test.png in Resources */,
+				18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +471,7 @@
 				18BFDFC217244DF600186828 /* NavigationView.m in Sources */,
 				18BFDFCB1724544100186828 /* RoomViewController.m in Sources */,
 				18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */,
+				18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

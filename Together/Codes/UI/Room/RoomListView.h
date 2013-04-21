@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface RoomListView : UIView
+{
+    __weak IBOutlet UITableView *_roomTableView;
+}
+
+
 
 @end
