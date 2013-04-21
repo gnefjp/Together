@@ -7,11 +7,13 @@
 //
 
 
+#import "UserCenterView.h"
+
 typedef enum
 {
     ModulType_RoomList      = 0,
     ModulType_Match         = 1,
-    ModulType_Mine          = 2,
+    ModulType_UserCenter    = 2,
     ModulType_MyRoom        = 3,
     ModulType_Fans          = 4,
     ModulType_Follow        = 5,

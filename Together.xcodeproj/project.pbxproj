@@ -51,6 +51,7 @@
 		18EAB2E01724245E003E742D /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DF1724245E003E742D /* NetRequest.m */; };
 		388887601724687200B2D2F0 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888875E1724687200B2D2F0 /* UserCenterView.m */; };
 		388887611724687200B2D2F0 /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3888875F1724687200B2D2F0 /* UserCenterView.xib */; };
+		3888876517246FED00B2D2F0 /* GMETRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888876417246FED00B2D2F0 /* GMETRecorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,8 @@
 		3888875D1724687200B2D2F0 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterView.h; sourceTree = "<group>"; };
 		3888875E1724687200B2D2F0 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterView.m; sourceTree = "<group>"; };
 		3888875F1724687200B2D2F0 /* UserCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterView.xib; sourceTree = "<group>"; };
+		3888876317246FED00B2D2F0 /* GMETRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETRecorder.h; sourceTree = "<group>"; };
+		3888876417246FED00B2D2F0 /* GMETRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +244,7 @@
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3888876217246FED00B2D2F0 /* Recorder */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -404,6 +408,15 @@
 			path = UserCenter;
 			sourceTree = "<group>";
 		};
+		3888876217246FED00B2D2F0 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				3888876317246FED00B2D2F0 /* GMETRecorder.h */,
+				3888876417246FED00B2D2F0 /* GMETRecorder.m */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -500,6 +513,7 @@
 				18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */,
 				388887601724687200B2D2F0 /* UserCenterView.m in Sources */,
 				18BFDFE717246A4700186828 /* RoomCell.m in Sources */,
+				3888876517246FED00B2D2F0 /* GMETRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GMETRecorder.h"
 
 @interface UserCenterView : UIView
-
+{
+    GMETRecorder        *_recorder;
+}
 @end

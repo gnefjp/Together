@@ -27,37 +27,10 @@
 
 - (IBAction)modulBtnPressed:(UIButton*)sender
 {
-    switch (sender.tag-1000) {
-        case ModulType_RoomList:
-            
-            break;
-        case ModulType_Match:
-            
-            break;
-        case ModulType_Mine:
-            [self _dealWithUserCenterBtnDidpressed];
-            break;
-        case ModulType_MyRoom:
-            
-            break;
-        case ModulType_Fans:
-            break;
-        case ModulType_Follow:
-            break;
-        case ModulType_Ranking:
-            break;
-        case ModulType_Notice:
-            break;
-        case ModulType_Max:
-            break;
-        default:
-            break;
-    }
+    int type = (sender.tag - kHomeModul_BtnTag);
+    [_delegate NavigationView:self wantInModulWithType:type];
 }
 
-- (void)_dealWithUserCenterBtnDidpressed
-{
-    
-}
+
 
 @end

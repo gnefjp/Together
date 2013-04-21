@@ -10,6 +10,7 @@
 
 #import "NavigationView.h"
 #import "RoomListView.h"
+#import "UserCenterView.h"
 
 @implementation HomeViewController
 
@@ -49,7 +50,7 @@
 
 
 #pragma mark- NavigationViewDelegate
-- (void) NavigationViewWantInModulWithType:(ModulType)modulType
+- (void) NavigationView:(NavigationView *)navigationView wantInModulWithType:(ModulType)modulType
 {
     [_mainView removeFromSuperview];
     
@@ -58,6 +59,11 @@
         case ModulType_RoomList:
         {
             _mainView = [RoomListView loadFromNib];
+            break;
+        }
+        case ModulType_UserCenter:
+        {
+            _mainView = [UserCenterView loadFromNib];
             break;
         }
         default:

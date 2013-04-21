@@ -6,9 +6,9 @@
 //
 //
 
-#import "ATRecorder.h"
-
-@implementation ATRecorder
+#import "GMETRecorder.h"
+ 
+@implementation GMETRecorder
 
 @synthesize delegate = _delegate;
 @synthesize fileUrl  = _fileUrl;
@@ -62,8 +62,8 @@
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {
     [self cancelRecord];
-    if ([self.delegate respondsToSelector:@selector(ATRecorderSuccess:)]) {
-        [self.delegate ATRecorderSuccess:self];
+    if ([self.delegate respondsToSelector:@selector(GMETRecorderSuccess:)]) {
+        [self.delegate GMETRecorderSuccess:self];
     }
 }
 
