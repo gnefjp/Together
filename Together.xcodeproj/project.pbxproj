@@ -26,6 +26,7 @@
 		18BFDEAB17244DF600186828 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BFDEAA17244DF600186828 /* libz.1.2.5.dylib */; };
 		18BFDEAD17244DF600186828 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BFDEAC17244DF600186828 /* QuartzCore.framework */; };
 		18BFDEB017244DF600186828 /* GMETLibs+DataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */; };
+		18BFDF4817244DF600186828 /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDF4717244DF600186828 /* NetRoomList.m */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -75,6 +76,8 @@
 		18BFDEAC17244DF600186828 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		18BFDEAE17244DF600186828 /* GMETLibs+DataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMETLibs+DataContainer.h"; sourceTree = "<group>"; };
 		18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+DataContainer.m"; sourceTree = "<group>"; };
+		18BFDF4617244DF600186828 /* NetRoomList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomList.h; sourceTree = SOURCE_ROOT; };
+		18BFDF4717244DF600186828 /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = SOURCE_ROOT; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +176,8 @@
 		18BFDEB217244DF600186828 /* DataFormat */ = {
 			isa = PBXGroup;
 			children = (
+				18BFDF4617244DF600186828 /* NetRoomList.h */,
+				18BFDF4717244DF600186828 /* NetRoomList.m */,
 			);
 			path = DataFormat;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				18BFDE9D17244DF600186828 /* ASINetworkQueue.m in Sources */,
 				18BFDEA117244DF600186828 /* Reachability.m in Sources */,
 				18BFDEB017244DF600186828 /* GMETLibs+DataContainer.m in Sources */,
+				18BFDF4817244DF600186828 /* NetRoomList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
