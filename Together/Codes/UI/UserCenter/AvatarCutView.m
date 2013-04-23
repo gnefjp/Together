@@ -28,13 +28,15 @@
 
 - (void)awakeFromNib
 {
-    _cropImageView = [[KICropImageView alloc] initWithFrame:self.bounds];
-    [_cropImageView setCropSize:CGSizeMake(200, 200)];
+    _cropImageView = [[KICropImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 548)];
+    [_cropImageView setCropSize:CGSizeMake(320, 320)];
 }
 
 - (void)initWithImage:(UIImage*)img
 {
     [_cropImageView setImage:img];
+    [self addSubview:_cropImageView];
+    [self sendSubviewToBack:_cropImageView];
 }
 
 - (IBAction)_canCelBtnDidPressed:(id)sender
@@ -44,13 +46,10 @@
 
 - (void)showAnimation
 {
-     self.center = CGPointMake(160, 384*3);
+     self.center = CGPointMake(160, 274*3);
     [UIView animateWithDuration:0.4 animations:^(void)
      {
-         self.center = CGPointMake(160, 384);
-     }completion:^(BOOL isFinished)
-     {
-         [self removeFromSuperview];
+         self.center = CGPointMake(160, 274);
      }];
 }
 
@@ -58,7 +57,7 @@
 {
     [UIView animateWithDuration:0.4 animations:^(void)
      {
-         self.center = CGPointMake(160, 384*3);
+         self.center = CGPointMake(160, 274*3);
      }completion:^(BOOL isFinished)
      {
          [self removeFromSuperview];

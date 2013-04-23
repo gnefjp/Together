@@ -10,8 +10,9 @@
 #import "GMETRecorder.h"
 #import "AvataActioSheet.h"
 #import "ChangeAvatar.h"
+#import "AvatarCutView.h"
 
-@interface UserCenterView : UIView<UIActionSheetDelegate,ChangeAvatarDelegate>
+@interface UserCenterView : UIView<UIActionSheetDelegate,ChangeAvatarDelegate,AvatarCutViewDelegate>
 {
     GMETRecorder        *_recorder;
     AVAudioPlayer       *_player;

@@ -31,7 +31,7 @@
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [picker dismissModalViewControllerAnimated:YES];
-    [_delegate ChangeAvatarDidSuccessWithImage:image];
+    [_delegate ChangeAvatarSelectImage:image];
     
 }
 

@@ -11,7 +11,7 @@
 
 @protocol ChangeAvatarDelegate <NSObject>
 
-- (void)ChangeAvatarDidSuccessWithImage:(UIImage*)img;
+- (void)ChangeAvatarSelectImage:(UIImage*)img;
 
 @end
 

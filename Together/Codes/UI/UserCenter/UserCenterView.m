@@ -19,9 +19,18 @@
     return self;
 }
 
-- (void)ChangeAvatarDidSuccessWithImage:(UIImage *)img
+- (void)ChangeAvatarSelectImage:(UIImage *)img
 {
-//    _iAvatarImage.image = img;
+    AvatarCutView *cutView = [AvatarCutView loadFromNib];
+    cutView.delegate = self;
+    [cutView initWithImage:img];
+    [[UIView rootView] addSubview:cutView];
+    [cutView showAnimation];
+}
+
+- (void)avataImageDidReceive:(UIImage *)img
+{
+    _iAvatarImage.image = img;
 }
 
 

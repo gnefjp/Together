@@ -21,6 +21,9 @@
     __weak id<AvatarCutViewDelegate>   _delegate;
 }
 
+- (void)initWithImage:(UIImage*)img;
+- (void)showAnimation;
+- (void)hideAnimation;
 @property (nonatomic,weak) id<AvatarCutViewDelegate>   delegate;
 
 @end

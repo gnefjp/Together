@@ -302,7 +302,6 @@
 		18EAB29B17241702003E742D = {
 			isa = PBXGroup;
 			children = (
-				3888876E1724778600B2D2F0 /* AVFoundation.framework */,
 				18BFDFD31724572B00186828 /* Resources */,
 				18BFDFD41724572B00186828 /* Resources_Blue */,
 				18EAB2CC172417AD003E742D /* Codes */,
@@ -322,6 +321,7 @@
 		18EAB2A617241702003E742D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3888876E1724778600B2D2F0 /* AVFoundation.framework */,
 				18BFDEAA17244DF600186828 /* libz.1.2.5.dylib */,
 				18BFDEA817244DF600186828 /* libxml2.dylib */,
 				18BFDEAC17244DF600186828 /* QuartzCore.framework */,
