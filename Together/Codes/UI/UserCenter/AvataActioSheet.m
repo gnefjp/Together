@@ -28,23 +28,35 @@
                                                   destructiveButtonTitle:nil
                                                        otherButtonTitles:@"系统图像",@"拍照",@"本地图像", nil];
     actionSheet.delegate = actionSheet;
+    actionSheet.actionDelegate = aDelegate;
     [actionSheet showInView:[UIView rootView]];
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
+    switch (buttonIndex)
+    {
         case 0:
-            NSLog(@"0");
+            [_actionDelegate SysPhotoBtnDidPressed];
             break;
         case 1:
-            NSLog(@"1");
+        {
+            [_actionDelegate LocalPhotoBtnDidPressed];
+        }
             break;
         case 2:
-            NSLog(@"2");
+        {
+             [_actionDelegate TakePhotoBtnDidPressed];
+        }
+            break;
         default:
             break;
     }
+}
+
+- (void)dealloc
+{
+    
 }
 
 @end

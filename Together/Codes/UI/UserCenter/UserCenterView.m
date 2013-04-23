@@ -19,7 +19,10 @@
     return self;
 }
 
-
+- (void)ChangeAvatarDidSuccessWithImage:(UIImage *)img
+{
+//    _iAvatarImage.image = img;
+}
 
 
 - (IBAction)recordBtnDidPressed:(id)sender
@@ -37,34 +40,15 @@
 
 - (IBAction)changeAvataBtnDidPressed:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图片途径"
-                                                            delegate:self
-                                                   cancelButtonTitle:@"取消"
-                                              destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"系统图像",@"拍照",@"本地图像", nil];
-    [actionSheet showInView:self];
-    
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    switch (buttonIndex) {
-        case 0:
-            NSLog(@"0");
-            break;
-        case 1:
-             NSLog(@"1");
-            break;
-        case 2:
-             NSLog(@"2");
-        default:
-            break;
+    if (!_avatar) {
+        _avatar = [[ChangeAvatar alloc] init];
+        _avatar.delegate = self;
     }
+    [_avatar addAvataActionSheet];
 }
 
 - (IBAction)_playBtnDidPressed:(id)sender
 {
-    NSLog(@"%@",[GMETRecorder getRecordFileUrl]);
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryAmbient error:nil];
     [session setActive:YES error:nil];

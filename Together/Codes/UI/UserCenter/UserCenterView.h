@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "GMETRecorder.h"
+#import "AvataActioSheet.h"
+#import "ChangeAvatar.h"
 
-@interface UserCenterView : UIView<UIActionSheetDelegate>
+@interface UserCenterView : UIView<UIActionSheetDelegate,ChangeAvatarDelegate>
 {
     GMETRecorder        *_recorder;
     AVAudioPlayer       *_player;
+    ChangeAvatar        *_avatar;
+    __weak IBOutlet UIImageView *_iAvatarImage;
+    
 }
 
 - (IBAction)recordBtnDidPressed:(id)sender;

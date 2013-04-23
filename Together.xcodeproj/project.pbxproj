@@ -50,6 +50,11 @@
 		18EAB2DD17241F0B003E742D /* NetItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DC17241F0B003E742D /* NetItemList.m */; };
 		18EAB2E01724245E003E742D /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DF1724245E003E742D /* NetRequest.m */; };
 		3811FB56172637A600ED1DD7 /* AvataActioSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB55172637A600ED1DD7 /* AvataActioSheet.m */; };
+		3811FB59172653DA00ED1DD7 /* ChangeAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB58172653DA00ED1DD7 /* ChangeAvatar.m */; };
+		3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5C17266B6800ED1DD7 /* KICropImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
+		3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */; };
+		3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */; };
 		388887601724687200B2D2F0 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888875E1724687200B2D2F0 /* UserCenterView.m */; };
 		388887611724687200B2D2F0 /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3888875F1724687200B2D2F0 /* UserCenterView.xib */; };
 		3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888876C172476B100B2D2F0 /* GMETRecorder.m */; };
@@ -131,6 +136,15 @@
 		18EAB2DF1724245E003E742D /* NetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
 		3811FB54172637A600ED1DD7 /* AvataActioSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvataActioSheet.h; sourceTree = "<group>"; };
 		3811FB55172637A600ED1DD7 /* AvataActioSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvataActioSheet.m; sourceTree = "<group>"; };
+		3811FB57172653DA00ED1DD7 /* ChangeAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeAvatar.h; sourceTree = "<group>"; };
+		3811FB58172653DA00ED1DD7 /* ChangeAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeAvatar.m; sourceTree = "<group>"; };
+		3811FB5B17266B6800ED1DD7 /* KICropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KICropImageView.h; sourceTree = "<group>"; };
+		3811FB5C17266B6800ED1DD7 /* KICropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KICropImageView.m; sourceTree = "<group>"; };
+		3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KIAdditions.h"; sourceTree = "<group>"; };
+		3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KIAdditions.m"; sourceTree = "<group>"; };
+		3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarCutView.h; sourceTree = "<group>"; };
+		3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarCutView.m; sourceTree = "<group>"; };
+		3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarCutView.xib; sourceTree = "<group>"; };
 		3888875D1724687200B2D2F0 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterView.h; sourceTree = "<group>"; };
 		3888875E1724687200B2D2F0 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterView.m; sourceTree = "<group>"; };
 		3888875F1724687200B2D2F0 /* UserCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterView.xib; sourceTree = "<group>"; };
@@ -399,10 +413,22 @@
 		18EAB2D717241940003E742D /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				3811FB5A17266B6800ED1DD7 /* CropImage */,
 				18BFDE9E17244DF600186828 /* Reachability */,
 				18BFDE8117244DF600186828 /* ASIHTTPRequest */,
 			);
 			path = ThirdPart;
+			sourceTree = "<group>";
+		};
+		3811FB5A17266B6800ED1DD7 /* CropImage */ = {
+			isa = PBXGroup;
+			children = (
+				3811FB5B17266B6800ED1DD7 /* KICropImageView.h */,
+				3811FB5C17266B6800ED1DD7 /* KICropImageView.m */,
+				3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */,
+				3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */,
+			);
+			path = CropImage;
 			sourceTree = "<group>";
 		};
 		3888875C1724687200B2D2F0 /* UserCenter */ = {
@@ -413,6 +439,11 @@
 				3888875F1724687200B2D2F0 /* UserCenterView.xib */,
 				3811FB54172637A600ED1DD7 /* AvataActioSheet.h */,
 				3811FB55172637A600ED1DD7 /* AvataActioSheet.m */,
+				3811FB57172653DA00ED1DD7 /* ChangeAvatar.h */,
+				3811FB58172653DA00ED1DD7 /* ChangeAvatar.m */,
+				3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */,
+				3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */,
+				3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -489,6 +520,7 @@
 				18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */,
 				388887611724687200B2D2F0 /* UserCenterView.xib in Resources */,
 				18BFDFE817246A4700186828 /* RoomCell.xib in Resources */,
+				3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +556,10 @@
 				18BFDFE717246A4700186828 /* RoomCell.m in Sources */,
 				3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */,
 				3811FB56172637A600ED1DD7 /* AvataActioSheet.m in Sources */,
+				3811FB59172653DA00ED1DD7 /* ChangeAvatar.m in Sources */,
+				3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */,
+				3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */,
+				3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

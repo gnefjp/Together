@@ -31,6 +31,7 @@
 + (id) loadFromNibNamed:(NSString*)name;
 + (id) loadFromNib;
 + (UIView*) rootView;
++ (UIViewController*) rootController;
 
 // 查找属于cls类的子view, 另外可以指定是否递归遍历
 - (id)  viewIsKindOf:(Class)cls recursive:(BOOL)recursive;

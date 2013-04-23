@@ -128,7 +128,12 @@
 {
     UIWindow *keyWindow = [[UIApplication sharedApplication].windows objectAtIndex:0];
     return keyWindow.rootViewController.view;
+}
 
++ (UIViewController*) rootController
+{
+    UIWindow *keyWindow = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    return keyWindow.rootViewController;
 }
 
 

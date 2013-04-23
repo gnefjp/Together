@@ -10,7 +10,9 @@
 
 @protocol AvataActioSheetDelegate <NSObject>
 
-- (void)AvataActioSheetDidGetImage:(UIImage*)img;
+- (void)SysPhotoBtnDidPressed;
+- (void)LocalPhotoBtnDidPressed;
+- (void)TakePhotoBtnDidPressed;
 
 @end
 
