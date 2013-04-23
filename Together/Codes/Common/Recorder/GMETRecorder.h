@@ -31,7 +31,9 @@
 @property (nonatomic, strong)   NSURL                         *fileUrl;
 @property (nonatomic)           float                         pTime;
 
-
++(id)startRecordWithTime:(float)recordTime;
++ (NSURL*)getRecordFileUrl;
++ (NSString*)getTestAudioFilePath;
 + (id)startRecord:(NSURL *)fileUrl recordTime:(float)recordTime;
 - (void)start;
 - (void)stop;
