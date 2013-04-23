@@ -17,10 +17,16 @@
 
 +(id)startRecord:(NSURL *)fileUrl recordTime:(float)recordTime
 {
-    
     [[NSFileManager defaultManager] removeItemAtURL:fileUrl error:nil];
     return [[self alloc] _initWithFileUrl:fileUrl recordTime:recordTime];
 }
+
++(id)startRecordWithTime:(float)recordTime
+{
+    [[NSFileManager defaultManager] removeItemAtURL:[self getRecordFileUrl] error:nil];
+    return [[self alloc] _initWithFileUrl:[self getRecordFileUrl] recordTime:recordTime];
+}
+
 
 - (id)_initWithFileUrl:(NSURL*)fileUrl recordTime:(float)recordTime
 {
@@ -31,6 +37,24 @@
     }
     return self;
 }
+
++ (NSString *)tempPath
+{
+    return NSTemporaryDirectory();
+}
+
++ (NSURL*)getRecordFileUrl
+{
+    NSString *filePath = [NSString stringWithFormat:@"%@/test.caf",[GMETRecorder tempPath]];
+    return [NSURL fileURLWithPath:filePath];
+}
+
++ (NSString*)getTestAudioFilePath
+{
+    NSString *filePath = [NSString stringWithFormat:@"%@/test.caf",[GMETRecorder tempPath]];
+    return filePath;
+}
+
 
 - (NSDictionary *) recordSettings
 {
@@ -54,7 +78,10 @@
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     [session setActive:YES error:nil];
     
-    _recorder = [[AVAudioRecorder alloc] initWithURL:_fileUrl settings:[self recordSettings] error:nil];
+    NSURL *url  = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@test.caf",NSTemporaryDirectory()]];
+    
+    _recorder = [[AVAudioRecorder alloc] initWithURL:url
+                                            settings:[self recordSettings] error:nil];
     [_recorder setDelegate:self];
     [_recorder prepareToRecord];
     [_recorder recordForDuration:_pTime];

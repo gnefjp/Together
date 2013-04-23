@@ -124,6 +124,13 @@
     return [self loadFromNibNamed:clsName isKindOf:self];
 }
 
++ (UIView*)rootView
+{
+    UIWindow *keyWindow = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    return keyWindow.rootViewController.view;
+
+}
+
 
 #pragma mark- subview
 - (id)  viewIsKindOf:(Class)cls recursive:(BOOL)recursive

@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "GMETRecorder.h"
 
-@interface UserCenterView : UIView
+@interface UserCenterView : UIView<UIActionSheetDelegate>
 {
     GMETRecorder        *_recorder;
+    AVAudioPlayer       *_player;
 }
+
+- (IBAction)recordBtnDidPressed:(id)sender;
+- (IBAction)stopRecordBtnDidPressed:(id)sender;
+- (IBAction)changeAvataBtnDidPressed:(id)sender;
+
 @end
