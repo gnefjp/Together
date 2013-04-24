@@ -57,7 +57,19 @@
 #pragma mark- ASIHTTPRequestDelegate
 - (void) requestFinished:(ASIHTTPRequest*)request
 {
-    [self _requestFinished];
+    NSLog(@"code : %d, msg : %@", request.responseStatusCode, request.responseStatusMessage);
+    NSLog(@"http : %@", request.responseString);
+    
+    _responseData = [HTTPResponse parseFromData:request.responseData];
+    if (_responseData.success)
+    {
+        [self _requestFinished];
+    }
+    else
+    {
+        [self _requestFailed];
+    }
+    
     [[NetRequestManager defaultManager] removeRequest:self];
 }
 
@@ -163,39 +175,6 @@ static NetRequestManager* s_defaultManager = nil;
 - (void) setManagerProgress:(CGFloat)managerProgress
 {
     [_expandVar saveFloat:managerProgress forKey:@"ManagerProgress"];
-}
-
-
-- (NSDictionary*) dataInfo
-{
-    return [_expandVar objectForKey:@"DataInfo"];
-}
-
-- (void) setDataInfo:(NSDictionary *)dataInfo
-{
-    [_expandVar setValue:dataInfo forKey:@"DataInfo"];
-}
-
-
-- (NSInteger) code
-{
-    return [_expandVar loadIntegerForKey:@"Code" defaultValue:0];
-}
-
-- (void) setCode:(NSInteger)code
-{
-    [_expandVar saveInteger:code forKey:@"Code"];
-}
-
-
-- (NSString*) msg
-{
-    return [_expandVar loadStringForKey:@"Msg" defaultValue:@""];
-}
-
-- (void) setMsg:(NSString *)msg
-{
-    [_expandVar saveString:msg forKey:@"Msg"];
 }
 
 @end

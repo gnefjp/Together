@@ -32,12 +32,40 @@
 		18BFDFC417244DF600186828 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFC317244DF600186828 /* NavigationView.xib */; };
 		18BFDFCB1724544100186828 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFC91724544000186828 /* RoomViewController.m */; };
 		18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFCA1724544100186828 /* RoomViewController.xib */; };
-		18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFD0172456CE00186828 /* NetRoomList.m */; };
 		18BFDFD61724573B00186828 /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFD51724573B00186828 /* room_test.png */; };
 		18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFD917245C8B00186828 /* RoomGridView.m */; };
 		18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFDB17245C9D00186828 /* RoomGridView.xib */; };
 		18BFDFE717246A4700186828 /* RoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFE517246A4700186828 /* RoomCell.m */; };
 		18BFDFE817246A4700186828 /* RoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFE617246A4700186828 /* RoomCell.xib */; };
+		18C6D41517279D5700184AFA /* AbstractMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D27917279D5600184AFA /* AbstractMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41617279D5700184AFA /* AbstractMessage_Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D27B17279D5600184AFA /* AbstractMessage_Builder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41717279D5700184AFA /* CodedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D27E17279D5600184AFA /* CodedInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41817279D5700184AFA /* CodedOutputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D28017279D5600184AFA /* CodedOutputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41917279D5700184AFA /* ConcreteExtensionField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D28217279D5600184AFA /* ConcreteExtensionField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41A17279D5700184AFA /* Descriptor.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D28417279D5600184AFA /* Descriptor.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41B17279D5700184AFA /* ExtendableMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D28617279D5600184AFA /* ExtendableMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41C17279D5700184AFA /* ExtendableMessage_Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D28817279D5600184AFA /* ExtendableMessage_Builder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41D17279D5700184AFA /* ExtensionRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D28B17279D5600184AFA /* ExtensionRegistry.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41E17279D5700184AFA /* Field.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D28D17279D5600184AFA /* Field.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D41F17279D5700184AFA /* GeneratedMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D29017279D5600184AFA /* GeneratedMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42017279D5700184AFA /* GeneratedMessage_Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D29217279D5600184AFA /* GeneratedMessage_Builder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42117279D5700184AFA /* MutableExtensionRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D29617279D5600184AFA /* MutableExtensionRegistry.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42217279D5700184AFA /* MutableField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D29817279D5600184AFA /* MutableField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42317279D5700184AFA /* PBArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D29A17279D5600184AFA /* PBArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42417279D5700184AFA /* RingBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D29D17279D5600184AFA /* RingBuffer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42517279D5700184AFA /* TextFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D29F17279D5600184AFA /* TextFormat.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42617279D5700184AFA /* UnknownFieldSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D2A117279D5600184AFA /* UnknownFieldSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42717279D5700184AFA /* UnknownFieldSet_Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D2A317279D5600184AFA /* UnknownFieldSet_Builder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42817279D5700184AFA /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D2A517279D5600184AFA /* Utilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D42917279D5700184AFA /* WireFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D2A717279D5600184AFA /* WireFormat.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D5A317279DE000184AFA /* UserData.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D59717279DE000184AFA /* UserData.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D5A417279DE000184AFA /* NetUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D59917279DE000184AFA /* NetUserManager.m */; };
+		18C6D5A517279DE000184AFA /* NetUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D59B17279DE000184AFA /* NetUserRequest.m */; };
+		18C6D5A617279DE000184AFA /* UserResponse.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D59E17279DE000184AFA /* UserResponse.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D5A717279DE000184AFA /* UserLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5A017279DE000184AFA /* UserLoginRequest.m */; };
+		18C6D5A817279DE000184AFA /* UserRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5A217279DE000184AFA /* UserRegisterRequest.m */; };
+		18C6D5B01727A8EA00184AFA /* Response.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5AF1727A8EA00184AFA /* Response.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C6D5B21727AA1F00184AFA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5B11727AA1F00184AFA /* README.md */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -106,8 +134,6 @@
 		18BFDFC81724544000186828 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		18BFDFC91724544000186828 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		18BFDFCA1724544100186828 /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
-		18BFDFCF172456CE00186828 /* NetRoomList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomList.h; sourceTree = "<group>"; };
-		18BFDFD0172456CE00186828 /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = "<group>"; };
 		18BFDFD51724573B00186828 /* room_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_test.png; sourceTree = "<group>"; };
 		18BFDFD817245C8B00186828 /* RoomGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGridView.h; sourceTree = "<group>"; };
 		18BFDFD917245C8B00186828 /* RoomGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGridView.m; sourceTree = "<group>"; };
@@ -115,6 +141,432 @@
 		18BFDFE417246A4700186828 /* RoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCell.h; sourceTree = "<group>"; };
 		18BFDFE517246A4700186828 /* RoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCell.m; sourceTree = "<group>"; };
 		18BFDFE617246A4700186828 /* RoomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomCell.xib; sourceTree = "<group>"; };
+		18C6D27817279D5600184AFA /* AbstractMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractMessage.h; sourceTree = "<group>"; };
+		18C6D27917279D5600184AFA /* AbstractMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractMessage.m; sourceTree = "<group>"; };
+		18C6D27A17279D5600184AFA /* AbstractMessage_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractMessage_Builder.h; sourceTree = "<group>"; };
+		18C6D27B17279D5600184AFA /* AbstractMessage_Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractMessage_Builder.m; sourceTree = "<group>"; };
+		18C6D27C17279D5600184AFA /* Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bootstrap.h; sourceTree = "<group>"; };
+		18C6D27D17279D5600184AFA /* CodedInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodedInputStream.h; sourceTree = "<group>"; };
+		18C6D27E17279D5600184AFA /* CodedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodedInputStream.m; sourceTree = "<group>"; };
+		18C6D27F17279D5600184AFA /* CodedOutputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodedOutputStream.h; sourceTree = "<group>"; };
+		18C6D28017279D5600184AFA /* CodedOutputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodedOutputStream.m; sourceTree = "<group>"; };
+		18C6D28117279D5600184AFA /* ConcreteExtensionField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteExtensionField.h; sourceTree = "<group>"; };
+		18C6D28217279D5600184AFA /* ConcreteExtensionField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcreteExtensionField.m; sourceTree = "<group>"; };
+		18C6D28317279D5600184AFA /* Descriptor.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Descriptor.pb.h; sourceTree = "<group>"; };
+		18C6D28417279D5600184AFA /* Descriptor.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Descriptor.pb.m; sourceTree = "<group>"; };
+		18C6D28517279D5600184AFA /* ExtendableMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendableMessage.h; sourceTree = "<group>"; };
+		18C6D28617279D5600184AFA /* ExtendableMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendableMessage.m; sourceTree = "<group>"; };
+		18C6D28717279D5600184AFA /* ExtendableMessage_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendableMessage_Builder.h; sourceTree = "<group>"; };
+		18C6D28817279D5600184AFA /* ExtendableMessage_Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendableMessage_Builder.m; sourceTree = "<group>"; };
+		18C6D28917279D5600184AFA /* ExtensionField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionField.h; sourceTree = "<group>"; };
+		18C6D28A17279D5600184AFA /* ExtensionRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionRegistry.h; sourceTree = "<group>"; };
+		18C6D28B17279D5600184AFA /* ExtensionRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionRegistry.m; sourceTree = "<group>"; };
+		18C6D28C17279D5600184AFA /* Field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Field.h; sourceTree = "<group>"; };
+		18C6D28D17279D5600184AFA /* Field.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Field.m; sourceTree = "<group>"; };
+		18C6D28E17279D5600184AFA /* ForwardDeclarations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardDeclarations.h; sourceTree = "<group>"; };
+		18C6D28F17279D5600184AFA /* GeneratedMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedMessage.h; sourceTree = "<group>"; };
+		18C6D29017279D5600184AFA /* GeneratedMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedMessage.m; sourceTree = "<group>"; };
+		18C6D29117279D5600184AFA /* GeneratedMessage_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedMessage_Builder.h; sourceTree = "<group>"; };
+		18C6D29217279D5600184AFA /* GeneratedMessage_Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedMessage_Builder.m; sourceTree = "<group>"; };
+		18C6D29317279D5600184AFA /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		18C6D29417279D5600184AFA /* Message_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message_Builder.h; sourceTree = "<group>"; };
+		18C6D29517279D5600184AFA /* MutableExtensionRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableExtensionRegistry.h; sourceTree = "<group>"; };
+		18C6D29617279D5600184AFA /* MutableExtensionRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableExtensionRegistry.m; sourceTree = "<group>"; };
+		18C6D29717279D5600184AFA /* MutableField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableField.h; sourceTree = "<group>"; };
+		18C6D29817279D5600184AFA /* MutableField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableField.m; sourceTree = "<group>"; };
+		18C6D29917279D5600184AFA /* PBArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBArray.h; sourceTree = "<group>"; };
+		18C6D29A17279D5600184AFA /* PBArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBArray.m; sourceTree = "<group>"; };
+		18C6D29B17279D5600184AFA /* ProtocolBuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
+		18C6D29C17279D5600184AFA /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
+		18C6D29D17279D5600184AFA /* RingBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingBuffer.m; sourceTree = "<group>"; };
+		18C6D29E17279D5600184AFA /* TextFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFormat.h; sourceTree = "<group>"; };
+		18C6D29F17279D5600184AFA /* TextFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFormat.m; sourceTree = "<group>"; };
+		18C6D2A017279D5600184AFA /* UnknownFieldSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnknownFieldSet.h; sourceTree = "<group>"; };
+		18C6D2A117279D5600184AFA /* UnknownFieldSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnknownFieldSet.m; sourceTree = "<group>"; };
+		18C6D2A217279D5600184AFA /* UnknownFieldSet_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnknownFieldSet_Builder.h; sourceTree = "<group>"; };
+		18C6D2A317279D5600184AFA /* UnknownFieldSet_Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnknownFieldSet_Builder.m; sourceTree = "<group>"; };
+		18C6D2A417279D5600184AFA /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		18C6D2A517279D5600184AFA /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		18C6D2A617279D5600184AFA /* WireFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WireFormat.h; sourceTree = "<group>"; };
+		18C6D2A717279D5600184AFA /* WireFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WireFormat.m; sourceTree = "<group>"; };
+		18C6D2A817279D5600184AFA /* compileProto.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = compileProto.sh; sourceTree = "<group>"; };
+		18C6D2AB17279D5600184AFA /* code_generator.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = code_generator.Plo; sourceTree = "<group>"; };
+		18C6D2AC17279D5600184AFA /* coded_stream.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coded_stream.Plo; sourceTree = "<group>"; };
+		18C6D2AD17279D5600184AFA /* command_line_interface.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = command_line_interface.Plo; sourceTree = "<group>"; };
+		18C6D2AE17279D5600184AFA /* common.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = common.Plo; sourceTree = "<group>"; };
+		18C6D2AF17279D5600184AFA /* cpp_enum.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_enum.Plo; sourceTree = "<group>"; };
+		18C6D2B017279D5600184AFA /* cpp_enum_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_enum_field.Plo; sourceTree = "<group>"; };
+		18C6D2B117279D5600184AFA /* cpp_extension.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_extension.Plo; sourceTree = "<group>"; };
+		18C6D2B217279D5600184AFA /* cpp_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_field.Plo; sourceTree = "<group>"; };
+		18C6D2B317279D5600184AFA /* cpp_file.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_file.Plo; sourceTree = "<group>"; };
+		18C6D2B417279D5600184AFA /* cpp_generator.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_generator.Plo; sourceTree = "<group>"; };
+		18C6D2B517279D5600184AFA /* cpp_helpers.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_helpers.Plo; sourceTree = "<group>"; };
+		18C6D2B617279D5600184AFA /* cpp_message.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_message.Plo; sourceTree = "<group>"; };
+		18C6D2B717279D5600184AFA /* cpp_message_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_message_field.Plo; sourceTree = "<group>"; };
+		18C6D2B817279D5600184AFA /* cpp_primitive_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_primitive_field.Plo; sourceTree = "<group>"; };
+		18C6D2B917279D5600184AFA /* cpp_service.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_service.Plo; sourceTree = "<group>"; };
+		18C6D2BA17279D5600184AFA /* cpp_string_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_string_field.Plo; sourceTree = "<group>"; };
+		18C6D2BB17279D5600184AFA /* descriptor.pb.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptor.pb.Plo; sourceTree = "<group>"; };
+		18C6D2BC17279D5600184AFA /* descriptor.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptor.Plo; sourceTree = "<group>"; };
+		18C6D2BD17279D5600184AFA /* descriptor_database.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptor_database.Plo; sourceTree = "<group>"; };
+		18C6D2BE17279D5600184AFA /* dynamic_message.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dynamic_message.Plo; sourceTree = "<group>"; };
+		18C6D2BF17279D5600184AFA /* extension_set.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = extension_set.Plo; sourceTree = "<group>"; };
+		18C6D2C017279D5600184AFA /* extension_set_heavy.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = extension_set_heavy.Plo; sourceTree = "<group>"; };
+		18C6D2C117279D5600184AFA /* generated_message_reflection.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = generated_message_reflection.Plo; sourceTree = "<group>"; };
+		18C6D2C217279D5600184AFA /* generated_message_util.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = generated_message_util.Plo; sourceTree = "<group>"; };
+		18C6D2C317279D5600184AFA /* gzip_stream.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gzip_stream.Plo; sourceTree = "<group>"; };
+		18C6D2C417279D5600184AFA /* hash.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hash.Plo; sourceTree = "<group>"; };
+		18C6D2C517279D5600184AFA /* importer.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = importer.Plo; sourceTree = "<group>"; };
+		18C6D2C617279D5600184AFA /* java_enum.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_enum.Plo; sourceTree = "<group>"; };
+		18C6D2C717279D5600184AFA /* java_enum_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_enum_field.Plo; sourceTree = "<group>"; };
+		18C6D2C817279D5600184AFA /* java_extension.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_extension.Plo; sourceTree = "<group>"; };
+		18C6D2C917279D5600184AFA /* java_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_field.Plo; sourceTree = "<group>"; };
+		18C6D2CA17279D5600184AFA /* java_file.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_file.Plo; sourceTree = "<group>"; };
+		18C6D2CB17279D5600184AFA /* java_generator.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_generator.Plo; sourceTree = "<group>"; };
+		18C6D2CC17279D5600184AFA /* java_helpers.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_helpers.Plo; sourceTree = "<group>"; };
+		18C6D2CD17279D5600184AFA /* java_message.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_message.Plo; sourceTree = "<group>"; };
+		18C6D2CE17279D5600184AFA /* java_message_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_message_field.Plo; sourceTree = "<group>"; };
+		18C6D2CF17279D5600184AFA /* java_primitive_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_primitive_field.Plo; sourceTree = "<group>"; };
+		18C6D2D017279D5600184AFA /* java_service.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_service.Plo; sourceTree = "<group>"; };
+		18C6D2D117279D5600184AFA /* main.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.Po; sourceTree = "<group>"; };
+		18C6D2D217279D5600184AFA /* message.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = message.Plo; sourceTree = "<group>"; };
+		18C6D2D317279D5600184AFA /* message_lite.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = message_lite.Plo; sourceTree = "<group>"; };
+		18C6D2D417279D5600184AFA /* objectivec-descriptor.pb.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "objectivec-descriptor.pb.Plo"; sourceTree = "<group>"; };
+		18C6D2D517279D5600184AFA /* objectivec_enum.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_enum.Plo; sourceTree = "<group>"; };
+		18C6D2D617279D5600184AFA /* objectivec_enum_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_enum_field.Plo; sourceTree = "<group>"; };
+		18C6D2D717279D5600184AFA /* objectivec_extension.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_extension.Plo; sourceTree = "<group>"; };
+		18C6D2D817279D5600184AFA /* objectivec_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_field.Plo; sourceTree = "<group>"; };
+		18C6D2D917279D5600184AFA /* objectivec_file.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_file.Plo; sourceTree = "<group>"; };
+		18C6D2DA17279D5600184AFA /* objectivec_generator.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_generator.Plo; sourceTree = "<group>"; };
+		18C6D2DB17279D5600184AFA /* objectivec_helpers.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_helpers.Plo; sourceTree = "<group>"; };
+		18C6D2DC17279D5600184AFA /* objectivec_message.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_message.Plo; sourceTree = "<group>"; };
+		18C6D2DD17279D5600184AFA /* objectivec_message_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_message_field.Plo; sourceTree = "<group>"; };
+		18C6D2DE17279D5600184AFA /* objectivec_primitive_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_primitive_field.Plo; sourceTree = "<group>"; };
+		18C6D2DF17279D5600184AFA /* once.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = once.Plo; sourceTree = "<group>"; };
+		18C6D2E017279D5600184AFA /* parser.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = parser.Plo; sourceTree = "<group>"; };
+		18C6D2E117279D5600184AFA /* printer.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = printer.Plo; sourceTree = "<group>"; };
+		18C6D2E217279D5600184AFA /* protobuf_lazy_descriptor_test-cpp_test_bad_identifiers.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-cpp_test_bad_identifiers.pb.Po"; sourceTree = "<group>"; };
+		18C6D2E317279D5600184AFA /* protobuf_lazy_descriptor_test-cpp_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-cpp_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2E417279D5600184AFA /* protobuf_lazy_descriptor_test-file.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-file.Po"; sourceTree = "<group>"; };
+		18C6D2E517279D5600184AFA /* protobuf_lazy_descriptor_test-googletest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-googletest.Po"; sourceTree = "<group>"; };
+		18C6D2E617279D5600184AFA /* protobuf_lazy_descriptor_test-test_util.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-test_util.Po"; sourceTree = "<group>"; };
+		18C6D2E717279D5600184AFA /* protobuf_lazy_descriptor_test-unittest.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest.pb.Po"; sourceTree = "<group>"; };
+		18C6D2E817279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_custom_options.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_custom_options.pb.Po"; sourceTree = "<group>"; };
+		18C6D2E917279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_embed_optimize_for.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_embed_optimize_for.pb.Po"; sourceTree = "<group>"; };
+		18C6D2EA17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_empty.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_empty.pb.Po"; sourceTree = "<group>"; };
+		18C6D2EB17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_import.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_import.pb.Po"; sourceTree = "<group>"; };
+		18C6D2EC17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_import_lite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_import_lite.pb.Po"; sourceTree = "<group>"; };
+		18C6D2ED17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_lite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_lite.pb.Po"; sourceTree = "<group>"; };
+		18C6D2EE17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_lite_imports_nonlite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_lite_imports_nonlite.pb.Po"; sourceTree = "<group>"; };
+		18C6D2EF17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_mset.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_mset.pb.Po"; sourceTree = "<group>"; };
+		18C6D2F017279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_optimize_for.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lazy_descriptor_test-unittest_optimize_for.pb.Po"; sourceTree = "<group>"; };
+		18C6D2F117279D5600184AFA /* protobuf_lite_test-lite_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lite_test-lite_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2F217279D5600184AFA /* protobuf_lite_test-test_util_lite.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lite_test-test_util_lite.Po"; sourceTree = "<group>"; };
+		18C6D2F317279D5600184AFA /* protobuf_lite_test-unittest_import_lite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lite_test-unittest_import_lite.pb.Po"; sourceTree = "<group>"; };
+		18C6D2F417279D5600184AFA /* protobuf_lite_test-unittest_lite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_lite_test-unittest_lite.pb.Po"; sourceTree = "<group>"; };
+		18C6D2F517279D5600184AFA /* protobuf_test-coded_stream_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-coded_stream_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2F617279D5600184AFA /* protobuf_test-command_line_interface_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-command_line_interface_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2F717279D5600184AFA /* protobuf_test-common_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-common_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2F817279D5600184AFA /* protobuf_test-cpp_bootstrap_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-cpp_bootstrap_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2F917279D5600184AFA /* protobuf_test-cpp_test_bad_identifiers.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-cpp_test_bad_identifiers.pb.Po"; sourceTree = "<group>"; };
+		18C6D2FA17279D5600184AFA /* protobuf_test-cpp_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-cpp_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2FB17279D5600184AFA /* protobuf_test-descriptor_database_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-descriptor_database_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2FC17279D5600184AFA /* protobuf_test-descriptor_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-descriptor_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2FD17279D5600184AFA /* protobuf_test-dynamic_message_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-dynamic_message_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2FE17279D5600184AFA /* protobuf_test-extension_set_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-extension_set_unittest.Po"; sourceTree = "<group>"; };
+		18C6D2FF17279D5600184AFA /* protobuf_test-file.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-file.Po"; sourceTree = "<group>"; };
+		18C6D30017279D5600184AFA /* protobuf_test-generated_message_reflection_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-generated_message_reflection_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30117279D5600184AFA /* protobuf_test-googletest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-googletest.Po"; sourceTree = "<group>"; };
+		18C6D30217279D5600184AFA /* protobuf_test-importer_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-importer_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30317279D5600184AFA /* protobuf_test-message_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-message_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30417279D5600184AFA /* protobuf_test-once_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-once_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30517279D5600184AFA /* protobuf_test-parser_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-parser_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30617279D5600184AFA /* protobuf_test-printer_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-printer_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30717279D5600184AFA /* protobuf_test-reflection_ops_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-reflection_ops_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30817279D5600184AFA /* protobuf_test-repeated_field_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-repeated_field_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30917279D5600184AFA /* protobuf_test-structurally_valid_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-structurally_valid_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30A17279D5600184AFA /* protobuf_test-strutil_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-strutil_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30B17279D5600184AFA /* protobuf_test-test_util.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-test_util.Po"; sourceTree = "<group>"; };
+		18C6D30C17279D5600184AFA /* protobuf_test-text_format_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-text_format_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30D17279D5600184AFA /* protobuf_test-tokenizer_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-tokenizer_unittest.Po"; sourceTree = "<group>"; };
+		18C6D30E17279D5600184AFA /* protobuf_test-unittest.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest.pb.Po"; sourceTree = "<group>"; };
+		18C6D30F17279D5600184AFA /* protobuf_test-unittest_custom_options.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_custom_options.pb.Po"; sourceTree = "<group>"; };
+		18C6D31017279D5600184AFA /* protobuf_test-unittest_embed_optimize_for.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_embed_optimize_for.pb.Po"; sourceTree = "<group>"; };
+		18C6D31117279D5600184AFA /* protobuf_test-unittest_empty.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_empty.pb.Po"; sourceTree = "<group>"; };
+		18C6D31217279D5600184AFA /* protobuf_test-unittest_import.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_import.pb.Po"; sourceTree = "<group>"; };
+		18C6D31317279D5600184AFA /* protobuf_test-unittest_import_lite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_import_lite.pb.Po"; sourceTree = "<group>"; };
+		18C6D31417279D5600184AFA /* protobuf_test-unittest_lite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_lite.pb.Po"; sourceTree = "<group>"; };
+		18C6D31517279D5600184AFA /* protobuf_test-unittest_lite_imports_nonlite.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_lite_imports_nonlite.pb.Po"; sourceTree = "<group>"; };
+		18C6D31617279D5600184AFA /* protobuf_test-unittest_mset.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_mset.pb.Po"; sourceTree = "<group>"; };
+		18C6D31717279D5600184AFA /* protobuf_test-unittest_optimize_for.pb.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unittest_optimize_for.pb.Po"; sourceTree = "<group>"; };
+		18C6D31817279D5600184AFA /* protobuf_test-unknown_field_set_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-unknown_field_set_unittest.Po"; sourceTree = "<group>"; };
+		18C6D31917279D5600184AFA /* protobuf_test-wire_format_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-wire_format_unittest.Po"; sourceTree = "<group>"; };
+		18C6D31A17279D5600184AFA /* protobuf_test-zero_copy_stream_unittest.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "protobuf_test-zero_copy_stream_unittest.Po"; sourceTree = "<group>"; };
+		18C6D31B17279D5600184AFA /* python_generator.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = python_generator.Plo; sourceTree = "<group>"; };
+		18C6D31C17279D5600184AFA /* reflection_ops.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reflection_ops.Plo; sourceTree = "<group>"; };
+		18C6D31D17279D5600184AFA /* repeated_field.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = repeated_field.Plo; sourceTree = "<group>"; };
+		18C6D31E17279D5600184AFA /* service.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = service.Plo; sourceTree = "<group>"; };
+		18C6D31F17279D5600184AFA /* structurally_valid.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structurally_valid.Plo; sourceTree = "<group>"; };
+		18C6D32017279D5600184AFA /* strutil.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = strutil.Plo; sourceTree = "<group>"; };
+		18C6D32117279D5600184AFA /* substitute.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substitute.Plo; sourceTree = "<group>"; };
+		18C6D32217279D5600184AFA /* text_format.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format.Plo; sourceTree = "<group>"; };
+		18C6D32317279D5600184AFA /* tokenizer.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tokenizer.Plo; sourceTree = "<group>"; };
+		18C6D32417279D5600184AFA /* unknown_field_set.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unknown_field_set.Plo; sourceTree = "<group>"; };
+		18C6D32517279D5600184AFA /* wire_format.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wire_format.Plo; sourceTree = "<group>"; };
+		18C6D32617279D5600184AFA /* wire_format_lite.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wire_format_lite.Plo; sourceTree = "<group>"; };
+		18C6D32717279D5600184AFA /* zcgunzip.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zcgunzip.Po; sourceTree = "<group>"; };
+		18C6D32817279D5600184AFA /* zcgzip.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zcgzip.Po; sourceTree = "<group>"; };
+		18C6D32917279D5600184AFA /* zero_copy_stream.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero_copy_stream.Plo; sourceTree = "<group>"; };
+		18C6D32A17279D5600184AFA /* zero_copy_stream_impl.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero_copy_stream_impl.Plo; sourceTree = "<group>"; };
+		18C6D32B17279D5600184AFA /* zero_copy_stream_impl_lite.Plo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero_copy_stream_impl_lite.Plo; sourceTree = "<group>"; };
+		18C6D32D17279D5600184AFA /* code_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = code_generator.o; sourceTree = "<group>"; };
+		18C6D32E17279D5600184AFA /* coded_stream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = coded_stream.o; sourceTree = "<group>"; };
+		18C6D32F17279D5600184AFA /* command_line_interface.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = command_line_interface.o; sourceTree = "<group>"; };
+		18C6D33017279D5600184AFA /* common.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = common.o; sourceTree = "<group>"; };
+		18C6D33117279D5600184AFA /* cpp_enum.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_enum.o; sourceTree = "<group>"; };
+		18C6D33217279D5600184AFA /* cpp_enum_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_enum_field.o; sourceTree = "<group>"; };
+		18C6D33317279D5600184AFA /* cpp_extension.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_extension.o; sourceTree = "<group>"; };
+		18C6D33417279D5600184AFA /* cpp_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_field.o; sourceTree = "<group>"; };
+		18C6D33517279D5600184AFA /* cpp_file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_file.o; sourceTree = "<group>"; };
+		18C6D33617279D5600184AFA /* cpp_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_generator.o; sourceTree = "<group>"; };
+		18C6D33717279D5600184AFA /* cpp_helpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_helpers.o; sourceTree = "<group>"; };
+		18C6D33817279D5600184AFA /* cpp_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_message.o; sourceTree = "<group>"; };
+		18C6D33917279D5600184AFA /* cpp_message_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_message_field.o; sourceTree = "<group>"; };
+		18C6D33A17279D5600184AFA /* cpp_primitive_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_primitive_field.o; sourceTree = "<group>"; };
+		18C6D33B17279D5600184AFA /* cpp_service.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_service.o; sourceTree = "<group>"; };
+		18C6D33C17279D5600184AFA /* cpp_string_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_string_field.o; sourceTree = "<group>"; };
+		18C6D33D17279D5600184AFA /* descriptor.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = descriptor.o; sourceTree = "<group>"; };
+		18C6D33E17279D5600184AFA /* descriptor.pb.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = descriptor.pb.o; sourceTree = "<group>"; };
+		18C6D33F17279D5600184AFA /* descriptor_database.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = descriptor_database.o; sourceTree = "<group>"; };
+		18C6D34017279D5600184AFA /* dynamic_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = dynamic_message.o; sourceTree = "<group>"; };
+		18C6D34117279D5600184AFA /* extension_set.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = extension_set.o; sourceTree = "<group>"; };
+		18C6D34217279D5600184AFA /* extension_set_heavy.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = extension_set_heavy.o; sourceTree = "<group>"; };
+		18C6D34317279D5600184AFA /* generated_message_reflection.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = generated_message_reflection.o; sourceTree = "<group>"; };
+		18C6D34417279D5600184AFA /* generated_message_util.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = generated_message_util.o; sourceTree = "<group>"; };
+		18C6D34517279D5600184AFA /* gzip_stream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = gzip_stream.o; sourceTree = "<group>"; };
+		18C6D34617279D5600184AFA /* hash.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = hash.o; sourceTree = "<group>"; };
+		18C6D34717279D5600184AFA /* importer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = importer.o; sourceTree = "<group>"; };
+		18C6D34817279D5600184AFA /* java_enum.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_enum.o; sourceTree = "<group>"; };
+		18C6D34917279D5600184AFA /* java_enum_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_enum_field.o; sourceTree = "<group>"; };
+		18C6D34A17279D5600184AFA /* java_extension.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_extension.o; sourceTree = "<group>"; };
+		18C6D34B17279D5600184AFA /* java_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_field.o; sourceTree = "<group>"; };
+		18C6D34C17279D5600184AFA /* java_file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_file.o; sourceTree = "<group>"; };
+		18C6D34D17279D5600184AFA /* java_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_generator.o; sourceTree = "<group>"; };
+		18C6D34E17279D5600184AFA /* java_helpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_helpers.o; sourceTree = "<group>"; };
+		18C6D34F17279D5600184AFA /* java_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_message.o; sourceTree = "<group>"; };
+		18C6D35017279D5600184AFA /* java_message_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_message_field.o; sourceTree = "<group>"; };
+		18C6D35117279D5600184AFA /* java_primitive_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_primitive_field.o; sourceTree = "<group>"; };
+		18C6D35217279D5600184AFA /* java_service.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_service.o; sourceTree = "<group>"; };
+		18C6D35317279D5600184AFA /* libprotobuf-lite.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libprotobuf-lite.4.dylib"; sourceTree = "<group>"; };
+		18C6D35417279D5600184AFA /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libprotobuf-lite.a"; sourceTree = "<group>"; };
+		18C6D35517279D5600184AFA /* libprotobuf-lite.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libprotobuf-lite.dylib"; sourceTree = "<group>"; };
+		18C6D35617279D5600184AFA /* libprotobuf-lite.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libprotobuf-lite.la"; sourceTree = "<group>"; };
+		18C6D35717279D5600184AFA /* libprotobuf-lite.lai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libprotobuf-lite.lai"; sourceTree = "<group>"; };
+		18C6D35817279D5600184AFA /* libprotobuf.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libprotobuf.4.dylib; sourceTree = "<group>"; };
+		18C6D35917279D5600184AFA /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
+		18C6D35A17279D5600184AFA /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libprotobuf.dylib; sourceTree = "<group>"; };
+		18C6D35B17279D5600184AFA /* libprotobuf.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotobuf.la; sourceTree = "<group>"; };
+		18C6D35C17279D5600184AFA /* libprotobuf.lai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotobuf.lai; sourceTree = "<group>"; };
+		18C6D35D17279D5600184AFA /* libprotoc.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libprotoc.4.dylib; sourceTree = "<group>"; };
+		18C6D35E17279D5600184AFA /* libprotoc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotoc.a; sourceTree = "<group>"; };
+		18C6D35F17279D5600184AFA /* libprotoc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libprotoc.dylib; sourceTree = "<group>"; };
+		18C6D36017279D5600184AFA /* libprotoc.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotoc.la; sourceTree = "<group>"; };
+		18C6D36117279D5600184AFA /* libprotoc.lai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotoc.lai; sourceTree = "<group>"; };
+		18C6D36217279D5600184AFA /* message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = message.o; sourceTree = "<group>"; };
+		18C6D36317279D5600184AFA /* message_lite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = message_lite.o; sourceTree = "<group>"; };
+		18C6D36417279D5600184AFA /* objectivec-descriptor.pb.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = "objectivec-descriptor.pb.o"; sourceTree = "<group>"; };
+		18C6D36517279D5600184AFA /* objectivec_enum.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_enum.o; sourceTree = "<group>"; };
+		18C6D36617279D5600184AFA /* objectivec_enum_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_enum_field.o; sourceTree = "<group>"; };
+		18C6D36717279D5600184AFA /* objectivec_extension.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_extension.o; sourceTree = "<group>"; };
+		18C6D36817279D5600184AFA /* objectivec_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_field.o; sourceTree = "<group>"; };
+		18C6D36917279D5600184AFA /* objectivec_file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_file.o; sourceTree = "<group>"; };
+		18C6D36A17279D5600184AFA /* objectivec_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_generator.o; sourceTree = "<group>"; };
+		18C6D36B17279D5600184AFA /* objectivec_helpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_helpers.o; sourceTree = "<group>"; };
+		18C6D36C17279D5600184AFA /* objectivec_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_message.o; sourceTree = "<group>"; };
+		18C6D36D17279D5600184AFA /* objectivec_message_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_message_field.o; sourceTree = "<group>"; };
+		18C6D36E17279D5600184AFA /* objectivec_primitive_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_primitive_field.o; sourceTree = "<group>"; };
+		18C6D36F17279D5600184AFA /* once.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = once.o; sourceTree = "<group>"; };
+		18C6D37017279D5600184AFA /* parser.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = parser.o; sourceTree = "<group>"; };
+		18C6D37117279D5600184AFA /* printer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = printer.o; sourceTree = "<group>"; };
+		18C6D37217279D5600184AFA /* protoc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = protoc; sourceTree = "<group>"; };
+		18C6D37317279D5600184AFA /* python_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = python_generator.o; sourceTree = "<group>"; };
+		18C6D37417279D5600184AFA /* reflection_ops.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = reflection_ops.o; sourceTree = "<group>"; };
+		18C6D37517279D5600184AFA /* repeated_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = repeated_field.o; sourceTree = "<group>"; };
+		18C6D37617279D5600184AFA /* service.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = service.o; sourceTree = "<group>"; };
+		18C6D37717279D5600184AFA /* structurally_valid.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = structurally_valid.o; sourceTree = "<group>"; };
+		18C6D37817279D5600184AFA /* strutil.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = strutil.o; sourceTree = "<group>"; };
+		18C6D37917279D5600184AFA /* substitute.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = substitute.o; sourceTree = "<group>"; };
+		18C6D37A17279D5600184AFA /* text_format.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = text_format.o; sourceTree = "<group>"; };
+		18C6D37B17279D5600184AFA /* tokenizer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = tokenizer.o; sourceTree = "<group>"; };
+		18C6D37C17279D5600184AFA /* unknown_field_set.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = unknown_field_set.o; sourceTree = "<group>"; };
+		18C6D37D17279D5600184AFA /* wire_format.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = wire_format.o; sourceTree = "<group>"; };
+		18C6D37E17279D5600184AFA /* wire_format_lite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = wire_format_lite.o; sourceTree = "<group>"; };
+		18C6D37F17279D5600184AFA /* zero_copy_stream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = zero_copy_stream.o; sourceTree = "<group>"; };
+		18C6D38017279D5600184AFA /* zero_copy_stream_impl.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = zero_copy_stream_impl.o; sourceTree = "<group>"; };
+		18C6D38117279D5600184AFA /* zero_copy_stream_impl_lite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = zero_copy_stream_impl_lite.o; sourceTree = "<group>"; };
+		18C6D38217279D5600184AFA /* code_generator.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = code_generator.lo; sourceTree = "<group>"; };
+		18C6D38317279D5600184AFA /* code_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = code_generator.o; sourceTree = "<group>"; };
+		18C6D38417279D5600184AFA /* coded_stream.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coded_stream.lo; sourceTree = "<group>"; };
+		18C6D38517279D5600184AFA /* coded_stream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = coded_stream.o; sourceTree = "<group>"; };
+		18C6D38617279D5600184AFA /* command_line_interface.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = command_line_interface.lo; sourceTree = "<group>"; };
+		18C6D38717279D5600184AFA /* command_line_interface.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = command_line_interface.o; sourceTree = "<group>"; };
+		18C6D38817279D5600184AFA /* common.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = common.lo; sourceTree = "<group>"; };
+		18C6D38917279D5600184AFA /* common.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = common.o; sourceTree = "<group>"; };
+		18C6D38A17279D5600184AFA /* cpp_enum.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_enum.lo; sourceTree = "<group>"; };
+		18C6D38B17279D5600184AFA /* cpp_enum.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_enum.o; sourceTree = "<group>"; };
+		18C6D38C17279D5600184AFA /* cpp_enum_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_enum_field.lo; sourceTree = "<group>"; };
+		18C6D38D17279D5600184AFA /* cpp_enum_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_enum_field.o; sourceTree = "<group>"; };
+		18C6D38E17279D5600184AFA /* cpp_extension.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_extension.lo; sourceTree = "<group>"; };
+		18C6D38F17279D5600184AFA /* cpp_extension.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_extension.o; sourceTree = "<group>"; };
+		18C6D39017279D5600184AFA /* cpp_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_field.lo; sourceTree = "<group>"; };
+		18C6D39117279D5600184AFA /* cpp_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_field.o; sourceTree = "<group>"; };
+		18C6D39217279D5600184AFA /* cpp_file.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_file.lo; sourceTree = "<group>"; };
+		18C6D39317279D5600184AFA /* cpp_file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_file.o; sourceTree = "<group>"; };
+		18C6D39417279D5600184AFA /* cpp_generator.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_generator.lo; sourceTree = "<group>"; };
+		18C6D39517279D5600184AFA /* cpp_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_generator.o; sourceTree = "<group>"; };
+		18C6D39617279D5600184AFA /* cpp_helpers.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_helpers.lo; sourceTree = "<group>"; };
+		18C6D39717279D5600184AFA /* cpp_helpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_helpers.o; sourceTree = "<group>"; };
+		18C6D39817279D5600184AFA /* cpp_message.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_message.lo; sourceTree = "<group>"; };
+		18C6D39917279D5600184AFA /* cpp_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_message.o; sourceTree = "<group>"; };
+		18C6D39A17279D5600184AFA /* cpp_message_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_message_field.lo; sourceTree = "<group>"; };
+		18C6D39B17279D5600184AFA /* cpp_message_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_message_field.o; sourceTree = "<group>"; };
+		18C6D39C17279D5600184AFA /* cpp_primitive_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_primitive_field.lo; sourceTree = "<group>"; };
+		18C6D39D17279D5600184AFA /* cpp_primitive_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_primitive_field.o; sourceTree = "<group>"; };
+		18C6D39E17279D5600184AFA /* cpp_service.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_service.lo; sourceTree = "<group>"; };
+		18C6D39F17279D5600184AFA /* cpp_service.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_service.o; sourceTree = "<group>"; };
+		18C6D3A017279D5600184AFA /* cpp_string_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cpp_string_field.lo; sourceTree = "<group>"; };
+		18C6D3A117279D5600184AFA /* cpp_string_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = cpp_string_field.o; sourceTree = "<group>"; };
+		18C6D3A217279D5600184AFA /* descriptor.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptor.lo; sourceTree = "<group>"; };
+		18C6D3A317279D5600184AFA /* descriptor.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = descriptor.o; sourceTree = "<group>"; };
+		18C6D3A417279D5600184AFA /* descriptor.pb.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptor.pb.lo; sourceTree = "<group>"; };
+		18C6D3A517279D5600184AFA /* descriptor.pb.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = descriptor.pb.o; sourceTree = "<group>"; };
+		18C6D3A617279D5600184AFA /* descriptor_database.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptor_database.lo; sourceTree = "<group>"; };
+		18C6D3A717279D5600184AFA /* descriptor_database.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = descriptor_database.o; sourceTree = "<group>"; };
+		18C6D3A817279D5600184AFA /* dynamic_message.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dynamic_message.lo; sourceTree = "<group>"; };
+		18C6D3A917279D5600184AFA /* dynamic_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = dynamic_message.o; sourceTree = "<group>"; };
+		18C6D3AA17279D5600184AFA /* extension_set.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = extension_set.lo; sourceTree = "<group>"; };
+		18C6D3AB17279D5600184AFA /* extension_set.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = extension_set.o; sourceTree = "<group>"; };
+		18C6D3AC17279D5600184AFA /* extension_set_heavy.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = extension_set_heavy.lo; sourceTree = "<group>"; };
+		18C6D3AD17279D5600184AFA /* extension_set_heavy.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = extension_set_heavy.o; sourceTree = "<group>"; };
+		18C6D3AE17279D5600184AFA /* generated_message_reflection.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = generated_message_reflection.lo; sourceTree = "<group>"; };
+		18C6D3AF17279D5600184AFA /* generated_message_reflection.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = generated_message_reflection.o; sourceTree = "<group>"; };
+		18C6D3B017279D5600184AFA /* generated_message_util.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = generated_message_util.lo; sourceTree = "<group>"; };
+		18C6D3B117279D5600184AFA /* generated_message_util.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = generated_message_util.o; sourceTree = "<group>"; };
+		18C6D3B217279D5600184AFA /* gzip_stream.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gzip_stream.lo; sourceTree = "<group>"; };
+		18C6D3B317279D5600184AFA /* gzip_stream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = gzip_stream.o; sourceTree = "<group>"; };
+		18C6D3B417279D5600184AFA /* hash.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hash.lo; sourceTree = "<group>"; };
+		18C6D3B517279D5600184AFA /* hash.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = hash.o; sourceTree = "<group>"; };
+		18C6D3B617279D5600184AFA /* importer.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = importer.lo; sourceTree = "<group>"; };
+		18C6D3B717279D5600184AFA /* importer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = importer.o; sourceTree = "<group>"; };
+		18C6D3B817279D5600184AFA /* java_enum.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_enum.lo; sourceTree = "<group>"; };
+		18C6D3B917279D5600184AFA /* java_enum.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_enum.o; sourceTree = "<group>"; };
+		18C6D3BA17279D5600184AFA /* java_enum_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_enum_field.lo; sourceTree = "<group>"; };
+		18C6D3BB17279D5600184AFA /* java_enum_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_enum_field.o; sourceTree = "<group>"; };
+		18C6D3BC17279D5600184AFA /* java_extension.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_extension.lo; sourceTree = "<group>"; };
+		18C6D3BD17279D5600184AFA /* java_extension.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_extension.o; sourceTree = "<group>"; };
+		18C6D3BE17279D5600184AFA /* java_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_field.lo; sourceTree = "<group>"; };
+		18C6D3BF17279D5600184AFA /* java_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_field.o; sourceTree = "<group>"; };
+		18C6D3C017279D5600184AFA /* java_file.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_file.lo; sourceTree = "<group>"; };
+		18C6D3C117279D5600184AFA /* java_file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_file.o; sourceTree = "<group>"; };
+		18C6D3C217279D5600184AFA /* java_generator.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_generator.lo; sourceTree = "<group>"; };
+		18C6D3C317279D5600184AFA /* java_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_generator.o; sourceTree = "<group>"; };
+		18C6D3C417279D5600184AFA /* java_helpers.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_helpers.lo; sourceTree = "<group>"; };
+		18C6D3C517279D5600184AFA /* java_helpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_helpers.o; sourceTree = "<group>"; };
+		18C6D3C617279D5600184AFA /* java_message.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_message.lo; sourceTree = "<group>"; };
+		18C6D3C717279D5600184AFA /* java_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_message.o; sourceTree = "<group>"; };
+		18C6D3C817279D5600184AFA /* java_message_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_message_field.lo; sourceTree = "<group>"; };
+		18C6D3C917279D5600184AFA /* java_message_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_message_field.o; sourceTree = "<group>"; };
+		18C6D3CA17279D5600184AFA /* java_primitive_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_primitive_field.lo; sourceTree = "<group>"; };
+		18C6D3CB17279D5600184AFA /* java_primitive_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_primitive_field.o; sourceTree = "<group>"; };
+		18C6D3CC17279D5600184AFA /* java_service.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = java_service.lo; sourceTree = "<group>"; };
+		18C6D3CD17279D5600184AFA /* java_service.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = java_service.o; sourceTree = "<group>"; };
+		18C6D3CE17279D5600184AFA /* libprotobuf-lite.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libprotobuf-lite.la"; sourceTree = "<group>"; };
+		18C6D3CF17279D5600184AFA /* libprotobuf.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotobuf.la; sourceTree = "<group>"; };
+		18C6D3D017279D5600184AFA /* libprotoc.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotoc.la; sourceTree = "<group>"; };
+		18C6D3D117279D5600184AFA /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
+		18C6D3D217279D5600184AFA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		18C6D3D317279D5600184AFA /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		18C6D3D417279D5600184AFA /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		18C6D3D517279D5600184AFA /* message.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = message.lo; sourceTree = "<group>"; };
+		18C6D3D617279D5600184AFA /* message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = message.o; sourceTree = "<group>"; };
+		18C6D3D717279D5600184AFA /* message_lite.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = message_lite.lo; sourceTree = "<group>"; };
+		18C6D3D817279D5600184AFA /* message_lite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = message_lite.o; sourceTree = "<group>"; };
+		18C6D3D917279D5600184AFA /* objectivec-descriptor.pb.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "objectivec-descriptor.pb.lo"; sourceTree = "<group>"; };
+		18C6D3DA17279D5600184AFA /* objectivec-descriptor.pb.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = "objectivec-descriptor.pb.o"; sourceTree = "<group>"; };
+		18C6D3DB17279D5600184AFA /* objectivec_enum.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_enum.lo; sourceTree = "<group>"; };
+		18C6D3DC17279D5600184AFA /* objectivec_enum.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_enum.o; sourceTree = "<group>"; };
+		18C6D3DD17279D5600184AFA /* objectivec_enum_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_enum_field.lo; sourceTree = "<group>"; };
+		18C6D3DE17279D5600184AFA /* objectivec_enum_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_enum_field.o; sourceTree = "<group>"; };
+		18C6D3DF17279D5600184AFA /* objectivec_extension.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_extension.lo; sourceTree = "<group>"; };
+		18C6D3E017279D5600184AFA /* objectivec_extension.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_extension.o; sourceTree = "<group>"; };
+		18C6D3E117279D5600184AFA /* objectivec_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_field.lo; sourceTree = "<group>"; };
+		18C6D3E217279D5600184AFA /* objectivec_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_field.o; sourceTree = "<group>"; };
+		18C6D3E317279D5600184AFA /* objectivec_file.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_file.lo; sourceTree = "<group>"; };
+		18C6D3E417279D5600184AFA /* objectivec_file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_file.o; sourceTree = "<group>"; };
+		18C6D3E517279D5600184AFA /* objectivec_generator.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_generator.lo; sourceTree = "<group>"; };
+		18C6D3E617279D5600184AFA /* objectivec_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_generator.o; sourceTree = "<group>"; };
+		18C6D3E717279D5600184AFA /* objectivec_helpers.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_helpers.lo; sourceTree = "<group>"; };
+		18C6D3E817279D5600184AFA /* objectivec_helpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_helpers.o; sourceTree = "<group>"; };
+		18C6D3E917279D5600184AFA /* objectivec_message.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_message.lo; sourceTree = "<group>"; };
+		18C6D3EA17279D5600184AFA /* objectivec_message.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_message.o; sourceTree = "<group>"; };
+		18C6D3EB17279D5600184AFA /* objectivec_message_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_message_field.lo; sourceTree = "<group>"; };
+		18C6D3EC17279D5600184AFA /* objectivec_message_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_message_field.o; sourceTree = "<group>"; };
+		18C6D3ED17279D5600184AFA /* objectivec_primitive_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectivec_primitive_field.lo; sourceTree = "<group>"; };
+		18C6D3EE17279D5600184AFA /* objectivec_primitive_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = objectivec_primitive_field.o; sourceTree = "<group>"; };
+		18C6D3EF17279D5600184AFA /* once.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = once.lo; sourceTree = "<group>"; };
+		18C6D3F017279D5600184AFA /* once.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = once.o; sourceTree = "<group>"; };
+		18C6D3F117279D5600184AFA /* parser.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = parser.lo; sourceTree = "<group>"; };
+		18C6D3F217279D5600184AFA /* parser.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = parser.o; sourceTree = "<group>"; };
+		18C6D3F317279D5600184AFA /* printer.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = printer.lo; sourceTree = "<group>"; };
+		18C6D3F417279D5600184AFA /* printer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = printer.o; sourceTree = "<group>"; };
+		18C6D3F517279D5600184AFA /* protoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = protoc; sourceTree = "<group>"; };
+		18C6D3F617279D5600184AFA /* python_generator.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = python_generator.lo; sourceTree = "<group>"; };
+		18C6D3F717279D5600184AFA /* python_generator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = python_generator.o; sourceTree = "<group>"; };
+		18C6D3F817279D5600184AFA /* reflection_ops.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reflection_ops.lo; sourceTree = "<group>"; };
+		18C6D3F917279D5600184AFA /* reflection_ops.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = reflection_ops.o; sourceTree = "<group>"; };
+		18C6D3FA17279D5600184AFA /* repeated_field.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = repeated_field.lo; sourceTree = "<group>"; };
+		18C6D3FB17279D5600184AFA /* repeated_field.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = repeated_field.o; sourceTree = "<group>"; };
+		18C6D3FC17279D5600184AFA /* service.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = service.lo; sourceTree = "<group>"; };
+		18C6D3FD17279D5600184AFA /* service.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = service.o; sourceTree = "<group>"; };
+		18C6D3FE17279D5600184AFA /* structurally_valid.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structurally_valid.lo; sourceTree = "<group>"; };
+		18C6D3FF17279D5600184AFA /* structurally_valid.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = structurally_valid.o; sourceTree = "<group>"; };
+		18C6D40017279D5600184AFA /* strutil.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = strutil.lo; sourceTree = "<group>"; };
+		18C6D40117279D5600184AFA /* strutil.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = strutil.o; sourceTree = "<group>"; };
+		18C6D40217279D5600184AFA /* substitute.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substitute.lo; sourceTree = "<group>"; };
+		18C6D40317279D5600184AFA /* substitute.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = substitute.o; sourceTree = "<group>"; };
+		18C6D40417279D5600184AFA /* text_format.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format.lo; sourceTree = "<group>"; };
+		18C6D40517279D5600184AFA /* text_format.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = text_format.o; sourceTree = "<group>"; };
+		18C6D40617279D5600184AFA /* tokenizer.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tokenizer.lo; sourceTree = "<group>"; };
+		18C6D40717279D5600184AFA /* tokenizer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = tokenizer.o; sourceTree = "<group>"; };
+		18C6D40817279D5600184AFA /* unittest_proto_middleman */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unittest_proto_middleman; sourceTree = "<group>"; };
+		18C6D40917279D5600184AFA /* unknown_field_set.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unknown_field_set.lo; sourceTree = "<group>"; };
+		18C6D40A17279D5600184AFA /* unknown_field_set.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = unknown_field_set.o; sourceTree = "<group>"; };
+		18C6D40B17279D5600184AFA /* wire_format.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wire_format.lo; sourceTree = "<group>"; };
+		18C6D40C17279D5600184AFA /* wire_format.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = wire_format.o; sourceTree = "<group>"; };
+		18C6D40D17279D5600184AFA /* wire_format_lite.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wire_format_lite.lo; sourceTree = "<group>"; };
+		18C6D40E17279D5600184AFA /* wire_format_lite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = wire_format_lite.o; sourceTree = "<group>"; };
+		18C6D40F17279D5700184AFA /* zero_copy_stream.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero_copy_stream.lo; sourceTree = "<group>"; };
+		18C6D41017279D5700184AFA /* zero_copy_stream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = zero_copy_stream.o; sourceTree = "<group>"; };
+		18C6D41117279D5700184AFA /* zero_copy_stream_impl.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero_copy_stream_impl.lo; sourceTree = "<group>"; };
+		18C6D41217279D5700184AFA /* zero_copy_stream_impl.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = zero_copy_stream_impl.o; sourceTree = "<group>"; };
+		18C6D41317279D5700184AFA /* zero_copy_stream_impl_lite.lo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero_copy_stream_impl_lite.lo; sourceTree = "<group>"; };
+		18C6D41417279D5700184AFA /* zero_copy_stream_impl_lite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = zero_copy_stream_impl_lite.o; sourceTree = "<group>"; };
+		18C6D59617279DE000184AFA /* UserData.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.pb.h; sourceTree = "<group>"; };
+		18C6D59717279DE000184AFA /* UserData.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.pb.m; sourceTree = "<group>"; };
+		18C6D59817279DE000184AFA /* NetUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetUserManager.h; sourceTree = "<group>"; };
+		18C6D59917279DE000184AFA /* NetUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetUserManager.m; sourceTree = "<group>"; };
+		18C6D59A17279DE000184AFA /* NetUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetUserRequest.h; sourceTree = "<group>"; };
+		18C6D59B17279DE000184AFA /* NetUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetUserRequest.m; sourceTree = "<group>"; };
+		18C6D59D17279DE000184AFA /* UserResponse.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserResponse.pb.h; sourceTree = "<group>"; };
+		18C6D59E17279DE000184AFA /* UserResponse.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserResponse.pb.m; sourceTree = "<group>"; };
+		18C6D59F17279DE000184AFA /* UserLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginRequest.h; sourceTree = "<group>"; };
+		18C6D5A017279DE000184AFA /* UserLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginRequest.m; sourceTree = "<group>"; };
+		18C6D5A117279DE000184AFA /* UserRegisterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegisterRequest.h; sourceTree = "<group>"; };
+		18C6D5A217279DE000184AFA /* UserRegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegisterRequest.m; sourceTree = "<group>"; };
+		18C6D5AE1727A8EA00184AFA /* Response.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.pb.h; sourceTree = "<group>"; };
+		18C6D5AF1727A8EA00184AFA /* Response.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.pb.m; sourceTree = "<group>"; };
+		18C6D5B11727AA1F00184AFA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		18C6D5B31727AFE200184AFA /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = "../../../../together-server/src/common/const.h"; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -244,23 +696,6 @@
 			path = NavigationView;
 			sourceTree = "<group>";
 		};
-		18BFDFCD172456CD00186828 /* Room */ = {
-			isa = PBXGroup;
-			children = (
-				18BFDFCE172456CE00186828 /* DataFormat */,
-			);
-			path = Room;
-			sourceTree = "<group>";
-		};
-		18BFDFCE172456CE00186828 /* DataFormat */ = {
-			isa = PBXGroup;
-			children = (
-				18BFDFCF172456CE00186828 /* NetRoomList.h */,
-				18BFDFD0172456CE00186828 /* NetRoomList.m */,
-			);
-			path = DataFormat;
-			sourceTree = "<group>";
-		};
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,9 +734,517 @@
 			path = RoomGridView;
 			sourceTree = "<group>";
 		};
+		18C6D27617279D5600184AFA /* ProtoBuf */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D2A817279D5600184AFA /* compileProto.sh */,
+				18C6D27717279D5600184AFA /* Classes */,
+				18C6D2A917279D5600184AFA /* src */,
+			);
+			path = ProtoBuf;
+			sourceTree = "<group>";
+		};
+		18C6D27717279D5600184AFA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D27817279D5600184AFA /* AbstractMessage.h */,
+				18C6D27917279D5600184AFA /* AbstractMessage.m */,
+				18C6D27A17279D5600184AFA /* AbstractMessage_Builder.h */,
+				18C6D27B17279D5600184AFA /* AbstractMessage_Builder.m */,
+				18C6D27C17279D5600184AFA /* Bootstrap.h */,
+				18C6D27D17279D5600184AFA /* CodedInputStream.h */,
+				18C6D27E17279D5600184AFA /* CodedInputStream.m */,
+				18C6D27F17279D5600184AFA /* CodedOutputStream.h */,
+				18C6D28017279D5600184AFA /* CodedOutputStream.m */,
+				18C6D28117279D5600184AFA /* ConcreteExtensionField.h */,
+				18C6D28217279D5600184AFA /* ConcreteExtensionField.m */,
+				18C6D28317279D5600184AFA /* Descriptor.pb.h */,
+				18C6D28417279D5600184AFA /* Descriptor.pb.m */,
+				18C6D28517279D5600184AFA /* ExtendableMessage.h */,
+				18C6D28617279D5600184AFA /* ExtendableMessage.m */,
+				18C6D28717279D5600184AFA /* ExtendableMessage_Builder.h */,
+				18C6D28817279D5600184AFA /* ExtendableMessage_Builder.m */,
+				18C6D28917279D5600184AFA /* ExtensionField.h */,
+				18C6D28A17279D5600184AFA /* ExtensionRegistry.h */,
+				18C6D28B17279D5600184AFA /* ExtensionRegistry.m */,
+				18C6D28C17279D5600184AFA /* Field.h */,
+				18C6D28D17279D5600184AFA /* Field.m */,
+				18C6D28E17279D5600184AFA /* ForwardDeclarations.h */,
+				18C6D28F17279D5600184AFA /* GeneratedMessage.h */,
+				18C6D29017279D5600184AFA /* GeneratedMessage.m */,
+				18C6D29117279D5600184AFA /* GeneratedMessage_Builder.h */,
+				18C6D29217279D5600184AFA /* GeneratedMessage_Builder.m */,
+				18C6D29317279D5600184AFA /* Message.h */,
+				18C6D29417279D5600184AFA /* Message_Builder.h */,
+				18C6D29517279D5600184AFA /* MutableExtensionRegistry.h */,
+				18C6D29617279D5600184AFA /* MutableExtensionRegistry.m */,
+				18C6D29717279D5600184AFA /* MutableField.h */,
+				18C6D29817279D5600184AFA /* MutableField.m */,
+				18C6D29917279D5600184AFA /* PBArray.h */,
+				18C6D29A17279D5600184AFA /* PBArray.m */,
+				18C6D29B17279D5600184AFA /* ProtocolBuffers.h */,
+				18C6D29C17279D5600184AFA /* RingBuffer.h */,
+				18C6D29D17279D5600184AFA /* RingBuffer.m */,
+				18C6D29E17279D5600184AFA /* TextFormat.h */,
+				18C6D29F17279D5600184AFA /* TextFormat.m */,
+				18C6D2A017279D5600184AFA /* UnknownFieldSet.h */,
+				18C6D2A117279D5600184AFA /* UnknownFieldSet.m */,
+				18C6D2A217279D5600184AFA /* UnknownFieldSet_Builder.h */,
+				18C6D2A317279D5600184AFA /* UnknownFieldSet_Builder.m */,
+				18C6D2A417279D5600184AFA /* Utilities.h */,
+				18C6D2A517279D5600184AFA /* Utilities.m */,
+				18C6D2A617279D5600184AFA /* WireFormat.h */,
+				18C6D2A717279D5600184AFA /* WireFormat.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18C6D2A917279D5600184AFA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D2AA17279D5600184AFA /* .deps */,
+				18C6D32C17279D5600184AFA /* .libs */,
+				18C6D38217279D5600184AFA /* code_generator.lo */,
+				18C6D38317279D5600184AFA /* code_generator.o */,
+				18C6D38417279D5600184AFA /* coded_stream.lo */,
+				18C6D38517279D5600184AFA /* coded_stream.o */,
+				18C6D38617279D5600184AFA /* command_line_interface.lo */,
+				18C6D38717279D5600184AFA /* command_line_interface.o */,
+				18C6D38817279D5600184AFA /* common.lo */,
+				18C6D38917279D5600184AFA /* common.o */,
+				18C6D38A17279D5600184AFA /* cpp_enum.lo */,
+				18C6D38B17279D5600184AFA /* cpp_enum.o */,
+				18C6D38C17279D5600184AFA /* cpp_enum_field.lo */,
+				18C6D38D17279D5600184AFA /* cpp_enum_field.o */,
+				18C6D38E17279D5600184AFA /* cpp_extension.lo */,
+				18C6D38F17279D5600184AFA /* cpp_extension.o */,
+				18C6D39017279D5600184AFA /* cpp_field.lo */,
+				18C6D39117279D5600184AFA /* cpp_field.o */,
+				18C6D39217279D5600184AFA /* cpp_file.lo */,
+				18C6D39317279D5600184AFA /* cpp_file.o */,
+				18C6D39417279D5600184AFA /* cpp_generator.lo */,
+				18C6D39517279D5600184AFA /* cpp_generator.o */,
+				18C6D39617279D5600184AFA /* cpp_helpers.lo */,
+				18C6D39717279D5600184AFA /* cpp_helpers.o */,
+				18C6D39817279D5600184AFA /* cpp_message.lo */,
+				18C6D39917279D5600184AFA /* cpp_message.o */,
+				18C6D39A17279D5600184AFA /* cpp_message_field.lo */,
+				18C6D39B17279D5600184AFA /* cpp_message_field.o */,
+				18C6D39C17279D5600184AFA /* cpp_primitive_field.lo */,
+				18C6D39D17279D5600184AFA /* cpp_primitive_field.o */,
+				18C6D39E17279D5600184AFA /* cpp_service.lo */,
+				18C6D39F17279D5600184AFA /* cpp_service.o */,
+				18C6D3A017279D5600184AFA /* cpp_string_field.lo */,
+				18C6D3A117279D5600184AFA /* cpp_string_field.o */,
+				18C6D3A217279D5600184AFA /* descriptor.lo */,
+				18C6D3A317279D5600184AFA /* descriptor.o */,
+				18C6D3A417279D5600184AFA /* descriptor.pb.lo */,
+				18C6D3A517279D5600184AFA /* descriptor.pb.o */,
+				18C6D3A617279D5600184AFA /* descriptor_database.lo */,
+				18C6D3A717279D5600184AFA /* descriptor_database.o */,
+				18C6D3A817279D5600184AFA /* dynamic_message.lo */,
+				18C6D3A917279D5600184AFA /* dynamic_message.o */,
+				18C6D3AA17279D5600184AFA /* extension_set.lo */,
+				18C6D3AB17279D5600184AFA /* extension_set.o */,
+				18C6D3AC17279D5600184AFA /* extension_set_heavy.lo */,
+				18C6D3AD17279D5600184AFA /* extension_set_heavy.o */,
+				18C6D3AE17279D5600184AFA /* generated_message_reflection.lo */,
+				18C6D3AF17279D5600184AFA /* generated_message_reflection.o */,
+				18C6D3B017279D5600184AFA /* generated_message_util.lo */,
+				18C6D3B117279D5600184AFA /* generated_message_util.o */,
+				18C6D3B217279D5600184AFA /* gzip_stream.lo */,
+				18C6D3B317279D5600184AFA /* gzip_stream.o */,
+				18C6D3B417279D5600184AFA /* hash.lo */,
+				18C6D3B517279D5600184AFA /* hash.o */,
+				18C6D3B617279D5600184AFA /* importer.lo */,
+				18C6D3B717279D5600184AFA /* importer.o */,
+				18C6D3B817279D5600184AFA /* java_enum.lo */,
+				18C6D3B917279D5600184AFA /* java_enum.o */,
+				18C6D3BA17279D5600184AFA /* java_enum_field.lo */,
+				18C6D3BB17279D5600184AFA /* java_enum_field.o */,
+				18C6D3BC17279D5600184AFA /* java_extension.lo */,
+				18C6D3BD17279D5600184AFA /* java_extension.o */,
+				18C6D3BE17279D5600184AFA /* java_field.lo */,
+				18C6D3BF17279D5600184AFA /* java_field.o */,
+				18C6D3C017279D5600184AFA /* java_file.lo */,
+				18C6D3C117279D5600184AFA /* java_file.o */,
+				18C6D3C217279D5600184AFA /* java_generator.lo */,
+				18C6D3C317279D5600184AFA /* java_generator.o */,
+				18C6D3C417279D5600184AFA /* java_helpers.lo */,
+				18C6D3C517279D5600184AFA /* java_helpers.o */,
+				18C6D3C617279D5600184AFA /* java_message.lo */,
+				18C6D3C717279D5600184AFA /* java_message.o */,
+				18C6D3C817279D5600184AFA /* java_message_field.lo */,
+				18C6D3C917279D5600184AFA /* java_message_field.o */,
+				18C6D3CA17279D5600184AFA /* java_primitive_field.lo */,
+				18C6D3CB17279D5600184AFA /* java_primitive_field.o */,
+				18C6D3CC17279D5600184AFA /* java_service.lo */,
+				18C6D3CD17279D5600184AFA /* java_service.o */,
+				18C6D3CE17279D5600184AFA /* libprotobuf-lite.la */,
+				18C6D3CF17279D5600184AFA /* libprotobuf.la */,
+				18C6D3D017279D5600184AFA /* libprotoc.la */,
+				18C6D3D117279D5600184AFA /* main.o */,
+				18C6D3D217279D5600184AFA /* Makefile */,
+				18C6D3D317279D5600184AFA /* Makefile.am */,
+				18C6D3D417279D5600184AFA /* Makefile.in */,
+				18C6D3D517279D5600184AFA /* message.lo */,
+				18C6D3D617279D5600184AFA /* message.o */,
+				18C6D3D717279D5600184AFA /* message_lite.lo */,
+				18C6D3D817279D5600184AFA /* message_lite.o */,
+				18C6D3D917279D5600184AFA /* objectivec-descriptor.pb.lo */,
+				18C6D3DA17279D5600184AFA /* objectivec-descriptor.pb.o */,
+				18C6D3DB17279D5600184AFA /* objectivec_enum.lo */,
+				18C6D3DC17279D5600184AFA /* objectivec_enum.o */,
+				18C6D3DD17279D5600184AFA /* objectivec_enum_field.lo */,
+				18C6D3DE17279D5600184AFA /* objectivec_enum_field.o */,
+				18C6D3DF17279D5600184AFA /* objectivec_extension.lo */,
+				18C6D3E017279D5600184AFA /* objectivec_extension.o */,
+				18C6D3E117279D5600184AFA /* objectivec_field.lo */,
+				18C6D3E217279D5600184AFA /* objectivec_field.o */,
+				18C6D3E317279D5600184AFA /* objectivec_file.lo */,
+				18C6D3E417279D5600184AFA /* objectivec_file.o */,
+				18C6D3E517279D5600184AFA /* objectivec_generator.lo */,
+				18C6D3E617279D5600184AFA /* objectivec_generator.o */,
+				18C6D3E717279D5600184AFA /* objectivec_helpers.lo */,
+				18C6D3E817279D5600184AFA /* objectivec_helpers.o */,
+				18C6D3E917279D5600184AFA /* objectivec_message.lo */,
+				18C6D3EA17279D5600184AFA /* objectivec_message.o */,
+				18C6D3EB17279D5600184AFA /* objectivec_message_field.lo */,
+				18C6D3EC17279D5600184AFA /* objectivec_message_field.o */,
+				18C6D3ED17279D5600184AFA /* objectivec_primitive_field.lo */,
+				18C6D3EE17279D5600184AFA /* objectivec_primitive_field.o */,
+				18C6D3EF17279D5600184AFA /* once.lo */,
+				18C6D3F017279D5600184AFA /* once.o */,
+				18C6D3F117279D5600184AFA /* parser.lo */,
+				18C6D3F217279D5600184AFA /* parser.o */,
+				18C6D3F317279D5600184AFA /* printer.lo */,
+				18C6D3F417279D5600184AFA /* printer.o */,
+				18C6D3F517279D5600184AFA /* protoc */,
+				18C6D3F617279D5600184AFA /* python_generator.lo */,
+				18C6D3F717279D5600184AFA /* python_generator.o */,
+				18C6D3F817279D5600184AFA /* reflection_ops.lo */,
+				18C6D3F917279D5600184AFA /* reflection_ops.o */,
+				18C6D3FA17279D5600184AFA /* repeated_field.lo */,
+				18C6D3FB17279D5600184AFA /* repeated_field.o */,
+				18C6D3FC17279D5600184AFA /* service.lo */,
+				18C6D3FD17279D5600184AFA /* service.o */,
+				18C6D3FE17279D5600184AFA /* structurally_valid.lo */,
+				18C6D3FF17279D5600184AFA /* structurally_valid.o */,
+				18C6D40017279D5600184AFA /* strutil.lo */,
+				18C6D40117279D5600184AFA /* strutil.o */,
+				18C6D40217279D5600184AFA /* substitute.lo */,
+				18C6D40317279D5600184AFA /* substitute.o */,
+				18C6D40417279D5600184AFA /* text_format.lo */,
+				18C6D40517279D5600184AFA /* text_format.o */,
+				18C6D40617279D5600184AFA /* tokenizer.lo */,
+				18C6D40717279D5600184AFA /* tokenizer.o */,
+				18C6D40817279D5600184AFA /* unittest_proto_middleman */,
+				18C6D40917279D5600184AFA /* unknown_field_set.lo */,
+				18C6D40A17279D5600184AFA /* unknown_field_set.o */,
+				18C6D40B17279D5600184AFA /* wire_format.lo */,
+				18C6D40C17279D5600184AFA /* wire_format.o */,
+				18C6D40D17279D5600184AFA /* wire_format_lite.lo */,
+				18C6D40E17279D5600184AFA /* wire_format_lite.o */,
+				18C6D40F17279D5700184AFA /* zero_copy_stream.lo */,
+				18C6D41017279D5700184AFA /* zero_copy_stream.o */,
+				18C6D41117279D5700184AFA /* zero_copy_stream_impl.lo */,
+				18C6D41217279D5700184AFA /* zero_copy_stream_impl.o */,
+				18C6D41317279D5700184AFA /* zero_copy_stream_impl_lite.lo */,
+				18C6D41417279D5700184AFA /* zero_copy_stream_impl_lite.o */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		18C6D2AA17279D5600184AFA /* .deps */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D2AB17279D5600184AFA /* code_generator.Plo */,
+				18C6D2AC17279D5600184AFA /* coded_stream.Plo */,
+				18C6D2AD17279D5600184AFA /* command_line_interface.Plo */,
+				18C6D2AE17279D5600184AFA /* common.Plo */,
+				18C6D2AF17279D5600184AFA /* cpp_enum.Plo */,
+				18C6D2B017279D5600184AFA /* cpp_enum_field.Plo */,
+				18C6D2B117279D5600184AFA /* cpp_extension.Plo */,
+				18C6D2B217279D5600184AFA /* cpp_field.Plo */,
+				18C6D2B317279D5600184AFA /* cpp_file.Plo */,
+				18C6D2B417279D5600184AFA /* cpp_generator.Plo */,
+				18C6D2B517279D5600184AFA /* cpp_helpers.Plo */,
+				18C6D2B617279D5600184AFA /* cpp_message.Plo */,
+				18C6D2B717279D5600184AFA /* cpp_message_field.Plo */,
+				18C6D2B817279D5600184AFA /* cpp_primitive_field.Plo */,
+				18C6D2B917279D5600184AFA /* cpp_service.Plo */,
+				18C6D2BA17279D5600184AFA /* cpp_string_field.Plo */,
+				18C6D2BB17279D5600184AFA /* descriptor.pb.Plo */,
+				18C6D2BC17279D5600184AFA /* descriptor.Plo */,
+				18C6D2BD17279D5600184AFA /* descriptor_database.Plo */,
+				18C6D2BE17279D5600184AFA /* dynamic_message.Plo */,
+				18C6D2BF17279D5600184AFA /* extension_set.Plo */,
+				18C6D2C017279D5600184AFA /* extension_set_heavy.Plo */,
+				18C6D2C117279D5600184AFA /* generated_message_reflection.Plo */,
+				18C6D2C217279D5600184AFA /* generated_message_util.Plo */,
+				18C6D2C317279D5600184AFA /* gzip_stream.Plo */,
+				18C6D2C417279D5600184AFA /* hash.Plo */,
+				18C6D2C517279D5600184AFA /* importer.Plo */,
+				18C6D2C617279D5600184AFA /* java_enum.Plo */,
+				18C6D2C717279D5600184AFA /* java_enum_field.Plo */,
+				18C6D2C817279D5600184AFA /* java_extension.Plo */,
+				18C6D2C917279D5600184AFA /* java_field.Plo */,
+				18C6D2CA17279D5600184AFA /* java_file.Plo */,
+				18C6D2CB17279D5600184AFA /* java_generator.Plo */,
+				18C6D2CC17279D5600184AFA /* java_helpers.Plo */,
+				18C6D2CD17279D5600184AFA /* java_message.Plo */,
+				18C6D2CE17279D5600184AFA /* java_message_field.Plo */,
+				18C6D2CF17279D5600184AFA /* java_primitive_field.Plo */,
+				18C6D2D017279D5600184AFA /* java_service.Plo */,
+				18C6D2D117279D5600184AFA /* main.Po */,
+				18C6D2D217279D5600184AFA /* message.Plo */,
+				18C6D2D317279D5600184AFA /* message_lite.Plo */,
+				18C6D2D417279D5600184AFA /* objectivec-descriptor.pb.Plo */,
+				18C6D2D517279D5600184AFA /* objectivec_enum.Plo */,
+				18C6D2D617279D5600184AFA /* objectivec_enum_field.Plo */,
+				18C6D2D717279D5600184AFA /* objectivec_extension.Plo */,
+				18C6D2D817279D5600184AFA /* objectivec_field.Plo */,
+				18C6D2D917279D5600184AFA /* objectivec_file.Plo */,
+				18C6D2DA17279D5600184AFA /* objectivec_generator.Plo */,
+				18C6D2DB17279D5600184AFA /* objectivec_helpers.Plo */,
+				18C6D2DC17279D5600184AFA /* objectivec_message.Plo */,
+				18C6D2DD17279D5600184AFA /* objectivec_message_field.Plo */,
+				18C6D2DE17279D5600184AFA /* objectivec_primitive_field.Plo */,
+				18C6D2DF17279D5600184AFA /* once.Plo */,
+				18C6D2E017279D5600184AFA /* parser.Plo */,
+				18C6D2E117279D5600184AFA /* printer.Plo */,
+				18C6D2E217279D5600184AFA /* protobuf_lazy_descriptor_test-cpp_test_bad_identifiers.pb.Po */,
+				18C6D2E317279D5600184AFA /* protobuf_lazy_descriptor_test-cpp_unittest.Po */,
+				18C6D2E417279D5600184AFA /* protobuf_lazy_descriptor_test-file.Po */,
+				18C6D2E517279D5600184AFA /* protobuf_lazy_descriptor_test-googletest.Po */,
+				18C6D2E617279D5600184AFA /* protobuf_lazy_descriptor_test-test_util.Po */,
+				18C6D2E717279D5600184AFA /* protobuf_lazy_descriptor_test-unittest.pb.Po */,
+				18C6D2E817279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_custom_options.pb.Po */,
+				18C6D2E917279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_embed_optimize_for.pb.Po */,
+				18C6D2EA17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_empty.pb.Po */,
+				18C6D2EB17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_import.pb.Po */,
+				18C6D2EC17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_import_lite.pb.Po */,
+				18C6D2ED17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_lite.pb.Po */,
+				18C6D2EE17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_lite_imports_nonlite.pb.Po */,
+				18C6D2EF17279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_mset.pb.Po */,
+				18C6D2F017279D5600184AFA /* protobuf_lazy_descriptor_test-unittest_optimize_for.pb.Po */,
+				18C6D2F117279D5600184AFA /* protobuf_lite_test-lite_unittest.Po */,
+				18C6D2F217279D5600184AFA /* protobuf_lite_test-test_util_lite.Po */,
+				18C6D2F317279D5600184AFA /* protobuf_lite_test-unittest_import_lite.pb.Po */,
+				18C6D2F417279D5600184AFA /* protobuf_lite_test-unittest_lite.pb.Po */,
+				18C6D2F517279D5600184AFA /* protobuf_test-coded_stream_unittest.Po */,
+				18C6D2F617279D5600184AFA /* protobuf_test-command_line_interface_unittest.Po */,
+				18C6D2F717279D5600184AFA /* protobuf_test-common_unittest.Po */,
+				18C6D2F817279D5600184AFA /* protobuf_test-cpp_bootstrap_unittest.Po */,
+				18C6D2F917279D5600184AFA /* protobuf_test-cpp_test_bad_identifiers.pb.Po */,
+				18C6D2FA17279D5600184AFA /* protobuf_test-cpp_unittest.Po */,
+				18C6D2FB17279D5600184AFA /* protobuf_test-descriptor_database_unittest.Po */,
+				18C6D2FC17279D5600184AFA /* protobuf_test-descriptor_unittest.Po */,
+				18C6D2FD17279D5600184AFA /* protobuf_test-dynamic_message_unittest.Po */,
+				18C6D2FE17279D5600184AFA /* protobuf_test-extension_set_unittest.Po */,
+				18C6D2FF17279D5600184AFA /* protobuf_test-file.Po */,
+				18C6D30017279D5600184AFA /* protobuf_test-generated_message_reflection_unittest.Po */,
+				18C6D30117279D5600184AFA /* protobuf_test-googletest.Po */,
+				18C6D30217279D5600184AFA /* protobuf_test-importer_unittest.Po */,
+				18C6D30317279D5600184AFA /* protobuf_test-message_unittest.Po */,
+				18C6D30417279D5600184AFA /* protobuf_test-once_unittest.Po */,
+				18C6D30517279D5600184AFA /* protobuf_test-parser_unittest.Po */,
+				18C6D30617279D5600184AFA /* protobuf_test-printer_unittest.Po */,
+				18C6D30717279D5600184AFA /* protobuf_test-reflection_ops_unittest.Po */,
+				18C6D30817279D5600184AFA /* protobuf_test-repeated_field_unittest.Po */,
+				18C6D30917279D5600184AFA /* protobuf_test-structurally_valid_unittest.Po */,
+				18C6D30A17279D5600184AFA /* protobuf_test-strutil_unittest.Po */,
+				18C6D30B17279D5600184AFA /* protobuf_test-test_util.Po */,
+				18C6D30C17279D5600184AFA /* protobuf_test-text_format_unittest.Po */,
+				18C6D30D17279D5600184AFA /* protobuf_test-tokenizer_unittest.Po */,
+				18C6D30E17279D5600184AFA /* protobuf_test-unittest.pb.Po */,
+				18C6D30F17279D5600184AFA /* protobuf_test-unittest_custom_options.pb.Po */,
+				18C6D31017279D5600184AFA /* protobuf_test-unittest_embed_optimize_for.pb.Po */,
+				18C6D31117279D5600184AFA /* protobuf_test-unittest_empty.pb.Po */,
+				18C6D31217279D5600184AFA /* protobuf_test-unittest_import.pb.Po */,
+				18C6D31317279D5600184AFA /* protobuf_test-unittest_import_lite.pb.Po */,
+				18C6D31417279D5600184AFA /* protobuf_test-unittest_lite.pb.Po */,
+				18C6D31517279D5600184AFA /* protobuf_test-unittest_lite_imports_nonlite.pb.Po */,
+				18C6D31617279D5600184AFA /* protobuf_test-unittest_mset.pb.Po */,
+				18C6D31717279D5600184AFA /* protobuf_test-unittest_optimize_for.pb.Po */,
+				18C6D31817279D5600184AFA /* protobuf_test-unknown_field_set_unittest.Po */,
+				18C6D31917279D5600184AFA /* protobuf_test-wire_format_unittest.Po */,
+				18C6D31A17279D5600184AFA /* protobuf_test-zero_copy_stream_unittest.Po */,
+				18C6D31B17279D5600184AFA /* python_generator.Plo */,
+				18C6D31C17279D5600184AFA /* reflection_ops.Plo */,
+				18C6D31D17279D5600184AFA /* repeated_field.Plo */,
+				18C6D31E17279D5600184AFA /* service.Plo */,
+				18C6D31F17279D5600184AFA /* structurally_valid.Plo */,
+				18C6D32017279D5600184AFA /* strutil.Plo */,
+				18C6D32117279D5600184AFA /* substitute.Plo */,
+				18C6D32217279D5600184AFA /* text_format.Plo */,
+				18C6D32317279D5600184AFA /* tokenizer.Plo */,
+				18C6D32417279D5600184AFA /* unknown_field_set.Plo */,
+				18C6D32517279D5600184AFA /* wire_format.Plo */,
+				18C6D32617279D5600184AFA /* wire_format_lite.Plo */,
+				18C6D32717279D5600184AFA /* zcgunzip.Po */,
+				18C6D32817279D5600184AFA /* zcgzip.Po */,
+				18C6D32917279D5600184AFA /* zero_copy_stream.Plo */,
+				18C6D32A17279D5600184AFA /* zero_copy_stream_impl.Plo */,
+				18C6D32B17279D5600184AFA /* zero_copy_stream_impl_lite.Plo */,
+			);
+			path = .deps;
+			sourceTree = "<group>";
+		};
+		18C6D32C17279D5600184AFA /* .libs */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D32D17279D5600184AFA /* code_generator.o */,
+				18C6D32E17279D5600184AFA /* coded_stream.o */,
+				18C6D32F17279D5600184AFA /* command_line_interface.o */,
+				18C6D33017279D5600184AFA /* common.o */,
+				18C6D33117279D5600184AFA /* cpp_enum.o */,
+				18C6D33217279D5600184AFA /* cpp_enum_field.o */,
+				18C6D33317279D5600184AFA /* cpp_extension.o */,
+				18C6D33417279D5600184AFA /* cpp_field.o */,
+				18C6D33517279D5600184AFA /* cpp_file.o */,
+				18C6D33617279D5600184AFA /* cpp_generator.o */,
+				18C6D33717279D5600184AFA /* cpp_helpers.o */,
+				18C6D33817279D5600184AFA /* cpp_message.o */,
+				18C6D33917279D5600184AFA /* cpp_message_field.o */,
+				18C6D33A17279D5600184AFA /* cpp_primitive_field.o */,
+				18C6D33B17279D5600184AFA /* cpp_service.o */,
+				18C6D33C17279D5600184AFA /* cpp_string_field.o */,
+				18C6D33D17279D5600184AFA /* descriptor.o */,
+				18C6D33E17279D5600184AFA /* descriptor.pb.o */,
+				18C6D33F17279D5600184AFA /* descriptor_database.o */,
+				18C6D34017279D5600184AFA /* dynamic_message.o */,
+				18C6D34117279D5600184AFA /* extension_set.o */,
+				18C6D34217279D5600184AFA /* extension_set_heavy.o */,
+				18C6D34317279D5600184AFA /* generated_message_reflection.o */,
+				18C6D34417279D5600184AFA /* generated_message_util.o */,
+				18C6D34517279D5600184AFA /* gzip_stream.o */,
+				18C6D34617279D5600184AFA /* hash.o */,
+				18C6D34717279D5600184AFA /* importer.o */,
+				18C6D34817279D5600184AFA /* java_enum.o */,
+				18C6D34917279D5600184AFA /* java_enum_field.o */,
+				18C6D34A17279D5600184AFA /* java_extension.o */,
+				18C6D34B17279D5600184AFA /* java_field.o */,
+				18C6D34C17279D5600184AFA /* java_file.o */,
+				18C6D34D17279D5600184AFA /* java_generator.o */,
+				18C6D34E17279D5600184AFA /* java_helpers.o */,
+				18C6D34F17279D5600184AFA /* java_message.o */,
+				18C6D35017279D5600184AFA /* java_message_field.o */,
+				18C6D35117279D5600184AFA /* java_primitive_field.o */,
+				18C6D35217279D5600184AFA /* java_service.o */,
+				18C6D35317279D5600184AFA /* libprotobuf-lite.4.dylib */,
+				18C6D35417279D5600184AFA /* libprotobuf-lite.a */,
+				18C6D35517279D5600184AFA /* libprotobuf-lite.dylib */,
+				18C6D35617279D5600184AFA /* libprotobuf-lite.la */,
+				18C6D35717279D5600184AFA /* libprotobuf-lite.lai */,
+				18C6D35817279D5600184AFA /* libprotobuf.4.dylib */,
+				18C6D35917279D5600184AFA /* libprotobuf.a */,
+				18C6D35A17279D5600184AFA /* libprotobuf.dylib */,
+				18C6D35B17279D5600184AFA /* libprotobuf.la */,
+				18C6D35C17279D5600184AFA /* libprotobuf.lai */,
+				18C6D35D17279D5600184AFA /* libprotoc.4.dylib */,
+				18C6D35E17279D5600184AFA /* libprotoc.a */,
+				18C6D35F17279D5600184AFA /* libprotoc.dylib */,
+				18C6D36017279D5600184AFA /* libprotoc.la */,
+				18C6D36117279D5600184AFA /* libprotoc.lai */,
+				18C6D36217279D5600184AFA /* message.o */,
+				18C6D36317279D5600184AFA /* message_lite.o */,
+				18C6D36417279D5600184AFA /* objectivec-descriptor.pb.o */,
+				18C6D36517279D5600184AFA /* objectivec_enum.o */,
+				18C6D36617279D5600184AFA /* objectivec_enum_field.o */,
+				18C6D36717279D5600184AFA /* objectivec_extension.o */,
+				18C6D36817279D5600184AFA /* objectivec_field.o */,
+				18C6D36917279D5600184AFA /* objectivec_file.o */,
+				18C6D36A17279D5600184AFA /* objectivec_generator.o */,
+				18C6D36B17279D5600184AFA /* objectivec_helpers.o */,
+				18C6D36C17279D5600184AFA /* objectivec_message.o */,
+				18C6D36D17279D5600184AFA /* objectivec_message_field.o */,
+				18C6D36E17279D5600184AFA /* objectivec_primitive_field.o */,
+				18C6D36F17279D5600184AFA /* once.o */,
+				18C6D37017279D5600184AFA /* parser.o */,
+				18C6D37117279D5600184AFA /* printer.o */,
+				18C6D37217279D5600184AFA /* protoc */,
+				18C6D37317279D5600184AFA /* python_generator.o */,
+				18C6D37417279D5600184AFA /* reflection_ops.o */,
+				18C6D37517279D5600184AFA /* repeated_field.o */,
+				18C6D37617279D5600184AFA /* service.o */,
+				18C6D37717279D5600184AFA /* structurally_valid.o */,
+				18C6D37817279D5600184AFA /* strutil.o */,
+				18C6D37917279D5600184AFA /* substitute.o */,
+				18C6D37A17279D5600184AFA /* text_format.o */,
+				18C6D37B17279D5600184AFA /* tokenizer.o */,
+				18C6D37C17279D5600184AFA /* unknown_field_set.o */,
+				18C6D37D17279D5600184AFA /* wire_format.o */,
+				18C6D37E17279D5600184AFA /* wire_format_lite.o */,
+				18C6D37F17279D5600184AFA /* zero_copy_stream.o */,
+				18C6D38017279D5600184AFA /* zero_copy_stream_impl.o */,
+				18C6D38117279D5600184AFA /* zero_copy_stream_impl_lite.o */,
+			);
+			path = .libs;
+			sourceTree = "<group>";
+		};
+		18C6D59417279DE000184AFA /* User */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D59C17279DE000184AFA /* ResponseData */,
+				18C6D59517279DE000184AFA /* DataFormat */,
+				18C6D59A17279DE000184AFA /* NetUserRequest.h */,
+				18C6D59B17279DE000184AFA /* NetUserRequest.m */,
+				18C6D59F17279DE000184AFA /* UserLoginRequest.h */,
+				18C6D5A017279DE000184AFA /* UserLoginRequest.m */,
+				18C6D5A117279DE000184AFA /* UserRegisterRequest.h */,
+				18C6D5A217279DE000184AFA /* UserRegisterRequest.m */,
+				18C6D59817279DE000184AFA /* NetUserManager.h */,
+				18C6D59917279DE000184AFA /* NetUserManager.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		18C6D59517279DE000184AFA /* DataFormat */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D59617279DE000184AFA /* UserData.pb.h */,
+				18C6D59717279DE000184AFA /* UserData.pb.m */,
+			);
+			path = DataFormat;
+			sourceTree = "<group>";
+		};
+		18C6D59C17279DE000184AFA /* ResponseData */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D59D17279DE000184AFA /* UserResponse.pb.h */,
+				18C6D59E17279DE000184AFA /* UserResponse.pb.m */,
+			);
+			path = ResponseData;
+			sourceTree = "<group>";
+		};
+		18C6D5A917279E1500184AFA /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D5AC17279E6500184AFA /* DataFormat */,
+				18C6D5AD17279E6500184AFA /* ResponseData */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		18C6D5AC17279E6500184AFA /* DataFormat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataFormat;
+			sourceTree = "<group>";
+		};
+		18C6D5AD17279E6500184AFA /* ResponseData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ResponseData;
+			sourceTree = "<group>";
+		};
 		18EAB29B17241702003E742D = {
 			isa = PBXGroup;
 			children = (
+				18C6D5B11727AA1F00184AFA /* README.md */,
 				18BFDFD31724572B00186828 /* Resources */,
 				18BFDFD41724572B00186828 /* Resources_Blue */,
 				18EAB2CC172417AD003E742D /* Codes */,
@@ -382,11 +1325,15 @@
 		18EAB2D2172418C6003E742D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				18C6D5B31727AFE200184AFA /* const.h */,
+				18C6D5AE1727A8EA00184AFA /* Response.pb.h */,
+				18C6D5AF1727A8EA00184AFA /* Response.pb.m */,
 				18EAB2DB17241F0B003E742D /* NetItemList.h */,
 				18EAB2DC17241F0B003E742D /* NetItemList.m */,
 				18EAB2DE1724245E003E742D /* NetRequest.h */,
 				18EAB2DF1724245E003E742D /* NetRequest.m */,
-				18BFDFCD172456CD00186828 /* Room */,
+				18C6D5A917279E1500184AFA /* Room */,
+				18C6D59417279DE000184AFA /* User */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -413,6 +1360,7 @@
 		18EAB2D717241940003E742D /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				18C6D27617279D5600184AFA /* ProtoBuf */,
 				3811FB5A17266B6800ED1DD7 /* CropImage */,
 				18BFDE9E17244DF600186828 /* Reachability */,
 				18BFDE8117244DF600186828 /* ASIHTTPRequest */,
@@ -521,6 +1469,7 @@
 				388887611724687200B2D2F0 /* UserCenterView.xib in Resources */,
 				18BFDFE817246A4700186828 /* RoomCell.xib in Resources */,
 				3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */,
+				18C6D5B21727AA1F00184AFA /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +1499,6 @@
 				18BFDFBC17244DF600186828 /* RoomListView.m in Sources */,
 				18BFDFC217244DF600186828 /* NavigationView.m in Sources */,
 				18BFDFCB1724544100186828 /* RoomViewController.m in Sources */,
-				18BFDFD1172456CE00186828 /* NetRoomList.m in Sources */,
 				18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */,
 				388887601724687200B2D2F0 /* UserCenterView.m in Sources */,
 				18BFDFE717246A4700186828 /* RoomCell.m in Sources */,
@@ -560,6 +1508,34 @@
 				3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */,
 				3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */,
 				3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */,
+				18C6D41517279D5700184AFA /* AbstractMessage.m in Sources */,
+				18C6D41617279D5700184AFA /* AbstractMessage_Builder.m in Sources */,
+				18C6D41717279D5700184AFA /* CodedInputStream.m in Sources */,
+				18C6D41817279D5700184AFA /* CodedOutputStream.m in Sources */,
+				18C6D41917279D5700184AFA /* ConcreteExtensionField.m in Sources */,
+				18C6D41A17279D5700184AFA /* Descriptor.pb.m in Sources */,
+				18C6D41B17279D5700184AFA /* ExtendableMessage.m in Sources */,
+				18C6D41C17279D5700184AFA /* ExtendableMessage_Builder.m in Sources */,
+				18C6D41D17279D5700184AFA /* ExtensionRegistry.m in Sources */,
+				18C6D41E17279D5700184AFA /* Field.m in Sources */,
+				18C6D41F17279D5700184AFA /* GeneratedMessage.m in Sources */,
+				18C6D42017279D5700184AFA /* GeneratedMessage_Builder.m in Sources */,
+				18C6D42117279D5700184AFA /* MutableExtensionRegistry.m in Sources */,
+				18C6D42217279D5700184AFA /* MutableField.m in Sources */,
+				18C6D42317279D5700184AFA /* PBArray.m in Sources */,
+				18C6D42417279D5700184AFA /* RingBuffer.m in Sources */,
+				18C6D42517279D5700184AFA /* TextFormat.m in Sources */,
+				18C6D42617279D5700184AFA /* UnknownFieldSet.m in Sources */,
+				18C6D42717279D5700184AFA /* UnknownFieldSet_Builder.m in Sources */,
+				18C6D42817279D5700184AFA /* Utilities.m in Sources */,
+				18C6D42917279D5700184AFA /* WireFormat.m in Sources */,
+				18C6D5A317279DE000184AFA /* UserData.pb.m in Sources */,
+				18C6D5A417279DE000184AFA /* NetUserManager.m in Sources */,
+				18C6D5A517279DE000184AFA /* NetUserRequest.m in Sources */,
+				18C6D5A617279DE000184AFA /* UserResponse.pb.m in Sources */,
+				18C6D5A717279DE000184AFA /* UserLoginRequest.m in Sources */,
+				18C6D5A817279DE000184AFA /* UserRegisterRequest.m in Sources */,
+				18C6D5B01727A8EA00184AFA /* Response.pb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +1616,10 @@
 				GCC_PREFIX_HEADER = "Together/Together-Prefix.pch";
 				INFOPLIST_FILE = "Together/Together-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -652,6 +1632,10 @@
 				GCC_PREFIX_HEADER = "Together/Together-Prefix.pch";
 				INFOPLIST_FILE = "Together/Together-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
