@@ -30,9 +30,6 @@
 		18BFDFBE17244DF600186828 /* RoomListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFBD17244DF600186828 /* RoomListView.xib */; };
 		18BFDFC217244DF600186828 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFC117244DF600186828 /* NavigationView.m */; };
 		18BFDFC417244DF600186828 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFC317244DF600186828 /* NavigationView.xib */; };
-		18BFDFCB1724544100186828 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFC91724544000186828 /* RoomViewController.m */; };
-		18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFCA1724544100186828 /* RoomViewController.xib */; };
-		18BFDFD61724573B00186828 /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFD51724573B00186828 /* room_test.png */; };
 		18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFD917245C8B00186828 /* RoomGridView.m */; };
 		18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFDB17245C9D00186828 /* RoomGridView.xib */; };
 		18BFDFE717246A4700186828 /* RoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFE517246A4700186828 /* RoomCell.m */; };
@@ -66,6 +63,15 @@
 		18C6D5A817279DE000184AFA /* UserRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5A217279DE000184AFA /* UserRegisterRequest.m */; };
 		18C6D5B01727A8EA00184AFA /* Response.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5AF1727A8EA00184AFA /* Response.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18C6D5B21727AA1F00184AFA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5B11727AA1F00184AFA /* README.md */; };
+		18C6D5B61727C26A00184AFA /* NetRoomRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5B51727C26A00184AFA /* NetRoomRequest.m */; };
+		18C6D5B91727CA5D00184AFA /* RoomCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5B81727CA5C00184AFA /* RoomCreateRequest.m */; };
+		18C6D5BC1727CB2900184AFA /* RoomJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5BB1727CB2900184AFA /* RoomJoinRequest.m */; };
+		18C6D5BF1727CB6400184AFA /* RoomGetListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */; };
+		18C6D5C21727CB7900184AFA /* RoomSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5C11727CB7900184AFA /* RoomSearchRequest.m */; };
+		18C6D5C71727D40900184AFA /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C61727D40900184AFA /* room_test.png */; };
+		18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C81727D53E00184AFA /* room_cell_test.png */; };
+		18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5CB1727D9C400184AFA /* RoomViewController.m */; };
+		18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5CC1727D9C400184AFA /* RoomViewController.xib */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -131,10 +137,6 @@
 		18BFDFC017244DF600186828 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
 		18BFDFC117244DF600186828 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
 		18BFDFC317244DF600186828 /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
-		18BFDFC81724544000186828 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
-		18BFDFC91724544000186828 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
-		18BFDFCA1724544100186828 /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
-		18BFDFD51724573B00186828 /* room_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_test.png; sourceTree = "<group>"; };
 		18BFDFD817245C8B00186828 /* RoomGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGridView.h; sourceTree = "<group>"; };
 		18BFDFD917245C8B00186828 /* RoomGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGridView.m; sourceTree = "<group>"; };
 		18BFDFDB17245C9D00186828 /* RoomGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomGridView.xib; sourceTree = "<group>"; };
@@ -567,6 +569,23 @@
 		18C6D5AF1727A8EA00184AFA /* Response.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.pb.m; sourceTree = "<group>"; };
 		18C6D5B11727AA1F00184AFA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		18C6D5B31727AFE200184AFA /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = "../../../../together-server/src/common/const.h"; sourceTree = "<group>"; };
+		18C6D5B41727C26A00184AFA /* NetRoomRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomRequest.h; sourceTree = "<group>"; };
+		18C6D5B51727C26A00184AFA /* NetRoomRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomRequest.m; sourceTree = "<group>"; };
+		18C6D5B71727CA5C00184AFA /* RoomCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCreateRequest.h; sourceTree = "<group>"; };
+		18C6D5B81727CA5C00184AFA /* RoomCreateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCreateRequest.m; sourceTree = "<group>"; };
+		18C6D5BA1727CB2900184AFA /* RoomJoinRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomJoinRequest.h; sourceTree = "<group>"; };
+		18C6D5BB1727CB2900184AFA /* RoomJoinRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomJoinRequest.m; sourceTree = "<group>"; };
+		18C6D5BD1727CB6400184AFA /* RoomGetListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGetListRequest.h; sourceTree = "<group>"; };
+		18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGetListRequest.m; sourceTree = "<group>"; };
+		18C6D5C01727CB7900184AFA /* RoomSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomSearchRequest.h; sourceTree = "<group>"; };
+		18C6D5C11727CB7900184AFA /* RoomSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomSearchRequest.m; sourceTree = "<group>"; };
+		18C6D5C31727CC1000184AFA /* RoomConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomConfig.h; sourceTree = "<group>"; };
+		18C6D5C41727CEC700184AFA /* UserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserConfig.h; sourceTree = "<group>"; };
+		18C6D5C61727D40900184AFA /* room_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_test.png; sourceTree = "<group>"; };
+		18C6D5C81727D53E00184AFA /* room_cell_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_cell_test.png; sourceTree = "<group>"; };
+		18C6D5CA1727D9C300184AFA /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		18C6D5CB1727D9C400184AFA /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		18C6D5CC1727D9C400184AFA /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -679,9 +698,9 @@
 				18BFDFBA17244DF600186828 /* RoomListView.h */,
 				18BFDFBB17244DF600186828 /* RoomListView.m */,
 				18BFDFBD17244DF600186828 /* RoomListView.xib */,
-				18BFDFC81724544000186828 /* RoomViewController.h */,
-				18BFDFC91724544000186828 /* RoomViewController.m */,
-				18BFDFCA1724544100186828 /* RoomViewController.xib */,
+				18C6D5CA1727D9C300184AFA /* RoomViewController.h */,
+				18C6D5CB1727D9C400184AFA /* RoomViewController.m */,
+				18C6D5CC1727D9C400184AFA /* RoomViewController.xib */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -707,7 +726,7 @@
 		18BFDFD31724572B00186828 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				18BFDFD51724573B00186828 /* room_test.png */,
+				18C6D5C51727D40900184AFA /* Room */,
 			);
 			name = Resources;
 			path = Together/Resources;
@@ -1223,6 +1242,16 @@
 			children = (
 				18C6D5AC17279E6500184AFA /* DataFormat */,
 				18C6D5AD17279E6500184AFA /* ResponseData */,
+				18C6D5B41727C26A00184AFA /* NetRoomRequest.h */,
+				18C6D5B51727C26A00184AFA /* NetRoomRequest.m */,
+				18C6D5B71727CA5C00184AFA /* RoomCreateRequest.h */,
+				18C6D5B81727CA5C00184AFA /* RoomCreateRequest.m */,
+				18C6D5BA1727CB2900184AFA /* RoomJoinRequest.h */,
+				18C6D5BB1727CB2900184AFA /* RoomJoinRequest.m */,
+				18C6D5BD1727CB6400184AFA /* RoomGetListRequest.h */,
+				18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */,
+				18C6D5C01727CB7900184AFA /* RoomSearchRequest.h */,
+				18C6D5C11727CB7900184AFA /* RoomSearchRequest.m */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -1239,6 +1268,15 @@
 			children = (
 			);
 			path = ResponseData;
+			sourceTree = "<group>";
+		};
+		18C6D5C51727D40900184AFA /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				18C6D5C81727D53E00184AFA /* room_cell_test.png */,
+				18C6D5C61727D40900184AFA /* room_test.png */,
+			);
+			path = Room;
 			sourceTree = "<group>";
 		};
 		18EAB29B17241702003E742D = {
@@ -1353,6 +1391,8 @@
 			isa = PBXGroup;
 			children = (
 				18EAB2D5172418EA003E742D /* Config.h */,
+				18C6D5C31727CC1000184AFA /* RoomConfig.h */,
+				18C6D5C41727CEC700184AFA /* UserConfig.h */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1463,13 +1503,14 @@
 				18BFDE7917244DF600186828 /* HomeViewController.xib in Resources */,
 				18BFDFBE17244DF600186828 /* RoomListView.xib in Resources */,
 				18BFDFC417244DF600186828 /* NavigationView.xib in Resources */,
-				18BFDFCC1724544100186828 /* RoomViewController.xib in Resources */,
-				18BFDFD61724573B00186828 /* room_test.png in Resources */,
 				18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */,
 				388887611724687200B2D2F0 /* UserCenterView.xib in Resources */,
 				18BFDFE817246A4700186828 /* RoomCell.xib in Resources */,
 				3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */,
 				18C6D5B21727AA1F00184AFA /* README.md in Resources */,
+				18C6D5C71727D40900184AFA /* room_test.png in Resources */,
+				18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */,
+				18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1498,7 +1539,6 @@
 				18BFDEB017244DF600186828 /* GMETLibs+DataContainer.m in Sources */,
 				18BFDFBC17244DF600186828 /* RoomListView.m in Sources */,
 				18BFDFC217244DF600186828 /* NavigationView.m in Sources */,
-				18BFDFCB1724544100186828 /* RoomViewController.m in Sources */,
 				18BFDFDA17245C8B00186828 /* RoomGridView.m in Sources */,
 				388887601724687200B2D2F0 /* UserCenterView.m in Sources */,
 				18BFDFE717246A4700186828 /* RoomCell.m in Sources */,
@@ -1536,6 +1576,12 @@
 				18C6D5A717279DE000184AFA /* UserLoginRequest.m in Sources */,
 				18C6D5A817279DE000184AFA /* UserRegisterRequest.m in Sources */,
 				18C6D5B01727A8EA00184AFA /* Response.pb.m in Sources */,
+				18C6D5B61727C26A00184AFA /* NetRoomRequest.m in Sources */,
+				18C6D5B91727CA5D00184AFA /* RoomCreateRequest.m in Sources */,
+				18C6D5BC1727CB2900184AFA /* RoomJoinRequest.m in Sources */,
+				18C6D5BF1727CB6400184AFA /* RoomGetListRequest.m in Sources */,
+				18C6D5C21727CB7900184AFA /* RoomSearchRequest.m in Sources */,
+				18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

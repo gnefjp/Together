@@ -6,13 +6,12 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+@class RoomGridView;
 @interface RoomListView : UIView
 {
-    __weak IBOutlet UITableView *_roomTableView;
+    RoomGridView        *_defaultRoomGridView;
+    RoomGridView        *_searchRoomGridView;
 }
-
 
 
 @end

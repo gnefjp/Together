@@ -12,6 +12,8 @@
 #import "RoomListView.h"
 #import "UserCenterView.h"
 
+#import "RoomViewController.h"
+
 @implementation HomeViewController
 
 
@@ -33,14 +35,17 @@
 #pragma mark- 导航栏
 - (void) _isShowNavigation:(BOOL)isShow animation:(BOOL)animation
 {
+    _navigationView.frameX = !isShow ? 0.0 : -242.0;
+    _mainView.frameX = !isShow ? 242.0 : 0.0;
+    
     if (animation)
     {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.5];
     }
     
-    _navigationView.frameX = isShow ? 0.0 : -236.0;
-    _mainView.frameX = isShow ? 236.0 : 0.0;
+    _navigationView.frameX = isShow ? 0.0 : -242.0;
+    _mainView.frameX = isShow ? 242.0 : 0.0;
     
     if (animation)
     {

@@ -130,10 +130,10 @@
     return keyWindow.rootViewController.view;
 }
 
-+ (UIViewController*) rootController
++ (UINavigationController*) rootController
 {
     UIWindow *keyWindow = [[UIApplication sharedApplication].windows objectAtIndex:0];
-    return keyWindow.rootViewController;
+    return (UINavigationController *)keyWindow.rootViewController;
 }
 
 

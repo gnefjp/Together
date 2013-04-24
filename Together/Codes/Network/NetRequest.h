@@ -18,7 +18,7 @@
     NSMutableDictionary     *_expandVar;
 }
 
-@property (nonatomic, assign) id                delegate;
+@property (nonatomic, weak)     id               delegate;
 @property (nonatomic, readonly) ASIHTTPRequest  *httpRequest;
 @property (nonatomic, readonly) HTTPResponse    *responseData;
 

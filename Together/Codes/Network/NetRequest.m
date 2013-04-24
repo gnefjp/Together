@@ -11,6 +11,15 @@
 @implementation NetRequest
 @synthesize httpRequest = _httpRequest;
 
+
+- (void) dealloc
+{
+    _httpRequest.delegate = nil;
+    _httpRequest.downloadProgressDelegate = nil;
+    _httpRequest.uploadProgressDelegate = nil;
+}
+
+
 - (id) init
 {
     self = [super init];
@@ -61,6 +70,7 @@
     NSLog(@"http : %@", request.responseString);
     
     _responseData = [HTTPResponse parseFromData:request.responseData];
+    NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
     if (_responseData.success)
     {
         [self _requestFinished];

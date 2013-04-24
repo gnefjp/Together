@@ -7,33 +7,22 @@
 //
 
 #import "RoomListView.h"
+#import "RoomGridView.h"
 
 @implementation RoomListView
 
 
 - (void) awakeFromNib
 {
+    _defaultRoomGridView = [RoomGridView loadFromNib];
+    _defaultRoomGridView.frameY = 44.0;
+    _defaultRoomGridView.alpha = 1.0f;
+    [self addSubview:_defaultRoomGridView];
     
-}
-
-
-#pragma mark- UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-
-#pragma mark- UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return nil;
+    _searchRoomGridView = [RoomGridView loadFromNib];
+    _searchRoomGridView.frameY = 44.0;
+    _searchRoomGridView.alpha = 0.0f;
+    [self addSubview:_searchRoomGridView];
 }
 
 @end

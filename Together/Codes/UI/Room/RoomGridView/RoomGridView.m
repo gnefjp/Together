@@ -6,26 +6,54 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
+#import "RoomCell.h"
 #import "RoomGridView.h"
+
+#import "RoomViewController.h"
 
 @implementation RoomGridView
 
-- (id)initWithFrame:(CGRect)frame
+
+- (void) awakeFromNib
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+
+#pragma mark- UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Drawing code
+    RoomViewController *roomViewController = [RoomViewController loadFromNib];
+    [[UIView rootController] pushViewController:roomViewController animated:YES];
 }
-*/
+
+
+#pragma mark- UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* cellIdentifier = @"RoomCellIndentifier";
+    
+    RoomCell *cell = (RoomCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [RoomCell loadFromNib];
+    }
+    
+    return cell;
+}
+
+
 
 @end
+
+
+
+
+
