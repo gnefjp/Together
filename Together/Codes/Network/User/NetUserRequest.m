@@ -12,7 +12,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://172.18.18.160:9080/USER";
+    return @"http://172.18.18.169:9080/USER";
 }
 
 - (NSString *) actionCode

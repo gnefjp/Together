@@ -72,6 +72,14 @@
 		18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C81727D53E00184AFA /* room_cell_test.png */; };
 		18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5CB1727D9C400184AFA /* RoomViewController.m */; };
 		18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5CC1727D9C400184AFA /* RoomViewController.xib */; };
+		18D41DE517294B8700D0C950 /* RoomResponse.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE417294B8700D0C950 /* RoomResponse.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18D41DE817294B8F00D0C950 /* RoomData.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE717294B8F00D0C950 /* RoomData.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18D41DED17294BC200D0C950 /* GMETLibs+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DEA17294BC200D0C950 /* GMETLibs+NSString.m */; };
+		18D41DEE17294BC200D0C950 /* GMETLibs+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DEC17294BC200D0C950 /* GMETLibs+UIColor.m */; };
+		18D41DF617294BD500D0C950 /* RoomCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF117294BD500D0C950 /* RoomCreateViewController.m */; };
+		18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */; };
+		18D41DF817294BD500D0C950 /* RoomInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF417294BD500D0C950 /* RoomInfoCell.m */; };
+		18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF517294BD500D0C950 /* RoomInfoCell.xib */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -594,6 +602,20 @@
 		18C6D5CA1727D9C300184AFA /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		18C6D5CB1727D9C400184AFA /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		18C6D5CC1727D9C400184AFA /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
+		18D41DE317294B8700D0C950 /* RoomResponse.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomResponse.pb.h; sourceTree = "<group>"; };
+		18D41DE417294B8700D0C950 /* RoomResponse.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomResponse.pb.m; sourceTree = "<group>"; };
+		18D41DE617294B8F00D0C950 /* RoomData.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomData.pb.h; sourceTree = "<group>"; };
+		18D41DE717294B8F00D0C950 /* RoomData.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomData.pb.m; sourceTree = "<group>"; };
+		18D41DE917294BC200D0C950 /* GMETLibs+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMETLibs+NSString.h"; sourceTree = "<group>"; };
+		18D41DEA17294BC200D0C950 /* GMETLibs+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+NSString.m"; sourceTree = "<group>"; };
+		18D41DEB17294BC200D0C950 /* GMETLibs+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMETLibs+UIColor.h"; sourceTree = "<group>"; };
+		18D41DEC17294BC200D0C950 /* GMETLibs+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+UIColor.m"; sourceTree = "<group>"; };
+		18D41DF017294BD500D0C950 /* RoomCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCreateViewController.h; sourceTree = "<group>"; };
+		18D41DF117294BD500D0C950 /* RoomCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCreateViewController.m; sourceTree = "<group>"; };
+		18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomCreateViewController.xib; sourceTree = "<group>"; };
+		18D41DF317294BD500D0C950 /* RoomInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfoCell.h; sourceTree = "<group>"; };
+		18D41DF417294BD500D0C950 /* RoomInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfoCell.m; sourceTree = "<group>"; };
+		18D41DF517294BD500D0C950 /* RoomInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomInfoCell.xib; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -716,6 +738,7 @@
 		18BFDFB917244DF600186828 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DEF17294BD500D0C950 /* RoomCreate */,
 				18BFDFD717245C6400186828 /* RoomGridView */,
 				18BFDFBA17244DF600186828 /* RoomListView.h */,
 				18BFDFBB17244DF600186828 /* RoomListView.m */,
@@ -1282,6 +1305,8 @@
 		18C6D5AC17279E6500184AFA /* DataFormat */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DE617294B8F00D0C950 /* RoomData.pb.h */,
+				18D41DE717294B8F00D0C950 /* RoomData.pb.m */,
 			);
 			path = DataFormat;
 			sourceTree = "<group>";
@@ -1289,6 +1314,8 @@
 		18C6D5AD17279E6500184AFA /* ResponseData */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DE317294B8700D0C950 /* RoomResponse.pb.h */,
+				18D41DE417294B8700D0C950 /* RoomResponse.pb.m */,
 			);
 			path = ResponseData;
 			sourceTree = "<group>";
@@ -1300,6 +1327,19 @@
 				18C6D5C61727D40900184AFA /* room_test.png */,
 			);
 			path = Room;
+			sourceTree = "<group>";
+		};
+		18D41DEF17294BD500D0C950 /* RoomCreate */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DF017294BD500D0C950 /* RoomCreateViewController.h */,
+				18D41DF117294BD500D0C950 /* RoomCreateViewController.m */,
+				18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */,
+				18D41DF317294BD500D0C950 /* RoomInfoCell.h */,
+				18D41DF417294BD500D0C950 /* RoomInfoCell.m */,
+				18D41DF517294BD500D0C950 /* RoomInfoCell.xib */,
+			);
+			path = RoomCreate;
 			sourceTree = "<group>";
 		};
 		18EAB29B17241702003E742D = {
@@ -1377,6 +1417,10 @@
 			isa = PBXGroup;
 			children = (
 				18EAB2D61724190F003E742D /* GMETLibs.h */,
+				18D41DE917294BC200D0C950 /* GMETLibs+NSString.h */,
+				18D41DEA17294BC200D0C950 /* GMETLibs+NSString.m */,
+				18D41DEB17294BC200D0C950 /* GMETLibs+UIColor.h */,
+				18D41DEC17294BC200D0C950 /* GMETLibs+UIColor.m */,
 				18BFDE7A17244DF600186828 /* GMETLibs+UIView.h */,
 				18BFDE7B17244DF600186828 /* GMETLibs+UIView.m */,
 				18BFDEAE17244DF600186828 /* GMETLibs+DataContainer.h */,
@@ -1563,6 +1607,8 @@
 				18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */,
 				3895A610172900030025163D /* MapCustomView.xib in Resources */,
 				3895A612172900030025163D /* MapView.xib in Resources */,
+				18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */,
+				18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1638,6 +1684,12 @@
 				3895A611172900030025163D /* MapView.m in Sources */,
 				3895A61C172912670025163D /* PicActioSheet.m in Sources */,
 				3895A61D172912690025163D /* PicChange.m in Sources */,
+				18D41DE517294B8700D0C950 /* RoomResponse.pb.m in Sources */,
+				18D41DE817294B8F00D0C950 /* RoomData.pb.m in Sources */,
+				18D41DED17294BC200D0C950 /* GMETLibs+NSString.m in Sources */,
+				18D41DEE17294BC200D0C950 /* GMETLibs+UIColor.m in Sources */,
+				18D41DF617294BD500D0C950 /* RoomCreateViewController.m in Sources */,
+				18D41DF817294BD500D0C950 /* RoomInfoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

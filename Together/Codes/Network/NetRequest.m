@@ -68,7 +68,6 @@
 {
     NSLog(@"code : %d, msg : %@", request.responseStatusCode, request.responseStatusMessage);
     NSLog(@"http : %@", request.responseString);
-    
     _responseData = [HTTPResponse parseFromData:request.responseData];
     NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
     if (_responseData.success)
@@ -86,6 +85,7 @@
 
 - (void) requestFailed:(ASIHTTPRequest*)request
 {
+    NSLog(@"request.http : %@", request.responseString);
     [self _requestFailed];
     [[NetRequestManager defaultManager] removeRequest:self];
 }

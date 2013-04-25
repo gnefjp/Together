@@ -3,11 +3,14 @@
 #import "ProtocolBuffers.h"
 
 #import "UserResponse.pb.h"
+#import "RoomResponse.pb.h"
 
 @class HTTPResponse;
 @class HTTPResponse_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
+@class RoomInfo;
+@class RoomInfo_Builder;
 @class User_Info;
 @class User_Info_Builder;
 

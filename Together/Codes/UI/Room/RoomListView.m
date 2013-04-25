@@ -9,6 +9,8 @@
 #import "RoomListView.h"
 #import "RoomGridView.h"
 
+#import "RoomCreateViewController.h"
+
 @implementation RoomListView
 
 
@@ -25,4 +27,10 @@
     [self addSubview:_searchRoomGridView];
 }
 
+
+- (IBAction)createRoomBtnPressed:(id)sender
+{
+    RoomCreateViewController* createRoomControll = [RoomCreateViewController loadFromNib];
+    [[UIView rootController] pushViewController:createRoomControll animated:YES];
+}
 @end

@@ -11,12 +11,12 @@
 
 typedef enum
 {
-    UserGenderType_Unknow   = -1,
+    UserGenderType_Unknow   = 0,
     
-    UserGenderType_Boy      = 0,
-    UserGenderType_Girl     = 1,
+    UserGenderType_Boy      = 1,
+    UserGenderType_Girl     = 2,
     
-    UserGenderTyp_Max       = 2,
+    UserGenderTyp_Max       = 3,
 } UserGenderType;
 
 #endif

@@ -10,6 +10,8 @@
 #define Together_GMETLibs_h
 
 #import "GMETLibs+UIView.h"
+#import "GMETLibs+NSString.h"
+#import "GMETLibs+UIColor.h"
 #import "GMETLibs+DataContainer.h"
 
 #endif

@@ -13,6 +13,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     PBMutableExtensionRegistry* registry = [PBMutableExtensionRegistry registry];
     [self registerAllExtensions:registry];
     [UserResponseRoot registerAllExtensions:registry];
+    [RoomResponseRoot registerAllExtensions:registry];
     extensionRegistry = [registry retain];
   }
 }

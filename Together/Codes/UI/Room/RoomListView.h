@@ -13,5 +13,6 @@
     RoomGridView        *_searchRoomGridView;
 }
 
+- (IBAction)createRoomBtnPressed:(id)sender;
 
 @end

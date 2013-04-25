@@ -30,6 +30,6 @@
 
 - (IBAction)closeBtnPressed:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

@@ -4,7 +4,7 @@ currentDir=$(cd "$(dirname "$0")"; pwd)
 cd $currentDir
 
 
-protoFileDir="../../../../../together-server/src/data/"
+protoFileDir="../../../../../together-server/src/data"
 
 networkDir="../../Network"
 
@@ -13,7 +13,7 @@ responseDir="ResponseData"
 
 
 #接口返回格式
-src/protoc --proto_path=$protoFileDir --objc_out=$networkDir $protoFileDir"/Response.proto"
+src/protoc --proto_path=$protoFileDir --objc_out=$networkDir $protoFileDir"/Response.proto" 
 
 #列表
 src/protoc --proto_path=$protoFileDir --objc_out=$networkDir $protoFileDir"/DataList.proto"
@@ -26,7 +26,7 @@ src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/User/"$dataFormatD
 
 #房间模块
 src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/Room/"$responseDir $protoFileDir"/RoomResponse.proto"
-src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/Room/"$dataFormatDir $protoFileDir"/RoomInfo.proto"
+src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/Room/"$dataFormatDir $protoFileDir"/RoomData.proto"
 
 
 exit 0
