@@ -1487,10 +1487,10 @@
 		3895A6171729120F0025163D /* PicChange */ = {
 			isa = PBXGroup;
 			children = (
-				3895A618172912530025163D /* PicActioSheet.h */,
-				3895A619172912530025163D /* PicActioSheet.m */,
 				3895A61A172912530025163D /* PicChange.h */,
 				3895A61B172912530025163D /* PicChange.m */,
+				3895A618172912530025163D /* PicActioSheet.h */,
+				3895A619172912530025163D /* PicActioSheet.m */,
 			);
 			path = PicChange;
 			sourceTree = "<group>";
