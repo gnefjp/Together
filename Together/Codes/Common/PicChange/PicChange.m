@@ -26,8 +26,7 @@
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [picker dismissModalViewControllerAnimated:YES];
-    [_delegate ChangeAvatarSelectImage:image];
-    
+    [_delegate PicChangeSuccess:self img:image];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

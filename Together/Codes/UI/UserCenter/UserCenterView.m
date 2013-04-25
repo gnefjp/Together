@@ -33,16 +33,7 @@
     NSLog(@"%lf,%lf",aLocation.latitude,aLocation.longitude);
 }
 
-- (void)ChangeAvatarSelectImage:(UIImage *)img
-{
-//    AvatarCutView *cutView = [AvatarCutView loadFromNib];
-//    cutView.delegate = self;
-//    [cutView initWithImage:img];
-//    [[UIView rootView] addSubview:cutView];
-//    [cutView showAnimation];
-}
-
-- (void)avataImageDidReceive:(UIImage *)img
+- (void)PicChangeSuccess:(PicChange *)self img:(UIImage *)img
 {
     _iAvatarImage.image = img;
 }

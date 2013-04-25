@@ -9,19 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "PicActioSheet.h"
 
-@protocol ChangeAvatarDelegate <NSObject>
+@class PicChange;
 
-- (void)ChangeAvatarSelectImage:(UIImage*)img;
+@protocol PicChangeDelegate <NSObject>
+
+- (void)PicChangeSuccess:(PicChange*)self img:(UIImage*)img;
 
 @end
 
 @interface PicChange : NSObject<PicActioSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
-    __weak id<ChangeAvatarDelegate>     _delegate;
+    __weak id<PicChangeDelegate>     _delegate;
     
 }
 
-@property (weak,nonatomic) id<ChangeAvatarDelegate>     delegate;
+@property (weak,nonatomic) id<PicChangeDelegate>     delegate;
 
 - (void)addAvataActionSheet;
 

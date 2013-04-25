@@ -13,12 +13,12 @@
 
 @class GMETRecorder;
 
-@interface UserCenterView : UIView<ChangeAvatarDelegate,MapViewDelegate>
+@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate>
 {
     __weak IBOutlet UIImageView     *_iAvatarImage;
     GMETRecorder                    *_recorder;
     AVAudioPlayer                   *_player;
-    PicChange                    *_avatar;
+    PicChange                       *_avatar;
 }
 
 - (IBAction)showMapViewBtnDidpressed:(id)sender;
