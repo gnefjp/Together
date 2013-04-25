@@ -7,20 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GMETRecorder.h"
-#import "AvataActioSheet.h"
-#import "ChangeAvatar.h"
-#import "AvatarCutView.h"
+#import <AVFoundation/AVFoundation.h>
+#import "PicChange.h"
+#import "MapView.h"
 
-@interface UserCenterView : UIView<UIActionSheetDelegate,ChangeAvatarDelegate,AvatarCutViewDelegate>
+@class GMETRecorder;
+
+@interface UserCenterView : UIView<ChangeAvatarDelegate,MapViewDelegate>
 {
-    GMETRecorder        *_recorder;
-    AVAudioPlayer       *_player;
-    ChangeAvatar        *_avatar;
-    __weak IBOutlet UIImageView *_iAvatarImage;
-    
+    __weak IBOutlet UIImageView     *_iAvatarImage;
+    GMETRecorder                    *_recorder;
+    AVAudioPlayer                   *_player;
+    PicChange                    *_avatar;
 }
 
+- (IBAction)showMapViewBtnDidpressed:(id)sender;
 - (IBAction)recordBtnDidPressed:(id)sender;
 - (IBAction)stopRecordBtnDidPressed:(id)sender;
 - (IBAction)changeAvataBtnDidPressed:(id)sender;

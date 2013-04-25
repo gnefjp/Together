@@ -7,6 +7,7 @@
 //
 
 #import "UserCenterView.h"
+#import "GMETRecorder.h"
 
 @implementation UserCenterView
 
@@ -19,13 +20,26 @@
     return self;
 }
 
+- (IBAction)showMapViewBtnDidpressed:(id)sender
+{
+    MapView *mapView = [MapView loadFromNib];
+    [[UIView rootView] addSubview:mapView];
+    [mapView showAnimation];
+    mapView.delegate = self;
+}
+
+- (void)MapView:(MapView *)view location:(CLLocationCoordinate2D)aLocation
+{
+    NSLog(@"%lf,%lf",aLocation.latitude,aLocation.longitude);
+}
+
 - (void)ChangeAvatarSelectImage:(UIImage *)img
 {
-    AvatarCutView *cutView = [AvatarCutView loadFromNib];
-    cutView.delegate = self;
-    [cutView initWithImage:img];
-    [[UIView rootView] addSubview:cutView];
-    [cutView showAnimation];
+//    AvatarCutView *cutView = [AvatarCutView loadFromNib];
+//    cutView.delegate = self;
+//    [cutView initWithImage:img];
+//    [[UIView rootView] addSubview:cutView];
+//    [cutView showAnimation];
 }
 
 - (void)avataImageDidReceive:(UIImage *)img
@@ -50,7 +64,7 @@
 - (IBAction)changeAvataBtnDidPressed:(id)sender
 {
     if (!_avatar) {
-        _avatar = [[ChangeAvatar alloc] init];
+        _avatar = [[PicChange alloc] init];
         _avatar.delegate = self;
     }
     [_avatar addAvataActionSheet];
@@ -61,6 +75,7 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryAmbient error:nil];
     [session setActive:YES error:nil];
+    
     
     _player = [[AVAudioPlayer alloc] initWithContentsOfURL:
                                    [GMETRecorder getRecordFileUrl] error:nil];

@@ -83,8 +83,6 @@
 		18EAB2CF172417F0003E742D /* TogetherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2CE172417F0003E742D /* TogetherAppDelegate.m */; };
 		18EAB2DD17241F0B003E742D /* NetItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DC17241F0B003E742D /* NetItemList.m */; };
 		18EAB2E01724245E003E742D /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DF1724245E003E742D /* NetRequest.m */; };
-		3811FB56172637A600ED1DD7 /* AvataActioSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB55172637A600ED1DD7 /* AvataActioSheet.m */; };
-		3811FB59172653DA00ED1DD7 /* ChangeAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB58172653DA00ED1DD7 /* ChangeAvatar.m */; };
 		3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5C17266B6800ED1DD7 /* KICropImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
 		3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */; };
@@ -93,6 +91,16 @@
 		388887611724687200B2D2F0 /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3888875F1724687200B2D2F0 /* UserCenterView.xib */; };
 		3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888876C172476B100B2D2F0 /* GMETRecorder.m */; };
 		3888876F1724778600B2D2F0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3888876E1724778600B2D2F0 /* AVFoundation.framework */; };
+		3895A60D172900030025163D /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A604172900030025163D /* Annotation.m */; };
+		3895A60E172900030025163D /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A606172900030025163D /* CustomAnnotationView.m */; };
+		3895A60F172900030025163D /* MapCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A608172900030025163D /* MapCustomView.m */; };
+		3895A610172900030025163D /* MapCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3895A609172900030025163D /* MapCustomView.xib */; };
+		3895A611172900030025163D /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A60B172900030025163D /* MapView.m */; };
+		3895A612172900030025163D /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3895A60C172900030025163D /* MapView.xib */; };
+		3895A614172901750025163D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3895A613172901740025163D /* MapKit.framework */; };
+		3895A616172901890025163D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3895A615172901890025163D /* CoreLocation.framework */; };
+		3895A61C172912670025163D /* PicActioSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A619172912530025163D /* PicActioSheet.m */; };
+		3895A61D172912690025163D /* PicChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A61B172912530025163D /* PicChange.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -605,10 +613,6 @@
 		18EAB2DC17241F0B003E742D /* NetItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetItemList.m; sourceTree = "<group>"; };
 		18EAB2DE1724245E003E742D /* NetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRequest.h; sourceTree = "<group>"; };
 		18EAB2DF1724245E003E742D /* NetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
-		3811FB54172637A600ED1DD7 /* AvataActioSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvataActioSheet.h; sourceTree = "<group>"; };
-		3811FB55172637A600ED1DD7 /* AvataActioSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvataActioSheet.m; sourceTree = "<group>"; };
-		3811FB57172653DA00ED1DD7 /* ChangeAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeAvatar.h; sourceTree = "<group>"; };
-		3811FB58172653DA00ED1DD7 /* ChangeAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeAvatar.m; sourceTree = "<group>"; };
 		3811FB5B17266B6800ED1DD7 /* KICropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KICropImageView.h; sourceTree = "<group>"; };
 		3811FB5C17266B6800ED1DD7 /* KICropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KICropImageView.m; sourceTree = "<group>"; };
 		3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KIAdditions.h"; sourceTree = "<group>"; };
@@ -622,6 +626,22 @@
 		3888876B172476B100B2D2F0 /* GMETRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETRecorder.h; sourceTree = "<group>"; };
 		3888876C172476B100B2D2F0 /* GMETRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETRecorder.m; sourceTree = "<group>"; };
 		3888876E1724778600B2D2F0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3895A603172900030025163D /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		3895A604172900030025163D /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		3895A605172900030025163D /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		3895A606172900030025163D /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
+		3895A607172900030025163D /* MapCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCustomView.h; sourceTree = "<group>"; };
+		3895A608172900030025163D /* MapCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCustomView.m; sourceTree = "<group>"; };
+		3895A609172900030025163D /* MapCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapCustomView.xib; sourceTree = "<group>"; };
+		3895A60A172900030025163D /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		3895A60B172900030025163D /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		3895A60C172900030025163D /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
+		3895A613172901740025163D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3895A615172901890025163D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3895A618172912530025163D /* PicActioSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicActioSheet.h; sourceTree = "<group>"; };
+		3895A619172912530025163D /* PicActioSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicActioSheet.m; sourceTree = "<group>"; };
+		3895A61A172912530025163D /* PicChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicChange.h; sourceTree = "<group>"; };
+		3895A61B172912530025163D /* PicChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicChange.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -629,6 +649,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3895A616172901890025163D /* CoreLocation.framework in Frameworks */,
+				3895A614172901750025163D /* MapKit.framework in Frameworks */,
 				3888876F1724778600B2D2F0 /* AVFoundation.framework in Frameworks */,
 				18BFDEAD17244DF600186828 /* QuartzCore.framework in Frameworks */,
 				18BFDEAB17244DF600186828 /* libz.1.2.5.dylib in Frameworks */,
@@ -718,6 +740,7 @@
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3895A6171729120F0025163D /* PicChange */,
 				3888876A172476B100B2D2F0 /* Recorder */,
 			);
 			path = Common;
@@ -1302,6 +1325,8 @@
 		18EAB2A617241702003E742D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3895A615172901890025163D /* CoreLocation.framework */,
+				3895A613172901740025163D /* MapKit.framework */,
 				3888876E1724778600B2D2F0 /* AVFoundation.framework */,
 				18BFDEAA17244DF600186828 /* libz.1.2.5.dylib */,
 				18BFDEA817244DF600186828 /* libxml2.dylib */,
@@ -1379,6 +1404,7 @@
 		18EAB2D3172418C6003E742D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3895A602172900030025163D /* MapView */,
 				3888875C1724687200B2D2F0 /* UserCenter */,
 				18BFDFBF17244DF600186828 /* NavigationView */,
 				18BFDFB917244DF600186828 /* Room */,
@@ -1425,10 +1451,6 @@
 				3888875D1724687200B2D2F0 /* UserCenterView.h */,
 				3888875E1724687200B2D2F0 /* UserCenterView.m */,
 				3888875F1724687200B2D2F0 /* UserCenterView.xib */,
-				3811FB54172637A600ED1DD7 /* AvataActioSheet.h */,
-				3811FB55172637A600ED1DD7 /* AvataActioSheet.m */,
-				3811FB57172653DA00ED1DD7 /* ChangeAvatar.h */,
-				3811FB58172653DA00ED1DD7 /* ChangeAvatar.m */,
 				3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */,
 				3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */,
 				3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */,
@@ -1443,6 +1465,34 @@
 				3888876C172476B100B2D2F0 /* GMETRecorder.m */,
 			);
 			path = Recorder;
+			sourceTree = "<group>";
+		};
+		3895A602172900030025163D /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				3895A603172900030025163D /* Annotation.h */,
+				3895A604172900030025163D /* Annotation.m */,
+				3895A605172900030025163D /* CustomAnnotationView.h */,
+				3895A606172900030025163D /* CustomAnnotationView.m */,
+				3895A607172900030025163D /* MapCustomView.h */,
+				3895A608172900030025163D /* MapCustomView.m */,
+				3895A609172900030025163D /* MapCustomView.xib */,
+				3895A60A172900030025163D /* MapView.h */,
+				3895A60B172900030025163D /* MapView.m */,
+				3895A60C172900030025163D /* MapView.xib */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		3895A6171729120F0025163D /* PicChange */ = {
+			isa = PBXGroup;
+			children = (
+				3895A618172912530025163D /* PicActioSheet.h */,
+				3895A619172912530025163D /* PicActioSheet.m */,
+				3895A61A172912530025163D /* PicChange.h */,
+				3895A61B172912530025163D /* PicChange.m */,
+			);
+			path = PicChange;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1511,6 +1561,8 @@
 				18C6D5C71727D40900184AFA /* room_test.png in Resources */,
 				18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */,
 				18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */,
+				3895A610172900030025163D /* MapCustomView.xib in Resources */,
+				3895A612172900030025163D /* MapView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1543,8 +1595,6 @@
 				388887601724687200B2D2F0 /* UserCenterView.m in Sources */,
 				18BFDFE717246A4700186828 /* RoomCell.m in Sources */,
 				3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */,
-				3811FB56172637A600ED1DD7 /* AvataActioSheet.m in Sources */,
-				3811FB59172653DA00ED1DD7 /* ChangeAvatar.m in Sources */,
 				3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */,
 				3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */,
 				3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */,
@@ -1582,6 +1632,12 @@
 				18C6D5BF1727CB6400184AFA /* RoomGetListRequest.m in Sources */,
 				18C6D5C21727CB7900184AFA /* RoomSearchRequest.m in Sources */,
 				18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */,
+				3895A60D172900030025163D /* Annotation.m in Sources */,
+				3895A60E172900030025163D /* CustomAnnotationView.m in Sources */,
+				3895A60F172900030025163D /* MapCustomView.m in Sources */,
+				3895A611172900030025163D /* MapView.m in Sources */,
+				3895A61C172912670025163D /* PicActioSheet.m in Sources */,
+				3895A61D172912690025163D /* PicChange.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
