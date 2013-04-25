@@ -11,10 +11,10 @@
 
 @interface Annotation : NSObject <MKAnnotation>
 
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
-@property (nonatomic, assign) NSString *locationType;
+@property (readonly, nonatomic)  CLLocationCoordinate2D coordinate;
+@property (copy, nonatomic)      NSString *title;
+@property (copy, nonatomic)      NSString *subtitle;
+@property (assign, nonatomic)    NSString *locationType;
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord;
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;

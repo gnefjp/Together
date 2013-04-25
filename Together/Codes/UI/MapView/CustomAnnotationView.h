@@ -14,10 +14,10 @@
 {
     MapCustomView           *_mapView;
 }
+
 @property (strong, nonatomic) UIImageView             *calloutView;
 @property (strong, nonatomic) MapCustomView           *mapView;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
-- (void)animateCalloutAppearance;
 
 @end

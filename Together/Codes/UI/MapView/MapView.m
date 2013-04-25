@@ -8,18 +8,12 @@
 
 #import "MapView.h"
 #import "Annotation.h"
+#import "CustomAnnotationView.h"
+#import "Annotation.h"
 
 @implementation MapView
+
 @synthesize delegate = _delegate;
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-        // Initialization code
-    }
-    return self;
-}
 
 - (void)awakeFromNib
 {

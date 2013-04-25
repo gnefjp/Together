@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotationView.h>
-#import "CustomAnnotationView.h"
-#import "Annotation.h"
 
 @class MapView;
+@class Annotation;
+@class CustomAnnotationView;
 
 @protocol MapViewDelegate <NSObject>
 
@@ -23,10 +23,11 @@
 @interface MapView : UIView<CLLocationManagerDelegate>
 {
     __weak IBOutlet MKMapView       *_iMapView;
+    __weak id<MapViewDelegate>      _delegate;
+    
     CLLocationManager               *_locationManager;
     BOOL                            *_isAdd;
     Annotation                      *_choosePosition;
-    __weak id<MapViewDelegate>      _delegate;
 }
 
 @property (weak ,nonatomic) __weak id<MapViewDelegate>    delegate;
