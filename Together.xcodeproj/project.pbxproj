@@ -80,6 +80,8 @@
 		18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */; };
 		18D41DF817294BD500D0C950 /* RoomInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF417294BD500D0C950 /* RoomInfoCell.m */; };
 		18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF517294BD500D0C950 /* RoomInfoCell.xib */; };
+		18D76BE6172A514E004E2C8B /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D76BE5172A514E004E2C8B /* NetRoomList.m */; };
+		18D76BE9172A6FB1004E2C8B /* NetRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D76BE8172A6FB1004E2C8B /* NetRoomManager.m */; };
 		18E78DA217297C4000036B3C /* GMETTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA117297C4000036B3C /* GMETTapView.m */; };
 		18E78DA717298DA400036B3C /* InfoFillInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA517298DA400036B3C /* InfoFillInViewController.m */; };
 		18E78DA817298DA400036B3C /* InfoFillInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E78DA617298DA400036B3C /* InfoFillInViewController.xib */; };
@@ -621,6 +623,10 @@
 		18D41DF317294BD500D0C950 /* RoomInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfoCell.h; sourceTree = "<group>"; };
 		18D41DF417294BD500D0C950 /* RoomInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfoCell.m; sourceTree = "<group>"; };
 		18D41DF517294BD500D0C950 /* RoomInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomInfoCell.xib; sourceTree = "<group>"; };
+		18D76BE4172A514E004E2C8B /* NetRoomList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomList.h; sourceTree = "<group>"; };
+		18D76BE5172A514E004E2C8B /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = "<group>"; };
+		18D76BE7172A6FB1004E2C8B /* NetRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomManager.h; sourceTree = "<group>"; };
+		18D76BE8172A6FB1004E2C8B /* NetRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomManager.m; sourceTree = "<group>"; };
 		18E78DA017297C4000036B3C /* GMETTapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETTapView.h; sourceTree = "<group>"; };
 		18E78DA117297C4000036B3C /* GMETTapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETTapView.m; sourceTree = "<group>"; };
 		18E78DA417298DA400036B3C /* InfoFillInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoFillInViewController.h; sourceTree = "<group>"; };
@@ -1315,6 +1321,8 @@
 				18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */,
 				18C6D5C01727CB7900184AFA /* RoomSearchRequest.h */,
 				18C6D5C11727CB7900184AFA /* RoomSearchRequest.m */,
+				18D76BE7172A6FB1004E2C8B /* NetRoomManager.h */,
+				18D76BE8172A6FB1004E2C8B /* NetRoomManager.m */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -1324,6 +1332,8 @@
 			children = (
 				18D41DE617294B8F00D0C950 /* RoomData.pb.h */,
 				18D41DE717294B8F00D0C950 /* RoomData.pb.m */,
+				18D76BE4172A514E004E2C8B /* NetRoomList.h */,
+				18D76BE5172A514E004E2C8B /* NetRoomList.m */,
 			);
 			path = DataFormat;
 			sourceTree = "<group>";
@@ -1750,6 +1760,8 @@
 				18E78DA717298DA400036B3C /* InfoFillInViewController.m in Sources */,
 				18E78DAC1729933F00036B3C /* MBProgressHUD.m in Sources */,
 				18E78DB01729936800036B3C /* TipViewManager.m in Sources */,
+				18D76BE6172A514E004E2C8B /* NetRoomList.m in Sources */,
+				18D76BE9172A6FB1004E2C8B /* NetRoomManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

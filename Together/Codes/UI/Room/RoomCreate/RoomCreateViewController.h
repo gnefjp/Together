@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-@class RoomInfo;
+@class NetRoomItem;
 @interface RoomCreateViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     __weak IBOutlet UITableView *_infoTableView;
@@ -17,7 +17,7 @@
     
     UIDatePicker                *_datePickerView;
     
-    RoomInfo                    *_roomInfo;
+    NetRoomItem                 *_roomInfo;
 }
 
 - (IBAction)closeBtnPressed:(id)sender;

@@ -16,4 +16,14 @@ typedef enum
     RoomType_Max    = 1,
 } RoomType;
 
+
+typedef enum
+{
+    RoomState_Waiting   = 0,
+    RoomState_Playing   = 1,
+    RoomState_Ended     = 2,
+    
+    RoomState_Max       = 3,
+} RoomState;
+
 #endif

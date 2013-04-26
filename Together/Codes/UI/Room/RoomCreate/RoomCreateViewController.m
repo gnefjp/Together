@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import "RoomData.pb.h"
+#import "NetRoomList.h"
 #import "RoomInfoCell.h"
 
 #import "GMETTapView.h"
@@ -43,6 +43,8 @@ static NSString* s_genderTypes[] = {
     
     _infoTableView.delegate = self;
     _infoTableView.dataSource = self;
+    
+    _roomInfo = [[NetRoomItem alloc] init];
 }
 
 
@@ -243,7 +245,7 @@ static NSString* s_genderTypes[] = {
 {
     if ([controller.titleLabel.text isEqualToString:@"主题"])
     {
-        _roomInfo = [[[RoomInfo builderWithPrototype:_roomInfo] setTitle:fillValue] build];
+        _roomInfo.roomTitle = fillValue;
     }
     else if ([controller.titleLabel.text isEqualToString:@"人数限制"])
     {
@@ -252,7 +254,7 @@ static NSString* s_genderTypes[] = {
             fillValue = @"-1";
         }
         
-        _roomInfo = [[[RoomInfo builderWithPrototype:_roomInfo] setLimitPersonCount:[fillValue intValue]] build];
+        _roomInfo.personLimitNum = [fillValue intValue];
     }
     else if ([controller.titleLabel.text isEqualToString:@"性别限制"])
     {
@@ -260,14 +262,14 @@ static NSString* s_genderTypes[] = {
         {
             if ([fillValue isEqualToString:s_genderTypes[i]])
             {
-                _roomInfo = [[[RoomInfo builderWithPrototype:_roomInfo] setGenderType:i] build];
+                _roomInfo.genderLimitType = i;
                 break;
             }
         }
     }
     else if ([controller.titleLabel.text isEqualToString:@"地址备注"])
     {
-        _roomInfo = [[[RoomInfo builderWithPrototype:_roomInfo] setAddress:fillValue] build];
+        _roomInfo.addressDes = fillValue;
     }
     
     [_infoTableView reloadData];
@@ -346,13 +348,13 @@ static NSString* s_genderTypes[] = {
 
 - (NSString *) _limitPersonCount
 {
-    if (_roomInfo.limitPersonCount < 1)
+    if (_roomInfo.personLimitNum < 1)
     {
         return @"不限";
     }
     else
     {
-        return [NSString stringWithFormat:@"1-%d人", _roomInfo.limitPersonCount];
+        return [NSString stringWithFormat:@"1-%d人", _roomInfo.personLimitNum];
     }
 }
 
@@ -370,7 +372,7 @@ static NSString* s_genderTypes[] = {
     {
         case 0:
         {
-            roomInfoStr = _roomInfo.title;
+            roomInfoStr = _roomInfo.roomTitle;
             break;
         }
         case 1:
@@ -385,7 +387,7 @@ static NSString* s_genderTypes[] = {
         }
         case 3:
         {
-            roomInfoStr = s_genderTypes[_roomInfo.genderType];
+            roomInfoStr = s_genderTypes[_roomInfo.genderLimitType];
             break;
         }
         case 4:

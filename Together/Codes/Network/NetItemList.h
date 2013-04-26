@@ -6,13 +6,15 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
+#import "Response.pb.h"
+
 #pragma mark- Item
 @interface NetItem : NSObject
 
 @property (strong, nonatomic) NSString  *ID;
 
-+ (NetItem *) itemWithDict:(NSDictionary *)dict;
-- (NetItem *) initWithDict:(NSDictionary *)dict;
++ (NetItem *) itemWithMessage:(PBGeneratedMessage *)message;
+- (NetItem *) initWithMessage:(PBGeneratedMessage *)message;
 
 // 地址一样，内容更新
 - (void) refreshItem:(NetItem*)newItem;
@@ -32,7 +34,7 @@
 @property (assign, nonatomic) BOOL          isFinish;
 
 // 子类必须重写解释数据方法
-// - (NSArray *) _decodeData:(NSDictionary *)dict
+// - (NSArray *) _decodeData:(HTTPResponse *)response
 
 - (NSInteger) indexOfItemId:(NSString*)itemId;
 
@@ -42,7 +44,7 @@
 - (BOOL) addItemAtFirst:(NetItem*)item;
 - (BOOL) addItem:(NetItem*)item;
 - (BOOL) insertItem:(NetItem*)item atIndex:(NSInteger)index;
-- (void) addItemList:(NSDictionary*)dict onPage:(NSInteger)page;
+- (void) addItemList:(HTTPResponse *)response onPage:(NSInteger)page;
 
 - (void) replaceItem:(NetItem*)item;
 - (void) removeItemById:(NSString*)ID;
