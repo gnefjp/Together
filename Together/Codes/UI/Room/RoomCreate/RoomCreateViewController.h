@@ -11,10 +11,11 @@
 {
     __weak IBOutlet UITableView *_infoTableView;
     
-    
     __weak IBOutlet UIButton    *_createButton;
     __weak IBOutlet UIView      *_recordView;
     __weak IBOutlet UIView      *_confirmView;
+    
+    UIDatePicker                *_datePickerView;
     
     RoomInfo                    *_roomInfo;
 }

@@ -20,6 +20,12 @@
 }
 
 
+- (void) setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:NO animated:animated];
+}
+
+
 - (IBAction)changeBtnPressed:(id)sender
 {
     

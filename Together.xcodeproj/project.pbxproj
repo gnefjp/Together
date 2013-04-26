@@ -80,6 +80,11 @@
 		18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */; };
 		18D41DF817294BD500D0C950 /* RoomInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF417294BD500D0C950 /* RoomInfoCell.m */; };
 		18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF517294BD500D0C950 /* RoomInfoCell.xib */; };
+		18E78DA217297C4000036B3C /* GMETTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA117297C4000036B3C /* GMETTapView.m */; };
+		18E78DA717298DA400036B3C /* InfoFillInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA517298DA400036B3C /* InfoFillInViewController.m */; };
+		18E78DA817298DA400036B3C /* InfoFillInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E78DA617298DA400036B3C /* InfoFillInViewController.xib */; };
+		18E78DAC1729933F00036B3C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DAB1729933F00036B3C /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18E78DB01729936800036B3C /* TipViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DAF1729936800036B3C /* TipViewManager.m */; };
 		18EAB2A817241702003E742D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A717241702003E742D /* UIKit.framework */; };
 		18EAB2AA17241702003E742D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2A917241702003E742D /* Foundation.framework */; };
 		18EAB2AC17241702003E742D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAB2AB17241702003E742D /* CoreGraphics.framework */; };
@@ -616,6 +621,15 @@
 		18D41DF317294BD500D0C950 /* RoomInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfoCell.h; sourceTree = "<group>"; };
 		18D41DF417294BD500D0C950 /* RoomInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfoCell.m; sourceTree = "<group>"; };
 		18D41DF517294BD500D0C950 /* RoomInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomInfoCell.xib; sourceTree = "<group>"; };
+		18E78DA017297C4000036B3C /* GMETTapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETTapView.h; sourceTree = "<group>"; };
+		18E78DA117297C4000036B3C /* GMETTapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETTapView.m; sourceTree = "<group>"; };
+		18E78DA417298DA400036B3C /* InfoFillInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoFillInViewController.h; sourceTree = "<group>"; };
+		18E78DA517298DA400036B3C /* InfoFillInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoFillInViewController.m; sourceTree = "<group>"; };
+		18E78DA617298DA400036B3C /* InfoFillInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoFillInViewController.xib; sourceTree = "<group>"; };
+		18E78DAA1729933F00036B3C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		18E78DAB1729933F00036B3C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		18E78DAE1729936800036B3C /* TipViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipViewManager.h; sourceTree = "<group>"; };
+		18E78DAF1729936800036B3C /* TipViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipViewManager.m; sourceTree = "<group>"; };
 		18EAB2A417241702003E742D /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EAB2A717241702003E742D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18EAB2A917241702003E742D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -763,6 +777,9 @@
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18E78DAD1729936800036B3C /* TipView */,
+				18E78DA317298D8500036B3C /* InfoFillIn */,
+				18E78D9F17297C1800036B3C /* TapView */,
 				3895A6171729120F0025163D /* PicChange */,
 				3888876A172476B100B2D2F0 /* Recorder */,
 			);
@@ -1342,6 +1359,43 @@
 			path = RoomCreate;
 			sourceTree = "<group>";
 		};
+		18E78D9F17297C1800036B3C /* TapView */ = {
+			isa = PBXGroup;
+			children = (
+				18E78DA017297C4000036B3C /* GMETTapView.h */,
+				18E78DA117297C4000036B3C /* GMETTapView.m */,
+			);
+			path = TapView;
+			sourceTree = "<group>";
+		};
+		18E78DA317298D8500036B3C /* InfoFillIn */ = {
+			isa = PBXGroup;
+			children = (
+				18E78DA417298DA400036B3C /* InfoFillInViewController.h */,
+				18E78DA517298DA400036B3C /* InfoFillInViewController.m */,
+				18E78DA617298DA400036B3C /* InfoFillInViewController.xib */,
+			);
+			path = InfoFillIn;
+			sourceTree = "<group>";
+		};
+		18E78DA91729933F00036B3C /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18E78DAA1729933F00036B3C /* MBProgressHUD.h */,
+				18E78DAB1729933F00036B3C /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		18E78DAD1729936800036B3C /* TipView */ = {
+			isa = PBXGroup;
+			children = (
+				18E78DAE1729936800036B3C /* TipViewManager.h */,
+				18E78DAF1729936800036B3C /* TipViewManager.m */,
+			);
+			path = TipView;
+			sourceTree = "<group>";
+		};
 		18EAB29B17241702003E742D = {
 			isa = PBXGroup;
 			children = (
@@ -1471,6 +1525,7 @@
 			isa = PBXGroup;
 			children = (
 				18C6D27617279D5600184AFA /* ProtoBuf */,
+				18E78DA91729933F00036B3C /* MBProgressHUD */,
 				3811FB5A17266B6800ED1DD7 /* CropImage */,
 				18BFDE9E17244DF600186828 /* Reachability */,
 				18BFDE8117244DF600186828 /* ASIHTTPRequest */,
@@ -1609,6 +1664,7 @@
 				3895A612172900030025163D /* MapView.xib in Resources */,
 				18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */,
 				18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */,
+				18E78DA817298DA400036B3C /* InfoFillInViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1690,6 +1746,10 @@
 				18D41DEE17294BC200D0C950 /* GMETLibs+UIColor.m in Sources */,
 				18D41DF617294BD500D0C950 /* RoomCreateViewController.m in Sources */,
 				18D41DF817294BD500D0C950 /* RoomInfoCell.m in Sources */,
+				18E78DA217297C4000036B3C /* GMETTapView.m in Sources */,
+				18E78DA717298DA400036B3C /* InfoFillInViewController.m in Sources */,
+				18E78DAC1729933F00036B3C /* MBProgressHUD.m in Sources */,
+				18E78DB01729936800036B3C /* TipViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
