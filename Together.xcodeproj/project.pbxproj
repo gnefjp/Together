@@ -82,6 +82,8 @@
 		18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF517294BD500D0C950 /* RoomInfoCell.xib */; };
 		18D76BE6172A514E004E2C8B /* NetRoomList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D76BE5172A514E004E2C8B /* NetRoomList.m */; };
 		18D76BE9172A6FB1004E2C8B /* NetRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D76BE8172A6FB1004E2C8B /* NetRoomManager.m */; };
+		18D76BEC172A8C8A004E2C8B /* RoomTypePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D76BEB172A8C8A004E2C8B /* RoomTypePickerView.m */; };
+		18D76BEE172A8C94004E2C8B /* RoomTypePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D76BED172A8C94004E2C8B /* RoomTypePickerView.xib */; };
 		18E78DA217297C4000036B3C /* GMETTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA117297C4000036B3C /* GMETTapView.m */; };
 		18E78DA717298DA400036B3C /* InfoFillInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA517298DA400036B3C /* InfoFillInViewController.m */; };
 		18E78DA817298DA400036B3C /* InfoFillInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E78DA617298DA400036B3C /* InfoFillInViewController.xib */; };
@@ -633,6 +635,9 @@
 		18D76BE5172A514E004E2C8B /* NetRoomList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomList.m; sourceTree = "<group>"; };
 		18D76BE7172A6FB1004E2C8B /* NetRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomManager.h; sourceTree = "<group>"; };
 		18D76BE8172A6FB1004E2C8B /* NetRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomManager.m; sourceTree = "<group>"; };
+		18D76BEA172A8C8A004E2C8B /* RoomTypePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTypePickerView.h; sourceTree = "<group>"; };
+		18D76BEB172A8C8A004E2C8B /* RoomTypePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTypePickerView.m; sourceTree = "<group>"; };
+		18D76BED172A8C94004E2C8B /* RoomTypePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomTypePickerView.xib; sourceTree = "<group>"; };
 		18E78DA017297C4000036B3C /* GMETTapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETTapView.h; sourceTree = "<group>"; };
 		18E78DA117297C4000036B3C /* GMETTapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETTapView.m; sourceTree = "<group>"; };
 		18E78DA417298DA400036B3C /* InfoFillInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoFillInViewController.h; sourceTree = "<group>"; };
@@ -1375,6 +1380,9 @@
 		18D41DEF17294BD500D0C950 /* RoomCreate */ = {
 			isa = PBXGroup;
 			children = (
+				18D76BEA172A8C8A004E2C8B /* RoomTypePickerView.h */,
+				18D76BEB172A8C8A004E2C8B /* RoomTypePickerView.m */,
+				18D76BED172A8C94004E2C8B /* RoomTypePickerView.xib */,
 				18D41DF017294BD500D0C950 /* RoomCreateViewController.h */,
 				18D41DF117294BD500D0C950 /* RoomCreateViewController.m */,
 				18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */,
@@ -1719,6 +1727,7 @@
 				18E78DA817298DA400036B3C /* InfoFillInViewController.xib in Resources */,
 				3828CC25172A846D00EC7EAF /* UserLoginView.xib in Resources */,
 				3828CC27172A846D00EC7EAF /* UserRegistView.xib in Resources */,
+				18D76BEE172A8C94004E2C8B /* RoomTypePickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1810,6 +1819,7 @@
 				3828CC23172A846D00EC7EAF /* GEMTUserManager.m in Sources */,
 				3828CC24172A846D00EC7EAF /* UserLoginView.m in Sources */,
 				3828CC26172A846D00EC7EAF /* UserRegistView.m in Sources */,
+				18D76BEC172A8C8A004E2C8B /* RoomTypePickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

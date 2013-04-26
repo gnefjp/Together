@@ -32,6 +32,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property int32_t limitPersonCount;
 @property (retain) NSString* address;
 @property (retain) NSString* createTime;
+@property (retain) NSString* beginTime;
+@property (retain) NSString* addrRemarks;
 @end
 
 @implementation RoomInfo
@@ -120,12 +122,28 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasCreateTime_ = !!value;
 }
 @synthesize createTime;
+- (BOOL) hasBeginTime {
+  return !!hasBeginTime_;
+}
+- (void) setHasBeginTime:(BOOL) value {
+  hasBeginTime_ = !!value;
+}
+@synthesize beginTime;
+- (BOOL) hasAddrRemarks {
+  return !!hasAddrRemarks_;
+}
+- (void) setHasAddrRemarks:(BOOL) value {
+  hasAddrRemarks_ = !!value;
+}
+@synthesize addrRemarks;
 - (void) dealloc {
   self.title = nil;
   self.ownerNickname = nil;
   self.picUrl = nil;
   self.address = nil;
   self.createTime = nil;
+  self.beginTime = nil;
+  self.addrRemarks = nil;
   [super dealloc];
 }
 - (id) init {
@@ -142,6 +160,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.limitPersonCount = 0;
     self.address = @"";
     self.createTime = @"";
+    self.beginTime = @"";
+    self.addrRemarks = @"";
   }
   return self;
 }
@@ -197,6 +217,12 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasCreateTime) {
     [output writeString:12 value:self.createTime];
   }
+  if (self.hasBeginTime) {
+    [output writeString:13 value:self.beginTime];
+  }
+  if (self.hasAddrRemarks) {
+    [output writeString:14 value:self.addrRemarks];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -241,6 +267,12 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   }
   if (self.hasCreateTime) {
     size += computeStringSize(12, self.createTime);
+  }
+  if (self.hasBeginTime) {
+    size += computeStringSize(13, self.beginTime);
+  }
+  if (self.hasAddrRemarks) {
+    size += computeStringSize(14, self.addrRemarks);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -353,6 +385,12 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (other.hasCreateTime) {
     [self setCreateTime:other.createTime];
   }
+  if (other.hasBeginTime) {
+    [self setBeginTime:other.beginTime];
+  }
+  if (other.hasAddrRemarks) {
+    [self setAddrRemarks:other.addrRemarks];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -420,6 +458,14 @@ static RoomInfo* defaultRoomInfoInstance = nil;
       }
       case 98: {
         [self setCreateTime:[input readString]];
+        break;
+      }
+      case 106: {
+        [self setBeginTime:[input readString]];
+        break;
+      }
+      case 114: {
+        [self setAddrRemarks:[input readString]];
         break;
       }
     }
@@ -615,6 +661,38 @@ static RoomInfo* defaultRoomInfoInstance = nil;
 - (RoomInfo_Builder*) clearCreateTime {
   result.hasCreateTime = NO;
   result.createTime = @"";
+  return self;
+}
+- (BOOL) hasBeginTime {
+  return result.hasBeginTime;
+}
+- (NSString*) beginTime {
+  return result.beginTime;
+}
+- (RoomInfo_Builder*) setBeginTime:(NSString*) value {
+  result.hasBeginTime = YES;
+  result.beginTime = value;
+  return self;
+}
+- (RoomInfo_Builder*) clearBeginTime {
+  result.hasBeginTime = NO;
+  result.beginTime = @"";
+  return self;
+}
+- (BOOL) hasAddrRemarks {
+  return result.hasAddrRemarks;
+}
+- (NSString*) addrRemarks {
+  return result.addrRemarks;
+}
+- (RoomInfo_Builder*) setAddrRemarks:(NSString*) value {
+  result.hasAddrRemarks = YES;
+  result.addrRemarks = value;
+  return self;
+}
+- (RoomInfo_Builder*) clearAddrRemarks {
+  result.hasAddrRemarks = NO;
+  result.addrRemarks = @"";
   return self;
 }
 @end

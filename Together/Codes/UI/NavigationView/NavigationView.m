@@ -22,30 +22,10 @@
 }
 
 
-- (IBAction)showNavigationBtnPressed:(id)sender
-{
-    [_delegate NavigationViewShowBtnPressed:self];
-}
-
-
 - (IBAction)modulBtnPressed:(UIButton*)sender
 {
     int type = (sender.tag - kHomeModul_BtnTag);
     [_delegate NavigationView:self wantInModulWithType:type];
-}
-
-
-- (UIView *) hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
-    UIButton* showNavBtn = [self viewWithTag:kShowNav_BtnTag recursive:NO];
-    
-    if (point.x >= showNavBtn.frameX &&
-        !CGRectContainsPoint(showNavBtn.frame, point))
-    {
-        return nil;
-    }
-    
-    return [super hitTest:point withEvent:event];
 }
 
 @end

@@ -5,18 +5,23 @@
 //  Created by Gnef_jp on 13-4-25.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
+#import "GMETTapView.h"
+#import "TipViewManager.h"
 
 #import "NetRoomList.h"
 #import "RoomInfoCell.h"
 
-#import "GMETTapView.h"
+#import "RoomTypePickerView.h"
 
 #import "InfoFillInViewController.h"
 
 #import "RoomCreateViewController.h"
 #import "RoomViewController.h"
 
-#define kRecord_BtnTag      1000
+#import "RoomCreateRequest.h"
+
+#define kRecord_BtnTag      1000 // For _recordView
+#define kRoomType_LabelTag  1000 // For self.view
 
 static NSString* s_titles[] = {
     @"主题",
@@ -35,6 +40,15 @@ static NSString* s_genderTypes[] = {
 };
 
 
+static NSString* s_roomTypeNames[] = {
+    @"桌游",
+    @"餐饮",
+    @"运动",
+    @"购物",
+    @"电影",
+};
+
+
 @implementation RoomCreateViewController
 
 - (void)viewDidLoad
@@ -45,6 +59,14 @@ static NSString* s_genderTypes[] = {
     _infoTableView.dataSource = self;
     
     _roomInfo = [[NetRoomItem alloc] init];
+    
+    [self _isShowRoomTypePicker:YES animation:NO];
+}
+
+
+- (void) dealloc
+{
+    [[TipViewManager defaultManager] removeTipWithID:self];
 }
 
 
@@ -54,6 +76,8 @@ static NSString* s_genderTypes[] = {
     _recordView = nil;
     _createButton = nil;
     _confirmView = nil;
+    
+    [[TipViewManager defaultManager] removeTipWithID:self];
     [super viewDidUnload];
 }
 
@@ -67,6 +91,75 @@ static NSString* s_genderTypes[] = {
 - (IBAction)createBtnPressed:(id)sender
 {
     [self _isShowRecordView:YES];
+}
+
+
+#pragma mark- 类型选择
+- (void) _isShowRoomTypePicker:(BOOL)isShow animation:(BOOL)animation
+{
+    if (isShow)
+    {
+        [_roomTypePickerView removeFromSuperview];
+        _roomTypePickerView = [RoomTypePickerView loadFromNib];
+        _roomTypePickerView.delegate = self;
+        [self.view addSubview:_roomTypePickerView];
+    }
+    
+    if (!animation)
+    {
+        _roomTypePickerView.frameY = isShow ? 0.0 : self.view.boundsHeight;
+        if (!isShow)
+        {
+            [_roomTypePickerView removeFromSuperview];
+            _roomTypePickerView = nil;
+        }
+        return;
+    }
+    
+    _roomTypePickerView.frameY = isShow ? self.view.boundsHeight : 0.0;
+    
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         
+                         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+                         _roomTypePickerView.frameY = isShow ? 0.0 : self.view.boundsHeight;
+                         
+                     }completion:^(BOOL finished){
+                        
+                         if (!isShow)
+                         {
+                             [_roomTypePickerView removeFromSuperview];
+                             _roomTypePickerView = nil;
+                         }
+                         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                         
+                     }];
+}
+
+
+#pragma mark- RoomTypePickerViewDelegate
+- (void) RoomTypePickerViewWantCancel:(RoomTypePickerView *)roomTypePickerView
+{
+    if (_hasPickRoomType)
+    {
+        [self _isShowRoomTypePicker:NO animation:YES];
+    }
+    else
+    {
+        [self closeBtnPressed:nil];
+    }
+}
+
+
+- (void) RoomTypePickerView:(RoomTypePickerView *)pickerView pickRoomType:(RoomType)roomType
+{
+    _hasPickRoomType = YES;
+    _roomInfo.roomType = roomType;
+    
+    UILabel* roomTypeLabel = [self.view viewWithTag:kRoomType_LabelTag recursive:NO];
+    roomTypeLabel.text = s_roomTypeNames[_roomInfo.roomType];
+    
+    [self _isShowRoomTypePicker:NO animation:YES];
 }
 
 
@@ -152,8 +245,56 @@ static NSString* s_genderTypes[] = {
 - (IBAction)confirmToCreate:(id)sender
 {
     // TODO: 确定创建
-    RoomViewController* roomViewController = [RoomViewController loadFromNib];
-    [self.navigationController pushViewController:roomViewController animated:YES];
+    RoomCreateRequest* createRequest = [[RoomCreateRequest alloc] init];
+    createRequest.sid = @"b7fbee9a885057aa638df19ecfccb5ba";
+    createRequest.ownerID = @"1";
+    createRequest.ownerNickname = @"G-Mart";
+    
+    createRequest.roomTitle = _roomInfo.roomTitle;
+    createRequest.roomType = _roomInfo.roomType;
+    
+    createRequest.beginTime = @"20130601010203";
+    
+    createRequest.personNumLimit = _roomInfo.personLimitNum;
+    createRequest.genderType = _roomInfo.genderLimitType;
+    
+    createRequest.longitude = 200;
+    createRequest.latitude = 200;
+    createRequest.detailAddr = @"广州大学";
+    createRequest.addrRemark = @"星星";
+    
+    createRequest.previewID = @"2";
+    createRequest.recordID = @"1";
+    
+    [[NetRequestManager defaultManager] startRequest:createRequest];
+}
+
+
+#pragma mark- NetRoomRequestDelegate
+- (void) NetRoomRequestFail:(NetRoomRequest *)request
+{
+    if (request.requestType == NetRoomRequestType_CreateRoom)
+    {
+        [[TipViewManager defaultManager] showTipText:@"创建房间失败"
+                                           imageName:@"Test"
+                                              inView:self.view
+                                                  ID:self];
+        [[TipViewManager defaultManager] hideTipWithID:self
+                                             animation:YES
+                                                 delay:1.25];
+    }
+}
+
+
+- (void) NetRoomRequestSuccess:(NetRoomRequest *)request
+{
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    
+    if (request.requestType == NetRoomRequestType_CreateRoom)
+    {
+        RoomViewController* roomViewController = [RoomViewController loadFromNib];
+        [self.navigationController pushViewController:roomViewController animated:YES];
+    }
 }
 
 
@@ -269,7 +410,7 @@ static NSString* s_genderTypes[] = {
     }
     else if ([controller.titleLabel.text isEqualToString:@"地址备注"])
     {
-        _roomInfo.addressDes = fillValue;
+        _roomInfo.addrRemark = fillValue;
     }
     
     [_infoTableView reloadData];
@@ -392,7 +533,7 @@ static NSString* s_genderTypes[] = {
         }
         case 4:
         {
-            roomInfoStr = _roomInfo.address;
+            roomInfoStr = _roomInfo.detailAddr;
             break;
         }
         case 5:

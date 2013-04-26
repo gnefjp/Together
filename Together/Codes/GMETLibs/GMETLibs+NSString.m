@@ -11,6 +11,19 @@
 
 @implementation NSString (GMETLibs)
 
+
++ (NSString *) stringWithInt:(NSInteger)intValue
+{
+    return [NSString stringWithFormat:@"%d", intValue];
+}
+
+
++ (NSString *)stringWithDouble:(double)doubleValue
+{
+    return [NSString stringWithFormat:@"%lf", doubleValue];
+}
+
+
 - (NSString*) timestampToDateUsingFormat:(NSString*)format
 {
     double timestamp = [self doubleValue];

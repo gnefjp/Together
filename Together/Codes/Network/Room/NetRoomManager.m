@@ -10,10 +10,21 @@
 
 @implementation NetRoomManager
 
-
-+ (NetRoomManager *) defaultManager
+static NetRoomManager* s_defaultManager = nil;
++ (NetRoomManager*) defaultManager
 {
+    if (s_defaultManager == nil)
+    {
+        @synchronized(self)
+        {
+            if (s_defaultManager == nil)
+            {
+                s_defaultManager = [[self alloc] init];
+            }
+        }
+    }
     
+    return s_defaultManager;
 }
 
 @end

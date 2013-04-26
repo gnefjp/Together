@@ -7,10 +7,15 @@
 //
 
 #import "NavigationView.h"
+
+@class GMETTapView;
 @interface HomeViewController : UIViewController <NavigationViewDelegate>
 {
     NavigationView          *_navigationView;
     UIView                  *_mainView;
+    
+    UIPanGestureRecognizer  *_panGesture;
+    GMETTapView             *_tapView;
 }
 
 @end

@@ -25,6 +25,8 @@
   BOOL hasPicUrl_:1;
   BOOL hasAddress_:1;
   BOOL hasCreateTime_:1;
+  BOOL hasBeginTime_:1;
+  BOOL hasAddrRemarks_:1;
   Float64 distance;
   int32_t id;
   int32_t type;
@@ -37,6 +39,8 @@
   NSString* picUrl;
   NSString* address;
   NSString* createTime;
+  NSString* beginTime;
+  NSString* addrRemarks;
 }
 - (BOOL) hasId;
 - (BOOL) hasTitle;
@@ -50,6 +54,8 @@
 - (BOOL) hasLimitPersonCount;
 - (BOOL) hasAddress;
 - (BOOL) hasCreateTime;
+- (BOOL) hasBeginTime;
+- (BOOL) hasAddrRemarks;
 @property (readonly) int32_t id;
 @property (readonly, retain) NSString* title;
 @property (readonly, retain) NSString* ownerNickname;
@@ -62,6 +68,8 @@
 @property (readonly) int32_t limitPersonCount;
 @property (readonly, retain) NSString* address;
 @property (readonly, retain) NSString* createTime;
+@property (readonly, retain) NSString* beginTime;
+@property (readonly, retain) NSString* addrRemarks;
 
 + (RoomInfo*) defaultInstance;
 - (RoomInfo*) defaultInstance;
@@ -156,5 +164,15 @@
 - (NSString*) createTime;
 - (RoomInfo_Builder*) setCreateTime:(NSString*) value;
 - (RoomInfo_Builder*) clearCreateTime;
+
+- (BOOL) hasBeginTime;
+- (NSString*) beginTime;
+- (RoomInfo_Builder*) setBeginTime:(NSString*) value;
+- (RoomInfo_Builder*) clearBeginTime;
+
+- (BOOL) hasAddrRemarks;
+- (NSString*) addrRemarks;
+- (RoomInfo_Builder*) setAddrRemarks:(NSString*) value;
+- (RoomInfo_Builder*) clearAddrRemarks;
 @end
 

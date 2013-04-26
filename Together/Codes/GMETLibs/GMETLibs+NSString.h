@@ -9,6 +9,9 @@
 
 @interface NSString (GMETLibs)
 
-- (NSString*) timestampToDateUsingFormat:(NSString*)format;
++ (NSString *) stringWithInt:(NSInteger)intValue;
++ (NSString *) stringWithDouble:(double)doubleValue;
+
+- (NSString *) timestampToDateUsingFormat:(NSString*)format;
 
 @end

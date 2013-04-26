@@ -68,8 +68,14 @@
 {
     NSLog(@"code : %d, msg : %@", request.responseStatusCode, request.responseStatusMessage);
     NSLog(@"http : %@", request.responseString);
-    _responseData = [HTTPResponse parseFromData:request.responseData];
-    NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
+    
+    if (request.responseStatusCode == 200)
+    {
+        _responseData = [HTTPResponse parseFromData:request.responseData];
+        NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
+    }
+   
+    
     if (_responseData.success)
     {
         [self _requestFinished];

@@ -12,4 +12,6 @@
 
 + (NetRoomManager *) defaultManager;
 
+//- (void) 
+
 @end

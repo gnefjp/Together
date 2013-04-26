@@ -12,14 +12,16 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://127.0.0.1/ROOM";
+    return @"http://192.168.1.21:9080/ROOM";
 }
 
 - (NSString *) actionCode
 {
     int actionCodes[] = {
-        USER_REGIEST,
-        USER_LOGIN,
+        ROOM_CREATE,
+        100,
+        ROOM_SHOWLIST,
+        ROOM_SEARCH,
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];

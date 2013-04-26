@@ -23,8 +23,10 @@
 @property (assign, nonatomic) NSInteger         personLimitNum;
 @property (assign, nonatomic) NSInteger         joinPersonNum;
 
-@property (copy,   nonatomic) NSString          *address;
-@property (copy,   nonatomic) NSString          *addressDes;
+@property (assign, nonatomic) double            longitude;
+@property (assign, nonatomic) double            latitude;
+@property (copy,   nonatomic) NSString          *detailAddr;
+@property (copy,   nonatomic) NSString          *addrRemark;
 
 @property (assign, nonatomic) double            distance;
 

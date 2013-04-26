@@ -20,19 +20,19 @@
         if ([message isKindOfClass:[RoomInfo class]])
         {
             RoomInfo* roomInfo = (RoomInfo *)message;
-//            self.ID = roomInfo.roomID;
+//            self.ID = roomInfo
             self.roomTitle = roomInfo.title;
             self.roomType = roomInfo.type;
             self.perviewUrl = roomInfo.picUrl;
             
-//            self.beginTime = roomInfo.
+            self.beginTime = roomInfo.beginTime;
             
             self.genderLimitType = roomInfo.genderType;
             self.personLimitNum = roomInfo.limitPersonCount;
             self.joinPersonNum = roomInfo.joinPersonCount;
             
-            self.address = roomInfo.address;
-//            self.addressDes =
+            self.detailAddr = roomInfo.address;
+            self.addrRemark = roomInfo.addrRemarks;
             
             self.distance = roomInfo.distance;
             
@@ -59,8 +59,10 @@
         self.personLimitNum = roomItem.personLimitNum;
         self.joinPersonNum = roomItem.joinPersonNum;
         
-        self.address = roomItem.address;
-        self.addressDes = roomItem.addressDes;
+        self.longitude = roomItem.longitude;
+        self.latitude = roomItem.latitude;
+        self.detailAddr = roomItem.detailAddr;
+        self.addrRemark = roomItem.addrRemark;
         
         self.distance = roomItem.distance;
         
