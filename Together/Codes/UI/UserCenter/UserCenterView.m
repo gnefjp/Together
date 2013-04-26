@@ -8,23 +8,25 @@
 
 #import "UserCenterView.h"
 #import "GMETRecorder.h"
+#import "GEMTUserManager.h"
 
 @implementation UserCenterView
 
-- (id)initWithFrame:(CGRect)frame
+- (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    NSLog(@"%@",request.responseData.loginResponse.userInfo.nickName);
+}
+
+- (void)NetUserRequestFail:(NetUserRequest *)request
+{
+    
 }
 
 - (IBAction)showMapViewBtnDidpressed:(id)sender
 {
     MapView *mapView = [MapView loadFromNib];
     [[UIView rootView] addSubview:mapView];
-    [mapView showAnimation];
+    [mapView showRightToCenterAnimation];
     mapView.delegate = self;
 }
 
@@ -41,7 +43,8 @@
 
 - (IBAction)recordBtnDidPressed:(id)sender
 {
-    if (!_recorder) {
+    if (!_recorder)
+    {
         _recorder = [GMETRecorder startRecordWithTime:30];
     }
     [_recorder start];
@@ -54,11 +57,17 @@
 
 - (IBAction)changeAvataBtnDidPressed:(id)sender
 {
-    if (!_avatar) {
+    if (!_avatar)
+    {
         _avatar = [[PicChange alloc] init];
         _avatar.delegate = self;
     }
     [_avatar addAvataActionSheet];
+}
+
+- (IBAction)loginBtnDidPressed:(id)sender
+{
+    [[GEMTUserManager shareInstance] addLoginViewToTopView];
 }
 
 - (IBAction)_playBtnDidPressed:(id)sender
@@ -66,7 +75,6 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryAmbient error:nil];
     [session setActive:YES error:nil];
-    
     
     _player = [[AVAudioPlayer alloc] initWithContentsOfURL:
                                    [GMETRecorder getRecordFileUrl] error:nil];

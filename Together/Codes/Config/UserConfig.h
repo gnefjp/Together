@@ -9,6 +9,10 @@
 #ifndef Together_UserConfig_h
 #define Together_UserConfig_h
 
+#define kUserDidLogInNotification @"userDidLoginNotification"
+#define kUserDidLogOutNotification @"userDidLogOutNotification"
+
+
 typedef enum
 {
     UserGenderType_Unknow   = 0,

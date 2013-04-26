@@ -39,7 +39,7 @@
 
 - (IBAction)closeBtnDidPressed:(id)sender
 {
-    [self hideAnimation];
+    [self hideCenterToRightAnimation];
 }
 
 - (IBAction)getCurrentChoosePosition:(id)sender
@@ -51,7 +51,7 @@
         return;
     }
     [_delegate MapView:self location:_choosePosition.coordinate];
-    [self hideAnimation];
+    [self hideCenterToRightAnimation];
 }
 
 - (IBAction)currentLocation:(id)sender
@@ -107,24 +107,4 @@
     return nil;
 }
 
-- (void)showAnimation
-{
-    self.center = CGPointMake(160*3,274);
-    [UIView animateWithDuration:0.4 animations:^(void)
-     {
-         self.center = CGPointMake(160,274);
-     }];
-}
-
-- (void)hideAnimation
-{
-    self.center = CGPointMake(160,274);
-    [UIView animateWithDuration:0.4 animations:^(void)
-     {
-         self.center = CGPointMake(160*3,274);
-     }completion:^(BOOL isFinished)
-     {
-         
-     }];
-}
 @end

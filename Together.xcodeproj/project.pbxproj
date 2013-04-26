@@ -102,6 +102,12 @@
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
 		3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */; };
 		3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */; };
+		3828CC22172A846D00EC7EAF /* GEMTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */; };
+		3828CC23172A846D00EC7EAF /* GEMTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC1A172A846D00EC7EAF /* GEMTUserManager.m */; };
+		3828CC24172A846D00EC7EAF /* UserLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC1D172A846D00EC7EAF /* UserLoginView.m */; };
+		3828CC25172A846D00EC7EAF /* UserLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3828CC1E172A846D00EC7EAF /* UserLoginView.xib */; };
+		3828CC26172A846D00EC7EAF /* UserRegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC20172A846D00EC7EAF /* UserRegistView.m */; };
+		3828CC27172A846D00EC7EAF /* UserRegistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3828CC21172A846D00EC7EAF /* UserRegistView.xib */; };
 		388887601724687200B2D2F0 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888875E1724687200B2D2F0 /* UserCenterView.m */; };
 		388887611724687200B2D2F0 /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3888875F1724687200B2D2F0 /* UserCenterView.xib */; };
 		3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888876C172476B100B2D2F0 /* GMETRecorder.m */; };
@@ -662,6 +668,16 @@
 		3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarCutView.h; sourceTree = "<group>"; };
 		3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarCutView.m; sourceTree = "<group>"; };
 		3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarCutView.xib; sourceTree = "<group>"; };
+		3828CC17172A846D00EC7EAF /* GEMTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMTUserInfo.h; sourceTree = "<group>"; };
+		3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEMTUserInfo.m; sourceTree = "<group>"; };
+		3828CC19172A846D00EC7EAF /* GEMTUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMTUserManager.h; sourceTree = "<group>"; };
+		3828CC1A172A846D00EC7EAF /* GEMTUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEMTUserManager.m; sourceTree = "<group>"; };
+		3828CC1C172A846D00EC7EAF /* UserLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginView.h; sourceTree = "<group>"; };
+		3828CC1D172A846D00EC7EAF /* UserLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginView.m; sourceTree = "<group>"; };
+		3828CC1E172A846D00EC7EAF /* UserLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserLoginView.xib; sourceTree = "<group>"; };
+		3828CC1F172A846D00EC7EAF /* UserRegistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegistView.h; sourceTree = "<group>"; };
+		3828CC20172A846D00EC7EAF /* UserRegistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegistView.m; sourceTree = "<group>"; };
+		3828CC21172A846D00EC7EAF /* UserRegistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserRegistView.xib; sourceTree = "<group>"; };
 		3888875D1724687200B2D2F0 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterView.h; sourceTree = "<group>"; };
 		3888875E1724687200B2D2F0 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterView.m; sourceTree = "<group>"; };
 		3888875F1724687200B2D2F0 /* UserCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterView.xib; sourceTree = "<group>"; };
@@ -1554,9 +1570,35 @@
 			path = CropImage;
 			sourceTree = "<group>";
 		};
+		3828CC16172A846D00EC7EAF /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3828CC17172A846D00EC7EAF /* GEMTUserInfo.h */,
+				3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */,
+				3828CC19172A846D00EC7EAF /* GEMTUserManager.h */,
+				3828CC1A172A846D00EC7EAF /* GEMTUserManager.m */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		3828CC1B172A846D00EC7EAF /* UserRegistAndLogin */ = {
+			isa = PBXGroup;
+			children = (
+				3828CC1C172A846D00EC7EAF /* UserLoginView.h */,
+				3828CC1D172A846D00EC7EAF /* UserLoginView.m */,
+				3828CC1E172A846D00EC7EAF /* UserLoginView.xib */,
+				3828CC1F172A846D00EC7EAF /* UserRegistView.h */,
+				3828CC20172A846D00EC7EAF /* UserRegistView.m */,
+				3828CC21172A846D00EC7EAF /* UserRegistView.xib */,
+			);
+			path = UserRegistAndLogin;
+			sourceTree = "<group>";
+		};
 		3888875C1724687200B2D2F0 /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
+				3828CC16172A846D00EC7EAF /* UserInfo */,
+				3828CC1B172A846D00EC7EAF /* UserRegistAndLogin */,
 				3888875D1724687200B2D2F0 /* UserCenterView.h */,
 				3888875E1724687200B2D2F0 /* UserCenterView.m */,
 				3888875F1724687200B2D2F0 /* UserCenterView.xib */,
@@ -1675,6 +1717,8 @@
 				18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */,
 				18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */,
 				18E78DA817298DA400036B3C /* InfoFillInViewController.xib in Resources */,
+				3828CC25172A846D00EC7EAF /* UserLoginView.xib in Resources */,
+				3828CC27172A846D00EC7EAF /* UserRegistView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1762,6 +1806,10 @@
 				18E78DB01729936800036B3C /* TipViewManager.m in Sources */,
 				18D76BE6172A514E004E2C8B /* NetRoomList.m in Sources */,
 				18D76BE9172A6FB1004E2C8B /* NetRoomManager.m in Sources */,
+				3828CC22172A846D00EC7EAF /* GEMTUserInfo.m in Sources */,
+				3828CC23172A846D00EC7EAF /* GEMTUserManager.m in Sources */,
+				3828CC24172A846D00EC7EAF /* UserLoginView.m in Sources */,
+				3828CC26172A846D00EC7EAF /* UserRegistView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

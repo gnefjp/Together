@@ -32,7 +32,6 @@
 
 @property (weak ,nonatomic) __weak id<MapViewDelegate>    delegate;
 
-- (void)showAnimation;
 - (IBAction)closeBtnDidPressed:(id)sender;
 - (IBAction)getCurrentChoosePosition:(id)sender;
 - (IBAction)currentLocation:(id)sender;

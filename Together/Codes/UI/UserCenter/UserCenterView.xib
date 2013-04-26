@@ -148,7 +148,7 @@
 					<object class="IBUIButton" id="806781363">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{120, 315}, {85, 44}}</string>
+						<string key="NSFrame">{{115, 315}, {90, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="268623187"/>
@@ -361,7 +361,7 @@
 					<object class="IBUIButton" id="353418061">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{117, 366}, {86, 44}}</string>
+						<string key="NSFrame">{{115, 366}, {88, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="302654778"/>
@@ -372,6 +372,28 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">地图</string>
+						<reference key="IBUIHighlightedTitleColor" ref="400401389"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="916653228"/>
+						<reference key="IBUIFontDescription" ref="637534111"/>
+						<reference key="IBUIFont" ref="686530456"/>
+					</object>
+					<object class="IBUIButton" id="507074433">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{115, 417}, {90, 46}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">登录</string>
 						<reference key="IBUIHighlightedTitleColor" ref="400401389"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -471,6 +493,15 @@
 					</object>
 					<int key="connectionID">35</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">loginBtnDidPressed:</string>
+						<reference key="source" ref="507074433"/>
+						<reference key="destination" ref="191373211"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">38</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -499,6 +530,7 @@
 							<reference ref="99412676"/>
 							<reference ref="539938762"/>
 							<reference ref="353418061"/>
+							<reference ref="507074433"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -589,6 +621,11 @@
 						<reference key="object" ref="353418061"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">36</int>
+						<reference key="object" ref="507074433"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -610,6 +647,7 @@
 				<string key="26.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -617,7 +655,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">35</int>
+			<int key="maxID">38</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -625,14 +663,24 @@
 					<string key="className">UserCenterView</string>
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="_playBtnDidPressed:">id</string>
 						<string key="changeAvataBtnDidPressed:">id</string>
+						<string key="loginBtnDidPressed:">id</string>
 						<string key="recordBtnDidPressed:">id</string>
 						<string key="showMapViewBtnDidpressed:">id</string>
 						<string key="stopRecordBtnDidPressed:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="_playBtnDidPressed:">
+							<string key="name">_playBtnDidPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="changeAvataBtnDidPressed:">
 							<string key="name">changeAvataBtnDidPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="loginBtnDidPressed:">
+							<string key="name">loginBtnDidPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="recordBtnDidPressed:">

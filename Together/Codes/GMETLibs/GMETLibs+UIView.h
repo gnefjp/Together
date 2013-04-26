@@ -43,4 +43,7 @@
 // 将view上面的内容转成图片, 这函数只能在主线程中调用
 - (UIImage*) renderToImage;
 
+// animation从右到左
+- (void)showRightToCenterAnimation;
+- (void)hideCenterToRightAnimation;
 @end

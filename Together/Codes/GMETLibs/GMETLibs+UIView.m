@@ -137,6 +137,7 @@
 }
 
 
+
 #pragma mark- subview
 - (id)  viewIsKindOf:(Class)cls recursive:(BOOL)recursive
 {
@@ -189,6 +190,27 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+- (void)showRightToCenterAnimation
+{
+    self.center = CGPointMake(160*3,294);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         self.center = CGPointMake(160,294);
+     }];
+}
+
+- (void)hideCenterToRightAnimation
+{
+    self.center = CGPointMake(160,284);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         self.center = CGPointMake(160*3,284);
+     }completion:^(BOOL isFinished)
+     {
+         [self removeFromSuperview];
+     }];
 }
 
 @end

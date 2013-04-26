@@ -10,10 +10,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PicChange.h"
 #import "MapView.h"
+#import "UserLoginRequest.h"
+#import "UserRegisterRequest.h"
 
 @class GMETRecorder;
 
-@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate>
+@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate>
 {
     __weak IBOutlet UIImageView     *_iAvatarImage;
     GMETRecorder                    *_recorder;
@@ -25,5 +27,6 @@
 - (IBAction)recordBtnDidPressed:(id)sender;
 - (IBAction)stopRecordBtnDidPressed:(id)sender;
 - (IBAction)changeAvataBtnDidPressed:(id)sender;
+- (IBAction)loginBtnDidPressed:(id)sender;
 
 @end
