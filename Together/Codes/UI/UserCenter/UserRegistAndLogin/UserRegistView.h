@@ -10,6 +10,9 @@
 
 @interface UserRegistView : UIView
 {
+    __weak IBOutlet UITextField *_iUserName;
+    __weak IBOutlet UITextField *_iPassWord;
+    __weak IBOutlet UITextField *_iRePassWord;
     
 }
 

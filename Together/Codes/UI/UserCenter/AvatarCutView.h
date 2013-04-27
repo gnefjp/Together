@@ -15,6 +15,7 @@
 
 @end
 
+
 @interface AvatarCutView : UIView
 {
     KICropImageView         *_cropImageView;
