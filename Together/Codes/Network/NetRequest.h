@@ -22,6 +22,9 @@
 @property (nonatomic, readonly) ASIHTTPRequest  *httpRequest;
 @property (nonatomic, readonly) HTTPResponse    *responseData;
 
+@property (readonly, nonatomic) NSString        *requestUrl;
+@property (readonly, nonatomic) NSString        *actionCode;
+
 @end
 
 

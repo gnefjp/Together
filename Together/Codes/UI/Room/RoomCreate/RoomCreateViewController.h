@@ -24,6 +24,7 @@
 }
 
 - (IBAction)closeBtnPressed:(id)sender;
+- (IBAction)roomTypeBtnPressed:(id)sender;
 
 - (IBAction)createBtnPressed:(id)sender;
 

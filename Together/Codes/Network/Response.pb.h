@@ -5,6 +5,10 @@
 #import "UserResponse.pb.h"
 #import "RoomResponse.pb.h"
 
+@class Address;
+@class Address_Builder;
+@class DetailResponse;
+@class DetailResponse_Builder;
 @class HTTPResponse;
 @class HTTPResponse_Builder;
 @class LoginResponse;
@@ -26,19 +30,23 @@
   BOOL hasCode_:1;
   BOOL hasMsg_:1;
   BOOL hasLoginResponse_:1;
+  BOOL hasDetailResponse_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
   LoginResponse* loginResponse;
+  DetailResponse* detailResponse;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
 - (BOOL) hasMsg;
 - (BOOL) hasLoginResponse;
+- (BOOL) hasDetailResponse;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
 @property (readonly, retain) LoginResponse* loginResponse;
+@property (readonly, retain) DetailResponse* detailResponse;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -95,5 +103,12 @@
 - (HTTPResponse_Builder*) setLoginResponseBuilder:(LoginResponse_Builder*) builderForValue;
 - (HTTPResponse_Builder*) mergeLoginResponse:(LoginResponse*) value;
 - (HTTPResponse_Builder*) clearLoginResponse;
+
+- (BOOL) hasDetailResponse;
+- (DetailResponse*) detailResponse;
+- (HTTPResponse_Builder*) setDetailResponse:(DetailResponse*) value;
+- (HTTPResponse_Builder*) setDetailResponseBuilder:(DetailResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeDetailResponse:(DetailResponse*) value;
+- (HTTPResponse_Builder*) clearDetailResponse;
 @end
 

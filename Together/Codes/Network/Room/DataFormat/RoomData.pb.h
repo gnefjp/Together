@@ -2,6 +2,8 @@
 
 #import "ProtocolBuffers.h"
 
+@class Address;
+@class Address_Builder;
 @class RoomInfo;
 @class RoomInfo_Builder;
 
@@ -14,36 +16,37 @@
 @interface RoomInfo : PBGeneratedMessage {
 @private
   BOOL hasDistance_:1;
-  BOOL hasId_:1;
+  BOOL hasRoomId_:1;
   BOOL hasType_:1;
   BOOL hasStatus_:1;
   BOOL hasGenderType_:1;
   BOOL hasJoinPersonCount_:1;
   BOOL hasLimitPersonCount_:1;
   BOOL hasTitle_:1;
+  BOOL hasOwnerId_:1;
   BOOL hasOwnerNickname_:1;
   BOOL hasPicUrl_:1;
-  BOOL hasAddress_:1;
   BOOL hasCreateTime_:1;
   BOOL hasBeginTime_:1;
-  BOOL hasAddrRemarks_:1;
+  BOOL hasAddress_:1;
   Float64 distance;
-  int32_t id;
+  int32_t roomId;
   int32_t type;
   int32_t status;
   int32_t genderType;
   int32_t joinPersonCount;
   int32_t limitPersonCount;
   NSString* title;
+  NSString* ownerId;
   NSString* ownerNickname;
   NSString* picUrl;
-  NSString* address;
   NSString* createTime;
   NSString* beginTime;
-  NSString* addrRemarks;
+  Address* address;
 }
-- (BOOL) hasId;
+- (BOOL) hasRoomId;
 - (BOOL) hasTitle;
+- (BOOL) hasOwnerId;
 - (BOOL) hasOwnerNickname;
 - (BOOL) hasType;
 - (BOOL) hasStatus;
@@ -52,12 +55,12 @@
 - (BOOL) hasDistance;
 - (BOOL) hasJoinPersonCount;
 - (BOOL) hasLimitPersonCount;
-- (BOOL) hasAddress;
 - (BOOL) hasCreateTime;
 - (BOOL) hasBeginTime;
-- (BOOL) hasAddrRemarks;
-@property (readonly) int32_t id;
+- (BOOL) hasAddress;
+@property (readonly) int32_t roomId;
 @property (readonly, retain) NSString* title;
+@property (readonly, retain) NSString* ownerId;
 @property (readonly, retain) NSString* ownerNickname;
 @property (readonly) int32_t type;
 @property (readonly) int32_t status;
@@ -66,10 +69,9 @@
 @property (readonly) Float64 distance;
 @property (readonly) int32_t joinPersonCount;
 @property (readonly) int32_t limitPersonCount;
-@property (readonly, retain) NSString* address;
 @property (readonly, retain) NSString* createTime;
 @property (readonly, retain) NSString* beginTime;
-@property (readonly, retain) NSString* addrRemarks;
+@property (readonly, retain) Address* address;
 
 + (RoomInfo*) defaultInstance;
 - (RoomInfo*) defaultInstance;
@@ -105,15 +107,20 @@
 - (RoomInfo_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
 - (RoomInfo_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
 
-- (BOOL) hasId;
-- (int32_t) id;
-- (RoomInfo_Builder*) setId:(int32_t) value;
-- (RoomInfo_Builder*) clearId;
+- (BOOL) hasRoomId;
+- (int32_t) roomId;
+- (RoomInfo_Builder*) setRoomId:(int32_t) value;
+- (RoomInfo_Builder*) clearRoomId;
 
 - (BOOL) hasTitle;
 - (NSString*) title;
 - (RoomInfo_Builder*) setTitle:(NSString*) value;
 - (RoomInfo_Builder*) clearTitle;
+
+- (BOOL) hasOwnerId;
+- (NSString*) ownerId;
+- (RoomInfo_Builder*) setOwnerId:(NSString*) value;
+- (RoomInfo_Builder*) clearOwnerId;
 
 - (BOOL) hasOwnerNickname;
 - (NSString*) ownerNickname;
@@ -155,11 +162,6 @@
 - (RoomInfo_Builder*) setLimitPersonCount:(int32_t) value;
 - (RoomInfo_Builder*) clearLimitPersonCount;
 
-- (BOOL) hasAddress;
-- (NSString*) address;
-- (RoomInfo_Builder*) setAddress:(NSString*) value;
-- (RoomInfo_Builder*) clearAddress;
-
 - (BOOL) hasCreateTime;
 - (NSString*) createTime;
 - (RoomInfo_Builder*) setCreateTime:(NSString*) value;
@@ -170,9 +172,95 @@
 - (RoomInfo_Builder*) setBeginTime:(NSString*) value;
 - (RoomInfo_Builder*) clearBeginTime;
 
-- (BOOL) hasAddrRemarks;
-- (NSString*) addrRemarks;
-- (RoomInfo_Builder*) setAddrRemarks:(NSString*) value;
-- (RoomInfo_Builder*) clearAddrRemarks;
+- (BOOL) hasAddress;
+- (Address*) address;
+- (RoomInfo_Builder*) setAddress:(Address*) value;
+- (RoomInfo_Builder*) setAddressBuilder:(Address_Builder*) builderForValue;
+- (RoomInfo_Builder*) mergeAddress:(Address*) value;
+- (RoomInfo_Builder*) clearAddress;
+@end
+
+@interface Address : PBGeneratedMessage {
+@private
+  BOOL hasLongitude_:1;
+  BOOL hasLatitude_:1;
+  BOOL hasAddrType_:1;
+  BOOL hasDetailAddr_:1;
+  BOOL hasAddrRemark_:1;
+  Float64 longitude;
+  Float64 latitude;
+  int32_t addrType;
+  NSString* detailAddr;
+  NSString* addrRemark;
+}
+- (BOOL) hasAddrType;
+- (BOOL) hasLongitude;
+- (BOOL) hasLatitude;
+- (BOOL) hasDetailAddr;
+- (BOOL) hasAddrRemark;
+@property (readonly) int32_t addrType;
+@property (readonly) Float64 longitude;
+@property (readonly) Float64 latitude;
+@property (readonly, retain) NSString* detailAddr;
+@property (readonly, retain) NSString* addrRemark;
+
++ (Address*) defaultInstance;
+- (Address*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (Address_Builder*) builder;
++ (Address_Builder*) builder;
++ (Address_Builder*) builderWithPrototype:(Address*) prototype;
+
++ (Address*) parseFromData:(NSData*) data;
++ (Address*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (Address*) parseFromInputStream:(NSInputStream*) input;
++ (Address*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (Address*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (Address*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface Address_Builder : PBGeneratedMessage_Builder {
+@private
+  Address* result;
+}
+
+- (Address*) defaultInstance;
+
+- (Address_Builder*) clear;
+- (Address_Builder*) clone;
+
+- (Address*) build;
+- (Address*) buildPartial;
+
+- (Address_Builder*) mergeFrom:(Address*) other;
+- (Address_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (Address_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasAddrType;
+- (int32_t) addrType;
+- (Address_Builder*) setAddrType:(int32_t) value;
+- (Address_Builder*) clearAddrType;
+
+- (BOOL) hasLongitude;
+- (Float64) longitude;
+- (Address_Builder*) setLongitude:(Float64) value;
+- (Address_Builder*) clearLongitude;
+
+- (BOOL) hasLatitude;
+- (Float64) latitude;
+- (Address_Builder*) setLatitude:(Float64) value;
+- (Address_Builder*) clearLatitude;
+
+- (BOOL) hasDetailAddr;
+- (NSString*) detailAddr;
+- (Address_Builder*) setDetailAddr:(NSString*) value;
+- (Address_Builder*) clearDetailAddr;
+
+- (BOOL) hasAddrRemark;
+- (NSString*) addrRemark;
+- (Address_Builder*) setAddrRemark:(NSString*) value;
+- (Address_Builder*) clearAddrRemark;
 @end
 

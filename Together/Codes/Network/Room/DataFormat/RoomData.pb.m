@@ -20,8 +20,9 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @end
 
 @interface RoomInfo ()
-@property int32_t id;
+@property int32_t roomId;
 @property (retain) NSString* title;
+@property (retain) NSString* ownerId;
 @property (retain) NSString* ownerNickname;
 @property int32_t type;
 @property int32_t status;
@@ -30,21 +31,20 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property Float64 distance;
 @property int32_t joinPersonCount;
 @property int32_t limitPersonCount;
-@property (retain) NSString* address;
 @property (retain) NSString* createTime;
 @property (retain) NSString* beginTime;
-@property (retain) NSString* addrRemarks;
+@property (retain) Address* address;
 @end
 
 @implementation RoomInfo
 
-- (BOOL) hasId {
-  return !!hasId_;
+- (BOOL) hasRoomId {
+  return !!hasRoomId_;
 }
-- (void) setHasId:(BOOL) value {
-  hasId_ = !!value;
+- (void) setHasRoomId:(BOOL) value {
+  hasRoomId_ = !!value;
 }
-@synthesize id;
+@synthesize roomId;
 - (BOOL) hasTitle {
   return !!hasTitle_;
 }
@@ -52,6 +52,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasTitle_ = !!value;
 }
 @synthesize title;
+- (BOOL) hasOwnerId {
+  return !!hasOwnerId_;
+}
+- (void) setHasOwnerId:(BOOL) value {
+  hasOwnerId_ = !!value;
+}
+@synthesize ownerId;
 - (BOOL) hasOwnerNickname {
   return !!hasOwnerNickname_;
 }
@@ -108,13 +115,6 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasLimitPersonCount_ = !!value;
 }
 @synthesize limitPersonCount;
-- (BOOL) hasAddress {
-  return !!hasAddress_;
-}
-- (void) setHasAddress:(BOOL) value {
-  hasAddress_ = !!value;
-}
-@synthesize address;
 - (BOOL) hasCreateTime {
   return !!hasCreateTime_;
 }
@@ -129,27 +129,28 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasBeginTime_ = !!value;
 }
 @synthesize beginTime;
-- (BOOL) hasAddrRemarks {
-  return !!hasAddrRemarks_;
+- (BOOL) hasAddress {
+  return !!hasAddress_;
 }
-- (void) setHasAddrRemarks:(BOOL) value {
-  hasAddrRemarks_ = !!value;
+- (void) setHasAddress:(BOOL) value {
+  hasAddress_ = !!value;
 }
-@synthesize addrRemarks;
+@synthesize address;
 - (void) dealloc {
   self.title = nil;
+  self.ownerId = nil;
   self.ownerNickname = nil;
   self.picUrl = nil;
-  self.address = nil;
   self.createTime = nil;
   self.beginTime = nil;
-  self.addrRemarks = nil;
+  self.address = nil;
   [super dealloc];
 }
 - (id) init {
   if ((self = [super init])) {
-    self.id = 0;
+    self.roomId = 0;
     self.title = @"";
+    self.ownerId = @"";
     self.ownerNickname = @"";
     self.type = 0;
     self.status = 0;
@@ -158,10 +159,9 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.distance = 0;
     self.joinPersonCount = 0;
     self.limitPersonCount = 0;
-    self.address = @"";
     self.createTime = @"";
     self.beginTime = @"";
-    self.addrRemarks = @"";
+    self.address = [Address defaultInstance];
   }
   return self;
 }
@@ -181,38 +181,38 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   return YES;
 }
 - (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
-  if (self.hasId) {
-    [output writeInt32:1 value:self.id];
+  if (self.hasRoomId) {
+    [output writeInt32:1 value:self.roomId];
   }
   if (self.hasTitle) {
     [output writeString:2 value:self.title];
   }
+  if (self.hasOwnerId) {
+    [output writeString:3 value:self.ownerId];
+  }
   if (self.hasOwnerNickname) {
-    [output writeString:3 value:self.ownerNickname];
+    [output writeString:4 value:self.ownerNickname];
   }
   if (self.hasType) {
-    [output writeInt32:4 value:self.type];
+    [output writeInt32:5 value:self.type];
   }
   if (self.hasStatus) {
-    [output writeInt32:5 value:self.status];
+    [output writeInt32:6 value:self.status];
   }
   if (self.hasPicUrl) {
-    [output writeString:6 value:self.picUrl];
+    [output writeString:7 value:self.picUrl];
   }
   if (self.hasGenderType) {
-    [output writeInt32:7 value:self.genderType];
+    [output writeInt32:8 value:self.genderType];
   }
   if (self.hasDistance) {
-    [output writeDouble:8 value:self.distance];
+    [output writeDouble:9 value:self.distance];
   }
   if (self.hasJoinPersonCount) {
-    [output writeInt32:9 value:self.joinPersonCount];
+    [output writeInt32:10 value:self.joinPersonCount];
   }
   if (self.hasLimitPersonCount) {
-    [output writeInt32:10 value:self.limitPersonCount];
-  }
-  if (self.hasAddress) {
-    [output writeString:11 value:self.address];
+    [output writeInt32:11 value:self.limitPersonCount];
   }
   if (self.hasCreateTime) {
     [output writeString:12 value:self.createTime];
@@ -220,8 +220,8 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasBeginTime) {
     [output writeString:13 value:self.beginTime];
   }
-  if (self.hasAddrRemarks) {
-    [output writeString:14 value:self.addrRemarks];
+  if (self.hasAddress) {
+    [output writeMessage:14 value:self.address];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -232,38 +232,38 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   }
 
   size = 0;
-  if (self.hasId) {
-    size += computeInt32Size(1, self.id);
+  if (self.hasRoomId) {
+    size += computeInt32Size(1, self.roomId);
   }
   if (self.hasTitle) {
     size += computeStringSize(2, self.title);
   }
+  if (self.hasOwnerId) {
+    size += computeStringSize(3, self.ownerId);
+  }
   if (self.hasOwnerNickname) {
-    size += computeStringSize(3, self.ownerNickname);
+    size += computeStringSize(4, self.ownerNickname);
   }
   if (self.hasType) {
-    size += computeInt32Size(4, self.type);
+    size += computeInt32Size(5, self.type);
   }
   if (self.hasStatus) {
-    size += computeInt32Size(5, self.status);
+    size += computeInt32Size(6, self.status);
   }
   if (self.hasPicUrl) {
-    size += computeStringSize(6, self.picUrl);
+    size += computeStringSize(7, self.picUrl);
   }
   if (self.hasGenderType) {
-    size += computeInt32Size(7, self.genderType);
+    size += computeInt32Size(8, self.genderType);
   }
   if (self.hasDistance) {
-    size += computeDoubleSize(8, self.distance);
+    size += computeDoubleSize(9, self.distance);
   }
   if (self.hasJoinPersonCount) {
-    size += computeInt32Size(9, self.joinPersonCount);
+    size += computeInt32Size(10, self.joinPersonCount);
   }
   if (self.hasLimitPersonCount) {
-    size += computeInt32Size(10, self.limitPersonCount);
-  }
-  if (self.hasAddress) {
-    size += computeStringSize(11, self.address);
+    size += computeInt32Size(11, self.limitPersonCount);
   }
   if (self.hasCreateTime) {
     size += computeStringSize(12, self.createTime);
@@ -271,8 +271,8 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasBeginTime) {
     size += computeStringSize(13, self.beginTime);
   }
-  if (self.hasAddrRemarks) {
-    size += computeStringSize(14, self.addrRemarks);
+  if (self.hasAddress) {
+    size += computeMessageSize(14, self.address);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -349,11 +349,14 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (other == [RoomInfo defaultInstance]) {
     return self;
   }
-  if (other.hasId) {
-    [self setId:other.id];
+  if (other.hasRoomId) {
+    [self setRoomId:other.roomId];
   }
   if (other.hasTitle) {
     [self setTitle:other.title];
+  }
+  if (other.hasOwnerId) {
+    [self setOwnerId:other.ownerId];
   }
   if (other.hasOwnerNickname) {
     [self setOwnerNickname:other.ownerNickname];
@@ -379,17 +382,14 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (other.hasLimitPersonCount) {
     [self setLimitPersonCount:other.limitPersonCount];
   }
-  if (other.hasAddress) {
-    [self setAddress:other.address];
-  }
   if (other.hasCreateTime) {
     [self setCreateTime:other.createTime];
   }
   if (other.hasBeginTime) {
     [self setBeginTime:other.beginTime];
   }
-  if (other.hasAddrRemarks) {
-    [self setAddrRemarks:other.addrRemarks];
+  if (other.hasAddress) {
+    [self mergeAddress:other.address];
   }
   [self mergeUnknownFields:other.unknownFields];
   return self;
@@ -413,7 +413,7 @@ static RoomInfo* defaultRoomInfoInstance = nil;
         break;
       }
       case 8: {
-        [self setId:[input readInt32]];
+        [self setRoomId:[input readInt32]];
         break;
       }
       case 18: {
@@ -421,39 +421,39 @@ static RoomInfo* defaultRoomInfoInstance = nil;
         break;
       }
       case 26: {
+        [self setOwnerId:[input readString]];
+        break;
+      }
+      case 34: {
         [self setOwnerNickname:[input readString]];
         break;
       }
-      case 32: {
+      case 40: {
         [self setType:[input readInt32]];
         break;
       }
-      case 40: {
+      case 48: {
         [self setStatus:[input readInt32]];
         break;
       }
-      case 50: {
+      case 58: {
         [self setPicUrl:[input readString]];
         break;
       }
-      case 56: {
+      case 64: {
         [self setGenderType:[input readInt32]];
         break;
       }
-      case 65: {
+      case 73: {
         [self setDistance:[input readDouble]];
         break;
       }
-      case 72: {
+      case 80: {
         [self setJoinPersonCount:[input readInt32]];
         break;
       }
-      case 80: {
+      case 88: {
         [self setLimitPersonCount:[input readInt32]];
-        break;
-      }
-      case 90: {
-        [self setAddress:[input readString]];
         break;
       }
       case 98: {
@@ -465,26 +465,31 @@ static RoomInfo* defaultRoomInfoInstance = nil;
         break;
       }
       case 114: {
-        [self setAddrRemarks:[input readString]];
+        Address_Builder* subBuilder = [Address builder];
+        if (self.hasAddress) {
+          [subBuilder mergeFrom:self.address];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setAddress:[subBuilder buildPartial]];
         break;
       }
     }
   }
 }
-- (BOOL) hasId {
-  return result.hasId;
+- (BOOL) hasRoomId {
+  return result.hasRoomId;
 }
-- (int32_t) id {
-  return result.id;
+- (int32_t) roomId {
+  return result.roomId;
 }
-- (RoomInfo_Builder*) setId:(int32_t) value {
-  result.hasId = YES;
-  result.id = value;
+- (RoomInfo_Builder*) setRoomId:(int32_t) value {
+  result.hasRoomId = YES;
+  result.roomId = value;
   return self;
 }
-- (RoomInfo_Builder*) clearId {
-  result.hasId = NO;
-  result.id = 0;
+- (RoomInfo_Builder*) clearRoomId {
+  result.hasRoomId = NO;
+  result.roomId = 0;
   return self;
 }
 - (BOOL) hasTitle {
@@ -501,6 +506,22 @@ static RoomInfo* defaultRoomInfoInstance = nil;
 - (RoomInfo_Builder*) clearTitle {
   result.hasTitle = NO;
   result.title = @"";
+  return self;
+}
+- (BOOL) hasOwnerId {
+  return result.hasOwnerId;
+}
+- (NSString*) ownerId {
+  return result.ownerId;
+}
+- (RoomInfo_Builder*) setOwnerId:(NSString*) value {
+  result.hasOwnerId = YES;
+  result.ownerId = value;
+  return self;
+}
+- (RoomInfo_Builder*) clearOwnerId {
+  result.hasOwnerId = NO;
+  result.ownerId = @"";
   return self;
 }
 - (BOOL) hasOwnerNickname {
@@ -631,22 +652,6 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   result.limitPersonCount = 0;
   return self;
 }
-- (BOOL) hasAddress {
-  return result.hasAddress;
-}
-- (NSString*) address {
-  return result.address;
-}
-- (RoomInfo_Builder*) setAddress:(NSString*) value {
-  result.hasAddress = YES;
-  result.address = value;
-  return self;
-}
-- (RoomInfo_Builder*) clearAddress {
-  result.hasAddress = NO;
-  result.address = @"";
-  return self;
-}
 - (BOOL) hasCreateTime {
   return result.hasCreateTime;
 }
@@ -679,20 +684,365 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   result.beginTime = @"";
   return self;
 }
-- (BOOL) hasAddrRemarks {
-  return result.hasAddrRemarks;
+- (BOOL) hasAddress {
+  return result.hasAddress;
 }
-- (NSString*) addrRemarks {
-  return result.addrRemarks;
+- (Address*) address {
+  return result.address;
 }
-- (RoomInfo_Builder*) setAddrRemarks:(NSString*) value {
-  result.hasAddrRemarks = YES;
-  result.addrRemarks = value;
+- (RoomInfo_Builder*) setAddress:(Address*) value {
+  result.hasAddress = YES;
+  result.address = value;
   return self;
 }
-- (RoomInfo_Builder*) clearAddrRemarks {
-  result.hasAddrRemarks = NO;
-  result.addrRemarks = @"";
+- (RoomInfo_Builder*) setAddressBuilder:(Address_Builder*) builderForValue {
+  return [self setAddress:[builderForValue build]];
+}
+- (RoomInfo_Builder*) mergeAddress:(Address*) value {
+  if (result.hasAddress &&
+      result.address != [Address defaultInstance]) {
+    result.address =
+      [[[Address builderWithPrototype:result.address] mergeFrom:value] buildPartial];
+  } else {
+    result.address = value;
+  }
+  result.hasAddress = YES;
+  return self;
+}
+- (RoomInfo_Builder*) clearAddress {
+  result.hasAddress = NO;
+  result.address = [Address defaultInstance];
+  return self;
+}
+@end
+
+@interface Address ()
+@property int32_t addrType;
+@property Float64 longitude;
+@property Float64 latitude;
+@property (retain) NSString* detailAddr;
+@property (retain) NSString* addrRemark;
+@end
+
+@implementation Address
+
+- (BOOL) hasAddrType {
+  return !!hasAddrType_;
+}
+- (void) setHasAddrType:(BOOL) value {
+  hasAddrType_ = !!value;
+}
+@synthesize addrType;
+- (BOOL) hasLongitude {
+  return !!hasLongitude_;
+}
+- (void) setHasLongitude:(BOOL) value {
+  hasLongitude_ = !!value;
+}
+@synthesize longitude;
+- (BOOL) hasLatitude {
+  return !!hasLatitude_;
+}
+- (void) setHasLatitude:(BOOL) value {
+  hasLatitude_ = !!value;
+}
+@synthesize latitude;
+- (BOOL) hasDetailAddr {
+  return !!hasDetailAddr_;
+}
+- (void) setHasDetailAddr:(BOOL) value {
+  hasDetailAddr_ = !!value;
+}
+@synthesize detailAddr;
+- (BOOL) hasAddrRemark {
+  return !!hasAddrRemark_;
+}
+- (void) setHasAddrRemark:(BOOL) value {
+  hasAddrRemark_ = !!value;
+}
+@synthesize addrRemark;
+- (void) dealloc {
+  self.detailAddr = nil;
+  self.addrRemark = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.addrType = 0;
+    self.longitude = 0;
+    self.latitude = 0;
+    self.detailAddr = @"";
+    self.addrRemark = @"";
+  }
+  return self;
+}
+static Address* defaultAddressInstance = nil;
++ (void) initialize {
+  if (self == [Address class]) {
+    defaultAddressInstance = [[Address alloc] init];
+  }
+}
++ (Address*) defaultInstance {
+  return defaultAddressInstance;
+}
+- (Address*) defaultInstance {
+  return defaultAddressInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasAddrType) {
+    [output writeInt32:1 value:self.addrType];
+  }
+  if (self.hasLongitude) {
+    [output writeDouble:2 value:self.longitude];
+  }
+  if (self.hasLatitude) {
+    [output writeDouble:3 value:self.latitude];
+  }
+  if (self.hasDetailAddr) {
+    [output writeString:4 value:self.detailAddr];
+  }
+  if (self.hasAddrRemark) {
+    [output writeString:5 value:self.addrRemark];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasAddrType) {
+    size += computeInt32Size(1, self.addrType);
+  }
+  if (self.hasLongitude) {
+    size += computeDoubleSize(2, self.longitude);
+  }
+  if (self.hasLatitude) {
+    size += computeDoubleSize(3, self.latitude);
+  }
+  if (self.hasDetailAddr) {
+    size += computeStringSize(4, self.detailAddr);
+  }
+  if (self.hasAddrRemark) {
+    size += computeStringSize(5, self.addrRemark);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (Address*) parseFromData:(NSData*) data {
+  return (Address*)[[[Address builder] mergeFromData:data] build];
+}
++ (Address*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (Address*)[[[Address builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (Address*) parseFromInputStream:(NSInputStream*) input {
+  return (Address*)[[[Address builder] mergeFromInputStream:input] build];
+}
++ (Address*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (Address*)[[[Address builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (Address*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (Address*)[[[Address builder] mergeFromCodedInputStream:input] build];
+}
++ (Address*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (Address*)[[[Address builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (Address_Builder*) builder {
+  return [[[Address_Builder alloc] init] autorelease];
+}
++ (Address_Builder*) builderWithPrototype:(Address*) prototype {
+  return [[Address builder] mergeFrom:prototype];
+}
+- (Address_Builder*) builder {
+  return [Address builder];
+}
+@end
+
+@interface Address_Builder()
+@property (retain) Address* result;
+@end
+
+@implementation Address_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[Address alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (Address_Builder*) clear {
+  self.result = [[[Address alloc] init] autorelease];
+  return self;
+}
+- (Address_Builder*) clone {
+  return [Address builderWithPrototype:result];
+}
+- (Address*) defaultInstance {
+  return [Address defaultInstance];
+}
+- (Address*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (Address*) buildPartial {
+  Address* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (Address_Builder*) mergeFrom:(Address*) other {
+  if (other == [Address defaultInstance]) {
+    return self;
+  }
+  if (other.hasAddrType) {
+    [self setAddrType:other.addrType];
+  }
+  if (other.hasLongitude) {
+    [self setLongitude:other.longitude];
+  }
+  if (other.hasLatitude) {
+    [self setLatitude:other.latitude];
+  }
+  if (other.hasDetailAddr) {
+    [self setDetailAddr:other.detailAddr];
+  }
+  if (other.hasAddrRemark) {
+    [self setAddrRemark:other.addrRemark];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (Address_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (Address_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 8: {
+        [self setAddrType:[input readInt32]];
+        break;
+      }
+      case 17: {
+        [self setLongitude:[input readDouble]];
+        break;
+      }
+      case 25: {
+        [self setLatitude:[input readDouble]];
+        break;
+      }
+      case 34: {
+        [self setDetailAddr:[input readString]];
+        break;
+      }
+      case 42: {
+        [self setAddrRemark:[input readString]];
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasAddrType {
+  return result.hasAddrType;
+}
+- (int32_t) addrType {
+  return result.addrType;
+}
+- (Address_Builder*) setAddrType:(int32_t) value {
+  result.hasAddrType = YES;
+  result.addrType = value;
+  return self;
+}
+- (Address_Builder*) clearAddrType {
+  result.hasAddrType = NO;
+  result.addrType = 0;
+  return self;
+}
+- (BOOL) hasLongitude {
+  return result.hasLongitude;
+}
+- (Float64) longitude {
+  return result.longitude;
+}
+- (Address_Builder*) setLongitude:(Float64) value {
+  result.hasLongitude = YES;
+  result.longitude = value;
+  return self;
+}
+- (Address_Builder*) clearLongitude {
+  result.hasLongitude = NO;
+  result.longitude = 0;
+  return self;
+}
+- (BOOL) hasLatitude {
+  return result.hasLatitude;
+}
+- (Float64) latitude {
+  return result.latitude;
+}
+- (Address_Builder*) setLatitude:(Float64) value {
+  result.hasLatitude = YES;
+  result.latitude = value;
+  return self;
+}
+- (Address_Builder*) clearLatitude {
+  result.hasLatitude = NO;
+  result.latitude = 0;
+  return self;
+}
+- (BOOL) hasDetailAddr {
+  return result.hasDetailAddr;
+}
+- (NSString*) detailAddr {
+  return result.detailAddr;
+}
+- (Address_Builder*) setDetailAddr:(NSString*) value {
+  result.hasDetailAddr = YES;
+  result.detailAddr = value;
+  return self;
+}
+- (Address_Builder*) clearDetailAddr {
+  result.hasDetailAddr = NO;
+  result.detailAddr = @"";
+  return self;
+}
+- (BOOL) hasAddrRemark {
+  return result.hasAddrRemark;
+}
+- (NSString*) addrRemark {
+  return result.addrRemark;
+}
+- (Address_Builder*) setAddrRemark:(NSString*) value {
+  result.hasAddrRemark = YES;
+  result.addrRemark = value;
+  return self;
+}
+- (Address_Builder*) clearAddrRemark {
+  result.hasAddrRemark = NO;
+  result.addrRemark = @"";
   return self;
 }
 @end

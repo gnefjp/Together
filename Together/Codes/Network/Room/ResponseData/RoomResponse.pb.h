@@ -4,6 +4,8 @@
 
 #import "RoomData.pb.h"
 
+@class Address;
+@class Address_Builder;
 @class RoomInfo;
 @class RoomInfo_Builder;
 

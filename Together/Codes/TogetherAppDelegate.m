@@ -10,10 +10,25 @@
 
 #import "HomeViewController.h"
 
+#import "FileDownloadRequest.h"
+
 @implementation TogetherAppDelegate
+
+
+- (void) _debugNetwork
+{
+    return;
+    
+    FileDownloadRequest* request = [[FileDownloadRequest alloc] init];
+    request.fileID = @"2";
+    [[NetRequestManager defaultManager] startRequest:request];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self _debugNetwork];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.viewController = [HomeViewController loadFromNib];
@@ -28,9 +43,6 @@
     
     return YES;
 }
-
-
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

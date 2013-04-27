@@ -21,7 +21,7 @@
 #import "RoomCreateRequest.h"
 
 #define kRecord_BtnTag      1000 // For _recordView
-#define kRoomType_LabelTag  1000 // For self.view
+#define kRoomType_BtnTag    1000 // For self.view
 
 static NSString* s_titles[] = {
     @"主题",
@@ -85,6 +85,12 @@ static NSString* s_roomTypeNames[] = {
 - (IBAction)closeBtnPressed:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (IBAction)roomTypeBtnPressed:(id)sender
+{
+    [self _isShowRoomTypePicker:YES animation:YES];
 }
 
 
@@ -156,8 +162,13 @@ static NSString* s_roomTypeNames[] = {
     _hasPickRoomType = YES;
     _roomInfo.roomType = roomType;
     
-    UILabel* roomTypeLabel = [self.view viewWithTag:kRoomType_LabelTag recursive:NO];
-    roomTypeLabel.text = s_roomTypeNames[_roomInfo.roomType];
+    UIButton* roomTypeBtn = [self.view viewWithTag:kRoomType_BtnTag
+                                         recursive:NO];
+    
+    [roomTypeBtn setTitle:s_roomTypeNames[_roomInfo.roomType]
+                 forState:UIControlStateNormal];
+    [roomTypeBtn setTitle:s_roomTypeNames[_roomInfo.roomType]
+                 forState:UIControlStateHighlighted];
     
     [self _isShowRoomTypePicker:NO animation:YES];
 }
@@ -253,7 +264,7 @@ static NSString* s_roomTypeNames[] = {
     createRequest.roomTitle = _roomInfo.roomTitle;
     createRequest.roomType = _roomInfo.roomType;
     
-    createRequest.beginTime = @"20130601010203";
+    createRequest.beginTime = _roomInfo.beginTime;
     
     createRequest.personNumLimit = _roomInfo.personLimitNum;
     createRequest.genderType = _roomInfo.genderLimitType;
@@ -377,6 +388,8 @@ static NSString* s_roomTypeNames[] = {
     {
         RoomInfoCell* cell = [_infoTableView.visibleCells objectAtIndex:2];
         cell.contentLabel.text = [beginTime timestampToDateUsingFormat:@"yyyy-MM-dd HH:mm"];
+        
+        _roomInfo.beginTime = [beginTime timestampToDateUsingFormat:@"yyyyMMddHHmmss"];
     }
 }
 

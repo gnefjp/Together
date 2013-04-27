@@ -20,7 +20,7 @@
         if ([message isKindOfClass:[RoomInfo class]])
         {
             RoomInfo* roomInfo = (RoomInfo *)message;
-//            self.ID = roomInfo
+//            self.ID = roomInfo.roomId;
             self.roomTitle = roomInfo.title;
             self.roomType = roomInfo.type;
             self.perviewUrl = roomInfo.picUrl;
@@ -31,12 +31,12 @@
             self.personLimitNum = roomInfo.limitPersonCount;
             self.joinPersonNum = roomInfo.joinPersonCount;
             
-            self.detailAddr = roomInfo.address;
-            self.addrRemark = roomInfo.addrRemarks;
+            self.detailAddr = roomInfo.address.detailAddr;
+            self.addrRemark = roomInfo.address.addrRemark;
             
             self.distance = roomInfo.distance;
             
-//            self.ownerID = roomInfo
+            self.ownerID = roomInfo.ownerId;
             self.ownerNickname = roomInfo.ownerNickname;
         }
     }

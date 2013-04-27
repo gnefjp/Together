@@ -59,7 +59,10 @@
 #pragma mark- 导航栏
 - (void) _isShowNavigation:(BOOL)isShow animation:(BOOL)animation
 {
-    _mainView.frameX = !isShow ? 268.0 : 0.0;
+    if (isShow == (_mainView.frameX > 10.0))
+    {
+        return;
+    }
     
     if (isShow)
     {
@@ -98,7 +101,7 @@
 
 - (void) _handlePan:(UIPanGestureRecognizer *)panGesture
 {
-    if (panGesture.state == UIGestureRecognizerStateChanged)
+    if (panGesture.state == UIGestureRecognizerStateEnded)
     {
         CGPoint offset = [panGesture translationInView:_mainView];
         
@@ -138,6 +141,7 @@
     
     [self _initPanGesture];
     [self.view addSubview:_mainView];
+    _mainView.frameX = 268.0;
     [self _isShowNavigation:NO animation:YES];
 }
 

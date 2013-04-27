@@ -4,6 +4,8 @@
 
 #import "UserData.pb.h"
 
+@class DetailResponse;
+@class DetailResponse_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
 @class User_Info;
@@ -72,5 +74,55 @@
 - (LoginResponse_Builder*) setUserInfoBuilder:(User_Info_Builder*) builderForValue;
 - (LoginResponse_Builder*) mergeUserInfo:(User_Info*) value;
 - (LoginResponse_Builder*) clearUserInfo;
+@end
+
+@interface DetailResponse : PBGeneratedMessage {
+@private
+  BOOL hasUserInfo_:1;
+  User_Info* userInfo;
+}
+- (BOOL) hasUserInfo;
+@property (readonly, retain) User_Info* userInfo;
+
++ (DetailResponse*) defaultInstance;
+- (DetailResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (DetailResponse_Builder*) builder;
++ (DetailResponse_Builder*) builder;
++ (DetailResponse_Builder*) builderWithPrototype:(DetailResponse*) prototype;
+
++ (DetailResponse*) parseFromData:(NSData*) data;
++ (DetailResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (DetailResponse*) parseFromInputStream:(NSInputStream*) input;
++ (DetailResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (DetailResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (DetailResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface DetailResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  DetailResponse* result;
+}
+
+- (DetailResponse*) defaultInstance;
+
+- (DetailResponse_Builder*) clear;
+- (DetailResponse_Builder*) clone;
+
+- (DetailResponse*) build;
+- (DetailResponse*) buildPartial;
+
+- (DetailResponse_Builder*) mergeFrom:(DetailResponse*) other;
+- (DetailResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (DetailResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasUserInfo;
+- (User_Info*) userInfo;
+- (DetailResponse_Builder*) setUserInfo:(User_Info*) value;
+- (DetailResponse_Builder*) setUserInfoBuilder:(User_Info_Builder*) builderForValue;
+- (DetailResponse_Builder*) mergeUserInfo:(User_Info*) value;
+- (DetailResponse_Builder*) clearUserInfo;
 @end
 

@@ -73,7 +73,7 @@ static LoginResponse* defaultLoginResponseInstance = nil;
     [output writeString:1 value:self.sid];
   }
   if (self.hasUserInfo) {
-    [output writeMessage:4 value:self.userInfo];
+    [output writeMessage:2 value:self.userInfo];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -88,7 +88,7 @@ static LoginResponse* defaultLoginResponseInstance = nil;
     size += computeStringSize(1, self.sid);
   }
   if (self.hasUserInfo) {
-    size += computeMessageSize(4, self.userInfo);
+    size += computeMessageSize(2, self.userInfo);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -196,7 +196,7 @@ static LoginResponse* defaultLoginResponseInstance = nil;
         [self setSid:[input readString]];
         break;
       }
-      case 34: {
+      case 18: {
         User_Info_Builder* subBuilder = [User_Info builder];
         if (self.hasUserInfo) {
           [subBuilder mergeFrom:self.userInfo];
@@ -250,6 +250,203 @@ static LoginResponse* defaultLoginResponseInstance = nil;
   return self;
 }
 - (LoginResponse_Builder*) clearUserInfo {
+  result.hasUserInfo = NO;
+  result.userInfo = [User_Info defaultInstance];
+  return self;
+}
+@end
+
+@interface DetailResponse ()
+@property (retain) User_Info* userInfo;
+@end
+
+@implementation DetailResponse
+
+- (BOOL) hasUserInfo {
+  return !!hasUserInfo_;
+}
+- (void) setHasUserInfo:(BOOL) value {
+  hasUserInfo_ = !!value;
+}
+@synthesize userInfo;
+- (void) dealloc {
+  self.userInfo = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.userInfo = [User_Info defaultInstance];
+  }
+  return self;
+}
+static DetailResponse* defaultDetailResponseInstance = nil;
++ (void) initialize {
+  if (self == [DetailResponse class]) {
+    defaultDetailResponseInstance = [[DetailResponse alloc] init];
+  }
+}
++ (DetailResponse*) defaultInstance {
+  return defaultDetailResponseInstance;
+}
+- (DetailResponse*) defaultInstance {
+  return defaultDetailResponseInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasUserInfo) {
+    [output writeMessage:1 value:self.userInfo];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasUserInfo) {
+    size += computeMessageSize(1, self.userInfo);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (DetailResponse*) parseFromData:(NSData*) data {
+  return (DetailResponse*)[[[DetailResponse builder] mergeFromData:data] build];
+}
++ (DetailResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (DetailResponse*)[[[DetailResponse builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (DetailResponse*) parseFromInputStream:(NSInputStream*) input {
+  return (DetailResponse*)[[[DetailResponse builder] mergeFromInputStream:input] build];
+}
++ (DetailResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (DetailResponse*)[[[DetailResponse builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (DetailResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (DetailResponse*)[[[DetailResponse builder] mergeFromCodedInputStream:input] build];
+}
++ (DetailResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (DetailResponse*)[[[DetailResponse builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (DetailResponse_Builder*) builder {
+  return [[[DetailResponse_Builder alloc] init] autorelease];
+}
++ (DetailResponse_Builder*) builderWithPrototype:(DetailResponse*) prototype {
+  return [[DetailResponse builder] mergeFrom:prototype];
+}
+- (DetailResponse_Builder*) builder {
+  return [DetailResponse builder];
+}
+@end
+
+@interface DetailResponse_Builder()
+@property (retain) DetailResponse* result;
+@end
+
+@implementation DetailResponse_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[DetailResponse alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (DetailResponse_Builder*) clear {
+  self.result = [[[DetailResponse alloc] init] autorelease];
+  return self;
+}
+- (DetailResponse_Builder*) clone {
+  return [DetailResponse builderWithPrototype:result];
+}
+- (DetailResponse*) defaultInstance {
+  return [DetailResponse defaultInstance];
+}
+- (DetailResponse*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (DetailResponse*) buildPartial {
+  DetailResponse* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (DetailResponse_Builder*) mergeFrom:(DetailResponse*) other {
+  if (other == [DetailResponse defaultInstance]) {
+    return self;
+  }
+  if (other.hasUserInfo) {
+    [self mergeUserInfo:other.userInfo];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (DetailResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (DetailResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 10: {
+        User_Info_Builder* subBuilder = [User_Info builder];
+        if (self.hasUserInfo) {
+          [subBuilder mergeFrom:self.userInfo];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setUserInfo:[subBuilder buildPartial]];
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasUserInfo {
+  return result.hasUserInfo;
+}
+- (User_Info*) userInfo {
+  return result.userInfo;
+}
+- (DetailResponse_Builder*) setUserInfo:(User_Info*) value {
+  result.hasUserInfo = YES;
+  result.userInfo = value;
+  return self;
+}
+- (DetailResponse_Builder*) setUserInfoBuilder:(User_Info_Builder*) builderForValue {
+  return [self setUserInfo:[builderForValue build]];
+}
+- (DetailResponse_Builder*) mergeUserInfo:(User_Info*) value {
+  if (result.hasUserInfo &&
+      result.userInfo != [User_Info defaultInstance]) {
+    result.userInfo =
+      [[[User_Info builderWithPrototype:result.userInfo] mergeFrom:value] buildPartial];
+  } else {
+    result.userInfo = value;
+  }
+  result.hasUserInfo = YES;
+  return self;
+}
+- (DetailResponse_Builder*) clearUserInfo {
   result.hasUserInfo = NO;
   result.userInfo = [User_Info defaultInstance];
   return self;

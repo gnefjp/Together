@@ -31,8 +31,6 @@ typedef enum
 @property (weak,     nonatomic) id<NetRoomRequestDelegate>      delegate;
 
 @property (assign,   nonatomic) NetRoomRequestType              requestType;
-@property (readonly, nonatomic) NSString*                       requestUrl;
-@property (readonly, nonatomic) NSString*                       actionCode;
 
 @end
 
