@@ -10,14 +10,34 @@
 
 #import "HomeViewController.h"
 
+#import "FileDownloadRequest.h"
+
 @implementation TogetherAppDelegate
+
+
+- (void) _debugNetwork
+{
+    return;
+    
+    FileDownloadRequest* request = [[FileDownloadRequest alloc] init];
+    request.fileID = @"2";
+    [[NetRequestManager defaultManager] startRequest:request];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self _debugNetwork];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.viewController = [HomeViewController loadFromNib];
-    self.window.rootViewController = self.viewController;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc]
+                                                   initWithRootViewController:self.viewController];
+    navigationController.navigationBarHidden = YES;
+    
+    self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
     
@@ -25,7 +45,6 @@
 }
 
 
-// TEST
 - (void)applicationWillResignActive:(UIApplication *)application
 {
 }

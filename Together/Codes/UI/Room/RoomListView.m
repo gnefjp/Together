@@ -7,33 +7,30 @@
 //
 
 #import "RoomListView.h"
+#import "RoomGridView.h"
+
+#import "RoomCreateViewController.h"
 
 @implementation RoomListView
 
 
 - (void) awakeFromNib
 {
+    _defaultRoomGridView = [RoomGridView loadFromNib];
+    _defaultRoomGridView.frameY = 44.0;
+    _defaultRoomGridView.alpha = 1.0f;
+    [self addSubview:_defaultRoomGridView];
     
+    _searchRoomGridView = [RoomGridView loadFromNib];
+    _searchRoomGridView.frameY = 44.0;
+    _searchRoomGridView.alpha = 0.0f;
+    [self addSubview:_searchRoomGridView];
 }
 
 
-#pragma mark- UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (IBAction)createRoomBtnPressed:(id)sender
 {
-    
+    RoomCreateViewController* createRoomControll = [RoomCreateViewController loadFromNib];
+    [[UIView rootController] pushViewController:createRoomControll animated:YES];
 }
-
-
-#pragma mark- UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return nil;
-}
-
 @end

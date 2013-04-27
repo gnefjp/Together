@@ -2,7 +2,7 @@
 //  RoomViewController.m
 //  Together
 //
-//  Created by Gnef_jp on 13-4-22.
+//  Created by Gnef_jp on 13-4-24.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
@@ -10,11 +10,15 @@
 
 @implementation RoomViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
 }
 
 

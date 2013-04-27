@@ -12,6 +12,8 @@
 #define kMatchModul_BtnTag  1001
 #define kMineModul_BtnTag   1002
 
+#define kShowNav_BtnTag     2000
+
 @implementation NavigationView
 
 - (void) awakeFromNib
@@ -20,17 +22,10 @@
 }
 
 
-- (IBAction)showNavigationBtnPressed:(id)sender
-{
-    [_delegate NavigationViewShowBtnPressed:self];
-}
-
 - (IBAction)modulBtnPressed:(UIButton*)sender
 {
     int type = (sender.tag - kHomeModul_BtnTag);
     [_delegate NavigationView:self wantInModulWithType:type];
 }
-
-
 
 @end

@@ -7,28 +7,35 @@
 //
 
 #import "UserCenterView.h"
+#import "GMETRecorder.h"
+#import "GEMTUserManager.h"
 
 @implementation UserCenterView
 
-- (id)initWithFrame:(CGRect)frame
+- (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    NSLog(@"%@",request.responseData.loginResponse.userInfo.nickName);
 }
 
-- (void)ChangeAvatarSelectImage:(UIImage *)img
+- (void)NetUserRequestFail:(NetUserRequest *)request
 {
-    AvatarCutView *cutView = [AvatarCutView loadFromNib];
-    cutView.delegate = self;
-    [cutView initWithImage:img];
-    [[UIView rootView] addSubview:cutView];
-    [cutView showAnimation];
+    
 }
 
-- (void)avataImageDidReceive:(UIImage *)img
+- (IBAction)showMapViewBtnDidpressed:(id)sender
+{
+    MapView *mapView = [MapView loadFromNib];
+    [[UIView rootView] addSubview:mapView];
+    [mapView showRightToCenterAnimation];
+    mapView.delegate = self;
+}
+
+- (void)MapView:(MapView *)view location:(CLLocationCoordinate2D)aLocation
+{
+    NSLog(@"%lf,%lf",aLocation.latitude,aLocation.longitude);
+}
+
+- (void)PicChangeSuccess:(PicChange *)self img:(UIImage *)img
 {
     _iAvatarImage.image = img;
 }
@@ -36,7 +43,8 @@
 
 - (IBAction)recordBtnDidPressed:(id)sender
 {
-    if (!_recorder) {
+    if (!_recorder)
+    {
         _recorder = [GMETRecorder startRecordWithTime:30];
     }
     [_recorder start];
@@ -49,11 +57,17 @@
 
 - (IBAction)changeAvataBtnDidPressed:(id)sender
 {
-    if (!_avatar) {
-        _avatar = [[ChangeAvatar alloc] init];
+    if (!_avatar)
+    {
+        _avatar = [[PicChange alloc] init];
         _avatar.delegate = self;
     }
     [_avatar addAvataActionSheet];
+}
+
+- (IBAction)loginBtnDidPressed:(id)sender
+{
+    [[GEMTUserManager shareInstance] addLoginViewToTopView];
 }
 
 - (IBAction)_playBtnDidPressed:(id)sender

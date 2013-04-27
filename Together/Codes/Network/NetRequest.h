@@ -9,14 +9,21 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 
+#import "const.h"
+#import "Response.pb.h"
+
 #pragma mark- Request
 @interface NetRequest : NSObject
 {
     NSMutableDictionary     *_expandVar;
 }
 
-@property (nonatomic, assign) id                delegate;
+@property (nonatomic, weak)     id               delegate;
 @property (nonatomic, readonly) ASIHTTPRequest  *httpRequest;
+@property (nonatomic, readonly) HTTPResponse    *responseData;
+
+@property (readonly, nonatomic) NSString        *requestUrl;
+@property (readonly, nonatomic) NSString        *actionCode;
 
 @end
 
@@ -43,8 +50,5 @@
 @property (nonatomic, assign) id                managerDelegate;
 @property (nonatomic, retain) UIImage*          loadImage;
 @property (nonatomic, assign) CGFloat           managerProgress;
-@property (nonatomic, retain) NSDictionary*     dataInfo;
-@property (nonatomic, assign) NSInteger         code;
-@property (nonatomic, retain) NSString*         msg;
 
 @end

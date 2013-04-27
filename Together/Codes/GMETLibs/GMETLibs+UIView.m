@@ -130,11 +130,12 @@
     return keyWindow.rootViewController.view;
 }
 
-+ (UIViewController*) rootController
++ (UINavigationController*) rootController
 {
     UIWindow *keyWindow = [[UIApplication sharedApplication].windows objectAtIndex:0];
-    return keyWindow.rootViewController;
+    return (UINavigationController *)keyWindow.rootViewController;
 }
+
 
 
 #pragma mark- subview
@@ -189,6 +190,27 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+- (void)showRightToCenterAnimation
+{
+    self.center = CGPointMake(160*3,294);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         self.center = CGPointMake(160,294);
+     }];
+}
+
+- (void)hideCenterToRightAnimation
+{
+    self.center = CGPointMake(160,294);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         self.center = CGPointMake(160*3,294);
+     }completion:^(BOOL isFinished)
+     {
+         [self removeFromSuperview];
+     }];
 }
 
 @end

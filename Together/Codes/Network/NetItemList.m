@@ -12,19 +12,18 @@
 #pragma mark- Item
 @implementation NetItem
 
-+ (NetItem *) itemWithDict:(NSDictionary *)dict
++ (NetItem *) itemWithMessage:(PBGeneratedMessage *)message
 {
-    return [[self alloc] initWithDict:dict];
+    return [[self alloc] initWithMessage:message];
 }
 
 
-// 子类重写
-- (NetItem *) initWithDict:(NSDictionary *)dict
+- (NetItem *) initWithMessage:(PBGeneratedMessage *)message
 {
     self = [super init];
     if (self)
     {
-        self.ID = [dict valueForKey:@"ID"];
+        // 子类重写
     }
     return self;
 }
@@ -109,20 +108,20 @@
 
 
 // 子类重写
-- (NSArray *) _decodeData:(NSDictionary *)dict
+- (NSArray *) _decodeData:(HTTPResponse *)response
 {
     return nil;
 }
 
 
-- (void) addItemList:(NSDictionary*)dict onPage:(NSInteger)page
+- (void) addItemList:(HTTPResponse *)response onPage:(NSInteger)page
 {
     if (page != _nextPageIndex)
     {
         _nextPageIndex = page;
     }
     
-    NSArray* tmpList = [self _decodeData:dict];
+    NSArray* tmpList = [self _decodeData:response];
     
     if (tmpList != nil)
     {

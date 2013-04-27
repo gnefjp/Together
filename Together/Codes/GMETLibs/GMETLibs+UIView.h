@@ -31,7 +31,7 @@
 + (id) loadFromNibNamed:(NSString*)name;
 + (id) loadFromNib;
 + (UIView*) rootView;
-+ (UIViewController*) rootController;
++ (UINavigationController*) rootController;
 
 // 查找属于cls类的子view, 另外可以指定是否递归遍历
 - (id)  viewIsKindOf:(Class)cls recursive:(BOOL)recursive;
@@ -43,4 +43,7 @@
 // 将view上面的内容转成图片, 这函数只能在主线程中调用
 - (UIImage*) renderToImage;
 
+// animation从右到左
+- (void)showRightToCenterAnimation;
+- (void)hideCenterToRightAnimation;
 @end

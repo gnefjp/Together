@@ -6,11 +6,17 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
+#import "GMETTapView.h"
+
 #import "HomeViewController.h"
 
 #import "NavigationView.h"
 #import "RoomListView.h"
 #import "UserCenterView.h"
+
+#import "RoomViewController.h"
+
+#define kPanWidth       10
 
 @implementation HomeViewController
 
@@ -19,34 +25,97 @@
 {
     [super viewDidLoad];
     
-    _mainView = [RoomListView loadFromNib];
-    [self.view addSubview:_mainView];
-    
     _navigationView = [NavigationView loadFromNib];
     _navigationView.delegate = self;
     [self.view addSubview:_navigationView];
     
+    _mainView = [RoomListView loadFromNib];
+    [self.view addSubview:_mainView];
+    [self _initPanGesture];
+    
     [self _isShowNavigation:NO animation:NO];
+}
+
+
+#pragma mark- TapView
+- (void) _initTapView
+{
+    [_tapView removeFromSuperview];
+    _tapView = [[GMETTapView alloc] initWithFrame:_mainView.bounds];
+    _tapView.delegate = self;
+    _tapView.backgroundColor = [UIColor clearColor];
+    _tapView.alpha = 1.0f;
+    [_mainView addSubview:_tapView];
+}
+
+
+#pragma mark- GMETTapViewDelegate
+- (void) GMETTapView:(GMETTapView *)tapView touchEnded:(UIEvent *)event
+{
+    [self _isShowNavigation:NO animation:YES];
 }
 
 
 #pragma mark- 导航栏
 - (void) _isShowNavigation:(BOOL)isShow animation:(BOOL)animation
 {
+    if (isShow == (_mainView.frameX > 10.0))
+    {
+        return;
+    }
+    
+    if (isShow)
+    {
+        [self _initTapView];
+    }
+    else
+    {
+        [_tapView removeFromSuperview];
+        _tapView = nil;
+    }
+    
     if (animation)
     {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.5];
     }
     
-    _navigationView.frameX = isShow ? 0.0 : -236.0;
-    _mainView.frameX = isShow ? 236.0 : 0.0;
+    _mainView.frameX = isShow ? 268.0 : 0.0;
     
     if (animation)
     {
         [UIView commitAnimations];
     }
 }
+
+
+#pragma mark- 导航手势
+- (void) _initPanGesture
+{
+    [_mainView removeGestureRecognizer:_panGesture];
+    _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                          action:@selector(_handlePan:)];
+    [_mainView addGestureRecognizer:_panGesture];
+}
+
+
+- (void) _handlePan:(UIPanGestureRecognizer *)panGesture
+{
+    if (panGesture.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint offset = [panGesture translationInView:_mainView];
+        
+        if (offset.x > kPanWidth)
+        {
+            [self _isShowNavigation:YES animation:YES];
+        }
+        else if (offset.x < -kPanWidth)
+        {
+            [self _isShowNavigation:NO animation:YES];
+        }
+    }
+}
+
 
 
 #pragma mark- NavigationViewDelegate
@@ -70,17 +139,10 @@
             break;
     }
     
-    
-    [self.view insertSubview:_mainView belowSubview:_navigationView];
+    [self _initPanGesture];
+    [self.view addSubview:_mainView];
+    _mainView.frameX = 268.0;
     [self _isShowNavigation:NO animation:YES];
-}
-
-
-- (void) NavigationViewShowBtnPressed:(NavigationView *)navigationView
-{
-    BOOL isShowingNavigation = (_navigationView.frameX > -1.0);
-    
-    [self _isShowNavigation:!isShowingNavigation animation:YES];
 }
 
 @end

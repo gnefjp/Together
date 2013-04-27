@@ -26,8 +26,8 @@ typedef enum
 
 @class NavigationView;
 @protocol NavigationViewDelegate <NSObject>
-- (void) NavigationView:(NavigationView *)navigationView wantInModulWithType:(ModulType)modulType;
-- (void) NavigationViewShowBtnPressed:(NavigationView *)navigationView;
+- (void) NavigationView:(NavigationView *)navigationView
+    wantInModulWithType:(ModulType)modulType;
 @end
 
 @interface NavigationView : UIView
@@ -35,7 +35,6 @@ typedef enum
 @property (weak, nonatomic) id<NavigationViewDelegate>  delegate;
 
 
-- (IBAction)showNavigationBtnPressed:(id)sender;
 - (IBAction)modulBtnPressed:(id)sender;
 
 @end
