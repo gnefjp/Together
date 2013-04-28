@@ -257,11 +257,24 @@ static LoginResponse* defaultLoginResponseInstance = nil;
 @end
 
 @interface DetailResponse ()
+@property BOOL isFollow;
 @property (retain) User_Info* userInfo;
 @end
 
 @implementation DetailResponse
 
+- (BOOL) hasIsFollow {
+  return !!hasIsFollow_;
+}
+- (void) setHasIsFollow:(BOOL) value {
+  hasIsFollow_ = !!value;
+}
+- (BOOL) isFollow {
+  return !!isFollow_;
+}
+- (void) setIsFollow:(BOOL) value {
+  isFollow_ = !!value;
+}
 - (BOOL) hasUserInfo {
   return !!hasUserInfo_;
 }
@@ -275,6 +288,7 @@ static LoginResponse* defaultLoginResponseInstance = nil;
 }
 - (id) init {
   if ((self = [super init])) {
+    self.isFollow = NO;
     self.userInfo = [User_Info defaultInstance];
   }
   return self;
@@ -295,8 +309,11 @@ static DetailResponse* defaultDetailResponseInstance = nil;
   return YES;
 }
 - (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasIsFollow) {
+    [output writeBool:1 value:self.isFollow];
+  }
   if (self.hasUserInfo) {
-    [output writeMessage:1 value:self.userInfo];
+    [output writeMessage:2 value:self.userInfo];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -307,8 +324,11 @@ static DetailResponse* defaultDetailResponseInstance = nil;
   }
 
   size = 0;
+  if (self.hasIsFollow) {
+    size += computeBoolSize(1, self.isFollow);
+  }
   if (self.hasUserInfo) {
-    size += computeMessageSize(1, self.userInfo);
+    size += computeMessageSize(2, self.userInfo);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -385,6 +405,9 @@ static DetailResponse* defaultDetailResponseInstance = nil;
   if (other == [DetailResponse defaultInstance]) {
     return self;
   }
+  if (other.hasIsFollow) {
+    [self setIsFollow:other.isFollow];
+  }
   if (other.hasUserInfo) {
     [self mergeUserInfo:other.userInfo];
   }
@@ -409,7 +432,11 @@ static DetailResponse* defaultDetailResponseInstance = nil;
         }
         break;
       }
-      case 10: {
+      case 8: {
+        [self setIsFollow:[input readBool]];
+        break;
+      }
+      case 18: {
         User_Info_Builder* subBuilder = [User_Info builder];
         if (self.hasUserInfo) {
           [subBuilder mergeFrom:self.userInfo];
@@ -420,6 +447,22 @@ static DetailResponse* defaultDetailResponseInstance = nil;
       }
     }
   }
+}
+- (BOOL) hasIsFollow {
+  return result.hasIsFollow;
+}
+- (BOOL) isFollow {
+  return result.isFollow;
+}
+- (DetailResponse_Builder*) setIsFollow:(BOOL) value {
+  result.hasIsFollow = YES;
+  result.isFollow = value;
+  return self;
+}
+- (DetailResponse_Builder*) clearIsFollow {
+  result.hasIsFollow = NO;
+  result.isFollow = NO;
+  return self;
 }
 - (BOOL) hasUserInfo {
   return result.hasUserInfo;
@@ -449,6 +492,188 @@ static DetailResponse* defaultDetailResponseInstance = nil;
 - (DetailResponse_Builder*) clearUserInfo {
   result.hasUserInfo = NO;
   result.userInfo = [User_Info defaultInstance];
+  return self;
+}
+@end
+
+@interface UsernameExistResponse ()
+@property BOOL isExist;
+@end
+
+@implementation UsernameExistResponse
+
+- (BOOL) hasIsExist {
+  return !!hasIsExist_;
+}
+- (void) setHasIsExist:(BOOL) value {
+  hasIsExist_ = !!value;
+}
+- (BOOL) isExist {
+  return !!isExist_;
+}
+- (void) setIsExist:(BOOL) value {
+  isExist_ = !!value;
+}
+- (void) dealloc {
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.isExist = NO;
+  }
+  return self;
+}
+static UsernameExistResponse* defaultUsernameExistResponseInstance = nil;
++ (void) initialize {
+  if (self == [UsernameExistResponse class]) {
+    defaultUsernameExistResponseInstance = [[UsernameExistResponse alloc] init];
+  }
+}
++ (UsernameExistResponse*) defaultInstance {
+  return defaultUsernameExistResponseInstance;
+}
+- (UsernameExistResponse*) defaultInstance {
+  return defaultUsernameExistResponseInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasIsExist) {
+    [output writeBool:1 value:self.isExist];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasIsExist) {
+    size += computeBoolSize(1, self.isExist);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (UsernameExistResponse*) parseFromData:(NSData*) data {
+  return (UsernameExistResponse*)[[[UsernameExistResponse builder] mergeFromData:data] build];
+}
++ (UsernameExistResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UsernameExistResponse*)[[[UsernameExistResponse builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (UsernameExistResponse*) parseFromInputStream:(NSInputStream*) input {
+  return (UsernameExistResponse*)[[[UsernameExistResponse builder] mergeFromInputStream:input] build];
+}
++ (UsernameExistResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UsernameExistResponse*)[[[UsernameExistResponse builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (UsernameExistResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (UsernameExistResponse*)[[[UsernameExistResponse builder] mergeFromCodedInputStream:input] build];
+}
++ (UsernameExistResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UsernameExistResponse*)[[[UsernameExistResponse builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (UsernameExistResponse_Builder*) builder {
+  return [[[UsernameExistResponse_Builder alloc] init] autorelease];
+}
++ (UsernameExistResponse_Builder*) builderWithPrototype:(UsernameExistResponse*) prototype {
+  return [[UsernameExistResponse builder] mergeFrom:prototype];
+}
+- (UsernameExistResponse_Builder*) builder {
+  return [UsernameExistResponse builder];
+}
+@end
+
+@interface UsernameExistResponse_Builder()
+@property (retain) UsernameExistResponse* result;
+@end
+
+@implementation UsernameExistResponse_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[UsernameExistResponse alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (UsernameExistResponse_Builder*) clear {
+  self.result = [[[UsernameExistResponse alloc] init] autorelease];
+  return self;
+}
+- (UsernameExistResponse_Builder*) clone {
+  return [UsernameExistResponse builderWithPrototype:result];
+}
+- (UsernameExistResponse*) defaultInstance {
+  return [UsernameExistResponse defaultInstance];
+}
+- (UsernameExistResponse*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (UsernameExistResponse*) buildPartial {
+  UsernameExistResponse* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (UsernameExistResponse_Builder*) mergeFrom:(UsernameExistResponse*) other {
+  if (other == [UsernameExistResponse defaultInstance]) {
+    return self;
+  }
+  if (other.hasIsExist) {
+    [self setIsExist:other.isExist];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (UsernameExistResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (UsernameExistResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 8: {
+        [self setIsExist:[input readBool]];
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasIsExist {
+  return result.hasIsExist;
+}
+- (BOOL) isExist {
+  return result.isExist;
+}
+- (UsernameExistResponse_Builder*) setIsExist:(BOOL) value {
+  result.hasIsExist = YES;
+  result.isExist = value;
+  return self;
+}
+- (UsernameExistResponse_Builder*) clearIsExist {
+  result.hasIsExist = NO;
+  result.isExist = NO;
   return self;
 }
 @end

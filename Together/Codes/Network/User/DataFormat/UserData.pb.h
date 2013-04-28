@@ -13,6 +13,7 @@
 
 @interface User_Info : PBGeneratedMessage {
 @private
+  BOOL hasUid_:1;
   BOOL hasBirthday_:1;
   BOOL hasSignatureRecordId_:1;
   BOOL hasPraiseNum_:1;
@@ -22,6 +23,7 @@
   BOOL hasUsername_:1;
   BOOL hasNickName_:1;
   BOOL hasSignatureText_:1;
+  int32_t uid;
   int32_t birthday;
   int32_t signatureRecordId;
   int32_t praiseNum;
@@ -32,6 +34,7 @@
   NSString* nickName;
   NSString* signatureText;
 }
+- (BOOL) hasUid;
 - (BOOL) hasUsername;
 - (BOOL) hasNickName;
 - (BOOL) hasBirthday;
@@ -41,6 +44,7 @@
 - (BOOL) hasVisitNum;
 - (BOOL) hasFollowedNum;
 - (BOOL) hasFollowNum;
+@property (readonly) int32_t uid;
 @property (readonly, retain) NSString* username;
 @property (readonly, retain) NSString* nickName;
 @property (readonly) int32_t birthday;
@@ -84,6 +88,11 @@
 - (User_Info_Builder*) mergeFrom:(User_Info*) other;
 - (User_Info_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
 - (User_Info_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasUid;
+- (int32_t) uid;
+- (User_Info_Builder*) setUid:(int32_t) value;
+- (User_Info_Builder*) clearUid;
 
 - (BOOL) hasUsername;
 - (NSString*) username;

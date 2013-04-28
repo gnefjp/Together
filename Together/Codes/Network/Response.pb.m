@@ -27,6 +27,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property (retain) NSString* msg;
 @property (retain) LoginResponse* loginResponse;
 @property (retain) DetailResponse* detailResponse;
+@property (retain) UsernameExistResponse* existResponse;
 @end
 
 @implementation HTTPResponse
@@ -71,10 +72,18 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasDetailResponse_ = !!value;
 }
 @synthesize detailResponse;
+- (BOOL) hasExistResponse {
+  return !!hasExistResponse_;
+}
+- (void) setHasExistResponse:(BOOL) value {
+  hasExistResponse_ = !!value;
+}
+@synthesize existResponse;
 - (void) dealloc {
   self.msg = nil;
   self.loginResponse = nil;
   self.detailResponse = nil;
+  self.existResponse = nil;
   [super dealloc];
 }
 - (id) init {
@@ -84,6 +93,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.msg = @"";
     self.loginResponse = [LoginResponse defaultInstance];
     self.detailResponse = [DetailResponse defaultInstance];
+    self.existResponse = [UsernameExistResponse defaultInstance];
   }
   return self;
 }
@@ -118,6 +128,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (self.hasDetailResponse) {
     [output writeMessage:5 value:self.detailResponse];
   }
+  if (self.hasExistResponse) {
+    [output writeMessage:6 value:self.existResponse];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -141,6 +154,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   }
   if (self.hasDetailResponse) {
     size += computeMessageSize(5, self.detailResponse);
+  }
+  if (self.hasExistResponse) {
+    size += computeMessageSize(6, self.existResponse);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -232,6 +248,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (other.hasDetailResponse) {
     [self mergeDetailResponse:other.detailResponse];
   }
+  if (other.hasExistResponse) {
+    [self mergeExistResponse:other.existResponse];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -281,6 +300,15 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
         }
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self setDetailResponse:[subBuilder buildPartial]];
+        break;
+      }
+      case 50: {
+        UsernameExistResponse_Builder* subBuilder = [UsernameExistResponse builder];
+        if (self.hasExistResponse) {
+          [subBuilder mergeFrom:self.existResponse];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setExistResponse:[subBuilder buildPartial]];
         break;
       }
     }
@@ -392,6 +420,36 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
 - (HTTPResponse_Builder*) clearDetailResponse {
   result.hasDetailResponse = NO;
   result.detailResponse = [DetailResponse defaultInstance];
+  return self;
+}
+- (BOOL) hasExistResponse {
+  return result.hasExistResponse;
+}
+- (UsernameExistResponse*) existResponse {
+  return result.existResponse;
+}
+- (HTTPResponse_Builder*) setExistResponse:(UsernameExistResponse*) value {
+  result.hasExistResponse = YES;
+  result.existResponse = value;
+  return self;
+}
+- (HTTPResponse_Builder*) setExistResponseBuilder:(UsernameExistResponse_Builder*) builderForValue {
+  return [self setExistResponse:[builderForValue build]];
+}
+- (HTTPResponse_Builder*) mergeExistResponse:(UsernameExistResponse*) value {
+  if (result.hasExistResponse &&
+      result.existResponse != [UsernameExistResponse defaultInstance]) {
+    result.existResponse =
+      [[[UsernameExistResponse builderWithPrototype:result.existResponse] mergeFrom:value] buildPartial];
+  } else {
+    result.existResponse = value;
+  }
+  result.hasExistResponse = YES;
+  return self;
+}
+- (HTTPResponse_Builder*) clearExistResponse {
+  result.hasExistResponse = NO;
+  result.existResponse = [UsernameExistResponse defaultInstance];
   return self;
 }
 @end

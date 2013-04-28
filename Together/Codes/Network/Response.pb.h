@@ -17,6 +17,8 @@
 @class RoomInfo_Builder;
 @class User_Info;
 @class User_Info_Builder;
+@class UsernameExistResponse;
+@class UsernameExistResponse_Builder;
 
 @interface ResponseRoot : NSObject {
 }
@@ -31,22 +33,26 @@
   BOOL hasMsg_:1;
   BOOL hasLoginResponse_:1;
   BOOL hasDetailResponse_:1;
+  BOOL hasExistResponse_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
   LoginResponse* loginResponse;
   DetailResponse* detailResponse;
+  UsernameExistResponse* existResponse;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
 - (BOOL) hasMsg;
 - (BOOL) hasLoginResponse;
 - (BOOL) hasDetailResponse;
+- (BOOL) hasExistResponse;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
 @property (readonly, retain) LoginResponse* loginResponse;
 @property (readonly, retain) DetailResponse* detailResponse;
+@property (readonly, retain) UsernameExistResponse* existResponse;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -110,5 +116,12 @@
 - (HTTPResponse_Builder*) setDetailResponseBuilder:(DetailResponse_Builder*) builderForValue;
 - (HTTPResponse_Builder*) mergeDetailResponse:(DetailResponse*) value;
 - (HTTPResponse_Builder*) clearDetailResponse;
+
+- (BOOL) hasExistResponse;
+- (UsernameExistResponse*) existResponse;
+- (HTTPResponse_Builder*) setExistResponse:(UsernameExistResponse*) value;
+- (HTTPResponse_Builder*) setExistResponseBuilder:(UsernameExistResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeExistResponse:(UsernameExistResponse*) value;
+- (HTTPResponse_Builder*) clearExistResponse;
 @end
 

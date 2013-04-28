@@ -20,6 +20,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @end
 
 @interface User_Info ()
+@property int32_t uid;
 @property (retain) NSString* username;
 @property (retain) NSString* nickName;
 @property int32_t birthday;
@@ -33,6 +34,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
 
 @implementation User_Info
 
+- (BOOL) hasUid {
+  return !!hasUid_;
+}
+- (void) setHasUid:(BOOL) value {
+  hasUid_ = !!value;
+}
+@synthesize uid;
 - (BOOL) hasUsername {
   return !!hasUsername_;
 }
@@ -104,6 +112,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 }
 - (id) init {
   if ((self = [super init])) {
+    self.uid = 0;
     self.username = @"";
     self.nickName = @"";
     self.birthday = 0;
@@ -132,32 +141,35 @@ static User_Info* defaultUser_InfoInstance = nil;
   return YES;
 }
 - (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasUid) {
+    [output writeInt32:1 value:self.uid];
+  }
   if (self.hasUsername) {
-    [output writeString:1 value:self.username];
+    [output writeString:2 value:self.username];
   }
   if (self.hasNickName) {
-    [output writeString:2 value:self.nickName];
+    [output writeString:3 value:self.nickName];
   }
   if (self.hasBirthday) {
-    [output writeInt32:3 value:self.birthday];
+    [output writeInt32:4 value:self.birthday];
   }
   if (self.hasSignatureText) {
-    [output writeString:4 value:self.signatureText];
+    [output writeString:5 value:self.signatureText];
   }
   if (self.hasSignatureRecordId) {
-    [output writeInt32:5 value:self.signatureRecordId];
+    [output writeInt32:6 value:self.signatureRecordId];
   }
   if (self.hasPraiseNum) {
-    [output writeInt32:6 value:self.praiseNum];
+    [output writeInt32:7 value:self.praiseNum];
   }
   if (self.hasVisitNum) {
-    [output writeInt32:7 value:self.visitNum];
+    [output writeInt32:8 value:self.visitNum];
   }
   if (self.hasFollowedNum) {
-    [output writeInt32:8 value:self.followedNum];
+    [output writeInt32:9 value:self.followedNum];
   }
   if (self.hasFollowNum) {
-    [output writeInt32:9 value:self.followNum];
+    [output writeInt32:10 value:self.followNum];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -168,32 +180,35 @@ static User_Info* defaultUser_InfoInstance = nil;
   }
 
   size = 0;
+  if (self.hasUid) {
+    size += computeInt32Size(1, self.uid);
+  }
   if (self.hasUsername) {
-    size += computeStringSize(1, self.username);
+    size += computeStringSize(2, self.username);
   }
   if (self.hasNickName) {
-    size += computeStringSize(2, self.nickName);
+    size += computeStringSize(3, self.nickName);
   }
   if (self.hasBirthday) {
-    size += computeInt32Size(3, self.birthday);
+    size += computeInt32Size(4, self.birthday);
   }
   if (self.hasSignatureText) {
-    size += computeStringSize(4, self.signatureText);
+    size += computeStringSize(5, self.signatureText);
   }
   if (self.hasSignatureRecordId) {
-    size += computeInt32Size(5, self.signatureRecordId);
+    size += computeInt32Size(6, self.signatureRecordId);
   }
   if (self.hasPraiseNum) {
-    size += computeInt32Size(6, self.praiseNum);
+    size += computeInt32Size(7, self.praiseNum);
   }
   if (self.hasVisitNum) {
-    size += computeInt32Size(7, self.visitNum);
+    size += computeInt32Size(8, self.visitNum);
   }
   if (self.hasFollowedNum) {
-    size += computeInt32Size(8, self.followedNum);
+    size += computeInt32Size(9, self.followedNum);
   }
   if (self.hasFollowNum) {
-    size += computeInt32Size(9, self.followNum);
+    size += computeInt32Size(10, self.followNum);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -270,6 +285,9 @@ static User_Info* defaultUser_InfoInstance = nil;
   if (other == [User_Info defaultInstance]) {
     return self;
   }
+  if (other.hasUid) {
+    [self setUid:other.uid];
+  }
   if (other.hasUsername) {
     [self setUsername:other.username];
   }
@@ -318,44 +336,64 @@ static User_Info* defaultUser_InfoInstance = nil;
         }
         break;
       }
-      case 10: {
-        [self setUsername:[input readString]];
+      case 8: {
+        [self setUid:[input readInt32]];
         break;
       }
       case 18: {
+        [self setUsername:[input readString]];
+        break;
+      }
+      case 26: {
         [self setNickName:[input readString]];
         break;
       }
-      case 24: {
+      case 32: {
         [self setBirthday:[input readInt32]];
         break;
       }
-      case 34: {
+      case 42: {
         [self setSignatureText:[input readString]];
         break;
       }
-      case 40: {
+      case 48: {
         [self setSignatureRecordId:[input readInt32]];
         break;
       }
-      case 48: {
+      case 56: {
         [self setPraiseNum:[input readInt32]];
         break;
       }
-      case 56: {
+      case 64: {
         [self setVisitNum:[input readInt32]];
         break;
       }
-      case 64: {
+      case 72: {
         [self setFollowedNum:[input readInt32]];
         break;
       }
-      case 72: {
+      case 80: {
         [self setFollowNum:[input readInt32]];
         break;
       }
     }
   }
+}
+- (BOOL) hasUid {
+  return result.hasUid;
+}
+- (int32_t) uid {
+  return result.uid;
+}
+- (User_Info_Builder*) setUid:(int32_t) value {
+  result.hasUid = YES;
+  result.uid = value;
+  return self;
+}
+- (User_Info_Builder*) clearUid {
+  result.hasUid = NO;
+  result.uid = 0;
+  return self;
 }
 - (BOOL) hasUsername {
   return result.hasUsername;

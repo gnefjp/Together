@@ -10,6 +10,8 @@
 @class LoginResponse_Builder;
 @class User_Info;
 @class User_Info_Builder;
+@class UsernameExistResponse;
+@class UsernameExistResponse_Builder;
 
 @interface UserResponseRoot : NSObject {
 }
@@ -78,10 +80,14 @@
 
 @interface DetailResponse : PBGeneratedMessage {
 @private
+  BOOL hasIsFollow_:1;
   BOOL hasUserInfo_:1;
+  BOOL isFollow_:1;
   User_Info* userInfo;
 }
+- (BOOL) hasIsFollow;
 - (BOOL) hasUserInfo;
+- (BOOL) isFollow;
 @property (readonly, retain) User_Info* userInfo;
 
 + (DetailResponse*) defaultInstance;
@@ -118,11 +124,64 @@
 - (DetailResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
 - (DetailResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
 
+- (BOOL) hasIsFollow;
+- (BOOL) isFollow;
+- (DetailResponse_Builder*) setIsFollow:(BOOL) value;
+- (DetailResponse_Builder*) clearIsFollow;
+
 - (BOOL) hasUserInfo;
 - (User_Info*) userInfo;
 - (DetailResponse_Builder*) setUserInfo:(User_Info*) value;
 - (DetailResponse_Builder*) setUserInfoBuilder:(User_Info_Builder*) builderForValue;
 - (DetailResponse_Builder*) mergeUserInfo:(User_Info*) value;
 - (DetailResponse_Builder*) clearUserInfo;
+@end
+
+@interface UsernameExistResponse : PBGeneratedMessage {
+@private
+  BOOL hasIsExist_:1;
+  BOOL isExist_:1;
+}
+- (BOOL) hasIsExist;
+- (BOOL) isExist;
+
++ (UsernameExistResponse*) defaultInstance;
+- (UsernameExistResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (UsernameExistResponse_Builder*) builder;
++ (UsernameExistResponse_Builder*) builder;
++ (UsernameExistResponse_Builder*) builderWithPrototype:(UsernameExistResponse*) prototype;
+
++ (UsernameExistResponse*) parseFromData:(NSData*) data;
++ (UsernameExistResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (UsernameExistResponse*) parseFromInputStream:(NSInputStream*) input;
++ (UsernameExistResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (UsernameExistResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (UsernameExistResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface UsernameExistResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  UsernameExistResponse* result;
+}
+
+- (UsernameExistResponse*) defaultInstance;
+
+- (UsernameExistResponse_Builder*) clear;
+- (UsernameExistResponse_Builder*) clone;
+
+- (UsernameExistResponse*) build;
+- (UsernameExistResponse*) buildPartial;
+
+- (UsernameExistResponse_Builder*) mergeFrom:(UsernameExistResponse*) other;
+- (UsernameExistResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (UsernameExistResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasIsExist;
+- (BOOL) isExist;
+- (UsernameExistResponse_Builder*) setIsExist:(BOOL) value;
+- (UsernameExistResponse_Builder*) clearIsExist;
 @end
 
