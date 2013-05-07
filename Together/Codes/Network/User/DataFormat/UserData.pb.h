@@ -20,6 +20,8 @@
   BOOL hasVisitNum_:1;
   BOOL hasFollowedNum_:1;
   BOOL hasFollowNum_:1;
+  BOOL hasSex_:1;
+  BOOL hasPicId_:1;
   BOOL hasUsername_:1;
   BOOL hasNickName_:1;
   BOOL hasSignatureText_:1;
@@ -30,6 +32,8 @@
   int32_t visitNum;
   int32_t followedNum;
   int32_t followNum;
+  int32_t sex;
+  int32_t picId;
   NSString* username;
   NSString* nickName;
   NSString* signatureText;
@@ -44,6 +48,8 @@
 - (BOOL) hasVisitNum;
 - (BOOL) hasFollowedNum;
 - (BOOL) hasFollowNum;
+- (BOOL) hasSex;
+- (BOOL) hasPicId;
 @property (readonly) int32_t uid;
 @property (readonly, retain) NSString* username;
 @property (readonly, retain) NSString* nickName;
@@ -54,6 +60,8 @@
 @property (readonly) int32_t visitNum;
 @property (readonly) int32_t followedNum;
 @property (readonly) int32_t followNum;
+@property (readonly) int32_t sex;
+@property (readonly) int32_t picId;
 
 + (User_Info*) defaultInstance;
 - (User_Info*) defaultInstance;
@@ -138,5 +146,15 @@
 - (int32_t) followNum;
 - (User_Info_Builder*) setFollowNum:(int32_t) value;
 - (User_Info_Builder*) clearFollowNum;
+
+- (BOOL) hasSex;
+- (int32_t) sex;
+- (User_Info_Builder*) setSex:(int32_t) value;
+- (User_Info_Builder*) clearSex;
+
+- (BOOL) hasPicId;
+- (int32_t) picId;
+- (User_Info_Builder*) setPicId:(int32_t) value;
+- (User_Info_Builder*) clearPicId;
 @end
 

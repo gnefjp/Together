@@ -11,8 +11,12 @@
 @class List_Builder;
 @class RoomInfo;
 @class RoomInfo_Builder;
+@class RoomPeopleListResponse;
+@class RoomPeopleListResponse_Builder;
 @class ShowRoomListResponse;
 @class ShowRoomListResponse_Builder;
+@class User_Info;
+@class User_Info_Builder;
 
 @interface RoomResponseRoot : NSObject {
 }
@@ -68,5 +72,55 @@
 - (ShowRoomListResponse_Builder*) setRoomListBuilder:(List_Builder*) builderForValue;
 - (ShowRoomListResponse_Builder*) mergeRoomList:(List*) value;
 - (ShowRoomListResponse_Builder*) clearRoomList;
+@end
+
+@interface RoomPeopleListResponse : PBGeneratedMessage {
+@private
+  BOOL hasPeopleList_:1;
+  List* peopleList;
+}
+- (BOOL) hasPeopleList;
+@property (readonly, retain) List* peopleList;
+
++ (RoomPeopleListResponse*) defaultInstance;
+- (RoomPeopleListResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (RoomPeopleListResponse_Builder*) builder;
++ (RoomPeopleListResponse_Builder*) builder;
++ (RoomPeopleListResponse_Builder*) builderWithPrototype:(RoomPeopleListResponse*) prototype;
+
++ (RoomPeopleListResponse*) parseFromData:(NSData*) data;
++ (RoomPeopleListResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (RoomPeopleListResponse*) parseFromInputStream:(NSInputStream*) input;
++ (RoomPeopleListResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (RoomPeopleListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (RoomPeopleListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface RoomPeopleListResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  RoomPeopleListResponse* result;
+}
+
+- (RoomPeopleListResponse*) defaultInstance;
+
+- (RoomPeopleListResponse_Builder*) clear;
+- (RoomPeopleListResponse_Builder*) clone;
+
+- (RoomPeopleListResponse*) build;
+- (RoomPeopleListResponse*) buildPartial;
+
+- (RoomPeopleListResponse_Builder*) mergeFrom:(RoomPeopleListResponse*) other;
+- (RoomPeopleListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (RoomPeopleListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasPeopleList;
+- (List*) peopleList;
+- (RoomPeopleListResponse_Builder*) setPeopleList:(List*) value;
+- (RoomPeopleListResponse_Builder*) setPeopleListBuilder:(List_Builder*) builderForValue;
+- (RoomPeopleListResponse_Builder*) mergePeopleList:(List*) value;
+- (RoomPeopleListResponse_Builder*) clearPeopleList;
 @end
 

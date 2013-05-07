@@ -218,3 +218,200 @@ static ShowRoomListResponse* defaultShowRoomListResponseInstance = nil;
 }
 @end
 
+@interface RoomPeopleListResponse ()
+@property (retain) List* peopleList;
+@end
+
+@implementation RoomPeopleListResponse
+
+- (BOOL) hasPeopleList {
+  return !!hasPeopleList_;
+}
+- (void) setHasPeopleList:(BOOL) value {
+  hasPeopleList_ = !!value;
+}
+@synthesize peopleList;
+- (void) dealloc {
+  self.peopleList = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.peopleList = [List defaultInstance];
+  }
+  return self;
+}
+static RoomPeopleListResponse* defaultRoomPeopleListResponseInstance = nil;
++ (void) initialize {
+  if (self == [RoomPeopleListResponse class]) {
+    defaultRoomPeopleListResponseInstance = [[RoomPeopleListResponse alloc] init];
+  }
+}
++ (RoomPeopleListResponse*) defaultInstance {
+  return defaultRoomPeopleListResponseInstance;
+}
+- (RoomPeopleListResponse*) defaultInstance {
+  return defaultRoomPeopleListResponseInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasPeopleList) {
+    [output writeMessage:1 value:self.peopleList];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasPeopleList) {
+    size += computeMessageSize(1, self.peopleList);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (RoomPeopleListResponse*) parseFromData:(NSData*) data {
+  return (RoomPeopleListResponse*)[[[RoomPeopleListResponse builder] mergeFromData:data] build];
+}
++ (RoomPeopleListResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (RoomPeopleListResponse*)[[[RoomPeopleListResponse builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (RoomPeopleListResponse*) parseFromInputStream:(NSInputStream*) input {
+  return (RoomPeopleListResponse*)[[[RoomPeopleListResponse builder] mergeFromInputStream:input] build];
+}
++ (RoomPeopleListResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (RoomPeopleListResponse*)[[[RoomPeopleListResponse builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (RoomPeopleListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (RoomPeopleListResponse*)[[[RoomPeopleListResponse builder] mergeFromCodedInputStream:input] build];
+}
++ (RoomPeopleListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (RoomPeopleListResponse*)[[[RoomPeopleListResponse builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (RoomPeopleListResponse_Builder*) builder {
+  return [[[RoomPeopleListResponse_Builder alloc] init] autorelease];
+}
++ (RoomPeopleListResponse_Builder*) builderWithPrototype:(RoomPeopleListResponse*) prototype {
+  return [[RoomPeopleListResponse builder] mergeFrom:prototype];
+}
+- (RoomPeopleListResponse_Builder*) builder {
+  return [RoomPeopleListResponse builder];
+}
+@end
+
+@interface RoomPeopleListResponse_Builder()
+@property (retain) RoomPeopleListResponse* result;
+@end
+
+@implementation RoomPeopleListResponse_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[RoomPeopleListResponse alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (RoomPeopleListResponse_Builder*) clear {
+  self.result = [[[RoomPeopleListResponse alloc] init] autorelease];
+  return self;
+}
+- (RoomPeopleListResponse_Builder*) clone {
+  return [RoomPeopleListResponse builderWithPrototype:result];
+}
+- (RoomPeopleListResponse*) defaultInstance {
+  return [RoomPeopleListResponse defaultInstance];
+}
+- (RoomPeopleListResponse*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (RoomPeopleListResponse*) buildPartial {
+  RoomPeopleListResponse* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (RoomPeopleListResponse_Builder*) mergeFrom:(RoomPeopleListResponse*) other {
+  if (other == [RoomPeopleListResponse defaultInstance]) {
+    return self;
+  }
+  if (other.hasPeopleList) {
+    [self mergePeopleList:other.peopleList];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (RoomPeopleListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (RoomPeopleListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 10: {
+        List_Builder* subBuilder = [List builder];
+        if (self.hasPeopleList) {
+          [subBuilder mergeFrom:self.peopleList];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setPeopleList:[subBuilder buildPartial]];
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasPeopleList {
+  return result.hasPeopleList;
+}
+- (List*) peopleList {
+  return result.peopleList;
+}
+- (RoomPeopleListResponse_Builder*) setPeopleList:(List*) value {
+  result.hasPeopleList = YES;
+  result.peopleList = value;
+  return self;
+}
+- (RoomPeopleListResponse_Builder*) setPeopleListBuilder:(List_Builder*) builderForValue {
+  return [self setPeopleList:[builderForValue build]];
+}
+- (RoomPeopleListResponse_Builder*) mergePeopleList:(List*) value {
+  if (result.hasPeopleList &&
+      result.peopleList != [List defaultInstance]) {
+    result.peopleList =
+      [[[List builderWithPrototype:result.peopleList] mergeFrom:value] buildPartial];
+  } else {
+    result.peopleList = value;
+  }
+  result.hasPeopleList = YES;
+  return self;
+}
+- (RoomPeopleListResponse_Builder*) clearPeopleList {
+  result.hasPeopleList = NO;
+  result.peopleList = [List defaultInstance];
+  return self;
+}
+@end
+

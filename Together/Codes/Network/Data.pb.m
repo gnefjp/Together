@@ -13,6 +13,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     PBMutableExtensionRegistry* registry = [PBMutableExtensionRegistry registry];
     [self registerAllExtensions:registry];
     [RoomDataRoot registerAllExtensions:registry];
+    [UserDataRoot registerAllExtensions:registry];
     extensionRegistry = [registry retain];
   }
 }
@@ -23,6 +24,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @interface List ()
 @property BOOL isEnd;
 @property (retain) NSMutableArray* mutableRoomInfoListList;
+@property (retain) NSMutableArray* mutableUserInfoList;
 @end
 
 @implementation List
@@ -40,8 +42,10 @@ static PBExtensionRegistry* extensionRegistry = nil;
   isEnd_ = !!value;
 }
 @synthesize mutableRoomInfoListList;
+@synthesize mutableUserInfoList;
 - (void) dealloc {
   self.mutableRoomInfoListList = nil;
+  self.mutableUserInfoList = nil;
   [super dealloc];
 }
 - (id) init {
@@ -69,6 +73,13 @@ static List* defaultListInstance = nil;
   id value = [mutableRoomInfoListList objectAtIndex:index];
   return value;
 }
+- (NSArray*) userInfoList {
+  return mutableUserInfoList;
+}
+- (User_Info*) userInfoAtIndex:(int32_t) index {
+  id value = [mutableUserInfoList objectAtIndex:index];
+  return value;
+}
 - (BOOL) isInitialized {
   return YES;
 }
@@ -78,6 +89,9 @@ static List* defaultListInstance = nil;
   }
   for (RoomInfo* element in self.roomInfoListList) {
     [output writeMessage:2 value:element];
+  }
+  for (User_Info* element in self.userInfoList) {
+    [output writeMessage:3 value:element];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -93,6 +107,9 @@ static List* defaultListInstance = nil;
   }
   for (RoomInfo* element in self.roomInfoListList) {
     size += computeMessageSize(2, element);
+  }
+  for (User_Info* element in self.userInfoList) {
+    size += computeMessageSize(3, element);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -178,6 +195,12 @@ static List* defaultListInstance = nil;
     }
     [result.mutableRoomInfoListList addObjectsFromArray:other.mutableRoomInfoListList];
   }
+  if (other.mutableUserInfoList.count > 0) {
+    if (result.mutableUserInfoList == nil) {
+      result.mutableUserInfoList = [NSMutableArray array];
+    }
+    [result.mutableUserInfoList addObjectsFromArray:other.mutableUserInfoList];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -207,6 +230,12 @@ static List* defaultListInstance = nil;
         RoomInfo_Builder* subBuilder = [RoomInfo builder];
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self addRoomInfoList:[subBuilder buildPartial]];
+        break;
+      }
+      case 26: {
+        User_Info_Builder* subBuilder = [User_Info builder];
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self addUserInfo:[subBuilder buildPartial]];
         break;
       }
     }
@@ -255,6 +284,35 @@ static List* defaultListInstance = nil;
     result.mutableRoomInfoListList = [NSMutableArray array];
   }
   [result.mutableRoomInfoListList addObject:value];
+  return self;
+}
+- (NSArray*) userInfoList {
+  if (result.mutableUserInfoList == nil) { return [NSArray array]; }
+  return result.mutableUserInfoList;
+}
+- (User_Info*) userInfoAtIndex:(int32_t) index {
+  return [result userInfoAtIndex:index];
+}
+- (List_Builder*) replaceUserInfoAtIndex:(int32_t) index with:(User_Info*) value {
+  [result.mutableUserInfoList replaceObjectAtIndex:index withObject:value];
+  return self;
+}
+- (List_Builder*) addAllUserInfo:(NSArray*) values {
+  if (result.mutableUserInfoList == nil) {
+    result.mutableUserInfoList = [NSMutableArray array];
+  }
+  [result.mutableUserInfoList addObjectsFromArray:values];
+  return self;
+}
+- (List_Builder*) clearUserInfoList {
+  result.mutableUserInfoList = nil;
+  return self;
+}
+- (List_Builder*) addUserInfo:(User_Info*) value {
+  if (result.mutableUserInfoList == nil) {
+    result.mutableUserInfoList = [NSMutableArray array];
+  }
+  [result.mutableUserInfoList addObject:value];
   return self;
 }
 @end

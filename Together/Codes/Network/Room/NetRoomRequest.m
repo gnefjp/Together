@@ -19,9 +19,8 @@
 {
     int actionCodes[] = {
         ROOM_CREATE,
-        100,
+        ROOM_JOIN,
         ROOM_SHOWLIST,
-        ROOM_SEARCH,
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];

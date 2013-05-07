@@ -14,7 +14,6 @@ typedef enum
     NetRoomRequestType_JoinRoom     = 1,
     
     NetRoomRequestType_GetRooms     = 2,
-    NetRoomRequestType_SearchRooms  = 3,
     
 } NetRoomRequestType;
 

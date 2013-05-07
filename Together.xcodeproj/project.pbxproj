@@ -67,7 +67,6 @@
 		18C6D5B91727CA5D00184AFA /* RoomCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5B81727CA5C00184AFA /* RoomCreateRequest.m */; };
 		18C6D5BC1727CB2900184AFA /* RoomJoinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5BB1727CB2900184AFA /* RoomJoinRequest.m */; };
 		18C6D5BF1727CB6400184AFA /* RoomGetListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */; };
-		18C6D5C21727CB7900184AFA /* RoomSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5C11727CB7900184AFA /* RoomSearchRequest.m */; };
 		18C6D5C71727D40900184AFA /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C61727D40900184AFA /* room_test.png */; };
 		18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C81727D53E00184AFA /* room_cell_test.png */; };
 		18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5CB1727D9C400184AFA /* RoomViewController.m */; };
@@ -646,8 +645,6 @@
 		18C6D5BB1727CB2900184AFA /* RoomJoinRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomJoinRequest.m; sourceTree = "<group>"; };
 		18C6D5BD1727CB6400184AFA /* RoomGetListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGetListRequest.h; sourceTree = "<group>"; };
 		18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGetListRequest.m; sourceTree = "<group>"; };
-		18C6D5C01727CB7900184AFA /* RoomSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomSearchRequest.h; sourceTree = "<group>"; };
-		18C6D5C11727CB7900184AFA /* RoomSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomSearchRequest.m; sourceTree = "<group>"; };
 		18C6D5C31727CC1000184AFA /* RoomConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomConfig.h; sourceTree = "<group>"; };
 		18C6D5C41727CEC700184AFA /* UserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserConfig.h; sourceTree = "<group>"; };
 		18C6D5C61727D40900184AFA /* room_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_test.png; sourceTree = "<group>"; };
@@ -1426,8 +1423,6 @@
 				18C6D5BB1727CB2900184AFA /* RoomJoinRequest.m */,
 				18C6D5BD1727CB6400184AFA /* RoomGetListRequest.h */,
 				18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */,
-				18C6D5C01727CB7900184AFA /* RoomSearchRequest.h */,
-				18C6D5C11727CB7900184AFA /* RoomSearchRequest.m */,
 				18D76BE7172A6FB1004E2C8B /* NetRoomManager.h */,
 				18D76BE8172A6FB1004E2C8B /* NetRoomManager.m */,
 			);
@@ -1988,7 +1983,6 @@
 				18C6D5B91727CA5D00184AFA /* RoomCreateRequest.m in Sources */,
 				18C6D5BC1727CB2900184AFA /* RoomJoinRequest.m in Sources */,
 				18C6D5BF1727CB6400184AFA /* RoomGetListRequest.m in Sources */,
-				18C6D5C21727CB7900184AFA /* RoomSearchRequest.m in Sources */,
 				18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */,
 				3895A60D172900030025163D /* Annotation.m in Sources */,
 				3895A60E172900030025163D /* CustomAnnotationView.m in Sources */,

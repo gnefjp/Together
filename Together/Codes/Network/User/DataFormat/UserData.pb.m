@@ -30,6 +30,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property int32_t visitNum;
 @property int32_t followedNum;
 @property int32_t followNum;
+@property int32_t sex;
+@property int32_t picId;
 @end
 
 @implementation User_Info
@@ -104,6 +106,20 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasFollowNum_ = !!value;
 }
 @synthesize followNum;
+- (BOOL) hasSex {
+  return !!hasSex_;
+}
+- (void) setHasSex:(BOOL) value {
+  hasSex_ = !!value;
+}
+@synthesize sex;
+- (BOOL) hasPicId {
+  return !!hasPicId_;
+}
+- (void) setHasPicId:(BOOL) value {
+  hasPicId_ = !!value;
+}
+@synthesize picId;
 - (void) dealloc {
   self.username = nil;
   self.nickName = nil;
@@ -122,6 +138,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.visitNum = 0;
     self.followedNum = 0;
     self.followNum = 0;
+    self.sex = 0;
+    self.picId = 0;
   }
   return self;
 }
@@ -171,6 +189,12 @@ static User_Info* defaultUser_InfoInstance = nil;
   if (self.hasFollowNum) {
     [output writeInt32:10 value:self.followNum];
   }
+  if (self.hasSex) {
+    [output writeInt32:11 value:self.sex];
+  }
+  if (self.hasPicId) {
+    [output writeInt32:12 value:self.picId];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -209,6 +233,12 @@ static User_Info* defaultUser_InfoInstance = nil;
   }
   if (self.hasFollowNum) {
     size += computeInt32Size(10, self.followNum);
+  }
+  if (self.hasSex) {
+    size += computeInt32Size(11, self.sex);
+  }
+  if (self.hasPicId) {
+    size += computeInt32Size(12, self.picId);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -315,6 +345,12 @@ static User_Info* defaultUser_InfoInstance = nil;
   if (other.hasFollowNum) {
     [self setFollowNum:other.followNum];
   }
+  if (other.hasSex) {
+    [self setSex:other.sex];
+  }
+  if (other.hasPicId) {
+    [self setPicId:other.picId];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -374,6 +410,14 @@ static User_Info* defaultUser_InfoInstance = nil;
       }
       case 80: {
         [self setFollowNum:[input readInt32]];
+        break;
+      }
+      case 88: {
+        [self setSex:[input readInt32]];
+        break;
+      }
+      case 96: {
+        [self setPicId:[input readInt32]];
         break;
       }
     }
@@ -537,6 +581,38 @@ static User_Info* defaultUser_InfoInstance = nil;
 - (User_Info_Builder*) clearFollowNum {
   result.hasFollowNum = NO;
   result.followNum = 0;
+  return self;
+}
+- (BOOL) hasSex {
+  return result.hasSex;
+}
+- (int32_t) sex {
+  return result.sex;
+}
+- (User_Info_Builder*) setSex:(int32_t) value {
+  result.hasSex = YES;
+  result.sex = value;
+  return self;
+}
+- (User_Info_Builder*) clearSex {
+  result.hasSex = NO;
+  result.sex = 0;
+  return self;
+}
+- (BOOL) hasPicId {
+  return result.hasPicId;
+}
+- (int32_t) picId {
+  return result.picId;
+}
+- (User_Info_Builder*) setPicId:(int32_t) value {
+  result.hasPicId = YES;
+  result.picId = value;
+  return self;
+}
+- (User_Info_Builder*) clearPicId {
+  result.hasPicId = NO;
+  result.picId = 0;
   return self;
 }
 @end

@@ -3,6 +3,7 @@
 #import "ProtocolBuffers.h"
 
 #import "RoomData.pb.h"
+#import "UserData.pb.h"
 
 @class Address;
 @class Address_Builder;
@@ -10,6 +11,8 @@
 @class List_Builder;
 @class RoomInfo;
 @class RoomInfo_Builder;
+@class User_Info;
+@class User_Info_Builder;
 
 @interface DataRoot : NSObject {
 }
@@ -22,11 +25,14 @@
   BOOL hasIsEnd_:1;
   BOOL isEnd_:1;
   NSMutableArray* mutableRoomInfoListList;
+  NSMutableArray* mutableUserInfoList;
 }
 - (BOOL) hasIsEnd;
 - (BOOL) isEnd;
 - (NSArray*) roomInfoListList;
 - (RoomInfo*) roomInfoListAtIndex:(int32_t) index;
+- (NSArray*) userInfoList;
+- (User_Info*) userInfoAtIndex:(int32_t) index;
 
 + (List*) defaultInstance;
 - (List*) defaultInstance;
@@ -73,5 +79,12 @@
 - (List_Builder*) addRoomInfoList:(RoomInfo*) value;
 - (List_Builder*) addAllRoomInfoList:(NSArray*) values;
 - (List_Builder*) clearRoomInfoListList;
+
+- (NSArray*) userInfoList;
+- (User_Info*) userInfoAtIndex:(int32_t) index;
+- (List_Builder*) replaceUserInfoAtIndex:(int32_t) index with:(User_Info*) value;
+- (List_Builder*) addUserInfo:(User_Info*) value;
+- (List_Builder*) addAllUserInfo:(NSArray*) values;
+- (List_Builder*) clearUserInfoList;
 @end
 
