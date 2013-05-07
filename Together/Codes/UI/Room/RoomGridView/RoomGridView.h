@@ -7,5 +7,12 @@
 //
 
 @interface RoomGridView : UIView
+{
+    __weak IBOutlet UILabel *_noLocationLabel;
+    RoomType                _roomType;
+    NSInteger               _range;
+}
+
+- (void) refreshGrid;
 
 @end

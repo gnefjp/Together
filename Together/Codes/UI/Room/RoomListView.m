@@ -7,24 +7,29 @@
 //
 
 #import "RoomListView.h"
-#import "RoomGridView.h"
 
 #import "RoomCreateViewController.h"
 
 @implementation RoomListView
-
+@synthesize delegate = _delegate;
 
 - (void) awakeFromNib
 {
-    _defaultRoomGridView = [RoomGridView loadFromNib];
-    _defaultRoomGridView.frameY = 44.0;
-    _defaultRoomGridView.alpha = 1.0f;
-    [self addSubview:_defaultRoomGridView];
+    _roomGrid = [RoomGridView loadFromNib];
+    _roomGrid.frameY = 44.0;
+    _roomGrid.alpha = 1.0f;
+    [self addSubview:_roomGrid];
     
-    _searchRoomGridView = [RoomGridView loadFromNib];
-    _searchRoomGridView.frameY = 44.0;
-    _searchRoomGridView.alpha = 0.0f;
-    [self addSubview:_searchRoomGridView];
+    [_roomGrid refreshGrid];
+}
+
+
+- (IBAction)showNavigationDidPressed:(id)sender
+{
+    if ([_delegate respondsToSelector:@selector(RoomListViewShowNavigation:)])
+    {
+        [_delegate RoomListViewShowNavigation:self];
+    }
 }
 
 

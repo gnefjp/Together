@@ -30,4 +30,7 @@ typedef enum
     RoomState_Max       = 3,
 } RoomState;
 
+
+#define kNotification_InitCurrentLocation   @"Notification_InitCurrentLocation"
+
 #endif

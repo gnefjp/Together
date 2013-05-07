@@ -2,16 +2,71 @@
 
 #import "ProtocolBuffers.h"
 
+#import "Data.pb.h"
 #import "RoomData.pb.h"
 
 @class Address;
 @class Address_Builder;
+@class List;
+@class List_Builder;
 @class RoomInfo;
 @class RoomInfo_Builder;
+@class ShowRoomListResponse;
+@class ShowRoomListResponse_Builder;
 
 @interface RoomResponseRoot : NSObject {
 }
 + (PBExtensionRegistry*) extensionRegistry;
 + (void) registerAllExtensions:(PBMutableExtensionRegistry*) registry;
+@end
+
+@interface ShowRoomListResponse : PBGeneratedMessage {
+@private
+  BOOL hasRoomList_:1;
+  List* roomList;
+}
+- (BOOL) hasRoomList;
+@property (readonly, retain) List* roomList;
+
++ (ShowRoomListResponse*) defaultInstance;
+- (ShowRoomListResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (ShowRoomListResponse_Builder*) builder;
++ (ShowRoomListResponse_Builder*) builder;
++ (ShowRoomListResponse_Builder*) builderWithPrototype:(ShowRoomListResponse*) prototype;
+
++ (ShowRoomListResponse*) parseFromData:(NSData*) data;
++ (ShowRoomListResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (ShowRoomListResponse*) parseFromInputStream:(NSInputStream*) input;
++ (ShowRoomListResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (ShowRoomListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (ShowRoomListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface ShowRoomListResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  ShowRoomListResponse* result;
+}
+
+- (ShowRoomListResponse*) defaultInstance;
+
+- (ShowRoomListResponse_Builder*) clear;
+- (ShowRoomListResponse_Builder*) clone;
+
+- (ShowRoomListResponse*) build;
+- (ShowRoomListResponse*) buildPartial;
+
+- (ShowRoomListResponse_Builder*) mergeFrom:(ShowRoomListResponse*) other;
+- (ShowRoomListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (ShowRoomListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasRoomList;
+- (List*) roomList;
+- (ShowRoomListResponse_Builder*) setRoomList:(List*) value;
+- (ShowRoomListResponse_Builder*) setRoomListBuilder:(List_Builder*) builderForValue;
+- (ShowRoomListResponse_Builder*) mergeRoomList:(List*) value;
+- (ShowRoomListResponse_Builder*) clearRoomList;
 @end
 

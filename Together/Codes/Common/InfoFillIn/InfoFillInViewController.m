@@ -89,7 +89,7 @@
         (_fillType == InfoFillType_TextView && [_textView.text length] < 1))
     {
         MBProgressHUD* progressHUD = [[TipViewManager defaultManager] showTipText:@"请填写信息"
-                                                                        imageName:@"TEST"
+                                                                        imageName:kCommonImage_FailIcon
                                                                            inView:self.view
                                                                                ID:self];
         progressHUD.frameY -= 50.0;

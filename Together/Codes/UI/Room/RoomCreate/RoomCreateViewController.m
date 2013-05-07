@@ -41,6 +41,7 @@ static NSString* s_genderTypes[] = {
 
 
 static NSString* s_roomTypeNames[] = {
+    @"",
     @"桌游",
     @"餐饮",
     @"运动",
@@ -287,7 +288,7 @@ static NSString* s_roomTypeNames[] = {
     if (request.requestType == NetRoomRequestType_CreateRoom)
     {
         [[TipViewManager defaultManager] showTipText:@"创建房间失败"
-                                           imageName:@"Test"
+                                           imageName:kCommonImage_FailIcon
                                               inView:self.view
                                                   ID:self];
         [[TipViewManager defaultManager] hideTipWithID:self
@@ -423,7 +424,7 @@ static NSString* s_roomTypeNames[] = {
     }
     else if ([controller.titleLabel.text isEqualToString:@"地址备注"])
     {
-        _roomInfo.addrRemark = fillValue;
+        _roomInfo.address.addrRemark = fillValue;
     }
     
     [_infoTableView reloadData];
@@ -546,7 +547,7 @@ static NSString* s_roomTypeNames[] = {
         }
         case 4:
         {
-            roomInfoStr = _roomInfo.detailAddr;
+            roomInfoStr = _roomInfo.address.detailAddr;
             break;
         }
         case 5:

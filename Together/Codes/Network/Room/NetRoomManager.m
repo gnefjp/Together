@@ -27,4 +27,15 @@ static NetRoomManager* s_defaultManager = nil;
     return s_defaultManager;
 }
 
+
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        _roomList = [[NetRoomList alloc] init];
+    }
+    return self;
+}
+
 @end

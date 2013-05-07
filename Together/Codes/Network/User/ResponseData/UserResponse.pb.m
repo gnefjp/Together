@@ -678,3 +678,199 @@ static UsernameExistResponse* defaultUsernameExistResponseInstance = nil;
 }
 @end
 
+@interface UserList ()
+@property (retain) NSMutableArray* mutableUserListList;
+@end
+
+@implementation UserList
+
+@synthesize mutableUserListList;
+- (void) dealloc {
+  self.mutableUserListList = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+  }
+  return self;
+}
+static UserList* defaultUserListInstance = nil;
++ (void) initialize {
+  if (self == [UserList class]) {
+    defaultUserListInstance = [[UserList alloc] init];
+  }
+}
++ (UserList*) defaultInstance {
+  return defaultUserListInstance;
+}
+- (UserList*) defaultInstance {
+  return defaultUserListInstance;
+}
+- (NSArray*) userListList {
+  return mutableUserListList;
+}
+- (User_Info*) userListAtIndex:(int32_t) index {
+  id value = [mutableUserListList objectAtIndex:index];
+  return value;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  for (User_Info* element in self.userListList) {
+    [output writeMessage:1 value:element];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  for (User_Info* element in self.userListList) {
+    size += computeMessageSize(1, element);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (UserList*) parseFromData:(NSData*) data {
+  return (UserList*)[[[UserList builder] mergeFromData:data] build];
+}
++ (UserList*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UserList*)[[[UserList builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (UserList*) parseFromInputStream:(NSInputStream*) input {
+  return (UserList*)[[[UserList builder] mergeFromInputStream:input] build];
+}
++ (UserList*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UserList*)[[[UserList builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (UserList*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (UserList*)[[[UserList builder] mergeFromCodedInputStream:input] build];
+}
++ (UserList*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UserList*)[[[UserList builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (UserList_Builder*) builder {
+  return [[[UserList_Builder alloc] init] autorelease];
+}
++ (UserList_Builder*) builderWithPrototype:(UserList*) prototype {
+  return [[UserList builder] mergeFrom:prototype];
+}
+- (UserList_Builder*) builder {
+  return [UserList builder];
+}
+@end
+
+@interface UserList_Builder()
+@property (retain) UserList* result;
+@end
+
+@implementation UserList_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[UserList alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (UserList_Builder*) clear {
+  self.result = [[[UserList alloc] init] autorelease];
+  return self;
+}
+- (UserList_Builder*) clone {
+  return [UserList builderWithPrototype:result];
+}
+- (UserList*) defaultInstance {
+  return [UserList defaultInstance];
+}
+- (UserList*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (UserList*) buildPartial {
+  UserList* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (UserList_Builder*) mergeFrom:(UserList*) other {
+  if (other == [UserList defaultInstance]) {
+    return self;
+  }
+  if (other.mutableUserListList.count > 0) {
+    if (result.mutableUserListList == nil) {
+      result.mutableUserListList = [NSMutableArray array];
+    }
+    [result.mutableUserListList addObjectsFromArray:other.mutableUserListList];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (UserList_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (UserList_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 10: {
+        User_Info_Builder* subBuilder = [User_Info builder];
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self addUserList:[subBuilder buildPartial]];
+        break;
+      }
+    }
+  }
+}
+- (NSArray*) userListList {
+  if (result.mutableUserListList == nil) { return [NSArray array]; }
+  return result.mutableUserListList;
+}
+- (User_Info*) userListAtIndex:(int32_t) index {
+  return [result userListAtIndex:index];
+}
+- (UserList_Builder*) replaceUserListAtIndex:(int32_t) index with:(User_Info*) value {
+  [result.mutableUserListList replaceObjectAtIndex:index withObject:value];
+  return self;
+}
+- (UserList_Builder*) addAllUserList:(NSArray*) values {
+  if (result.mutableUserListList == nil) {
+    result.mutableUserListList = [NSMutableArray array];
+  }
+  [result.mutableUserListList addObjectsFromArray:values];
+  return self;
+}
+- (UserList_Builder*) clearUserListList {
+  result.mutableUserListList = nil;
+  return self;
+}
+- (UserList_Builder*) addUserList:(User_Info*) value {
+  if (result.mutableUserListList == nil) {
+    result.mutableUserListList = [NSMutableArray array];
+  }
+  [result.mutableUserListList addObject:value];
+  return self;
+}
+@end
+

@@ -35,7 +35,7 @@ static NSString* s_roomTypeNames[] = {
 {
     if ([_delegate respondsToSelector:@selector(RoomTypePickerView:pickRoomType:)])
     {
-        [_delegate RoomTypePickerView:self pickRoomType:indexPath.row];
+        [_delegate RoomTypePickerView:self pickRoomType:indexPath.row + 1];
     }
 }
 

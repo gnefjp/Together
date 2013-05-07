@@ -10,4 +10,14 @@
 
 @interface RoomGetListRequest : NetRoomRequest
 
+@property (copy,   nonatomic) NSString                  *userID;
+
+@property (assign, nonatomic) RoomType                  roomType;
+@property (assign, nonatomic) NSInteger                 range;
+
+@property (assign, nonatomic) CLLocationCoordinate2D    location;
+
+@property (assign, nonatomic) NSInteger                 pageSize;
+@property (assign, nonatomic) NSInteger                 pageNum;
+
 @end

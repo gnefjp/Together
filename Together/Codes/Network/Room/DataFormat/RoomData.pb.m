@@ -22,15 +22,16 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @interface RoomInfo ()
 @property int32_t roomId;
 @property (retain) NSString* title;
-@property (retain) NSString* ownerId;
+@property int32_t ownerId;
 @property (retain) NSString* ownerNickname;
 @property int32_t type;
 @property int32_t status;
-@property (retain) NSString* picUrl;
+@property int32_t picId;
 @property int32_t genderType;
 @property Float64 distance;
 @property int32_t joinPersonCount;
 @property int32_t limitPersonCount;
+@property int32_t recordId;
 @property (retain) NSString* createTime;
 @property (retain) NSString* beginTime;
 @property (retain) Address* address;
@@ -80,13 +81,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasStatus_ = !!value;
 }
 @synthesize status;
-- (BOOL) hasPicUrl {
-  return !!hasPicUrl_;
+- (BOOL) hasPicId {
+  return !!hasPicId_;
 }
-- (void) setHasPicUrl:(BOOL) value {
-  hasPicUrl_ = !!value;
+- (void) setHasPicId:(BOOL) value {
+  hasPicId_ = !!value;
 }
-@synthesize picUrl;
+@synthesize picId;
 - (BOOL) hasGenderType {
   return !!hasGenderType_;
 }
@@ -115,6 +116,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasLimitPersonCount_ = !!value;
 }
 @synthesize limitPersonCount;
+- (BOOL) hasRecordId {
+  return !!hasRecordId_;
+}
+- (void) setHasRecordId:(BOOL) value {
+  hasRecordId_ = !!value;
+}
+@synthesize recordId;
 - (BOOL) hasCreateTime {
   return !!hasCreateTime_;
 }
@@ -138,9 +146,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @synthesize address;
 - (void) dealloc {
   self.title = nil;
-  self.ownerId = nil;
   self.ownerNickname = nil;
-  self.picUrl = nil;
   self.createTime = nil;
   self.beginTime = nil;
   self.address = nil;
@@ -150,15 +156,16 @@ static PBExtensionRegistry* extensionRegistry = nil;
   if ((self = [super init])) {
     self.roomId = 0;
     self.title = @"";
-    self.ownerId = @"";
+    self.ownerId = 0;
     self.ownerNickname = @"";
     self.type = 0;
     self.status = 0;
-    self.picUrl = @"";
+    self.picId = 0;
     self.genderType = 0;
     self.distance = 0;
     self.joinPersonCount = 0;
     self.limitPersonCount = 0;
+    self.recordId = 0;
     self.createTime = @"";
     self.beginTime = @"";
     self.address = [Address defaultInstance];
@@ -188,7 +195,7 @@ static RoomInfo* defaultRoomInfoInstance = nil;
     [output writeString:2 value:self.title];
   }
   if (self.hasOwnerId) {
-    [output writeString:3 value:self.ownerId];
+    [output writeInt32:3 value:self.ownerId];
   }
   if (self.hasOwnerNickname) {
     [output writeString:4 value:self.ownerNickname];
@@ -199,8 +206,8 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasStatus) {
     [output writeInt32:6 value:self.status];
   }
-  if (self.hasPicUrl) {
-    [output writeString:7 value:self.picUrl];
+  if (self.hasPicId) {
+    [output writeInt32:7 value:self.picId];
   }
   if (self.hasGenderType) {
     [output writeInt32:8 value:self.genderType];
@@ -214,14 +221,17 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasLimitPersonCount) {
     [output writeInt32:11 value:self.limitPersonCount];
   }
+  if (self.hasRecordId) {
+    [output writeInt32:12 value:self.recordId];
+  }
   if (self.hasCreateTime) {
-    [output writeString:12 value:self.createTime];
+    [output writeString:13 value:self.createTime];
   }
   if (self.hasBeginTime) {
-    [output writeString:13 value:self.beginTime];
+    [output writeString:14 value:self.beginTime];
   }
   if (self.hasAddress) {
-    [output writeMessage:14 value:self.address];
+    [output writeMessage:15 value:self.address];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -239,7 +249,7 @@ static RoomInfo* defaultRoomInfoInstance = nil;
     size += computeStringSize(2, self.title);
   }
   if (self.hasOwnerId) {
-    size += computeStringSize(3, self.ownerId);
+    size += computeInt32Size(3, self.ownerId);
   }
   if (self.hasOwnerNickname) {
     size += computeStringSize(4, self.ownerNickname);
@@ -250,8 +260,8 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasStatus) {
     size += computeInt32Size(6, self.status);
   }
-  if (self.hasPicUrl) {
-    size += computeStringSize(7, self.picUrl);
+  if (self.hasPicId) {
+    size += computeInt32Size(7, self.picId);
   }
   if (self.hasGenderType) {
     size += computeInt32Size(8, self.genderType);
@@ -265,14 +275,17 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasLimitPersonCount) {
     size += computeInt32Size(11, self.limitPersonCount);
   }
+  if (self.hasRecordId) {
+    size += computeInt32Size(12, self.recordId);
+  }
   if (self.hasCreateTime) {
-    size += computeStringSize(12, self.createTime);
+    size += computeStringSize(13, self.createTime);
   }
   if (self.hasBeginTime) {
-    size += computeStringSize(13, self.beginTime);
+    size += computeStringSize(14, self.beginTime);
   }
   if (self.hasAddress) {
-    size += computeMessageSize(14, self.address);
+    size += computeMessageSize(15, self.address);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -367,8 +380,8 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (other.hasStatus) {
     [self setStatus:other.status];
   }
-  if (other.hasPicUrl) {
-    [self setPicUrl:other.picUrl];
+  if (other.hasPicId) {
+    [self setPicId:other.picId];
   }
   if (other.hasGenderType) {
     [self setGenderType:other.genderType];
@@ -381,6 +394,9 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   }
   if (other.hasLimitPersonCount) {
     [self setLimitPersonCount:other.limitPersonCount];
+  }
+  if (other.hasRecordId) {
+    [self setRecordId:other.recordId];
   }
   if (other.hasCreateTime) {
     [self setCreateTime:other.createTime];
@@ -420,8 +436,8 @@ static RoomInfo* defaultRoomInfoInstance = nil;
         [self setTitle:[input readString]];
         break;
       }
-      case 26: {
-        [self setOwnerId:[input readString]];
+      case 24: {
+        [self setOwnerId:[input readInt32]];
         break;
       }
       case 34: {
@@ -436,8 +452,8 @@ static RoomInfo* defaultRoomInfoInstance = nil;
         [self setStatus:[input readInt32]];
         break;
       }
-      case 58: {
-        [self setPicUrl:[input readString]];
+      case 56: {
+        [self setPicId:[input readInt32]];
         break;
       }
       case 64: {
@@ -456,15 +472,19 @@ static RoomInfo* defaultRoomInfoInstance = nil;
         [self setLimitPersonCount:[input readInt32]];
         break;
       }
-      case 98: {
-        [self setCreateTime:[input readString]];
+      case 96: {
+        [self setRecordId:[input readInt32]];
         break;
       }
       case 106: {
-        [self setBeginTime:[input readString]];
+        [self setCreateTime:[input readString]];
         break;
       }
       case 114: {
+        [self setBeginTime:[input readString]];
+        break;
+      }
+      case 122: {
         Address_Builder* subBuilder = [Address builder];
         if (self.hasAddress) {
           [subBuilder mergeFrom:self.address];
@@ -511,17 +531,17 @@ static RoomInfo* defaultRoomInfoInstance = nil;
 - (BOOL) hasOwnerId {
   return result.hasOwnerId;
 }
-- (NSString*) ownerId {
+- (int32_t) ownerId {
   return result.ownerId;
 }
-- (RoomInfo_Builder*) setOwnerId:(NSString*) value {
+- (RoomInfo_Builder*) setOwnerId:(int32_t) value {
   result.hasOwnerId = YES;
   result.ownerId = value;
   return self;
 }
 - (RoomInfo_Builder*) clearOwnerId {
   result.hasOwnerId = NO;
-  result.ownerId = @"";
+  result.ownerId = 0;
   return self;
 }
 - (BOOL) hasOwnerNickname {
@@ -572,20 +592,20 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   result.status = 0;
   return self;
 }
-- (BOOL) hasPicUrl {
-  return result.hasPicUrl;
+- (BOOL) hasPicId {
+  return result.hasPicId;
 }
-- (NSString*) picUrl {
-  return result.picUrl;
+- (int32_t) picId {
+  return result.picId;
 }
-- (RoomInfo_Builder*) setPicUrl:(NSString*) value {
-  result.hasPicUrl = YES;
-  result.picUrl = value;
+- (RoomInfo_Builder*) setPicId:(int32_t) value {
+  result.hasPicId = YES;
+  result.picId = value;
   return self;
 }
-- (RoomInfo_Builder*) clearPicUrl {
-  result.hasPicUrl = NO;
-  result.picUrl = @"";
+- (RoomInfo_Builder*) clearPicId {
+  result.hasPicId = NO;
+  result.picId = 0;
   return self;
 }
 - (BOOL) hasGenderType {
@@ -650,6 +670,22 @@ static RoomInfo* defaultRoomInfoInstance = nil;
 - (RoomInfo_Builder*) clearLimitPersonCount {
   result.hasLimitPersonCount = NO;
   result.limitPersonCount = 0;
+  return self;
+}
+- (BOOL) hasRecordId {
+  return result.hasRecordId;
+}
+- (int32_t) recordId {
+  return result.recordId;
+}
+- (RoomInfo_Builder*) setRecordId:(int32_t) value {
+  result.hasRecordId = YES;
+  result.recordId = value;
+  return self;
+}
+- (RoomInfo_Builder*) clearRecordId {
+  result.hasRecordId = NO;
+  result.recordId = 0;
   return self;
 }
 - (BOOL) hasCreateTime {

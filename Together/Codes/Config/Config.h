@@ -9,6 +9,7 @@
 #ifndef Together_Config_h
 #define Together_Config_h
 
+#import "CommonConfig.h"
 #import "RoomConfig.h"
 #import "UserConfig.h"
 

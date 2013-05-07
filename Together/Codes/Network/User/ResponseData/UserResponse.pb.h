@@ -8,6 +8,8 @@
 @class DetailResponse_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
+@class UserList;
+@class UserList_Builder;
 @class User_Info;
 @class User_Info_Builder;
 @class UsernameExistResponse;
@@ -183,5 +185,54 @@
 - (BOOL) isExist;
 - (UsernameExistResponse_Builder*) setIsExist:(BOOL) value;
 - (UsernameExistResponse_Builder*) clearIsExist;
+@end
+
+@interface UserList : PBGeneratedMessage {
+@private
+  NSMutableArray* mutableUserListList;
+}
+- (NSArray*) userListList;
+- (User_Info*) userListAtIndex:(int32_t) index;
+
++ (UserList*) defaultInstance;
+- (UserList*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (UserList_Builder*) builder;
++ (UserList_Builder*) builder;
++ (UserList_Builder*) builderWithPrototype:(UserList*) prototype;
+
++ (UserList*) parseFromData:(NSData*) data;
++ (UserList*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (UserList*) parseFromInputStream:(NSInputStream*) input;
++ (UserList*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (UserList*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (UserList*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface UserList_Builder : PBGeneratedMessage_Builder {
+@private
+  UserList* result;
+}
+
+- (UserList*) defaultInstance;
+
+- (UserList_Builder*) clear;
+- (UserList_Builder*) clone;
+
+- (UserList*) build;
+- (UserList*) buildPartial;
+
+- (UserList_Builder*) mergeFrom:(UserList*) other;
+- (UserList_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (UserList_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (NSArray*) userListList;
+- (User_Info*) userListAtIndex:(int32_t) index;
+- (UserList_Builder*) replaceUserListAtIndex:(int32_t) index with:(User_Info*) value;
+- (UserList_Builder*) addUserList:(User_Info*) value;
+- (UserList_Builder*) addAllUserList:(NSArray*) values;
+- (UserList_Builder*) clearUserListList;
 @end
 

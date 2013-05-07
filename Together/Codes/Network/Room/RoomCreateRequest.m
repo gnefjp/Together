@@ -44,7 +44,7 @@
     [request addPostValue:_detailAddr forKey:@"detailAddr"];
     [request addPostValue:_addrRemark forKey:@"addrRemark"];
     
-    _previewID = ([_previewID length] < 1) ? [NSString stringWithInt:_roomType + 1] : _previewID;
+    _previewID = ([_previewID length] < 1) ? [NSString stringWithInt:_roomType] : _previewID;
     [request addPostValue:_previewID forKey:@"picId"];
     [request addPostValue:_recordID forKey:@"recordId"];
     

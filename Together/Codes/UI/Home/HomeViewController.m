@@ -8,6 +8,8 @@
 
 #import "GMETTapView.h"
 
+#import "AppSetting.h"
+
 #import "HomeViewController.h"
 
 #import "NavigationView.h"
@@ -25,15 +27,104 @@
 {
     [super viewDidLoad];
     
+    [self _getCurrentLocation];
+    
     _navigationView = [NavigationView loadFromNib];
     _navigationView.delegate = self;
     [self.view addSubview:_navigationView];
     
     _mainView = [RoomListView loadFromNib];
+    ((RoomListView *)_mainView).delegate = self;
     [self.view addSubview:_mainView];
     [self _initPanGesture];
     
     [self _isShowNavigation:NO animation:NO];
+}
+
+
+#pragma mark- 定位
+- (void) _getCurrentLocation
+{
+    _locationManager = [[CLLocationManager alloc] init];
+    if ([CLLocationManager locationServicesEnabled])
+    {
+        _locationManager.delegate = self;
+        _locationManager.distanceFilter = kCLDistanceFilterNone;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [_locationManager startUpdatingLocation];
+    }
+    else
+    {
+        [self _setLocationServe];
+    }
+}
+
+
+#pragma mark- CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager
+	didUpdateToLocation:(CLLocation *)newLocation
+		   fromLocation:(CLLocation *)oldLocation
+{
+    [AppSetting defaultSetting].currentLocation = newLocation;
+    
+    if (oldLocation == nil && newLocation != nil)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_InitCurrentLocation
+                                                            object:nil];
+    }
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+    [self _setLocationServe];
+}
+
+#pragma mark- 设置定位服务
+- (void) _setLocationServe
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请打开“定位服务”确定您的位置"
+                                                            message:@"如果不使用定位服务\n"
+                                                                    "将无法获取房间信息\n"
+                                                                    "请点击“设置”进行设置"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"取消"
+                                                  otherButtonTitles:@"设置", nil];
+        [alertView show];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请打开“定位服务”确定您的位置"
+                                                            message:@"请到 设置 - 隐私 - 定位服务 中 \n"
+                                                                    "打开定位服务功能\n"
+                                                                    "并允许“Together”访问此功能"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+
+#pragma mark- UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        NSURL*url=[NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
+
+- (void)alertViewCancel:(UIAlertView *)alertView
+{
+    // TODO: 取消定位服务
 }
 
 
@@ -117,6 +208,13 @@
 }
 
 
+#pragma mark- RoomListViewDelegate
+- (void) RoomListViewShowNavigation:(RoomListView *)roomListView
+{
+    [self _isShowNavigation:YES animation:YES];
+}
+
+
 
 #pragma mark- NavigationViewDelegate
 - (void) NavigationView:(NavigationView *)navigationView wantInModulWithType:(ModulType)modulType
@@ -128,6 +226,7 @@
         case ModulType_RoomList:
         {
             _mainView = [RoomListView loadFromNib];
+            ((RoomListView *)_mainView).delegate = self;
             break;
         }
         case ModulType_UserCenter:

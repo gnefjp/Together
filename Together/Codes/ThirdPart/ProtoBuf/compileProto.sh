@@ -16,7 +16,7 @@ responseDir="ResponseData"
 src/protoc --proto_path=$protoFileDir --objc_out=$networkDir $protoFileDir"/Response.proto" 
 
 #列表
-src/protoc --proto_path=$protoFileDir --objc_out=$networkDir $protoFileDir"/DataList.proto"
+src/protoc --proto_path=$protoFileDir --objc_out=$networkDir $protoFileDir"/data.proto"
 
 
 #用户模块
