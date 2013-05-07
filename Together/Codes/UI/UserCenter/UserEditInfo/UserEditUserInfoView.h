@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "InfoFillInViewController.h"
-@interface UserEditUserInfoView : UIView<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate>
+#import "DataPicker.h"
+#import "PicChange.h"
+
+@interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate>
 {
     __weak IBOutlet UITableView *_iTableView;
+    DataPicker                  *_piker;
+    PicChange                   *_avarta;
     
+    __weak IBOutlet UIButton    *_avartaBtn;
 }
 
-
+- (IBAction)submitBtnDidPressed:(id)sender;
 - (IBAction)backBtnDidPressed:(id)sender;
 
 @end

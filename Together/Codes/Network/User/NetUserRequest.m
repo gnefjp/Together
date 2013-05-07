@@ -12,7 +12,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://172.18.18.169:9080/USER";
+    return @"http://192.168.1.150:3000";
 }
 
 - (NSString *) actionCode
@@ -20,6 +20,8 @@
     int actionCodes[] = {
         USER_REGIEST,
         USER_LOGIN,
+        USER_VIEW_INFO,
+        USER_SET_INFO,
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];

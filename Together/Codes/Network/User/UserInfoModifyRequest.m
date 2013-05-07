@@ -1,21 +1,21 @@
 //
-//  UserLoginRequest.m
+//  UserInfoModify.m
 //  Together
 //
-//  Created by Gnef_jp on 13-4-23.
+//  Created by APPLE on 13-5-8.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import "UserLoginRequest.h"
+#import "UserInfoModifyRequest.h"
 
-@implementation UserLoginRequest
+@implementation UserInfoModifyRequest
 
 - (id) init
 {
     self = [super init];
     if (self)
     {
-        self.requestType = NetUserRequestType_Login;
+        self.requestType = NetUserRequestType_ModifyInfo;
     }
     return self;
 }
@@ -25,21 +25,14 @@
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:self.actionCode forKey:@"action"];
-    
-    [request addPostValue:_divToken forKey:@"dev_id"];
-    
-    [request addPostValue:_userName forKey:@"username"];
-    [request addPostValue:_password  forKey:@"password"];
-    
+    [request addPostValue:@"cababa" forKey:@"nickname"];
+    [request addPostValue:@"b4941b8eaa0bddfa611656788ac48078" forKey:@"sid"];
     return request;
 }
-
 
 - (void) _requestFinished
 {
     // 数据处理
-    NSLog(@"nickname : %@", self.responseData.loginResponse.userInfo.nickName);
-    
     [self.delegate NetUserRequestSuccess:self];
 }
 

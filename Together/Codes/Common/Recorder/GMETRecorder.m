@@ -49,11 +49,6 @@
     return [NSURL fileURLWithPath:filePath];
 }
 
-+ (NSString*)getTestAudioFilePath
-{
-    NSString *filePath = [NSString stringWithFormat:@"%@/test.caf",[GMETRecorder tempPath]];
-    return filePath;
-}
 
 
 - (NSDictionary *) recordSettings

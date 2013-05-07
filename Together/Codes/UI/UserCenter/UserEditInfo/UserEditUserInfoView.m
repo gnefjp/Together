@@ -8,10 +8,16 @@
 
 #import "UserEditUserInfoView.h"
 #import "UserEditUserInfoCellView.h"
+#import "DataPicker.h"
 
 @implementation UserEditUserInfoView
 
 - (void)awakeFromNib
+{
+    
+}
+
+- (void)viewDidLoad
 {
     _iTableView.delegate = self;
     _iTableView.dataSource = self;
@@ -19,27 +25,38 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 4;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
         case 0:
+        {
+            [self _showInfoFillViewWithType:InfoFillType_TextView title:@"昵称"];
             break;
+        }
         case 1:
+        {
+            InfoFillInViewController *fillController = [self _showInfoFillViewWithType:InfoFillType_Picker title:@"性别"];
+            fillController.dataList = [NSArray arrayWithObjects:@"男", @"女", nil];
             break;
+        }
+       
         case 2:
+        {
+            if (!_piker) {
+                _piker = [[DataPicker alloc] init];
+            }
+            [_piker showViewPickerInView:self.view];
+            
             break;
+        }
         case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
+        {
+            [self _showInfoFillViewWithType:InfoFillType_TextField
+                                       title:@"个性签名"];
+        }			
             break;
         default:
             break;
@@ -67,9 +84,8 @@
         }
         case 2:
         {
-            
             cell.iLeftLb.text = @"生日";
-            cell.iRightLb.text = @"男";
+            cell.iRightLb.text = @"xx-ss-ss-s-s-s-s";
             break;
         }
         case 3:
@@ -91,7 +107,7 @@
 
 - (InfoFillInViewController*) _showInfoFillViewWithType:(InfoFillType)type
                                                   title:(NSString *)title
-{
+{   
     InfoFillInViewController* fillController = [InfoFillInViewController loadFromNib];
     fillController.delegate = self;
     [[UIView rootController] pushViewController:fillController animated:YES];
@@ -100,10 +116,35 @@
     return fillController;
 }
 
+- (IBAction)avataBtnDidPressed:(id)sender
+{
+    if (!_avarta)
+    {
+        _avarta = [[PicChange alloc] init];
+        _avarta.delegate = self;
+    }
+    [_avarta addAvataActionSheet];
+}
 
+- (void)PicChangeSuccess:(PicChange *)self img:(UIImage *)img
+{
+    [_avartaBtn setImage:img forState:UIControlStateNormal];
+    [_avartaBtn setImage:img forState:UIControlStateHighlighted];
+
+}
+
+- (IBAction)submitBtnDidPressed:(id)sender
+{
+    
+}
 
 - (IBAction)backBtnDidPressed:(id)sender
 {
-    [self hideCenterToRightAnimation];
+    [[UIView rootController] popViewControllerAnimated:YES];
+}
+- (void)viewDidUnload {
+    _iTableView = nil;
+    _avartaBtn = nil;
+    [super viewDidUnload];
 }
 @end

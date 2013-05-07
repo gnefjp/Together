@@ -19,7 +19,7 @@
 {
     int actionCodes[] = {
         ROOM_CREATE,
-        ROOM_JOIN,
+//        ROOM_JOIN,
         ROOM_SHOWLIST,
     };
     

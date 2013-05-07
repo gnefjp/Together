@@ -7,6 +7,7 @@
 //
 
 #import "UserLoginView.h"
+#import "GEMTUserManager.h"
 
 @implementation UserLoginView
 @synthesize delegate = _delegate;
@@ -57,6 +58,12 @@
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
     NSLog(@"%@",request.responseData.loginResponse.userInfo.username);
+    
+    [[[GEMTUserManager shareInstance] getUserInfo] setUserInfoWithLoginResPonse:request.responseData.loginResponse.userInfo];
+    
+    [[GEMTUserManager shareInstance] getUserInfo].passWord = _iPassWordTextFiled.text;
+    [[GEMTUserManager shareInstance] userName:request.responseData.loginResponse.userInfo.username
+                                     passWord:_iPassWordTextFiled.text];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
@@ -183,7 +190,7 @@
 
 - (void)removeFromSuperview
 {
-    [_delegate UserLoginViewDidRemove:self];
+    [_delegate userLoginViewDidRemove:self];
     [super removeFromSuperview];
 }
 

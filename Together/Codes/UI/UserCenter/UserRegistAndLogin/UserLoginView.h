@@ -10,13 +10,12 @@
 #import "UserRegistView.h"
 #import "UserLoginRequest.h"
 #import "TipViewManager.h"
-#import "GEMTUserManager.h"
 
 @class UserLoginView;
 
-@protocol UserLoginViewDelegate <NSObject>
+@protocol UserLoginDelegate <NSObject>
 
-- (void)UserLoginViewDidRemove:(UserLoginView*)v;
+- (void)userLoginViewDidRemove:(UserLoginView*)v;
 
 @end
 
@@ -28,7 +27,7 @@
     __weak IBOutlet UILabel                      *_iUserNameTipInfo;
     __weak IBOutlet UILabel                      *_iPassWordTipInfo;
     __weak IBOutlet UIView                       *_iLoginView;
-    __weak id<UserLoginViewDelegate>             _delegate;
+    __weak id<UserLoginDelegate>                 _delegate;
     
     UserRegistView                               *_iRegistView;
     BOOL                                         _isLogin;
@@ -36,7 +35,7 @@
 
 
 
-@property (weak, nonatomic) id<UserLoginViewDelegate>   delegate;
+@property (weak, nonatomic) id<UserLoginDelegate>   delegate;
 
 - (IBAction)closeBtnDidPressed:(id)sender;
 - (IBAction)registBtnDidPressed:(id)sender;

@@ -10,6 +10,8 @@
 #import "GMETRecorder.h"
 #import "GEMTUserManager.h"
 #import "UserEditUserInfoView.h"
+#import "UserPersonInfoRequest.h"
+#import "UserInfoModifyRequest.h"
 
 @implementation UserCenterView
 
@@ -21,6 +23,21 @@
 - (void)NetUserRequestFail:(NetUserRequest *)request
 {
     
+}
+
+- (IBAction)viewOtherInfo:(id)sender
+{
+    UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
+    request.delegate = self;
+    [[NetRequestManager defaultManager] startRequest:request];
+    
+}
+
+- (IBAction)modifyInfo:(id)sender
+{
+    UserInfoModifyRequest *request = [[UserInfoModifyRequest alloc] init];
+    request.delegate = self;
+    [[NetRequestManager defaultManager] startRequest:request];
 }
 
 - (IBAction)showMapViewBtnDidpressed:(id)sender
@@ -68,14 +85,13 @@
 
 - (IBAction)loginBtnDidPressed:(id)sender
 {
-    [[GEMTUserManager shareInstance] addLoginViewToTopView];
+    [[GEMTUserManager shareInstance] shouldAddLoginViewToTopView];
 }
 
 - (IBAction)editInfoBtnDidPressed:(id)sender
 {
     UserEditUserInfoView *editInfo = [UserEditUserInfoView loadFromNib];
-    [[UIView rootView] addSubview:editInfo];
-    [editInfo showRightToCenterAnimation];
+    [[UIView rootController] pushViewController:editInfo animated:YES];
 }
 
 - (IBAction)_playBtnDidPressed:(id)sender

@@ -68,6 +68,7 @@
 {
     NSLog(@"code : %d, msg : %@", request.responseStatusCode, request.responseStatusMessage);
     NSLog(@"http : %@", request.responseString);
+    NSLog(@"http : %@", request.responseData);
     
     if (request.responseStatusCode == 200)
     {
@@ -75,7 +76,6 @@
         NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
     }
    
-    
     if (_responseData.success)
     {
         [self _requestFinished];
@@ -175,7 +175,7 @@ static NetRequestManager* s_defaultManager = nil;
 - (UIImage*) loadImage
 {
     return [_expandVar objectForKey:@"LoadImage"];
-}
+}	
 
 - (void) setLoadImage:(UIImage *)loadImage
 {

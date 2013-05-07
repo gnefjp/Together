@@ -22,6 +22,8 @@
     AVAudioPlayer                   *_player;
     PicChange                       *_avatar;
 }
+- (IBAction)viewOtherInfo:(id)sender;
+- (IBAction)modifyInfo:(id)sender;
 
 - (IBAction)showMapViewBtnDidpressed:(id)sender;
 - (IBAction)recordBtnDidPressed:(id)sender;
