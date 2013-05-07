@@ -140,6 +140,10 @@
 		3828CC25172A846D00EC7EAF /* UserLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3828CC1E172A846D00EC7EAF /* UserLoginView.xib */; };
 		3828CC26172A846D00EC7EAF /* UserRegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC20172A846D00EC7EAF /* UserRegistView.m */; };
 		3828CC27172A846D00EC7EAF /* UserRegistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3828CC21172A846D00EC7EAF /* UserRegistView.xib */; };
+		383A5AAA172CFE990064A1B5 /* UserEditUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A5AA8172CFE990064A1B5 /* UserEditUserInfoView.m */; };
+		383A5AAB172CFE990064A1B5 /* UserEditUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383A5AA9172CFE990064A1B5 /* UserEditUserInfoView.xib */; };
+		383A5AAE172CFEDA0064A1B5 /* UserEditUserInfoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A5AAD172CFEDA0064A1B5 /* UserEditUserInfoCellView.m */; };
+		383A5AB0172CFEFD0064A1B5 /* UserEditUserInfoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383A5AAF172CFEFC0064A1B5 /* UserEditUserInfoCellView.xib */; };
 		388887601724687200B2D2F0 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888875E1724687200B2D2F0 /* UserCenterView.m */; };
 		388887611724687200B2D2F0 /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3888875F1724687200B2D2F0 /* UserCenterView.xib */; };
 		3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888876C172476B100B2D2F0 /* GMETRecorder.m */; };
@@ -746,6 +750,12 @@
 		3828CC1F172A846D00EC7EAF /* UserRegistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRegistView.h; sourceTree = "<group>"; };
 		3828CC20172A846D00EC7EAF /* UserRegistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRegistView.m; sourceTree = "<group>"; };
 		3828CC21172A846D00EC7EAF /* UserRegistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserRegistView.xib; sourceTree = "<group>"; };
+		383A5AA7172CFE990064A1B5 /* UserEditUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditUserInfoView.h; sourceTree = "<group>"; };
+		383A5AA8172CFE990064A1B5 /* UserEditUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditUserInfoView.m; sourceTree = "<group>"; };
+		383A5AA9172CFE990064A1B5 /* UserEditUserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserEditUserInfoView.xib; sourceTree = "<group>"; };
+		383A5AAC172CFEDA0064A1B5 /* UserEditUserInfoCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditUserInfoCellView.h; sourceTree = "<group>"; };
+		383A5AAD172CFEDA0064A1B5 /* UserEditUserInfoCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditUserInfoCellView.m; sourceTree = "<group>"; };
+		383A5AAF172CFEFC0064A1B5 /* UserEditUserInfoCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserEditUserInfoCellView.xib; sourceTree = "<group>"; };
 		3888875D1724687200B2D2F0 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterView.h; sourceTree = "<group>"; };
 		3888875E1724687200B2D2F0 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterView.m; sourceTree = "<group>"; };
 		3888875F1724687200B2D2F0 /* UserCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterView.xib; sourceTree = "<group>"; };
@@ -1714,9 +1724,23 @@
 			path = UserRegistAndLogin;
 			sourceTree = "<group>";
 		};
+		383A5AA6172CFE990064A1B5 /* UserEditInfo */ = {
+			isa = PBXGroup;
+			children = (
+				383A5AA7172CFE990064A1B5 /* UserEditUserInfoView.h */,
+				383A5AA8172CFE990064A1B5 /* UserEditUserInfoView.m */,
+				383A5AA9172CFE990064A1B5 /* UserEditUserInfoView.xib */,
+				383A5AAC172CFEDA0064A1B5 /* UserEditUserInfoCellView.h */,
+				383A5AAD172CFEDA0064A1B5 /* UserEditUserInfoCellView.m */,
+				383A5AAF172CFEFC0064A1B5 /* UserEditUserInfoCellView.xib */,
+			);
+			path = UserEditInfo;
+			sourceTree = "<group>";
+		};
 		3888875C1724687200B2D2F0 /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
+				383A5AA6172CFE990064A1B5 /* UserEditInfo */,
 				3828CC16172A846D00EC7EAF /* UserInfo */,
 				3828CC1B172A846D00EC7EAF /* UserRegistAndLogin */,
 				3888875D1724687200B2D2F0 /* UserCenterView.h */,
@@ -1867,6 +1891,8 @@
 				18D5D0F2172BBFD300799BF7 /* common_topbar_bg.png in Resources */,
 				18D5D0F4172BC2F800799BF7 /* room_create_icon.png in Resources */,
 				18D5D0F6172BCF8C00799BF7 /* common_close_icon.png in Resources */,
+				383A5AAB172CFE990064A1B5 /* UserEditUserInfoView.xib in Resources */,
+				383A5AB0172CFEFD0064A1B5 /* UserEditUserInfoCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1962,6 +1988,8 @@
 				18D5D0FA172BD3DD00799BF7 /* NetFileRequest.m in Sources */,
 				18D5D0FD172BD49500799BF7 /* FileDownloadRequest.m in Sources */,
 				18D5D100172BD4FE00799BF7 /* FileUploadRequest.m in Sources */,
+				383A5AAA172CFE990064A1B5 /* UserEditUserInfoView.m in Sources */,
+				383A5AAE172CFEDA0064A1B5 /* UserEditUserInfoCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

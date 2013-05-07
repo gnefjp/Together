@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "UserConfig.h"
 #import "UserLoginView.h"
-#import "UserLoginView.h"
 
-@interface GEMTUserManager : NSObject<UserLoginViewDelegate>
+
+@interface GEMTUserManager : NSObject
 {
     BOOL                _isShowLoginView;
 }

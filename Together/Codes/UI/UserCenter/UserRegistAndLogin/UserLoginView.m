@@ -17,6 +17,8 @@
     _iPassWordTextFiled.delegate = self;
     [_iUserNameFiled becomeFirstResponder];
     _isLogin = YES;
+    
+    [_iPassWordTextFiled setSecureTextEntry:YES];
 }
 
 - (IBAction)closeBtnDidPressed:(id)sender
@@ -52,14 +54,52 @@
 
 }
 
+- (void)NetUserRequestSuccess:(NetUserRequest *)request
+{
+    NSLog(@"%@",request.responseData.loginResponse.userInfo.username);
+}
+
+- (void)NetUserRequestFail:(NetUserRequest *)request
+{
+    NSString *str;
+    switch (request.responseData.code)
+    {
+        case LOGIN_SUCCESS:
+            break;
+        case USER_NOT_EXIST:
+            str = @"注册失败";
+            break;
+        case LOGIN_REPLACE:
+            str = @"用户已经存在";
+            break;
+        default :
+            str = @"网络繁忙,请稍后在试";
+            break;
+    }
+    
+    [[TipViewManager defaultManager] showTipText:str
+                                       imageName:nil
+                                          inView:self
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1];
+}
+
 - (IBAction)submitBtnDidPressed:(id)sender
 {
     if ([self checkUserName]&&[self checkPassWord])
     {
         NSLog(@"submitMethod");
         NSLog(@"userName : %@, passWord  : %@", _iUserNameFiled.text, _iPassWordTextFiled.text);
+        
+        UserLoginRequest *request = [[UserLoginRequest alloc] init];
+        request.userName = _iUserNameFiled.text;
+        request.delegate = self;
+        request.password = _iPassWordTextFiled.text;
+        request.divToken = @"token";
+        [[NetRequestManager defaultManager] startRequest:request];
     }
 }
+
 
 
 - (BOOL)checkUserName
@@ -78,8 +118,17 @@
     }
     else
     {
-        [_iUserNameTipInfo setHidden:YES];
-        return YES;
+        NSString *str = @"[a-zA-Z0-9]{5,15}$";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:str options:0 error:nil];
+        NSTextCheckingResult *firstMatch = [regex firstMatchInString:_iUserNameFiled.text options:0 range:NSMakeRange(0, [_iUserNameFiled.text length])];
+        if (!firstMatch) {
+            _iUserNameTipInfo.text = @"提示信息:含有非法字符";
+            return NO;
+        }else
+        {
+            [_iUserNameTipInfo setHidden:YES];
+            return YES;
+        }
     }
 }
 
@@ -99,8 +148,17 @@
     }
     else
     {
-        [_iPassWordTipInfo setHidden:YES];
-        return YES;
+        NSString *str = @"[a-zA-Z0-9]{5,15}$";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:str options:0 error:nil];
+        NSTextCheckingResult *firstMatch = [regex firstMatchInString:_iPassWordTextFiled.text options:0 range:NSMakeRange(0, [_iPassWordTextFiled.text length])];
+        if (!firstMatch) {
+            _iPassWordTipInfo.text = @"提示信息:含有非法字符";
+            return NO;
+        }else
+        {
+            [_iPassWordTipInfo setHidden:YES];
+            return YES;
+        }
     }
 }
 

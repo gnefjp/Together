@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "89"
          endingLineNumber = "89"
-         landmarkName = "-requestFailed:"
+         landmarkName = "-requestFinished:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,12 +47,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Together/Codes/Network/NetRequest.m"
-         timestampString = "388573090.587112"
+         timestampString = "388812222.397289"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "96"
          endingLineNumber = "96"
-         landmarkName = "-setProgress:"
+         landmarkName = "-requestFailed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Together/Codes/UI/UserCenter/UserRegistAndLogin/UserLoginView.m"
+         timestampString = "388822154.489838"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-NetUserRequestSuccess:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Together/Codes/UI/UserCenter/UserRegistAndLogin/UserLoginView.m"
+         timestampString = "388822155.303302"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
+         landmarkName = "-NetUserRequestFail:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

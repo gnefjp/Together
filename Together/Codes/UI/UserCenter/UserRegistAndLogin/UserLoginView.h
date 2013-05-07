@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UserRegistView.h"
+#import "UserLoginRequest.h"
+#import "TipViewManager.h"
+#import "GEMTUserManager.h"
 
 @class UserLoginView;
 
@@ -17,17 +20,18 @@
 
 @end
 
-@interface UserLoginView : UIView<UITextFieldDelegate>
+@interface UserLoginView : UIView<UITextFieldDelegate,NetUserRequestDelegate>
 {
-   __weak id<UserLoginViewDelegate>           _delegate;
-   __weak IBOutlet UITextField *_iUserNameFiled;
-   __weak IBOutlet UITextField *_iPassWordTextFiled;
-   __weak IBOutlet UIButton    *_iSubMitBtn;
-   __weak IBOutlet UILabel     *_iUserNameTipInfo;
-   __weak IBOutlet UILabel     *_iPassWordTipInfo;
-   __weak IBOutlet UIView      *_iLoginView;
-   UserRegistView              *_iRegistView;
-   BOOL                        _isLogin;
+    __weak IBOutlet UITextField                  *_iUserNameFiled;
+    __weak IBOutlet UITextField                  *_iPassWordTextFiled;
+    __weak IBOutlet UIButton                     *_iSubMitBtn;
+    __weak IBOutlet UILabel                      *_iUserNameTipInfo;
+    __weak IBOutlet UILabel                      *_iPassWordTipInfo;
+    __weak IBOutlet UIView                       *_iLoginView;
+    __weak id<UserLoginViewDelegate>             _delegate;
+    
+    UserRegistView                               *_iRegistView;
+    BOOL                                         _isLogin;
 }
 
 

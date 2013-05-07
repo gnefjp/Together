@@ -28,5 +28,6 @@
 - (IBAction)stopRecordBtnDidPressed:(id)sender;
 - (IBAction)changeAvataBtnDidPressed:(id)sender;
 - (IBAction)loginBtnDidPressed:(id)sender;
+- (IBAction)editInfoBtnDidPressed:(id)sender;
 
 @end

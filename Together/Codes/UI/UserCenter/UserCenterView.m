@@ -9,6 +9,7 @@
 #import "UserCenterView.h"
 #import "GMETRecorder.h"
 #import "GEMTUserManager.h"
+#import "UserEditUserInfoView.h"
 
 @implementation UserCenterView
 
@@ -70,6 +71,13 @@
     [[GEMTUserManager shareInstance] addLoginViewToTopView];
 }
 
+- (IBAction)editInfoBtnDidPressed:(id)sender
+{
+    UserEditUserInfoView *editInfo = [UserEditUserInfoView loadFromNib];
+    [[UIView rootView] addSubview:editInfo];
+    [editInfo showRightToCenterAnimation];
+}
+
 - (IBAction)_playBtnDidPressed:(id)sender
 {
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -81,5 +89,7 @@
     [_player prepareToPlay];
     [_player play];
 }
+
+
 
 @end
