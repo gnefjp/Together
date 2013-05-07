@@ -270,10 +270,7 @@ static NSString* s_roomTypeNames[] = {
     createRequest.personNumLimit = _roomInfo.personLimitNum;
     createRequest.genderType = _roomInfo.genderLimitType;
     
-    createRequest.longitude = 200;
-    createRequest.latitude = 200;
-    createRequest.detailAddr = @"广州大学";
-    createRequest.addrRemark = @"星星";
+    createRequest.address = _roomInfo.address;
     
     createRequest.previewID = @"2";
     createRequest.recordID = @"1";
@@ -388,7 +385,7 @@ static NSString* s_roomTypeNames[] = {
     if (_infoTableView.visibleCells.count > 2)
     {
         RoomInfoCell* cell = [_infoTableView.visibleCells objectAtIndex:2];
-        cell.contentLabel.text = [beginTime timestampToDateUsingFormat:@"yyyy-MM-dd HH:mm"];
+        cell.contentLabel.text = [beginTime timestampToDateUsingFormat:@"yyyy-MM-dd HH:mm:ss"];
         
         _roomInfo.beginTime = [beginTime timestampToDateUsingFormat:@"yyyyMMddHHmmss"];
     }
@@ -514,12 +511,6 @@ static NSString* s_roomTypeNames[] = {
 }
 
 
-- (NSString *) _beginTime
-{
-    return @"服务器写少了这个字段";
-}
-
-
 - (NSString *) _roomInfoAtIndex:(NSInteger)index
 {
     NSString* roomInfoStr = nil;
@@ -537,7 +528,7 @@ static NSString* s_roomTypeNames[] = {
         }
         case 2:
         {
-            roomInfoStr = [self _beginTime];
+            roomInfoStr = _roomInfo.beginTime;
             break;
         }
         case 3:
@@ -552,7 +543,7 @@ static NSString* s_roomTypeNames[] = {
         }
         case 5:
         {
-            roomInfoStr = @"服务器写少了这个字段";
+            roomInfoStr = _roomInfo.address.addrRemark;
             break;
         }
         default:

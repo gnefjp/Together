@@ -16,6 +16,8 @@
     if (self)
     {
         self.requestType = NetRoomRequestType_CreateRoom;
+        
+        self.address = [[NetAddressItem alloc] init];
     }
     return self;
 }
@@ -39,10 +41,12 @@
     [request addPostValue:[NSString stringWithInt:_personNumLimit] forKey:@"limitPersonNum"];
     [request addPostValue:[NSString stringWithInt:_genderType] forKey:@"genderType"];
     
-    [request addPostValue:[NSString stringWithDouble:_longitude] forKey:@"longitude"];
-    [request addPostValue:[NSString stringWithDouble:_latitude] forKey:@"latitude"];
-    [request addPostValue:_detailAddr forKey:@"detailAddr"];
-    [request addPostValue:_addrRemark forKey:@"addrRemark"];
+    [request addPostValue:[NSString stringWithDouble:_address.location.coordinate.longitude]
+                   forKey:@"longitude"];
+    [request addPostValue:[NSString stringWithDouble:_address.location.coordinate.latitude]
+                   forKey:@"latitude"];
+    [request addPostValue:_address.detailAddr forKey:@"detailAddr"];
+    [request addPostValue:_address.addrRemark forKey:@"addrRemark"];
     
     _previewID = ([_previewID length] < 1) ? [NSString stringWithInt:_roomType] : _previewID;
     [request addPostValue:_previewID forKey:@"picId"];

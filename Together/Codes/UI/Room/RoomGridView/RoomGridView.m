@@ -28,6 +28,8 @@
 
 - (void) awakeFromNib
 {
+    _roomList = [[NetRoomList alloc] init];
+    
     _noLocationLabel.text = @"无法查看房间信息\n\n"
                             "请到 设置 - 隐私 - 定位服务 中 \n"
                             "打开定位服务功能\n"
@@ -62,6 +64,7 @@
         _noLocationLabel.hidden = YES;
         
         RoomGetListRequest* getListRequest = [[RoomGetListRequest alloc] init];
+        getListRequest.delegate = self;
         //    getListRequest.userID = [AppSetting defaultSetting]
         
         getListRequest.roomType = _roomType;
@@ -72,7 +75,7 @@
         
         getListRequest.location = [AppSetting defaultSetting].currentLocation.coordinate;
         
-//        [[NetRequestManager defaultManager] startRequest:getListRequest];
+        [[NetRequestManager defaultManager] startRequest:getListRequest];
     }
 }
 
@@ -94,6 +97,14 @@
 - (void) NetRoomRequestSuccess:(NetRoomRequest *)request
 {
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    
+    if (request.requestType == NetRoomRequestType_GetRooms)
+    {
+        RoomGetListRequest *getListRequest = (RoomGetListRequest *)request;
+        
+        [_roomList addItemList:request.responseData onPage:getListRequest.pageNum];
+        [_roomsTableView reloadData];
+    }
 }
 
 
@@ -108,7 +119,7 @@
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _roomList.list.count;
 }
 
 
@@ -122,6 +133,8 @@
     {
         cell = [RoomCell loadFromNib];
     }
+    
+    cell.roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
     
     return cell;
 }

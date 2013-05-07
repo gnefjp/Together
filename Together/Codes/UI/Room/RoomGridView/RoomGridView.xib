@@ -45,7 +45,7 @@
 						<reference key="NSSuperview" ref="34727245"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="276896227">
+						<object class="NSColor" key="IBUIBackgroundColor" id="114673261">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
@@ -64,7 +64,7 @@
 						<string key="NSFrameSize">{160, 40}</string>
 						<reference key="NSSuperview" ref="34727245"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="919733910"/>
+						<reference key="NSNextKeyView" ref="1046555500"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -173,7 +173,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<reference key="IBUIImage" ref="894963264"/>
 					</object>
-					<object class="IBUILabel" id="919733910">
+					<object class="IBUILabel" id="1046555500">
 						<reference key="NSNextResponder" ref="34727245"/>
 						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrameSize">{320, 520}</string>
@@ -181,7 +181,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="114566690"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<reference key="IBUIBackgroundColor" ref="276896227"/>
+						<reference key="IBUIBackgroundColor" ref="114673261"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -221,9 +221,17 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">_noLocationLabel</string>
 						<reference key="source" ref="34727245"/>
-						<reference key="destination" ref="919733910"/>
+						<reference key="destination" ref="1046555500"/>
 					</object>
 					<int key="connectionID">13</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">roomsTableView</string>
+						<reference key="source" ref="34727245"/>
+						<reference key="destination" ref="1013355410"/>
+					</object>
+					<int key="connectionID">15</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -270,7 +278,7 @@
 							<reference ref="230815984"/>
 							<reference ref="679624582"/>
 							<reference ref="114566690"/>
-							<reference ref="919733910"/>
+							<reference ref="1046555500"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -301,7 +309,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="919733910"/>
+						<reference key="object" ref="1046555500"/>
 						<reference key="parent" ref="34727245"/>
 					</object>
 				</array>
@@ -327,24 +335,27 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">13</int>
+			<int key="maxID">15</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">RoomGridView</string>
 					<string key="superclassName">UIView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">_noLocationLabel</string>
-						<string key="NS.object.0">UILabel</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">_noLocationLabel</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="_noLocationLabel">UILabel</string>
+						<string key="roomsTableView">UITableView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="_noLocationLabel">
 							<string key="name">_noLocationLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-					</object>
+						<object class="IBToOneOutletInfo" key="roomsTableView">
+							<string key="name">roomsTableView</string>
+							<string key="candidateClassName">UITableView</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/RoomGridView.h</string>

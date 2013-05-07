@@ -52,6 +52,16 @@
 
 #pragma mark- Item
 @implementation NetRoomItem
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.address = [[NetAddressItem alloc] init];
+    }
+    return self;
+}
+
 
 - (NetItem *) initWithMessage:(PBGeneratedMessage *)message
 {
@@ -72,11 +82,12 @@
             self.personLimitNum = roomInfo.limitPersonCount;
             self.joinPersonNum = roomInfo.joinPersonCount;
             
+            self.address = [[NetAddressItem alloc] init];
             self.address.location = [[CLLocation alloc] initWithLatitude:roomInfo.address.latitude
                                                                longitude:roomInfo.address.longitude];
             self.address.detailAddr = roomInfo.address.detailAddr;
             self.address.addrRemark = roomInfo.address.addrRemark;
-            self.address.distance = roomInfo.distance;
+            self.address.distance = roomInfo.distance * 1000.0;
             
             self.ownerID = [NSString stringWithInt:roomInfo.ownerId];
             self.ownerNickname = roomInfo.ownerNickname;
@@ -116,8 +127,20 @@
 
 - (NSArray *) _decodeData:(HTTPResponse *)response
 {
-//    self.isFinish = response.
-    return nil;
+    self.isFinish = response.roomListResponse.roomList.isEnd;
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    int count = response.roomListResponse.roomList.roomInfoListList.count;
+    for (int i = 0; i < count; i++)
+    {
+        RoomInfo *roomInfo = [response.roomListResponse.roomList roomInfoListAtIndex:i];
+        NetRoomItem *item = (NetRoomItem *)[NetRoomItem itemWithMessage:roomInfo];
+        
+        [array addObject:item];
+    }
+    
+    return array;
 }
 
 @end
