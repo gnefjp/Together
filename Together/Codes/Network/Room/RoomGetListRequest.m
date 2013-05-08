@@ -10,13 +10,6 @@
 
 @implementation RoomGetListRequest
 
-
-- (NSString *) requestUrl
-{
-    return @"http://127.0.0.1/ROOM";
-}
-
-
 - (id) init
 {
     self = [super init];
@@ -34,13 +27,12 @@
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:self.actionCode forKey:@"action"];
     [request addPostValue:[NSString stringWithInt:self.roomType] forKey:@"roomType"];
-    [request addPostValue:_userID forKey:@"userId"];
     
     [request addPostValue:[NSString stringWithDouble:self.location.longitude] forKey:@"longitude"];
     [request addPostValue:[NSString stringWithDouble:self.location.latitude] forKey:@"latitude"];
-    [request addPostValue:[NSString stringWithInt:self.range] forKey:@"range"];
+    [request addPostValue:[NSString stringWithFloat:self.range] forKey:@"range"];
     
-    [request addPostValue:[NSString stringWithInt:self.pageNum] forKey:@"pageNo"];
+    [request addPostValue:[NSString stringWithInt:self.pageNum + 1] forKey:@"pageNo"];
     [request addPostValue:[NSString stringWithInt:self.pageSize] forKey:@"pageSize"];
     
     return request;

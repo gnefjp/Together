@@ -10,6 +10,8 @@
 @class List;
 @class List_Builder;
 @class RoomInfo;
+@class RoomInfoResponse;
+@class RoomInfoResponse_Builder;
 @class RoomInfo_Builder;
 @class RoomPeopleListResponse;
 @class RoomPeopleListResponse_Builder;
@@ -122,5 +124,55 @@
 - (RoomPeopleListResponse_Builder*) setPeopleListBuilder:(List_Builder*) builderForValue;
 - (RoomPeopleListResponse_Builder*) mergePeopleList:(List*) value;
 - (RoomPeopleListResponse_Builder*) clearPeopleList;
+@end
+
+@interface RoomInfoResponse : PBGeneratedMessage {
+@private
+  BOOL hasRoomInfo_:1;
+  RoomInfo* roomInfo;
+}
+- (BOOL) hasRoomInfo;
+@property (readonly, retain) RoomInfo* roomInfo;
+
++ (RoomInfoResponse*) defaultInstance;
+- (RoomInfoResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (RoomInfoResponse_Builder*) builder;
++ (RoomInfoResponse_Builder*) builder;
++ (RoomInfoResponse_Builder*) builderWithPrototype:(RoomInfoResponse*) prototype;
+
++ (RoomInfoResponse*) parseFromData:(NSData*) data;
++ (RoomInfoResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (RoomInfoResponse*) parseFromInputStream:(NSInputStream*) input;
++ (RoomInfoResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (RoomInfoResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (RoomInfoResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface RoomInfoResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  RoomInfoResponse* result;
+}
+
+- (RoomInfoResponse*) defaultInstance;
+
+- (RoomInfoResponse_Builder*) clear;
+- (RoomInfoResponse_Builder*) clone;
+
+- (RoomInfoResponse*) build;
+- (RoomInfoResponse*) buildPartial;
+
+- (RoomInfoResponse_Builder*) mergeFrom:(RoomInfoResponse*) other;
+- (RoomInfoResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (RoomInfoResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasRoomInfo;
+- (RoomInfo*) roomInfo;
+- (RoomInfoResponse_Builder*) setRoomInfo:(RoomInfo*) value;
+- (RoomInfoResponse_Builder*) setRoomInfoBuilder:(RoomInfo_Builder*) builderForValue;
+- (RoomInfoResponse_Builder*) mergeRoomInfo:(RoomInfo*) value;
+- (RoomInfoResponse_Builder*) clearRoomInfo;
 @end
 

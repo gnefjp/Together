@@ -10,6 +10,7 @@
 
 
 static NSString* s_roomTypeNames[] = {
+    @"其他",
     @"桌游",
     @"餐饮",
     @"运动",

@@ -70,10 +70,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<double key="IBUITitleEdgeInsets.top">0.0</double>
-						<double key="IBUITitleEdgeInsets.bottom">0.0</double>
-						<double key="IBUITitleEdgeInsets.left">-10</double>
-						<double key="IBUITitleEdgeInsets.right">0.0</double>
 						<double key="IBUIImageEdgeInsets.top">0.0</double>
 						<double key="IBUIImageEdgeInsets.bottom">0.0</double>
 						<double key="IBUIImageEdgeInsets.left">-40</double>
@@ -91,11 +87,6 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIHighlightedImage" id="879630793">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">room_type_icon.png</string>
-						</object>
-						<reference key="IBUINormalImage" ref="879630793"/>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="931568428">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">room_ screen_btn_b.png</string>
@@ -128,19 +119,10 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<double key="IBUIImageEdgeInsets.top">0.0</double>
-						<double key="IBUIImageEdgeInsets.bottom">0.0</double>
-						<double key="IBUIImageEdgeInsets.left">-10</double>
-						<double key="IBUIImageEdgeInsets.right">0.0</double>
 						<string key="IBUINormalTitle">离我最近</string>
 						<reference key="IBUIHighlightedTitleColor" ref="4804517"/>
 						<reference key="IBUINormalTitleColor" ref="301384972"/>
 						<reference key="IBUINormalTitleShadowColor" ref="276277342"/>
-						<object class="NSCustomResource" key="IBUIHighlightedImage" id="357921293">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">room_sort_icon.png</string>
-						</object>
-						<reference key="IBUINormalImage" ref="357921293"/>
 						<reference key="IBUIHighlightedBackgroundImage" ref="931568428"/>
 						<reference key="IBUINormalBackgroundImage" ref="78051662"/>
 						<reference key="IBUIFontDescription" ref="877891188"/>
@@ -235,6 +217,22 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_roomTypeBtn</string>
+						<reference key="source" ref="34727245"/>
+						<reference key="destination" ref="469683033"/>
+					</object>
+					<int key="connectionID">18</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_rangeBtn</string>
+						<reference key="source" ref="34727245"/>
+						<reference key="destination" ref="679624582"/>
+					</object>
+					<int key="connectionID">19</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="1013355410"/>
 						<reference key="destination" ref="34727245"/>
@@ -248,6 +246,24 @@
 						<reference key="destination" ref="34727245"/>
 					</object>
 					<int key="connectionID">8</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">roomTypeSelected:</string>
+						<reference key="source" ref="469683033"/>
+						<reference key="destination" ref="34727245"/>
+						<int key="IBEventType">1</int>
+					</object>
+					<int key="connectionID">16</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">distanceSelected:</string>
+						<reference key="source" ref="679624582"/>
+						<reference key="destination" ref="34727245"/>
+						<int key="IBEventType">1</int>
+					</object>
+					<int key="connectionID">17</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -325,31 +341,55 @@
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="4.IBUIButtonInspectorSelectedEdgeInsetMetadataKey"/>
-				<real value="0.0" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="1" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="2" key="6.IBUIButtonInspectorSelectedEdgeInsetMetadataKey"/>
-				<real value="1" key="6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">15</int>
+			<int key="maxID">19</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">RoomGridView</string>
 					<string key="superclassName">UIView</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="distanceSelected:">id</string>
+						<string key="roomTypeSelected:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="distanceSelected:">
+							<string key="name">distanceSelected:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="roomTypeSelected:">
+							<string key="name">roomTypeSelected:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="_noLocationLabel">UILabel</string>
+						<string key="_rangeBtn">UIButton</string>
+						<string key="_roomTypeBtn">UIButton</string>
 						<string key="roomsTableView">UITableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="_noLocationLabel">
 							<string key="name">_noLocationLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="_rangeBtn">
+							<string key="name">_rangeBtn</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="_roomTypeBtn">
+							<string key="name">_roomTypeBtn</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="roomsTableView">
 							<string key="name">roomsTableView</string>
@@ -371,8 +411,6 @@
 			<string key="common_down_icon.png">{10, 8}</string>
 			<string key="room_ screen_btn_a.png">{160, 40}</string>
 			<string key="room_ screen_btn_b.png">{160, 40}</string>
-			<string key="room_sort_icon.png">{16, 16}</string>
-			<string key="room_type_icon.png">{16, 16}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

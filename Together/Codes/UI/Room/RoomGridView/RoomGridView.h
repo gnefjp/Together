@@ -9,17 +9,31 @@
 
 #import "NetRoomRequest.h"
 #import "NetRoomList.h"
+#import "SRRefreshView.h"
 
-@interface RoomGridView : UIView <NetRoomRequestDelegate>
+@class GridBottomView;
+@interface RoomGridView : UIView <NetRoomRequestDelegate, SRRefreshDelegate>
 {
-    __weak IBOutlet UILabel *_noLocationLabel;
-    RoomType                _roomType;
-    NSInteger               _range;
+    __weak IBOutlet UILabel     *_noLocationLabel;
+    
+    __weak IBOutlet UIButton    *_roomTypeBtn;
+    RoomType                    _roomType;
+    NSArray                     *_roomTypes;
+    
+    __weak IBOutlet UIButton    *_rangeBtn;
+    CGFloat                     _range;
+    NSArray                     *_ranges;
+    
+    SRRefreshView               *_refreshView;
+    GridBottomView              *_bottomView;
 }
 
 @property (strong, nonatomic) NetRoomList           *roomList;
 @property (weak, nonatomic) IBOutlet UITableView    *roomsTableView;
 
 - (void) refreshGrid;
+
+- (IBAction)roomTypeSelected:(id)sender;
+- (IBAction)distanceSelected:(id)sender;
 
 @end

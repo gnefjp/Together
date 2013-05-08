@@ -18,6 +18,12 @@
 }
 
 
++ (NSString *) stringWithFloat:(float)floatValue
+{
+    return [NSString stringWithFormat:@"%f", floatValue];
+}
+
+
 + (NSString *)stringWithDouble:(double)doubleValue
 {
     return [NSString stringWithFormat:@"%lf", doubleValue];

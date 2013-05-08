@@ -71,6 +71,14 @@
 		18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C81727D53E00184AFA /* room_cell_test.png */; };
 		18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5CB1727D9C400184AFA /* RoomViewController.m */; };
 		18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5CC1727D9C400184AFA /* RoomViewController.xib */; };
+		18C73BD41739E1D70035BC61 /* GridBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C73BCA1739E1D70035BC61 /* GridBottomView.m */; };
+		18C73BD51739E1D70035BC61 /* GridBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BCB1739E1D70035BC61 /* GridBottomView.xib */; };
+		18C73BD61739E1D70035BC61 /* sr_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BCD1739E1D70035BC61 /* sr_refresh.png */; };
+		18C73BD71739E1D70035BC61 /* sr_refresh@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BCE1739E1D70035BC61 /* sr_refresh@2X.png */; };
+		18C73BD81739E1D70035BC61 /* SRRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C73BD11739E1D70035BC61 /* SRRefreshView.m */; };
+		18C73BD91739E1D70035BC61 /* SRSlimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C73BD31739E1D70035BC61 /* SRSlimeView.m */; };
+		18C73BDC1739F4760035BC61 /* GMETLibs+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C73BDB1739F4760035BC61 /* GMETLibs+NSObject.m */; };
+		18C73BE01739FDF70035BC61 /* SearchPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C73BDF1739FDF70035BC61 /* SearchPicker.m */; };
 		18D41DE517294B8700D0C950 /* RoomResponse.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE417294B8700D0C950 /* RoomResponse.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18D41DE817294B8F00D0C950 /* RoomData.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE717294B8F00D0C950 /* RoomData.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18D41DED17294BC200D0C950 /* GMETLibs+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DEA17294BC200D0C950 /* GMETLibs+NSString.m */; };
@@ -657,6 +665,20 @@
 		18C6D5CA1727D9C300184AFA /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		18C6D5CB1727D9C400184AFA /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		18C6D5CC1727D9C400184AFA /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
+		18C73BC91739E1D70035BC61 /* GridBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridBottomView.h; sourceTree = "<group>"; };
+		18C73BCA1739E1D70035BC61 /* GridBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridBottomView.m; sourceTree = "<group>"; };
+		18C73BCB1739E1D70035BC61 /* GridBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridBottomView.xib; sourceTree = "<group>"; };
+		18C73BCD1739E1D70035BC61 /* sr_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sr_refresh.png; sourceTree = "<group>"; };
+		18C73BCE1739E1D70035BC61 /* sr_refresh@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sr_refresh@2X.png"; sourceTree = "<group>"; };
+		18C73BCF1739E1D70035BC61 /* SRDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDefine.h; sourceTree = "<group>"; };
+		18C73BD01739E1D70035BC61 /* SRRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRefreshView.h; sourceTree = "<group>"; };
+		18C73BD11739E1D70035BC61 /* SRRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRefreshView.m; sourceTree = "<group>"; };
+		18C73BD21739E1D70035BC61 /* SRSlimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRSlimeView.h; sourceTree = "<group>"; };
+		18C73BD31739E1D70035BC61 /* SRSlimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRSlimeView.m; sourceTree = "<group>"; };
+		18C73BDA1739F4760035BC61 /* GMETLibs+NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMETLibs+NSObject.h"; sourceTree = "<group>"; };
+		18C73BDB1739F4760035BC61 /* GMETLibs+NSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+NSObject.m"; sourceTree = "<group>"; };
+		18C73BDE1739FDF70035BC61 /* SearchPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPicker.h; sourceTree = "<group>"; };
+		18C73BDF1739FDF70035BC61 /* SearchPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPicker.m; sourceTree = "<group>"; };
 		18D41DE317294B8700D0C950 /* RoomResponse.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomResponse.pb.h; sourceTree = "<group>"; };
 		18D41DE417294B8700D0C950 /* RoomResponse.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomResponse.pb.m; sourceTree = "<group>"; };
 		18D41DE617294B8F00D0C950 /* RoomData.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomData.pb.h; sourceTree = "<group>"; };
@@ -899,6 +921,9 @@
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18C73BDD1739FDE70035BC61 /* SearchPicker */,
+				18C73BC81739E1D70035BC61 /* GridBottomView */,
+				18C73BCC1739E1D70035BC61 /* SlimeRefresh */,
 				38DC96481739590600E0D66A /* Btns */,
 				18D995571738D88A0040901B /* AppSetting */,
 				18E78DAD1729936800036B3C /* TipView */,
@@ -1488,6 +1513,39 @@
 			path = Room;
 			sourceTree = "<group>";
 		};
+		18C73BC81739E1D70035BC61 /* GridBottomView */ = {
+			isa = PBXGroup;
+			children = (
+				18C73BC91739E1D70035BC61 /* GridBottomView.h */,
+				18C73BCA1739E1D70035BC61 /* GridBottomView.m */,
+				18C73BCB1739E1D70035BC61 /* GridBottomView.xib */,
+			);
+			path = GridBottomView;
+			sourceTree = "<group>";
+		};
+		18C73BCC1739E1D70035BC61 /* SlimeRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				18C73BCD1739E1D70035BC61 /* sr_refresh.png */,
+				18C73BCE1739E1D70035BC61 /* sr_refresh@2X.png */,
+				18C73BCF1739E1D70035BC61 /* SRDefine.h */,
+				18C73BD01739E1D70035BC61 /* SRRefreshView.h */,
+				18C73BD11739E1D70035BC61 /* SRRefreshView.m */,
+				18C73BD21739E1D70035BC61 /* SRSlimeView.h */,
+				18C73BD31739E1D70035BC61 /* SRSlimeView.m */,
+			);
+			path = SlimeRefresh;
+			sourceTree = "<group>";
+		};
+		18C73BDD1739FDE70035BC61 /* SearchPicker */ = {
+			isa = PBXGroup;
+			children = (
+				18C73BDE1739FDF70035BC61 /* SearchPicker.h */,
+				18C73BDF1739FDF70035BC61 /* SearchPicker.m */,
+			);
+			path = SearchPicker;
+			sourceTree = "<group>";
+		};
 		18D41DEF17294BD500D0C950 /* RoomCreate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1671,6 +1729,8 @@
 				18BFDE7B17244DF600186828 /* GMETLibs+UIView.m */,
 				18BFDEAE17244DF600186828 /* GMETLibs+DataContainer.h */,
 				18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */,
+				18C73BDA1739F4760035BC61 /* GMETLibs+NSObject.h */,
+				18C73BDB1739F4760035BC61 /* GMETLibs+NSObject.m */,
 			);
 			path = GMETLibs;
 			sourceTree = "<group>";
@@ -1948,6 +2008,9 @@
 				18D995611738FA410040901B /* common_fail_icon.png in Resources */,
 				18D995621738FA410040901B /* common_success_icon.png in Resources */,
 				38DC96501739591B00E0D66A /* GMETRecorderView.xib in Resources */,
+				18C73BD51739E1D70035BC61 /* GridBottomView.xib in Resources */,
+				18C73BD61739E1D70035BC61 /* sr_refresh.png in Resources */,
+				18C73BD71739E1D70035BC61 /* sr_refresh@2X.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2050,6 +2113,11 @@
 				38DC964F1739591B00E0D66A /* GMETRecorderView.m in Sources */,
 				38DC96531739656D00E0D66A /* UserInfoModifyRequest.m in Sources */,
 				38DC96561739664700E0D66A /* UserPersonInfoRequest.m in Sources */,
+				18C73BD41739E1D70035BC61 /* GridBottomView.m in Sources */,
+				18C73BD81739E1D70035BC61 /* SRRefreshView.m in Sources */,
+				18C73BD91739E1D70035BC61 /* SRSlimeView.m in Sources */,
+				18C73BDC1739F4760035BC61 /* GMETLibs+NSObject.m in Sources */,
+				18C73BE01739FDF70035BC61 /* SearchPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

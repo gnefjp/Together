@@ -16,6 +16,8 @@
 @class LoginResponse;
 @class LoginResponse_Builder;
 @class RoomInfo;
+@class RoomInfoResponse;
+@class RoomInfoResponse_Builder;
 @class RoomInfo_Builder;
 @class RoomPeopleListResponse;
 @class RoomPeopleListResponse_Builder;
@@ -44,6 +46,7 @@
   BOOL hasExistResponse_:1;
   BOOL hasRoomListResponse_:1;
   BOOL hasRoomPeopleListResponse_:1;
+  BOOL hasRoomInfoResponse_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
@@ -52,6 +55,7 @@
   UsernameExistResponse* existResponse;
   ShowRoomListResponse* roomListResponse;
   RoomPeopleListResponse* roomPeopleListResponse;
+  RoomInfoResponse* roomInfoResponse;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
@@ -61,6 +65,7 @@
 - (BOOL) hasExistResponse;
 - (BOOL) hasRoomListResponse;
 - (BOOL) hasRoomPeopleListResponse;
+- (BOOL) hasRoomInfoResponse;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
@@ -69,6 +74,7 @@
 @property (readonly, retain) UsernameExistResponse* existResponse;
 @property (readonly, retain) ShowRoomListResponse* roomListResponse;
 @property (readonly, retain) RoomPeopleListResponse* roomPeopleListResponse;
+@property (readonly, retain) RoomInfoResponse* roomInfoResponse;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -153,5 +159,12 @@
 - (HTTPResponse_Builder*) setRoomPeopleListResponseBuilder:(RoomPeopleListResponse_Builder*) builderForValue;
 - (HTTPResponse_Builder*) mergeRoomPeopleListResponse:(RoomPeopleListResponse*) value;
 - (HTTPResponse_Builder*) clearRoomPeopleListResponse;
+
+- (BOOL) hasRoomInfoResponse;
+- (RoomInfoResponse*) roomInfoResponse;
+- (HTTPResponse_Builder*) setRoomInfoResponse:(RoomInfoResponse*) value;
+- (HTTPResponse_Builder*) setRoomInfoResponseBuilder:(RoomInfoResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeRoomInfoResponse:(RoomInfoResponse*) value;
+- (HTTPResponse_Builder*) clearRoomInfoResponse;
 @end
 

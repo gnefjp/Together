@@ -30,6 +30,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property (retain) UsernameExistResponse* existResponse;
 @property (retain) ShowRoomListResponse* roomListResponse;
 @property (retain) RoomPeopleListResponse* roomPeopleListResponse;
+@property (retain) RoomInfoResponse* roomInfoResponse;
 @end
 
 @implementation HTTPResponse
@@ -95,6 +96,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasRoomPeopleListResponse_ = !!value;
 }
 @synthesize roomPeopleListResponse;
+- (BOOL) hasRoomInfoResponse {
+  return !!hasRoomInfoResponse_;
+}
+- (void) setHasRoomInfoResponse:(BOOL) value {
+  hasRoomInfoResponse_ = !!value;
+}
+@synthesize roomInfoResponse;
 - (void) dealloc {
   self.msg = nil;
   self.loginResponse = nil;
@@ -102,6 +110,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
   self.existResponse = nil;
   self.roomListResponse = nil;
   self.roomPeopleListResponse = nil;
+  self.roomInfoResponse = nil;
   [super dealloc];
 }
 - (id) init {
@@ -114,6 +123,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.existResponse = [UsernameExistResponse defaultInstance];
     self.roomListResponse = [ShowRoomListResponse defaultInstance];
     self.roomPeopleListResponse = [RoomPeopleListResponse defaultInstance];
+    self.roomInfoResponse = [RoomInfoResponse defaultInstance];
   }
   return self;
 }
@@ -157,6 +167,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (self.hasRoomPeopleListResponse) {
     [output writeMessage:8 value:self.roomPeopleListResponse];
   }
+  if (self.hasRoomInfoResponse) {
+    [output writeMessage:9 value:self.roomInfoResponse];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -189,6 +202,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   }
   if (self.hasRoomPeopleListResponse) {
     size += computeMessageSize(8, self.roomPeopleListResponse);
+  }
+  if (self.hasRoomInfoResponse) {
+    size += computeMessageSize(9, self.roomInfoResponse);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -289,6 +305,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (other.hasRoomPeopleListResponse) {
     [self mergeRoomPeopleListResponse:other.roomPeopleListResponse];
   }
+  if (other.hasRoomInfoResponse) {
+    [self mergeRoomInfoResponse:other.roomInfoResponse];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -365,6 +384,15 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
         }
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self setRoomPeopleListResponse:[subBuilder buildPartial]];
+        break;
+      }
+      case 74: {
+        RoomInfoResponse_Builder* subBuilder = [RoomInfoResponse builder];
+        if (self.hasRoomInfoResponse) {
+          [subBuilder mergeFrom:self.roomInfoResponse];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setRoomInfoResponse:[subBuilder buildPartial]];
         break;
       }
     }
@@ -566,6 +594,36 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
 - (HTTPResponse_Builder*) clearRoomPeopleListResponse {
   result.hasRoomPeopleListResponse = NO;
   result.roomPeopleListResponse = [RoomPeopleListResponse defaultInstance];
+  return self;
+}
+- (BOOL) hasRoomInfoResponse {
+  return result.hasRoomInfoResponse;
+}
+- (RoomInfoResponse*) roomInfoResponse {
+  return result.roomInfoResponse;
+}
+- (HTTPResponse_Builder*) setRoomInfoResponse:(RoomInfoResponse*) value {
+  result.hasRoomInfoResponse = YES;
+  result.roomInfoResponse = value;
+  return self;
+}
+- (HTTPResponse_Builder*) setRoomInfoResponseBuilder:(RoomInfoResponse_Builder*) builderForValue {
+  return [self setRoomInfoResponse:[builderForValue build]];
+}
+- (HTTPResponse_Builder*) mergeRoomInfoResponse:(RoomInfoResponse*) value {
+  if (result.hasRoomInfoResponse &&
+      result.roomInfoResponse != [RoomInfoResponse defaultInstance]) {
+    result.roomInfoResponse =
+      [[[RoomInfoResponse builderWithPrototype:result.roomInfoResponse] mergeFrom:value] buildPartial];
+  } else {
+    result.roomInfoResponse = value;
+  }
+  result.hasRoomInfoResponse = YES;
+  return self;
+}
+- (HTTPResponse_Builder*) clearRoomInfoResponse {
+  result.hasRoomInfoResponse = NO;
+  result.roomInfoResponse = [RoomInfoResponse defaultInstance];
   return self;
 }
 @end

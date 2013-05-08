@@ -10,6 +10,7 @@
 @interface NSString (GMETLibs)
 
 + (NSString *) stringWithInt:(NSInteger)intValue;
++ (NSString *) stringWithFloat:(float)floatValue;
 + (NSString *) stringWithDouble:(double)doubleValue;
 
 - (NSString *) timestampToDateUsingFormat:(NSString*)format;
