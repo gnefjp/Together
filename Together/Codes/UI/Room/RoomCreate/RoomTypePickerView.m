@@ -36,7 +36,7 @@ static NSString* s_roomTypeNames[] = {
 {
     if ([_delegate respondsToSelector:@selector(RoomTypePickerView:pickRoomType:)])
     {
-        [_delegate RoomTypePickerView:self pickRoomType:indexPath.row + 1];
+        [_delegate RoomTypePickerView:self pickRoomType:indexPath.row];
     }
 }
 
@@ -60,6 +60,8 @@ static NSString* s_roomTypeNames[] = {
     }
     
     NSString* showMsg = s_roomTypeNames[indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"ArialMT" size:16.0];
+    cell.textLabel.textColor = GMETColorRGBMake(39, 39, 39);
     cell.textLabel.text = showMsg;
     return cell;
 }

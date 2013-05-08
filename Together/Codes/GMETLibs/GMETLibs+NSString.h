@@ -14,5 +14,6 @@
 + (NSString *) stringWithDouble:(double)doubleValue;
 
 - (NSString *) timestampToDateUsingFormat:(NSString*)format;
+- (NSDate *) stringToDateWithFormat:(NSString *)format;
 
 @end

@@ -23,6 +23,17 @@
 }
 
 
+- (NSString *) _formatBeginTime
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *date = [dateFormatter dateFromString:_beginTime];
+    
+    [dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
+    return [dateFormatter stringFromDate:date];
+}
+
+
 - (ASIHTTPRequest *) _httpRequest
 {
     NSURL* url = [NSURL URLWithString:self.requestUrl];
@@ -36,7 +47,7 @@
     [request addPostValue:_roomTitle forKey:@"title"];
     [request addPostValue:[NSString stringWithInt:_roomType] forKey:@"type"];
     
-    [request addPostValue:_beginTime forKey:@"beginTime"];
+    [request addPostValue:[self _formatBeginTime] forKey:@"beginTime"];
     
     [request addPostValue:[NSString stringWithInt:_personNumLimit] forKey:@"limitPersonNum"];
     [request addPostValue:[NSString stringWithInt:_genderType] forKey:@"genderType"];

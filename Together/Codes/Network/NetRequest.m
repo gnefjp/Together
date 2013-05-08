@@ -72,9 +72,8 @@
     
     if (request.responseStatusCode == 200)
     {
-        [request.responseData writeToFile:@"/Users/apple/Desktop/TEST" atomically:YES];
-//        _responseData = [HTTPResponse parseFromData:request.responseData];
-//        NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
+        _responseData = [HTTPResponse parseFromData:request.responseData];
+        NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
     }
    
     if (_responseData.success)

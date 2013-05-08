@@ -7,6 +7,7 @@
 //
 #import "GMETTapView.h"
 #import "TipViewManager.h"
+#import "AppSetting.h"
 
 #import "NetRoomList.h"
 #import "RoomInfoCell.h"
@@ -24,7 +25,7 @@
 #define kRoomType_BtnTag    1000 // For self.view
 
 static NSString* s_titles[] = {
-    @"主题",
+    @"标题",
     @"人数限制",
     @"开始时间",
     @"性别限制",
@@ -60,6 +61,10 @@ static NSString* s_roomTypeNames[] = {
     _infoTableView.dataSource = self;
     
     _roomInfo = [[NetRoomItem alloc] init];
+    _roomInfo.perviewID = @"1";
+    
+    _roomInfo.address.detailAddr = @"哩度";
+    _roomInfo.address.location = [AppSetting defaultSetting].currentLocation;
     
     [self _isShowRoomTypePicker:YES animation:NO];
 }
@@ -79,6 +84,7 @@ static NSString* s_roomTypeNames[] = {
     _confirmView = nil;
     
     [[TipViewManager defaultManager] removeTipWithID:self];
+    _previewImageView = nil;
     [super viewDidUnload];
 }
 
@@ -95,9 +101,51 @@ static NSString* s_roomTypeNames[] = {
 }
 
 
+- (BOOL) _checkParam
+{
+    NSString *msg = nil;
+    if ([_roomInfo.roomTitle length] < 1)
+    {
+        msg = @"请填写标题";
+    }
+    else if ([_roomInfo.address.detailAddr length] < 1 ||
+             _roomInfo.address.location == nil)
+    {
+        msg = @"请选择地址";
+    }
+    else if ([_roomInfo.perviewID length] < 1)
+    {
+        msg = @"请上传图片";
+    }
+    else if ([_roomInfo.beginTime length] < 1)
+    {
+        msg = @"请选择开始时间";
+    }
+    
+    
+    if ([msg length] > 0)
+    {
+        [[TipViewManager defaultManager] showTipText:msg
+                                           imageName:kCommonImage_FailIcon
+                                              inView:self.view
+                                                  ID:self];
+        
+        [[TipViewManager defaultManager] hideTipWithID:self
+                                             animation:YES
+                                                 delay:1.25];
+        return NO;
+    }
+    
+    return YES;
+}
+
+
 - (IBAction)createBtnPressed:(id)sender
 {
-    [self _isShowRecordView:YES];
+    if ([self _checkParam])
+    {
+        [self _isShowRecordView:YES];
+    }
 }
 
 
@@ -197,14 +245,14 @@ static NSString* s_roomTypeNames[] = {
 
 - (void) _isShowRecordView:(BOOL)isShow
 {
-    _createButton.frameX = isShow ? 0.0 : -300.0;
+    _createButton.frameX = isShow ? 0.0 : -270.0;
     _recordView.frameX = isShow ? 320.0 : 0.0;
     
     [UIView animateWithDuration:0.3
                      animations:^{
                          
                          [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-                         _createButton.frameX = isShow ? -300.0 : 20.0;
+                         _createButton.frameX = isShow ? -270.0 : 50.0;
                          _recordView.frameX = isShow ? 0.0 : 320.0;
                          
                      }completion:^(BOOL finished){
@@ -256,7 +304,11 @@ static NSString* s_roomTypeNames[] = {
 
 - (IBAction)confirmToCreate:(id)sender
 {
-    // TODO: 确定创建
+    if (![self _checkParam])
+    {
+        return;
+    }
+    
     RoomCreateRequest* createRequest = [[RoomCreateRequest alloc] init];
     createRequest.sid = @"b7fbee9a885057aa638df19ecfccb5ba";
     createRequest.ownerID = @"1";
@@ -385,9 +437,8 @@ static NSString* s_roomTypeNames[] = {
     if (_infoTableView.visibleCells.count > 2)
     {
         RoomInfoCell* cell = [_infoTableView.visibleCells objectAtIndex:2];
-        cell.contentLabel.text = [beginTime timestampToDateUsingFormat:@"yyyy-MM-dd HH:mm:ss"];
-        
-        _roomInfo.beginTime = [beginTime timestampToDateUsingFormat:@"yyyyMMddHHmmss"];
+        _roomInfo.beginTime = [beginTime timestampToDateUsingFormat:@"yyyy-MM-dd HH:mm:ss"];
+        cell.contentLabel.text = _roomInfo.beginTime;
     }
 }
 
@@ -395,7 +446,7 @@ static NSString* s_roomTypeNames[] = {
 #pragma mark- InfoFillInViewControllerDelegate
 - (void) InfoFillInViewController:(InfoFillInViewController *)controller fillValue:(NSString *)fillValue
 {
-    if ([controller.titleLabel.text isEqualToString:@"主题"])
+    if ([controller.titleLabel.text isEqualToString:@"标题"])
     {
         _roomInfo.roomTitle = fillValue;
     }
@@ -449,8 +500,10 @@ static NSString* s_roomTypeNames[] = {
     {
         case 0:
         {
-            [self _showInfoFillViewWithType:InfoFillType_TextField
-                                      title:s_titles[0]];
+            InfoFillInViewController* fillView = [self _showInfoFillViewWithType:InfoFillType_TextField
+                                                                           title:s_titles[0]];
+            fillView.textMaxLength = 10;
+            [fillView textValue:_roomInfo.roomTitle];
             break;
         }
         case 1:
@@ -479,8 +532,9 @@ static NSString* s_roomTypeNames[] = {
         }
         case 5:
         {
-            [self _showInfoFillViewWithType:InfoFillType_TextView
-                                      title:s_titles[5]];
+            InfoFillInViewController* fillView =  [self _showInfoFillViewWithType:InfoFillType_TextView
+                                                                            title:s_titles[5]];
+            [fillView textValue:_roomInfo.address.addrRemark];
             break;
         }
         default:
@@ -574,6 +628,22 @@ static NSString* s_roomTypeNames[] = {
     cell.contentLabel.text = [self _roomInfoAtIndex:indexPath.row];
     
     return cell;
+}
+
+
+#pragma mark- 图片
+- (IBAction)pickPicDidPressed:(id)sender
+{
+    _picChange = [[PicChange alloc] init];
+    _picChange.delegate = self;
+    [_picChange addAvataActionSheet];
+}
+
+
+#pragma mark- PicChangeDelegate
+- (void)PicChangeSuccess:(PicChange*)picChange img:(UIImage*)img
+{
+    [_previewImageView setImage:img animation:YES];
 }
 
 @end

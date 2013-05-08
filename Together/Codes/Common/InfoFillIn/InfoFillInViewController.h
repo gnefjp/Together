@@ -29,9 +29,15 @@ typedef enum
     
     __weak IBOutlet UIButton                        *_confirmBtn;
     
+    __weak IBOutlet UIImageView                     *_inputBgImageView;
+    __weak IBOutlet UIView                          *_inputLengthView;
+    __weak IBOutlet UILabel                         *_inputLengthLabel;
+    
     __weak IBOutlet UITextField                     *_textField;
     __weak IBOutlet UITextView                      *_textView;
     __weak IBOutlet UITableView                     *_tableView;
+    
+    UIPanGestureRecognizer                          *_panGesture;
 }
 
 
@@ -39,7 +45,11 @@ typedef enum
 @property (weak,   nonatomic) IBOutlet UILabel  *titleLabel;
 @property (assign, nonatomic) InfoFillType      fillType;
 @property (strong, nonatomic) NSArray           *dataList;
+@property (assign, nonatomic) int               textMaxLength;
 
 - (IBAction)cancelBtnPressed:(id)sender;
 - (IBAction)confirmBtnPressed:(id)sender;
+
+- (void) textValue:(NSString *)text;
+- (IBAction)clearText:(id)sender;
 @end

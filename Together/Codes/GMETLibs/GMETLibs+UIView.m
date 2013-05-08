@@ -64,6 +64,39 @@
 }
 
 
+- (CGSize) frameSize
+{
+    return self.frame.size;
+}
+
+- (void) setFrameSize:(CGSize)frameSize
+{
+    self.frame = CGRectMake(self.frameX, self.frameY, frameSize.width, frameSize.height);
+}
+
+
+- (CGFloat) frameWidth
+{
+    return self.frame.size.width;
+}
+
+- (void) setFrameWidth:(CGFloat)frameWidth
+{
+    self.frame = CGRectMake(self.frameX, self.frameY, frameWidth, self.frameHeight);
+}
+
+
+- (CGFloat) frameHeight
+{
+    return self.frame.size.height;
+}
+
+- (void) setFrameHeight:(CGFloat)frameHeight
+{
+    self.frame = CGRectMake(self.frameX, self.frameY, self.frameWidth, frameHeight);
+}
+
+
 - (CGSize) boundsSize
 {
     return self.bounds.size;

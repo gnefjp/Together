@@ -5,10 +5,13 @@
 //  Created by Gnef_jp on 13-4-25.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
+#import "PicChange.h"
 
 @class RoomTypePickerView;
 @class NetRoomItem;
-@interface RoomCreateViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RoomCreateViewController : UIViewController <UITableViewDelegate,
+                                                        UITableViewDataSource,
+                                                        PicChangeDelegate>
 {
     __weak IBOutlet UITableView *_infoTableView;
     
@@ -21,6 +24,9 @@
     
     NetRoomItem                 *_roomInfo;
     BOOL                        _hasPickRoomType;
+    
+    PicChange                   *_picChange;
+    __weak IBOutlet UIImageView *_previewImageView;
 }
 
 - (IBAction)closeBtnPressed:(id)sender;
@@ -37,4 +43,5 @@
 - (IBAction)playOrStopRecord:(id)sender;
 - (IBAction)confirmToCreate:(id)sender;
 
+- (IBAction)pickPicDidPressed:(id)sender;
 @end

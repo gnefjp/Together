@@ -40,4 +40,12 @@
     return [dateFormatter stringFromDate:date];
 }
 
+
+- (NSDate *) stringToDateWithFormat:(NSString *)format
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:format];
+    return [dateFormatter dateFromString:self];
+}
+
 @end
