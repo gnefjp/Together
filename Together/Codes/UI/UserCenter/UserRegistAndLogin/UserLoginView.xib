@@ -4837,6 +4837,14 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<int key="connectionID">80</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_iTiTleLb</string>
+						<reference key="source" ref="572180705"/>
+						<reference key="destination" ref="176057787"/>
+					</object>
+					<int key="connectionID">81</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">submitBtnDidPressed:</string>
 						<reference key="source" ref="180993980"/>
@@ -4887,10 +4895,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<int key="objectID">3</int>
 						<reference key="object" ref="572180705"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="176057787"/>
 							<reference ref="350467218"/>
 							<reference ref="82576449"/>
 							<reference ref="801983791"/>
+							<reference ref="176057787"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -4989,7 +4997,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">80</int>
+			<int key="maxID">81</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

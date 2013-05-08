@@ -7,8 +7,11 @@
 //
 
 #import "UserRegistView.h"
+#import "GEMTUserManager.h"
+#import "TipViewManager.h"
 
 @implementation UserRegistView
+@synthesize delegate = _delegate;
 
 - (void)awakeFromNib
 {
@@ -142,7 +145,14 @@
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    NSLog(@"success");
+    [[TipViewManager defaultManager] showTipText:@"注册成功"
+                                       imageName:nil
+                                          inView:self
+                                              ID:self];
+    
+    [[TipViewManager defaultManager] hideTipWithID:self
+                                         animation:YES];
+    [_delegate UserRegistViewBack:self];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
@@ -167,15 +177,19 @@
                                        imageName:nil
                                           inView:self
                                               ID:self];
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1];
+    [[TipViewManager defaultManager] hideTipWithID:self
+                                         animation:YES
+                                             delay:1];
 }
 
 - (IBAction)submitBtnDidPressedInfo:(id)sender
 {
     if ([self checkUserName]&&[self checkPassWord]&&[self checkRePassWord])
     {
-        NSLog(@"userName = %@", _iUserName.text);
-        NSLog(@"passWord = %@", _iPassWord.text);
+        [[TipViewManager defaultManager] showTipText:@"loading..."
+                                           imageName:nil
+                                              inView:self
+                                                  ID:self];
         UserRegisterRequest  *request = [[UserRegisterRequest alloc] init];
         request.delegate = self;
         request.userName = _iUserName.text;

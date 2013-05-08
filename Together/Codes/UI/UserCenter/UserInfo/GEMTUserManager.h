@@ -20,18 +20,20 @@
     BOOL                _isShowLoginView;
     GEMTUserInfo        *_userInfo;
     BOOL                _isLoginIng;
-    BOOL                _isLogIn;
+    NSString            *_sId;
 }
 
 @property (strong , nonatomic) GEMTUserInfo        *userInfo;
-@property (nonatomic)          BOOL                isLogIn;
-- (GEMTUserInfo*)getUserInfo;
-- (void)userName:(NSString*)aUserName passWord:(NSString*)aPassWord;
+@property (strong , nonatomic) NSString            *sId;
 
+- (GEMTUserInfo*)getUserInfo;
+- (void)userName:(NSString*)aUserName passWord:(NSString*)aPassWord sid:(NSString*)aId;
 
 - (BOOL)shouldAddLoginViewToTopView;
+- (void)removeuserNameAndPassWord;
 
-- (void)autoLogin;
+- (NSString*)sId;
+//- (void)autoLogin;
 - (void)LogInWithUserName:(NSString*)userName
                  passWord:(NSString*)passWord;
 - (void)LoginOut;

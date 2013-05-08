@@ -13,7 +13,7 @@ static GEMTUserManager *instance;
 @implementation GEMTUserManager
 
 @synthesize userInfo = _userInfo;
-@synthesize isLogIn  = _isLogIn;
+@synthesize sId = _sId;
 
 + (id)shareInstance
 {
@@ -22,6 +22,13 @@ static GEMTUserManager *instance;
         instance = [[GEMTUserManager alloc] init];
     }
     return instance;
+}
+
+- (NSString*)sId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _sId = [defaults valueForKey:@"aSid"];
+    return _sId;
 }
 
 - (GEMTUserInfo*)getUserInfo
@@ -46,30 +53,41 @@ static GEMTUserManager *instance;
 }
 
 
-- (void)userName:(NSString*)aUserName passWord:(NSString*)aPassWord
+- (void)userName:(NSString*)aUserName
+        passWord:(NSString*)aPassWord
+             sid:(NSString*)aId;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:_userInfo.userName forKey:@"aUserName"];
-    [defaults setValue:_userInfo.passWord forKey:@"aUserPassWord"];
+    [defaults setValue:aUserName forKey:@"aUserName"];
+    [defaults setValue:aPassWord forKey:@"aUserPassWord"];
+    [defaults setValue:aId forKey:@"aSid"];
     [defaults synchronize];
 }
 
-- (void)_removeuserNameAndPassWord
+- (void)removeuserNameAndPassWord
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"aUserName"];
     [defaults removeObjectForKey:@"aUserPassWord"];
+    [defaults removeObjectForKey:@"aSid"];
     [defaults synchronize];
+}
+
+- (BOOL) _isLogin
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *sid = [defaults valueForKey:@"aSid"];
+    return sid?YES:NO;
 }
 
 - (BOOL)shouldAddLoginViewToTopView
 {
     @synchronized(self)
     {
-//        if (_isLogIn)
-//        {
-//            return NO;
-//        }
+        if ([self _isLogin]) {
+            return NO;
+        }
+        
         if (_isLoginIng)
         {
             [[TipViewManager defaultManager] showTipText:@"正在登陆，请稍候"
@@ -99,35 +117,43 @@ static GEMTUserManager *instance;
 
 - (void)autoLogin
 {
-    if ([self _userName]&&[self _passWord]&&!_isLoginIng&&!_isLogIn)
-    {
-        _isLoginIng = YES;
-        UserLoginRequest *request = [[UserLoginRequest alloc] init];
-        request.userName = [self _userName];
-        request.delegate = self;
-        request.password = [self _passWord];
-        request.divToken = @"token";
-    }
 }
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    _isLogIn = YES;
-    _isLoginIng = NO;
-    [[self getUserInfo] setUserInfoWithLoginResPonse:request.responseData.loginResponse.userInfo];
+    [[TipViewManager defaultManager] showTipText:@"登陆成功"
+                                       imageName:@""
+                                          inView:[UIView rootView]
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self
+                                         animation:YES];
+    UserLoginRequest *tRequest = (UserLoginRequest*)request;
+    
+    [[self getUserInfo] setUserInfoWithLoginResPonse:tRequest.responseData.loginResponse.userInfo];
+    
+    [self userName:tRequest.userName
+          passWord:tRequest.password
+               sid:tRequest.responseData.loginResponse.sid];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
 {
-    _isLogIn = NO;
-    _isLoginIng = NO;
-    [self _removeuserNameAndPassWord];
+    
 }
 
 - (void)LogInWithUserName:(NSString*)userName
                  passWord:(NSString*)passWord
 {
+    [[TipViewManager defaultManager] showTipText:@"正在登录"
+                                       imageName:@""
+                                          inView:[UIView rootView]
+                                              ID:self];
     
+    UserLoginRequest *request = [[UserLoginRequest alloc] init];
+    request.userName = userName;
+    request.delegate = self;
+    request.password = passWord;
+    request.divToken = @"token";
 }
 
 - (void)LoginOut

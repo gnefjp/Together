@@ -22,15 +22,17 @@
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
 {
-    
+    NSLog(@"%@",request.actionCode);
 }
 
 - (IBAction)viewOtherInfo:(id)sender
 {
-    UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
-    request.delegate = self;
-    [[NetRequestManager defaultManager] startRequest:request];
-    
+//    if (![[GEMTUserManager shareInstance] shouldAddLoginViewToTopView]) {
+        UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
+        request.delegate = self;
+        request.aUid = @"1";
+        [[NetRequestManager defaultManager] startRequest:request];
+//    }
 }
 
 - (IBAction)modifyInfo:(id)sender

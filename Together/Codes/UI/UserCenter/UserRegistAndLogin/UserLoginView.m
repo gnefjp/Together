@@ -28,6 +28,7 @@
         [self hideCenterToRightAnimation];
     }else
     {
+        _iTiTleLb.text = @"登陆"; 
         _isLogin = YES;
         [UIView animateWithDuration:0.4 animations:^(void)
         {
@@ -40,10 +41,12 @@
 - (IBAction)registBtnDidPressed:(id)sender
 {
     _isLogin = NO;
+    _iTiTleLb.text = @"注册";
     if (!_iRegistView)
     {
         _iRegistView = [UserRegistView loadFromNib];
         [self addSubview:_iRegistView];
+        _iRegistView.delegate =self;
         _iRegistView.center = CGPointMake(160*3,_iLoginView.center.y);
     }
     
@@ -55,15 +58,26 @@
 
 }
 
+- (void)UserRegistViewBack:(UserRegistView *)v
+{
+    [self closeBtnDidPressed:nil];
+}
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    NSLog(@"%@",request.responseData.loginResponse.userInfo.username);
-    
     [[[GEMTUserManager shareInstance] getUserInfo] setUserInfoWithLoginResPonse:request.responseData.loginResponse.userInfo];
     
-    [[GEMTUserManager shareInstance] getUserInfo].passWord = _iPassWordTextFiled.text;
     [[GEMTUserManager shareInstance] userName:request.responseData.loginResponse.userInfo.username
-                                     passWord:_iPassWordTextFiled.text];
+                                     passWord:_iPassWordTextFiled.text
+                                          sid:request.responseData.loginResponse.sid];
+    
+    [[TipViewManager defaultManager] showTipText:@"请求成功"
+                                       imageName:nil
+                                          inView:self
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self
+                                         animation:YES
+                                             delay:1];
+    [self closeBtnDidPressed:nil];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
@@ -71,13 +85,8 @@
     NSString *str;
     switch (request.responseData.code)
     {
-        case LOGIN_SUCCESS:
-            break;
         case USER_NOT_EXIST:
-            str = @"注册失败";
-            break;
-        case LOGIN_REPLACE:
-            str = @"用户已经存在";
+            str = @"用户不存在";
             break;
         default :
             str = @"网络繁忙,请稍后在试";
@@ -93,11 +102,13 @@
 
 - (IBAction)submitBtnDidPressed:(id)sender
 {
+    [[TipViewManager defaultManager] showTipText:@"loading..."
+                                       imageName:nil
+                                          inView:self
+                                              ID:self];
+    
     if ([self checkUserName]&&[self checkPassWord])
     {
-        NSLog(@"submitMethod");
-        NSLog(@"userName : %@, passWord  : %@", _iUserNameFiled.text, _iPassWordTextFiled.text);
-        
         UserLoginRequest *request = [[UserLoginRequest alloc] init];
         request.userName = _iUserNameFiled.text;
         request.delegate = self;

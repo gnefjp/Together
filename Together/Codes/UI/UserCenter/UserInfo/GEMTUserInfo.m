@@ -26,15 +26,15 @@
 
 - (void) setUserInfoWithLoginResPonse:(User_Info*)aUserInfo
 {
-    self.userId = aUserInfo.uid;
+    self.userId = [NSNumber numberWithInt:aUserInfo.uid];
     self.userName = aUserInfo.username;
-    self.followedNum = aUserInfo.followedNum;
-    self.followNum = aUserInfo.followNum;
+    self.followedNum = [NSNumber numberWithInt:aUserInfo.followedNum];
+    self.followNum = [NSNumber numberWithInt:aUserInfo.followNum];
     self.nickName = aUserInfo.nickName;
-    self.praiseNum = aUserInfo.praiseNum;
-    self.signatureRecordId = aUserInfo.signatureRecordId;
+    self.praiseNum =[NSNumber numberWithInt:aUserInfo.praiseNum];
+    self.signatureRecordId = [NSNumber numberWithInt:aUserInfo.signatureRecordId];
     self.signatureText = aUserInfo.signatureText;
-    self.visitNum = aUserInfo.visitNum;
+    self.visitNum = [NSNumber numberWithInt:aUserInfo.visitNum];
 }
 
 @end

@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "UserRegisterRequest.h"
-#import "TipViewManager.h"
+
+@class UserRegistView;
+@class TipViewManager;
+
+@protocol UserRegistViewDelegate <NSObject>
+
+- (void)UserRegistViewBack:(UserRegistView*)v;
+
+@end
 
 @interface UserRegistView : UIView<UITextFieldDelegate, NetUserRequestDelegate>
 {
@@ -19,8 +27,11 @@
     __weak IBOutlet UILabel                 *_iUserNameTipsInfo;
     __weak IBOutlet UILabel                 *_iPassWordTipsInfo;
     __weak IBOutlet UILabel                 *_iRePassWordTipsInfo;
-    
+    __weak id<UserRegistViewDelegate>       _delegate;
 }
+
+@property (weak , nonatomic)  __weak id<UserRegistViewDelegate>   delegate;
+
 
 - (IBAction)submitBtnDidPressedInfo:(id)sender;
 

@@ -12,7 +12,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.150:3000";
+    return @"http://kc123kc.vicp.cc:9080/USER";
 }
 
 - (NSString *) actionCode

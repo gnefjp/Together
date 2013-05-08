@@ -11,22 +11,22 @@
 
 @interface GEMTUserInfo : NSObject
 {
-    int                  _userId;
-    int                  _signatureRecordId;
-    int                  _avataId;
+    NSNumber                    *_userId;
+    NSNumber                    *_signatureRecordId;
+    NSNumber                    *_avataId;
     
-    int                  _birthday;
+    NSNumber                    *_birthday;
     
-    NSString             *_userName;
-    NSString             *_passWord;
+    NSString                    *_userName;
+    NSString                    *_passWord;
     
-    NSString             *_nickName;
-    NSString             *_signatureText;
+    NSString                    *_nickName;
+    NSString                    *_signatureText;
     
-    int                  _praiseNum;
-    int                  _visitNum;
-    int                  _followNum;
-    int                  _followedNum;
+    NSNumber                    *_praiseNum;
+    NSNumber                    *_visitNum;
+    NSNumber                    *_followNum;
+    NSNumber                    *_followedNum;
 }
 
 - (void) setUserInfoWithLoginResPonse:(User_Info*)aUserInfo;
@@ -37,15 +37,15 @@
 @property (strong, nonatomic) NSString             *nickName;
 @property (strong, nonatomic) NSString             *signatureText;
 
-@property (nonatomic)   int                        userId;
-@property (nonatomic)   int                        signatureRecordId;
-@property (nonatomic)   int                        avataId;
-@property (nonatomic)   int                        birthday;
+@property (strong, nonatomic) NSNumber             *userId;
+@property (strong, nonatomic) NSNumber             *signatureRecordId;
+@property (strong, nonatomic) NSNumber             *avataId;
+@property (strong, nonatomic) NSNumber             *birthday;
 
-@property (nonatomic)   int                        praiseNum;
-@property (nonatomic)   int                        visitNum;
-@property (nonatomic)   int                        followNum;
-@property (nonatomic)   int                        followedNum;
+@property (strong, nonatomic) NSNumber             *praiseNum;
+@property (strong, nonatomic) NSNumber             *visitNum;
+@property (strong, nonatomic) NSNumber             *followNum;
+@property (strong, nonatomic) NSNumber             *followedNum;
 
 
 

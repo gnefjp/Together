@@ -19,7 +19,7 @@
 
 @end
 
-@interface UserLoginView : UIView<UITextFieldDelegate,NetUserRequestDelegate>
+@interface UserLoginView : UIView<UITextFieldDelegate,NetUserRequestDelegate,UserRegistViewDelegate>
 {
     __weak IBOutlet UITextField                  *_iUserNameFiled;
     __weak IBOutlet UITextField                  *_iPassWordTextFiled;
@@ -28,6 +28,7 @@
     __weak IBOutlet UILabel                      *_iPassWordTipInfo;
     __weak IBOutlet UIView                       *_iLoginView;
     __weak id<UserLoginDelegate>                 _delegate;
+    __weak IBOutlet UILabel                      *_iTiTleLb;
     
     UserRegistView                               *_iRegistView;
     BOOL                                         _isLogin;

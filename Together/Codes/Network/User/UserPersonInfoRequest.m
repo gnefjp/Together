@@ -7,7 +7,7 @@
 //
 
 #import "UserPersonInfoRequest.h"
-
+#import "GEMTUserManager.h"
 @implementation UserPersonInfoRequest
 @synthesize aUid;
 
@@ -26,9 +26,10 @@
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:[NSNumber numberWithInt:1] forKey:@"self_uid"];
-    [request addPostValue:[NSNumber numberWithInt:7] forKey:@"visit_uid"];
-    [request addPostValue:@"b4941b8eaa0bddfa611656788ac48078" forKey:@"sid"];
+    [request addPostValue:[[GEMTUserManager shareInstance] getUserInfo].userId
+                   forKey:@"self_uid"];
+    [request addPostValue:self.aUid forKey:@"visit_uid"];
+    [request addPostValue:[[GEMTUserManager shareInstance] sId]  forKey:@"sid"];
     return request;
 }
 
