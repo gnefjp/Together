@@ -27,6 +27,7 @@
     NSNumber                    *_visitNum;
     NSNumber                    *_followNum;
     NSNumber                    *_followedNum;
+    NSNumber                    *_sex;
 }
 
 - (void) setUserInfoWithLoginResPonse:(User_Info*)aUserInfo;
@@ -46,7 +47,7 @@
 @property (strong, nonatomic) NSNumber             *visitNum;
 @property (strong, nonatomic) NSNumber             *followNum;
 @property (strong, nonatomic) NSNumber             *followedNum;
-
+@property (strong, nonatomic) NSNumber             *sex;
 
 
 @end

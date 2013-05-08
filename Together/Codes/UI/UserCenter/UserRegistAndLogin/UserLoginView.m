@@ -70,6 +70,8 @@
                                      passWord:_iPassWordTextFiled.text
                                           sid:request.responseData.loginResponse.sid];
     
+    [[GEMTUserManager shareInstance] userInfoWirteToFile];
+    
     [[TipViewManager defaultManager] showTipText:@"请求成功"
                                        imageName:nil
                                           inView:self
@@ -77,6 +79,7 @@
     [[TipViewManager defaultManager] hideTipWithID:self
                                          animation:YES
                                              delay:1];
+    
     [self closeBtnDidPressed:nil];
 }
 
@@ -97,7 +100,9 @@
                                        imageName:nil
                                           inView:self
                                               ID:self];
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1];
+    [[TipViewManager defaultManager] hideTipWithID:self
+                                         animation:YES
+                                             delay:1];
 }
 
 - (IBAction)submitBtnDidPressed:(id)sender

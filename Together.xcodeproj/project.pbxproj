@@ -159,6 +159,8 @@
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
 		3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */; };
 		3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */; };
+		381BAD84173AAFBB00AC42D6 /* UserFollowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */; };
+		381BAD87173AB27100AC42D6 /* UserZanRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 381BAD86173AB27100AC42D6 /* UserZanRequest.m */; };
 		3828CC22172A846D00EC7EAF /* GEMTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */; };
 		3828CC23172A846D00EC7EAF /* GEMTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC1A172A846D00EC7EAF /* GEMTUserManager.m */; };
 		3828CC24172A846D00EC7EAF /* UserLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC1D172A846D00EC7EAF /* UserLoginView.m */; };
@@ -804,6 +806,10 @@
 		3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarCutView.h; sourceTree = "<group>"; };
 		3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarCutView.m; sourceTree = "<group>"; };
 		3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarCutView.xib; sourceTree = "<group>"; };
+		381BAD82173AAFBA00AC42D6 /* UserFollowRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFollowRequest.h; sourceTree = "<group>"; };
+		381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFollowRequest.m; sourceTree = "<group>"; };
+		381BAD85173AB27100AC42D6 /* UserZanRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserZanRequest.h; sourceTree = "<group>"; };
+		381BAD86173AB27100AC42D6 /* UserZanRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserZanRequest.m; sourceTree = "<group>"; };
 		3828CC17172A846D00EC7EAF /* GEMTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMTUserInfo.h; sourceTree = "<group>"; };
 		3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEMTUserInfo.m; sourceTree = "<group>"; };
 		3828CC19172A846D00EC7EAF /* GEMTUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMTUserManager.h; sourceTree = "<group>"; };
@@ -1461,6 +1467,10 @@
 				38DC96521739656D00E0D66A /* UserInfoModifyRequest.m */,
 				38DC96541739664600E0D66A /* UserPersonInfoRequest.h */,
 				38DC96551739664600E0D66A /* UserPersonInfoRequest.m */,
+				381BAD82173AAFBA00AC42D6 /* UserFollowRequest.h */,
+				381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */,
+				381BAD85173AB27100AC42D6 /* UserZanRequest.h */,
+				381BAD86173AB27100AC42D6 /* UserZanRequest.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2176,6 +2186,8 @@
 				18C73BDC1739F4760035BC61 /* GMETLibs+NSObject.m in Sources */,
 				18C73BE01739FDF70035BC61 /* SearchPicker.m in Sources */,
 				18C73BF3173A4F910035BC61 /* GMETLibs+UIImageView.m in Sources */,
+				381BAD84173AAFBB00AC42D6 /* UserFollowRequest.m in Sources */,
+				381BAD87173AB27100AC42D6 /* UserZanRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

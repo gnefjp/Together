@@ -17,6 +17,7 @@
 #import "UserCenterView.h"
 
 #import "RoomViewController.h"
+#import "GEMTUserManager.h"
 
 #define kPanWidth       10
 
@@ -219,19 +220,21 @@
 #pragma mark- NavigationViewDelegate
 - (void) NavigationView:(NavigationView *)navigationView wantInModulWithType:(ModulType)modulType
 {
-    [_mainView removeFromSuperview];
-    
     switch (modulType)
     {
         case ModulType_RoomList:
         {
+            [_mainView removeFromSuperview];
             _mainView = [RoomListView loadFromNib];
             ((RoomListView *)_mainView).delegate = self;
             break;
         }
         case ModulType_UserCenter:
         {
-            _mainView = [UserCenterView loadFromNib];
+            if (![[GEMTUserManager shareInstance] shouldAddLoginViewToTopView]) {
+                [_mainView removeFromSuperview];
+                _mainView = [UserCenterView loadFromNib];
+            }
             break;
         }
         default:

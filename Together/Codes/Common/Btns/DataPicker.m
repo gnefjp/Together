@@ -9,6 +9,7 @@
 #import "DataPicker.h"
 
 @implementation DataPicker
+@synthesize delegate = _delegate;
 
 - (void)showViewPickerInView:(UIView*)v
 {
@@ -21,7 +22,10 @@
     _iDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0,354 + 586 ,0.0,0.0)];
     _iDatePicker.datePickerMode = UIDatePickerModeDate;
     [_iDatePicker setDate:[NSDate date]];
+    [_iDatePicker addTarget:self action:@selector(dateChanged:)
+           forControlEvents:UIControlEventValueChanged];
     [v addSubview:_iDatePicker];
+    
     
     [UIView animateWithDuration:0.4 animations:^(void)
      {
@@ -53,6 +57,7 @@
 -(void)dateChanged:(id)sender{
     UIDatePicker* control = (UIDatePicker*)sender;
     NSDate* _date = control.date;
+    [_delegate DataPicker:self date:_date];
 }
 
 @end

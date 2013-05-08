@@ -7,8 +7,17 @@
 //
 
 #import "UserInfoModifyRequest.h"
+#import "GEMTUserManager.h"
 
 @implementation UserInfoModifyRequest
+@synthesize sign = _sign;
+@synthesize sex = _sex;
+@synthesize avatarId = _avatarId;
+
+@synthesize recordId = _recordId;
+@synthesize birthDay = _birthDay;
+@synthesize nickName = _nickName;
+
 
 - (id) init
 {
@@ -24,9 +33,19 @@
 {
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+    
     [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:@"cababa" forKey:@"nickname"];
-    [request addPostValue:@"b4941b8eaa0bddfa611656788ac48078" forKey:@"sid"];
+    
+    [request addPostValue:self.nickName forKey:@"nickname"];
+//    [request addPostValue:self.birthDay forKey:@"birthday"];
+    
+    [request addPostValue:self.sign forKey:@"signature_text"];
+    [request addPostValue:self.sex forKey:@"sex"];
+    
+//    [request addPostValue:self.recordId forKey:@"signature_record_id"];
+//    [request addPostValue:self.avatarId forKey:@"pic_id"];
+    
+    [request addPostValue:[[GEMTUserManager shareInstance] sId] forKey:@"sid"];
     return request;
 }
 

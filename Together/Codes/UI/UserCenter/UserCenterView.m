@@ -12,6 +12,7 @@
 #import "UserEditUserInfoView.h"
 #import "UserPersonInfoRequest.h"
 #import "UserInfoModifyRequest.h"
+#import "UserZanRequest.h"
 
 @implementation UserCenterView
 
@@ -38,6 +39,21 @@
 - (IBAction)modifyInfo:(id)sender
 {
     UserInfoModifyRequest *request = [[UserInfoModifyRequest alloc] init];
+    request.delegate = self;
+    [[NetRequestManager defaultManager] startRequest:request];
+}
+
+- (IBAction)followOther:(id)sender
+{
+    UserFollowRequest *follow = [[UserFollowRequest alloc] init];
+    follow.delegate = self;
+    [[NetRequestManager defaultManager] startRequest:follow];
+    
+}
+
+- (IBAction)pariseOthers:(id)sender
+{
+    UserZanRequest *request = [[UserZanRequest alloc] init];
     request.delegate = self;
     [[NetRequestManager defaultManager] startRequest:request];
 }

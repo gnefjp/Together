@@ -5028,6 +5028,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="_iPassWordTextFiled">UITextField</string>
 						<string key="_iPassWordTipInfo">UILabel</string>
 						<string key="_iSubMitBtn">UIButton</string>
+						<string key="_iTiTleLb">UILabel</string>
 						<string key="_iUserNameFiled">UITextField</string>
 						<string key="_iUserNameTipInfo">UILabel</string>
 					</dictionary>
@@ -5047,6 +5048,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<object class="IBToOneOutletInfo" key="_iSubMitBtn">
 							<string key="name">_iSubMitBtn</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="_iTiTleLb">
+							<string key="name">_iTiTleLb</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="_iUserNameFiled">
 							<string key="name">_iUserNameFiled</string>

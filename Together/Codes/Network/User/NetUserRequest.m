@@ -12,7 +12,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://kc123kc.vicp.cc:9080/USER";
+    return @"http://192.168.1.150:9080/USER";
 }
 
 - (NSString *) actionCode
@@ -22,6 +22,8 @@
         USER_LOGIN,
         USER_VIEW_INFO,
         USER_SET_INFO,
+        USER_FOLLOW,
+        USER_PRISE
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];

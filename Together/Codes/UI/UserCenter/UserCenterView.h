@@ -12,6 +12,7 @@
 #import "MapView.h"
 #import "UserLoginRequest.h"
 #import "UserRegisterRequest.h"
+#import "UserFollowRequest.h"
 
 @class GMETRecorder;
 
@@ -22,8 +23,12 @@
     AVAudioPlayer                   *_player;
     PicChange                       *_avatar;
 }
+
 - (IBAction)viewOtherInfo:(id)sender;
 - (IBAction)modifyInfo:(id)sender;
+- (IBAction)followOther:(id)sender;
+- (IBAction)pariseOthers:(id)sender;
+
 
 - (IBAction)showMapViewBtnDidpressed:(id)sender;
 - (IBAction)recordBtnDidPressed:(id)sender;

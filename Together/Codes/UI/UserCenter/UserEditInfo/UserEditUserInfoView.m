@@ -9,18 +9,21 @@
 #import "UserEditUserInfoView.h"
 #import "UserEditUserInfoCellView.h"
 #import "DataPicker.h"
+#import "GEMTUserManager.h"
 
 @implementation UserEditUserInfoView
 
 - (void)awakeFromNib
 {
-    
+    _avartaBtn.tag =  [[[GEMTUserManager shareInstance] getUserInfo].avataId intValue];
+    _recordBtn.tag =  [[[GEMTUserManager shareInstance] getUserInfo].signatureRecordId intValue];
 }
 
 - (void)viewDidLoad
 {
     _iTableView.delegate = self;
     _iTableView.dataSource = self;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -33,12 +36,16 @@
     switch (indexPath.row) {
         case 0:
         {
-            [self _showInfoFillViewWithType:InfoFillType_TextView title:@"昵称"];
+            [self _showInfoFillViewWithType:InfoFillType_TextField
+                                      title:@"昵称"
+                                        tag:0];
             break;
         }
         case 1:
         {
-            InfoFillInViewController *fillController = [self _showInfoFillViewWithType:InfoFillType_Picker title:@"性别"];
+            InfoFillInViewController *fillController = [self _showInfoFillViewWithType:InfoFillType_Picker
+                                                                                 title:@"性别"
+                                                                                   tag:1];
             fillController.dataList = [NSArray arrayWithObjects:@"男", @"女", nil];
             break;
         }
@@ -47,6 +54,7 @@
         {
             if (!_piker) {
                 _piker = [[DataPicker alloc] init];
+                _piker.delegate = self;
             }
             [_piker showViewPickerInView:self.view];
             
@@ -54,14 +62,26 @@
         }
         case 3:
         {
-            [self _showInfoFillViewWithType:InfoFillType_TextField
-                                       title:@"个性签名"];
-        }			
+            [self _showInfoFillViewWithType:InfoFillType_TextView
+                                      title:@"个性签名"
+                                        tag:3];
+        }
             break;
         default:
             break;
     }
 }
+
+- (void)DataPicker:(DataPicker *)d date:(NSDate *)date
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    UserEditUserInfoCellView *cell = (UserEditUserInfoCellView*)[_iTableView cellForRowAtIndexPath:indexPath];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    cell.iRightLb.text = [formatter stringFromDate:date];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserEditUserInfoCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"editUserInfo"];
@@ -73,25 +93,27 @@
         case 0:
         {
             cell.iLeftLb.text = @"昵称";
-            cell.iRightLb.text = @"哈哈哈";
+            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].nickName;
             break;
         }
         case 1:
         {
             cell.iLeftLb.text = @"性别";
-            cell.iRightLb.text = @"男";
+            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].sex ? @"女":@"男";
             break;
         }
         case 2:
         {
             cell.iLeftLb.text = @"生日";
-            cell.iRightLb.text = @"xx-ss-ss-s-s-s-s";
+            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+            [formatter setDateFormat:@"yyyy-MM-dd"];
+            cell.iRightLb.text = [formatter stringFromDate:[NSDate date]];
             break;
         }
         case 3:
         {
             cell.iLeftLb.text = @"个性签名";
-            cell.iRightLb.text = @"你这个死suohi";
+            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].signatureText ;
             break;
         }
         default:
@@ -103,16 +125,21 @@
 - (void) InfoFillInViewController:(InfoFillInViewController *)controller fillValue:(NSString *)fillValue
 {
     
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:controller.titleLabel.tag inSection:0];
+    UserEditUserInfoCellView *cell = (UserEditUserInfoCellView*)[_iTableView cellForRowAtIndexPath:indexPath];
+    cell.iRightLb.text = fillValue;
 }
 
 - (InfoFillInViewController*) _showInfoFillViewWithType:(InfoFillType)type
                                                   title:(NSString *)title
+                                                    tag:(int)tag
 {   
     InfoFillInViewController* fillController = [InfoFillInViewController loadFromNib];
     fillController.delegate = self;
     [[UIView rootController] pushViewController:fillController animated:YES];
     fillController.fillType = type;
     fillController.titleLabel.text = title;
+    fillController.titleLabel.tag = tag;
     return fillController;
 }
 
@@ -133,7 +160,55 @@
 
 }
 
+- (NSString*) _getCellRightValueWithIndex:(int)i
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+    UserEditUserInfoCellView *cell = (UserEditUserInfoCellView*)[_iTableView cellForRowAtIndexPath:indexPath];
+    return cell.iRightLb.text;
+}
+
 - (IBAction)submitBtnDidPressed:(id)sender
+{
+    NSNumber *avatarId = [NSNumber numberWithInt:_avartaBtn.tag];
+    NSNumber *recordId = [NSNumber numberWithInt:_recordBtn.tag];
+    
+    NSString *nickName = [self _getCellRightValueWithIndex:0];
+    NSString *sexName = [self _getCellRightValueWithIndex:1];
+//    NSString *birthDay = [self _getCellRightValueWithIndex:2];
+    NSString *signName = [self _getCellRightValueWithIndex:3];
+    
+    UserInfoModifyRequest *modifyRequest = [[UserInfoModifyRequest alloc] init];
+    modifyRequest.nickName = nickName;
+    modifyRequest.sex = [NSNumber numberWithInt:[sexName isEqualToString:@"女"]?0:1];
+    modifyRequest.sign = signName;
+    
+    modifyRequest.avatarId = [NSString stringWithFormat:@"%@",avatarId];
+    modifyRequest.recordId = [NSString stringWithFormat:@"%@",recordId];
+    modifyRequest.delegate = self;
+    
+    [[NetRequestManager defaultManager] startRequest:modifyRequest];
+}
+
+
+- (void)NetUserRequestSuccess:(NetUserRequest *)request
+{
+//    NSNumber *avatarId = [NSNumber numberWithInt:_avartaBtn.tag];
+//    NSNumber *recordId = [NSNumber numberWithInt:_recordBtn.tag];
+    
+    NSString *nickName = [self _getCellRightValueWithIndex:0];
+    NSString *sexName = [self _getCellRightValueWithIndex:1];
+    //    NSString *birthDay = [self _getCellRightValueWithIndex:2];
+    NSString *signName = [self _getCellRightValueWithIndex:3];
+    
+    [[GEMTUserManager shareInstance] getUserInfo].nickName = nickName;
+    [[GEMTUserManager shareInstance] getUserInfo].sex = [NSNumber numberWithInt:[sexName isEqualToString:@"女"]?0:1];
+    [[GEMTUserManager shareInstance] getUserInfo].signatureText = signName;
+    [[GEMTUserManager shareInstance] userInfoWirteToFile];
+    
+    NSLog(@"success");
+}
+
+- (void)NetUserRequestFail:(NetUserRequest *)request
 {
     
 }
@@ -145,6 +220,7 @@
 - (void)viewDidUnload {
     _iTableView = nil;
     _avartaBtn = nil;
+    _recordBtn = nil;
     [super viewDidUnload];
 }
 @end

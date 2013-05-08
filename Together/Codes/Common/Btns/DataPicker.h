@@ -13,14 +13,18 @@
 
 @protocol DataPickerDelegate <NSObject>
 
-- (void)DataPicker:(DataPicker*)d;
+- (void)DataPicker:(DataPicker*)d date:(NSDate*)date;
 
 @end
 
 @interface DataPicker : NSObject<GMETTapViewDelegate>
 {
     UIDatePicker            *_iDatePicker;
+    __weak id<DataPickerDelegate>  _delegate;
+    
 }
+
+@property (weak) id<DataPickerDelegate>  delegate; 
 
 - (void)showViewPickerInView:(UIView*)v;
 @end

@@ -9,5 +9,21 @@
 #import "NetUserRequest.h"
 
 @interface UserInfoModifyRequest : NetUserRequest
+{
+    NSString            *_avatarId;
+    NSString            *_recordId;
+    NSString            *_nickName;
+    NSNumber            *_sex;
+    NSString            *_sign;
+    NSString            *_birthDay;
+}
+
+@property (strong , nonatomic) NSString            *avatarId;
+@property (strong , nonatomic) NSString            *recordId;
+@property (strong , nonatomic) NSString            *nickName;
+
+@property (strong , nonatomic) NSString            *sign;
+@property (strong , nonatomic) NSString            *birthDay;
+@property (strong , nonatomic) NSNumber            *sex;
 
 @end

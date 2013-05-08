@@ -31,13 +31,39 @@ static GEMTUserManager *instance;
     return _sId;
 }
 
+- (NSString*) _getUserFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [NSString stringWithFormat:@"%@/userInfo.plist",documentsDirectory];
+    return filePath;
+}
+
 - (GEMTUserInfo*)getUserInfo
 {
     if (!_userInfo)
     {
-        _userInfo = [[GEMTUserInfo alloc] init];
+        NSString *filePath = [self _getUserFilePath];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:
+             filePath])
+        {
+            _userInfo = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        }
+        else
+        {
+            _userInfo = [[GEMTUserInfo alloc] init];
+        }
     }
     return _userInfo;
+}
+
+- (void)userInfoWirteToFile
+{
+    if (self.userInfo) {
+        NSString *filePath = [self _getUserFilePath];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.userInfo];
+        [data writeToFile:filePath atomically:YES];
+    }
 }
 
 - (NSString*)_userName
@@ -55,7 +81,7 @@ static GEMTUserManager *instance;
 
 - (void)userName:(NSString*)aUserName
         passWord:(NSString*)aPassWord
-             sid:(NSString*)aId;
+             sid:(NSString*)aId
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:aUserName forKey:@"aUserName"];
@@ -133,7 +159,9 @@ static GEMTUserManager *instance;
     
     [self userName:tRequest.userName
           passWord:tRequest.password
-               sid:tRequest.responseData.loginResponse.sid];
+               sid:tRequest.responseData.loginResponse.sid
+                ];
+    [self userInfoWirteToFile];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
