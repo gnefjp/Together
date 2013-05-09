@@ -29,6 +29,7 @@
     
     [request addPostValue:_userName forKey:@"username"];
     [request addPostValue:_password  forKey:@"password"];
+    [request setShouldAttemptPersistentConnection:NO];
     
     return request;
 }

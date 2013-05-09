@@ -33,19 +33,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/UI/UserCenter/UserRegistAndLogin/UserLoginView.m"
-         timestampString = "389630268.986007"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
-         landmarkName = "-NetUserRequestFail:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Together/Codes/Network/User/UserLoginRequest.m"
          timestampString = "389631091.509552"
          startingColumnNumber = "9223372036854775807"
@@ -53,19 +40,6 @@
          startingLineNumber = "41"
          endingLineNumber = "41"
          landmarkName = "-_requestFinished"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Together/Codes/Network/NetRequest.m"
-         timestampString = "389634697.79249"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
-         landmarkName = "-requestFinished:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -98,13 +72,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/Network/User/UserPersonInfoRequest.m"
-         timestampString = "389638499.942699"
+         filePath = "Together/Codes/UI/UserCenter/UserInfo/GEMTUserInfo.m"
+         timestampString = "389765833.239435"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
-         landmarkName = "-_requestFinished"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-setUserInfoWithLoginResPonse:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -10,8 +10,9 @@
 #import "UserEditUserInfoCellView.h"
 #import "DataPicker.h"
 #import "GEMTUserManager.h"
-
+#import "TipViewManager.h"
 @implementation UserEditUserInfoView
+@synthesize delegate = _delegate;
 
 - (void)awakeFromNib
 {
@@ -99,7 +100,7 @@
         case 1:
         {
             cell.iLeftLb.text = @"性别";
-            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].sex ? @"女":@"男";
+            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].sex ? @"男":@"女";
             break;
         }
         case 2:
@@ -187,6 +188,12 @@
     modifyRequest.delegate = self;
     
     [[NetRequestManager defaultManager] startRequest:modifyRequest];
+    
+    [[TipViewManager defaultManager] showTipText:@"loading"
+                                       imageName:@""
+                                          inView:self.view
+                                              ID:self];
+    
 }
 
 
@@ -194,7 +201,7 @@
 {
 //    NSNumber *avatarId = [NSNumber numberWithInt:_avartaBtn.tag];
 //    NSNumber *recordId = [NSNumber numberWithInt:_recordBtn.tag];
-    
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
     NSString *nickName = [self _getCellRightValueWithIndex:0];
     NSString *sexName = [self _getCellRightValueWithIndex:1];
     //    NSString *birthDay = [self _getCellRightValueWithIndex:2];
@@ -205,12 +212,17 @@
     [[GEMTUserManager shareInstance] getUserInfo].signatureText = signName;
     [[GEMTUserManager shareInstance] userInfoWirteToFile];
     
-    NSLog(@"success");
+    [_delegate UserEditDidSuccess:self];
+    [self backBtnDidPressed:nil];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
 {
-    
+    [[TipViewManager defaultManager] showTipText:@"网络异常,重新请求"
+                                       imageName:@""
+                                          inView:self.view
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
 }
 
 - (IBAction)backBtnDidPressed:(id)sender

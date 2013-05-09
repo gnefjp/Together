@@ -25,11 +25,15 @@
 {
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:[[GEMTUserManager shareInstance] getUserInfo].userId
+    [request setPostValue:self.actionCode
+                   forKey:@"action"];
+    [request setPostValue:[[GEMTUserManager shareInstance] getUserInfo].userId
                    forKey:@"self_uid"];
-    [request addPostValue:self.aUid forKey:@"visit_uid"];
-    [request addPostValue:[[GEMTUserManager shareInstance] sId]  forKey:@"sid"];
+    [request setPostValue:self.aUid
+                   forKey:@"visit_uid"];
+    [request setPostValue:[[GEMTUserManager shareInstance] sId]
+                   forKey:@"sid"];
+    [request buildPostBody];
     return request;
 }
 

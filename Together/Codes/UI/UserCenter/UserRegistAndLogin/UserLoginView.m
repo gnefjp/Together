@@ -188,7 +188,8 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    switch (textField.tag) {
+    switch (textField.tag)
+    {
         case 1000:
         {
             [self checkUserName];

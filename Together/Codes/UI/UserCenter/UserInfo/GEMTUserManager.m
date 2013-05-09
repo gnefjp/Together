@@ -17,6 +17,7 @@ static GEMTUserManager *instance;
 
 + (id)shareInstance
 {
+    
     if (!instance)
     {
         instance = [[GEMTUserManager alloc] init];

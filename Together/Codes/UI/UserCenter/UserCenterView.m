@@ -16,6 +16,21 @@
 
 @implementation UserCenterView
 
+
+- (void) resetInfo
+{
+    _iNickName.text = [[GEMTUserManager shareInstance] getUserInfo].nickName;
+    //    _iAgeLb.text = [[GEMTUserManager shareInstance] getUserInfo].
+    _iSexLb.text = [[[GEMTUserManager shareInstance] getUserInfo].sex intValue]?@"男":@"女";
+    _iPraiseLb.text = [NSString stringWithFormat:@"%@",[[GEMTUserManager shareInstance] getUserInfo].praiseNum];
+    _iSignLb.text = [NSString stringWithFormat:@"个性签名 ：%@",[[GEMTUserManager shareInstance] getUserInfo].signatureText];
+}
+
+- (void)awakeFromNib
+{
+    [self resetInfo];
+}
+
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
     NSLog(@"%@",request.responseData.loginResponse.userInfo.nickName);
@@ -109,7 +124,13 @@
 - (IBAction)editInfoBtnDidPressed:(id)sender
 {
     UserEditUserInfoView *editInfo = [UserEditUserInfoView loadFromNib];
+    editInfo.delegate = self;
     [[UIView rootController] pushViewController:editInfo animated:YES];
+}
+
+- (void)UserEditDidSuccess:(UserEditUserInfoView *)v
+{
+    [self resetInfo];
 }
 
 - (IBAction)_playBtnDidPressed:(id)sender

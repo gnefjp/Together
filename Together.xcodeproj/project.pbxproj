@@ -193,6 +193,8 @@
 		38DC96501739591B00E0D66A /* GMETRecorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DC964E1739591B00E0D66A /* GMETRecorderView.xib */; };
 		38DC96531739656D00E0D66A /* UserInfoModifyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC96521739656D00E0D66A /* UserInfoModifyRequest.m */; };
 		38DC96561739664700E0D66A /* UserPersonInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC96551739664600E0D66A /* UserPersonInfoRequest.m */; };
+		38F11FFC173BD97E0079DD91 /* defaultCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38F11FFA173BD97E0079DD91 /* defaultCover.jpg */; };
+		38F11FFD173BD97E0079DD91 /* userCenter_Photo_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -866,6 +868,8 @@
 		38DC96521739656D00E0D66A /* UserInfoModifyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModifyRequest.m; sourceTree = "<group>"; };
 		38DC96541739664600E0D66A /* UserPersonInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPersonInfoRequest.h; sourceTree = "<group>"; };
 		38DC96551739664600E0D66A /* UserPersonInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPersonInfoRequest.m; sourceTree = "<group>"; };
+		38F11FFA173BD97E0079DD91 /* defaultCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultCover.jpg; sourceTree = "<group>"; };
+		38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userCenter_Photo_Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -982,6 +986,7 @@
 		18BFDFD31724572B00186828 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38F11FF9173BD97E0079DD91 /* User */,
 				18D5D0B6172BAF7A00799BF7 /* Common */,
 				18C6D5C51727D40900184AFA /* Room */,
 			);
@@ -1979,6 +1984,15 @@
 			path = Btns;
 			sourceTree = "<group>";
 		};
+		38F11FF9173BD97E0079DD91 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				38F11FFA173BD97E0079DD91 /* defaultCover.jpg */,
+				38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2101,6 +2115,8 @@
 				18C73BF9173A59980035BC61 /* room_create_btn_b.png in Resources */,
 				18C73BFC173A66970035BC61 /* room_small_btn_a.png in Resources */,
 				18C73BFD173A66970035BC61 /* room_small_btn_b.png in Resources */,
+				38F11FFC173BD97E0079DD91 /* defaultCover.jpg in Resources */,
+				38F11FFD173BD97E0079DD91 /* userCenter_Photo_Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

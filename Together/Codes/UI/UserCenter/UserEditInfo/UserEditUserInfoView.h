@@ -12,16 +12,26 @@
 #import "PicChange.h"
 #import "UserInfoModifyRequest.h"
 
+@class UserEditUserInfoView;
+
+@protocol UserEditUserInfoViewDelegate <NSObject>
+
+- (void) UserEditDidSuccess:(UserEditUserInfoView*)v;
+
+@end
+
 @interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate,DataPickerDelegate,NetUserRequestDelegate>
 {
-    __weak IBOutlet UITableView *_iTableView;
-    DataPicker                  *_piker;
-    PicChange                   *_avarta;
+    __weak IBOutlet UITableView                 *_iTableView;
+    DataPicker                                  *_piker;
+    PicChange                                   *_avarta;
     
-    __weak IBOutlet UIButton    *_avartaBtn;
-    __weak IBOutlet UIButton    *_recordBtn;
-    
+    __weak IBOutlet UIButton                    *_avartaBtn;
+    __weak IBOutlet UIButton                    *_recordBtn;
+    __weak id<UserEditUserInfoViewDelegate>     _delegate;
 }
+
+@property (weak) id<UserEditUserInfoViewDelegate>   delegate;
 
 - (IBAction)submitBtnDidPressed:(id)sender;
 - (IBAction)backBtnDidPressed:(id)sender;

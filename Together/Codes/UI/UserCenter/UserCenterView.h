@@ -13,15 +13,23 @@
 #import "UserLoginRequest.h"
 #import "UserRegisterRequest.h"
 #import "UserFollowRequest.h"
+#import "UserEditUserInfoView.h"
 
 @class GMETRecorder;
 
-@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate>
+@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate,UserEditUserInfoViewDelegate>
 {
     __weak IBOutlet UIImageView     *_iAvatarImage;
     GMETRecorder                    *_recorder;
     AVAudioPlayer                   *_player;
     PicChange                       *_avatar;
+    
+    __weak IBOutlet UILabel         *_iSexLb;
+    __weak IBOutlet UILabel         *_iAgeLb;
+    __weak IBOutlet UILabel         *_iNickName;
+    __weak IBOutlet UILabel         *_iPraiseLb;
+    __weak IBOutlet UILabel         *_iSignLb;
+    
 }
 
 - (IBAction)viewOtherInfo:(id)sender;
