@@ -23,7 +23,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.21:9080/download";
+    return @"http://192.168.1.150:9080/download";
 }
 
 
@@ -45,13 +45,6 @@
     {
         [self _requestFinished];
     }
-}
-
-
-- (void) _requestFinished
-{
-    // TODO: 下载成功
-    [self.httpRequest.responseData writeToFile:@"/Users/apple/Desktop/TEST.caf" atomically:YES];
 }
 
 @end

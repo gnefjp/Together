@@ -72,8 +72,8 @@
     
     if (request.responseStatusCode == 200)
     {
-        _responseData = [HTTPResponse parseFromData:request.responseData];
-        NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
+//        _responseData = [HTTPResponse parseFromData:request.responseData];
+//        NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
     }
    
     if (_responseData.success)
@@ -153,44 +153,6 @@ static NetRequestManager* s_defaultManager = nil;
 - (void) removeRequest:(NetRequest*)request
 {
     [_netRequests removeObject:request];
-}
-
-@end
-
-
-#pragma mark- RequestForManager
-@implementation NetRequest (ManagerRequest)
-
-- (id) managerDelegate
-{
-    return [_expandVar objectForKey:@"ManagerDelegate"];
-}
-
-- (void) setManagerDelegate:(id)managerDelegate
-{
-    [_expandVar setValue:managerDelegate forKey:@"ManagerDelegate"];
-}
-
-
-- (UIImage*) loadImage
-{
-    return [_expandVar objectForKey:@"LoadImage"];
-}	
-
-- (void) setLoadImage:(UIImage *)loadImage
-{
-    [_expandVar setValue:loadImage forKey:@"LoadImage"];
-}
-
-
-- (CGFloat) managerProgress
-{
-    return [_expandVar loadFloat:@"ManagerProgress" defaultValue:0.0];
-}
-
-- (void) setManagerProgress:(CGFloat)managerProgress
-{
-    [_expandVar saveFloat:managerProgress forKey:@"ManagerProgress"];
 }
 
 @end

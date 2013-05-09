@@ -23,7 +23,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property int32_t uid;
 @property (retain) NSString* username;
 @property (retain) NSString* nickName;
-@property int32_t birthday;
+@property (retain) NSString* birthday;
 @property (retain) NSString* signatureText;
 @property int32_t signatureRecordId;
 @property int32_t praiseNum;
@@ -123,6 +123,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 - (void) dealloc {
   self.username = nil;
   self.nickName = nil;
+  self.birthday = nil;
   self.signatureText = nil;
   [super dealloc];
 }
@@ -131,7 +132,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.uid = 0;
     self.username = @"";
     self.nickName = @"";
-    self.birthday = 0;
+    self.birthday = @"";
     self.signatureText = @"";
     self.signatureRecordId = 0;
     self.praiseNum = 0;
@@ -169,7 +170,7 @@ static User_Info* defaultUser_InfoInstance = nil;
     [output writeString:3 value:self.nickName];
   }
   if (self.hasBirthday) {
-    [output writeInt32:4 value:self.birthday];
+    [output writeString:4 value:self.birthday];
   }
   if (self.hasSignatureText) {
     [output writeString:5 value:self.signatureText];
@@ -214,7 +215,7 @@ static User_Info* defaultUser_InfoInstance = nil;
     size += computeStringSize(3, self.nickName);
   }
   if (self.hasBirthday) {
-    size += computeInt32Size(4, self.birthday);
+    size += computeStringSize(4, self.birthday);
   }
   if (self.hasSignatureText) {
     size += computeStringSize(5, self.signatureText);
@@ -384,8 +385,8 @@ static User_Info* defaultUser_InfoInstance = nil;
         [self setNickName:[input readString]];
         break;
       }
-      case 32: {
-        [self setBirthday:[input readInt32]];
+      case 34: {
+        [self setBirthday:[input readString]];
         break;
       }
       case 42: {
@@ -474,17 +475,17 @@ static User_Info* defaultUser_InfoInstance = nil;
 - (BOOL) hasBirthday {
   return result.hasBirthday;
 }
-- (int32_t) birthday {
+- (NSString*) birthday {
   return result.birthday;
 }
-- (User_Info_Builder*) setBirthday:(int32_t) value {
+- (User_Info_Builder*) setBirthday:(NSString*) value {
   result.hasBirthday = YES;
   result.birthday = value;
   return self;
 }
 - (User_Info_Builder*) clearBirthday {
   result.hasBirthday = NO;
-  result.birthday = 0;
+  result.birthday = @"";
   return self;
 }
 - (BOOL) hasSignatureText {

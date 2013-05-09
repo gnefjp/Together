@@ -14,7 +14,6 @@
 @interface User_Info : PBGeneratedMessage {
 @private
   BOOL hasUid_:1;
-  BOOL hasBirthday_:1;
   BOOL hasSignatureRecordId_:1;
   BOOL hasPraiseNum_:1;
   BOOL hasVisitNum_:1;
@@ -24,9 +23,9 @@
   BOOL hasPicId_:1;
   BOOL hasUsername_:1;
   BOOL hasNickName_:1;
+  BOOL hasBirthday_:1;
   BOOL hasSignatureText_:1;
   int32_t uid;
-  int32_t birthday;
   int32_t signatureRecordId;
   int32_t praiseNum;
   int32_t visitNum;
@@ -36,6 +35,7 @@
   int32_t picId;
   NSString* username;
   NSString* nickName;
+  NSString* birthday;
   NSString* signatureText;
 }
 - (BOOL) hasUid;
@@ -53,7 +53,7 @@
 @property (readonly) int32_t uid;
 @property (readonly, retain) NSString* username;
 @property (readonly, retain) NSString* nickName;
-@property (readonly) int32_t birthday;
+@property (readonly, retain) NSString* birthday;
 @property (readonly, retain) NSString* signatureText;
 @property (readonly) int32_t signatureRecordId;
 @property (readonly) int32_t praiseNum;
@@ -113,8 +113,8 @@
 - (User_Info_Builder*) clearNickName;
 
 - (BOOL) hasBirthday;
-- (int32_t) birthday;
-- (User_Info_Builder*) setBirthday:(int32_t) value;
+- (NSString*) birthday;
+- (User_Info_Builder*) setBirthday:(NSString*) value;
 - (User_Info_Builder*) clearBirthday;
 
 - (BOOL) hasSignatureText;

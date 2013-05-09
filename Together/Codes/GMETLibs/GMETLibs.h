@@ -15,5 +15,6 @@
 #import "GMETLibs+UIColor.h"
 #import "GMETLibs+DataContainer.h"
 #import "GMETLibs+NSObject.h"
+#import "GMETLibs+NSFileManager.h"
 
 #endif

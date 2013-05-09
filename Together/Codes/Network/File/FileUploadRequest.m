@@ -25,7 +25,9 @@
 {
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
+    
+    [request addPostValue:self.sid forKey:@"sid"];
+    [request addPostValue:self.userID forKey:@"uid"];
     
     return request;
 }

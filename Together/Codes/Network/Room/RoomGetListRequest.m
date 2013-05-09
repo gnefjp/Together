@@ -10,6 +10,12 @@
 
 @implementation RoomGetListRequest
 
+- (NSString *) requestUrl
+{
+    return @"http://192.168.1.102/ROOM";
+}
+
+
 - (id) init
 {
     self = [super init];

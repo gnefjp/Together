@@ -19,11 +19,21 @@
 }
 
 @property (nonatomic, weak)     id               delegate;
+@property (nonatomic, weak)     id               managerDelegate;
 @property (nonatomic, readonly) ASIHTTPRequest  *httpRequest;
 @property (nonatomic, readonly) HTTPResponse    *responseData;
 
 @property (readonly, nonatomic) NSString        *requestUrl;
 @property (readonly, nonatomic) NSString        *actionCode;
+
+@end
+
+
+@interface NetRequest (ProtectedFunction)
+
+- (void) _requestFinished;
+- (void) _requestFailed;
+- (void) _requestUpdateProgress:(CGFloat)progress;
 
 @end
 
@@ -39,16 +49,5 @@
 
 - (void) startRequest:(NetRequest*)request;
 - (void) removeRequest:(NetRequest*)request;
-
-@end
-
-
-
-#pragma mark- RequestForManager
-@interface NetRequest (ManagerRequest)
-
-@property (nonatomic, assign) id                managerDelegate;
-@property (nonatomic, retain) UIImage*          loadImage;
-@property (nonatomic, assign) CGFloat           managerProgress;
 
 @end

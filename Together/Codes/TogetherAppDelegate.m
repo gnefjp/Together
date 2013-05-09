@@ -18,10 +18,13 @@
 - (void) _debugNetwork
 {
     return;
-    
-    FileDownloadRequest* request = [[FileDownloadRequest alloc] init];
-    request.fileID = @"2";
-    [[NetRequestManager defaultManager] startRequest:request];
+    int count = 5;
+    while (count --)
+    {
+        FileDownloadRequest* request = [[FileDownloadRequest alloc] init];
+        request.fileID = @"2";
+        [[NetRequestManager defaultManager] startRequest:request];
+    }
 }
 
 

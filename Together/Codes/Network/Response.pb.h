@@ -9,6 +9,10 @@
 @class Address_Builder;
 @class DetailResponse;
 @class DetailResponse_Builder;
+@class FollowListResponse;
+@class FollowListResponse_Builder;
+@class FollowedListResponse;
+@class FollowedListResponse_Builder;
 @class HTTPResponse;
 @class HTTPResponse_Builder;
 @class List;
@@ -23,8 +27,6 @@
 @class RoomPeopleListResponse_Builder;
 @class ShowRoomListResponse;
 @class ShowRoomListResponse_Builder;
-@class UserList;
-@class UserList_Builder;
 @class User_Info;
 @class User_Info_Builder;
 @class UsernameExistResponse;
@@ -47,6 +49,8 @@
   BOOL hasRoomListResponse_:1;
   BOOL hasRoomPeopleListResponse_:1;
   BOOL hasRoomInfoResponse_:1;
+  BOOL hasFollowListResponse_:1;
+  BOOL hasFollowedListResponse_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
@@ -56,6 +60,8 @@
   ShowRoomListResponse* roomListResponse;
   RoomPeopleListResponse* roomPeopleListResponse;
   RoomInfoResponse* roomInfoResponse;
+  FollowListResponse* followListResponse;
+  FollowedListResponse* followedListResponse;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
@@ -66,6 +72,8 @@
 - (BOOL) hasRoomListResponse;
 - (BOOL) hasRoomPeopleListResponse;
 - (BOOL) hasRoomInfoResponse;
+- (BOOL) hasFollowListResponse;
+- (BOOL) hasFollowedListResponse;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
@@ -75,6 +83,8 @@
 @property (readonly, retain) ShowRoomListResponse* roomListResponse;
 @property (readonly, retain) RoomPeopleListResponse* roomPeopleListResponse;
 @property (readonly, retain) RoomInfoResponse* roomInfoResponse;
+@property (readonly, retain) FollowListResponse* followListResponse;
+@property (readonly, retain) FollowedListResponse* followedListResponse;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -166,5 +176,19 @@
 - (HTTPResponse_Builder*) setRoomInfoResponseBuilder:(RoomInfoResponse_Builder*) builderForValue;
 - (HTTPResponse_Builder*) mergeRoomInfoResponse:(RoomInfoResponse*) value;
 - (HTTPResponse_Builder*) clearRoomInfoResponse;
+
+- (BOOL) hasFollowListResponse;
+- (FollowListResponse*) followListResponse;
+- (HTTPResponse_Builder*) setFollowListResponse:(FollowListResponse*) value;
+- (HTTPResponse_Builder*) setFollowListResponseBuilder:(FollowListResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeFollowListResponse:(FollowListResponse*) value;
+- (HTTPResponse_Builder*) clearFollowListResponse;
+
+- (BOOL) hasFollowedListResponse;
+- (FollowedListResponse*) followedListResponse;
+- (HTTPResponse_Builder*) setFollowedListResponse:(FollowedListResponse*) value;
+- (HTTPResponse_Builder*) setFollowedListResponseBuilder:(FollowedListResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeFollowedListResponse:(FollowedListResponse*) value;
+- (HTTPResponse_Builder*) clearFollowedListResponse;
 @end
 

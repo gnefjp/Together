@@ -93,6 +93,9 @@
 		18C73BF9173A59980035BC61 /* room_create_btn_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BF7173A59980035BC61 /* room_create_btn_b.png */; };
 		18C73BFC173A66970035BC61 /* room_small_btn_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BFA173A66960035BC61 /* room_small_btn_a.png */; };
 		18C73BFD173A66970035BC61 /* room_small_btn_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BFB173A66960035BC61 /* room_small_btn_b.png */; };
+		18CBC81E173B741C00832E63 /* NetFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBC81D173B741C00832E63 /* NetFileManager.m */; };
+		18CBC822173B7C9500832E63 /* ImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBC821173B7C9500832E63 /* ImageOperation.m */; };
+		18CBC825173B881300832E63 /* GMETLibs+NSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBC824173B881300832E63 /* GMETLibs+NSFileManager.m */; };
 		18D41DE517294B8700D0C950 /* RoomResponse.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE417294B8700D0C950 /* RoomResponse.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18D41DE817294B8F00D0C950 /* RoomData.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE717294B8F00D0C950 /* RoomData.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18D41DED17294BC200D0C950 /* GMETLibs+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DEA17294BC200D0C950 /* GMETLibs+NSString.m */; };
@@ -710,6 +713,12 @@
 		18C73BF7173A59980035BC61 /* room_create_btn_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_create_btn_b.png; sourceTree = "<group>"; };
 		18C73BFA173A66960035BC61 /* room_small_btn_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_small_btn_a.png; sourceTree = "<group>"; };
 		18C73BFB173A66960035BC61 /* room_small_btn_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_small_btn_b.png; sourceTree = "<group>"; };
+		18CBC81C173B741C00832E63 /* NetFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetFileManager.h; sourceTree = "<group>"; };
+		18CBC81D173B741C00832E63 /* NetFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetFileManager.m; sourceTree = "<group>"; };
+		18CBC820173B7C9500832E63 /* ImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOperation.h; sourceTree = "<group>"; };
+		18CBC821173B7C9500832E63 /* ImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageOperation.m; sourceTree = "<group>"; };
+		18CBC823173B881300832E63 /* GMETLibs+NSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMETLibs+NSFileManager.h"; sourceTree = "<group>"; };
+		18CBC824173B881300832E63 /* GMETLibs+NSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+NSFileManager.m"; sourceTree = "<group>"; };
 		18D41DE317294B8700D0C950 /* RoomResponse.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomResponse.pb.h; sourceTree = "<group>"; };
 		18D41DE417294B8700D0C950 /* RoomResponse.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomResponse.pb.m; sourceTree = "<group>"; };
 		18D41DE617294B8F00D0C950 /* RoomData.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomData.pb.h; sourceTree = "<group>"; };
@@ -1593,6 +1602,15 @@
 			path = SearchPicker;
 			sourceTree = "<group>";
 		};
+		18CBC81F173B7C7200832E63 /* ImageOperation */ = {
+			isa = PBXGroup;
+			children = (
+				18CBC820173B7C9500832E63 /* ImageOperation.h */,
+				18CBC821173B7C9500832E63 /* ImageOperation.m */,
+			);
+			path = ImageOperation;
+			sourceTree = "<group>";
+		};
 		18D41DEF17294BD500D0C950 /* RoomCreate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1642,12 +1660,15 @@
 		18D5D0F7172BD3B100799BF7 /* File */ = {
 			isa = PBXGroup;
 			children = (
+				18CBC81F173B7C7200832E63 /* ImageOperation */,
 				18D5D0F8172BD3DD00799BF7 /* NetFileRequest.h */,
 				18D5D0F9172BD3DD00799BF7 /* NetFileRequest.m */,
 				18D5D0FB172BD49500799BF7 /* FileDownloadRequest.h */,
 				18D5D0FC172BD49500799BF7 /* FileDownloadRequest.m */,
 				18D5D0FE172BD4FE00799BF7 /* FileUploadRequest.h */,
 				18D5D0FF172BD4FE00799BF7 /* FileUploadRequest.m */,
+				18CBC81C173B741C00832E63 /* NetFileManager.h */,
+				18CBC81D173B741C00832E63 /* NetFileManager.m */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -1785,6 +1806,8 @@
 				18C73BDB1739F4760035BC61 /* GMETLibs+NSObject.m */,
 				18C73BF1173A4F910035BC61 /* GMETLibs+UIImageView.h */,
 				18C73BF2173A4F910035BC61 /* GMETLibs+UIImageView.m */,
+				18CBC823173B881300832E63 /* GMETLibs+NSFileManager.h */,
+				18CBC824173B881300832E63 /* GMETLibs+NSFileManager.m */,
 			);
 			path = GMETLibs;
 			sourceTree = "<group>";
@@ -2188,6 +2211,9 @@
 				18C73BF3173A4F910035BC61 /* GMETLibs+UIImageView.m in Sources */,
 				381BAD84173AAFBB00AC42D6 /* UserFollowRequest.m in Sources */,
 				381BAD87173AB27100AC42D6 /* UserZanRequest.m in Sources */,
+				18CBC81E173B741C00832E63 /* NetFileManager.m in Sources */,
+				18CBC822173B7C9500832E63 /* ImageOperation.m in Sources */,
+				18CBC825173B881300832E63 /* GMETLibs+NSFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

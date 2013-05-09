@@ -31,6 +31,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property (retain) ShowRoomListResponse* roomListResponse;
 @property (retain) RoomPeopleListResponse* roomPeopleListResponse;
 @property (retain) RoomInfoResponse* roomInfoResponse;
+@property (retain) FollowListResponse* followListResponse;
+@property (retain) FollowedListResponse* followedListResponse;
 @end
 
 @implementation HTTPResponse
@@ -103,6 +105,20 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasRoomInfoResponse_ = !!value;
 }
 @synthesize roomInfoResponse;
+- (BOOL) hasFollowListResponse {
+  return !!hasFollowListResponse_;
+}
+- (void) setHasFollowListResponse:(BOOL) value {
+  hasFollowListResponse_ = !!value;
+}
+@synthesize followListResponse;
+- (BOOL) hasFollowedListResponse {
+  return !!hasFollowedListResponse_;
+}
+- (void) setHasFollowedListResponse:(BOOL) value {
+  hasFollowedListResponse_ = !!value;
+}
+@synthesize followedListResponse;
 - (void) dealloc {
   self.msg = nil;
   self.loginResponse = nil;
@@ -111,6 +127,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
   self.roomListResponse = nil;
   self.roomPeopleListResponse = nil;
   self.roomInfoResponse = nil;
+  self.followListResponse = nil;
+  self.followedListResponse = nil;
   [super dealloc];
 }
 - (id) init {
@@ -124,6 +142,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.roomListResponse = [ShowRoomListResponse defaultInstance];
     self.roomPeopleListResponse = [RoomPeopleListResponse defaultInstance];
     self.roomInfoResponse = [RoomInfoResponse defaultInstance];
+    self.followListResponse = [FollowListResponse defaultInstance];
+    self.followedListResponse = [FollowedListResponse defaultInstance];
   }
   return self;
 }
@@ -170,6 +190,12 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (self.hasRoomInfoResponse) {
     [output writeMessage:9 value:self.roomInfoResponse];
   }
+  if (self.hasFollowListResponse) {
+    [output writeMessage:10 value:self.followListResponse];
+  }
+  if (self.hasFollowedListResponse) {
+    [output writeMessage:11 value:self.followedListResponse];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -205,6 +231,12 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   }
   if (self.hasRoomInfoResponse) {
     size += computeMessageSize(9, self.roomInfoResponse);
+  }
+  if (self.hasFollowListResponse) {
+    size += computeMessageSize(10, self.followListResponse);
+  }
+  if (self.hasFollowedListResponse) {
+    size += computeMessageSize(11, self.followedListResponse);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -308,6 +340,12 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (other.hasRoomInfoResponse) {
     [self mergeRoomInfoResponse:other.roomInfoResponse];
   }
+  if (other.hasFollowListResponse) {
+    [self mergeFollowListResponse:other.followListResponse];
+  }
+  if (other.hasFollowedListResponse) {
+    [self mergeFollowedListResponse:other.followedListResponse];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -393,6 +431,24 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
         }
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self setRoomInfoResponse:[subBuilder buildPartial]];
+        break;
+      }
+      case 82: {
+        FollowListResponse_Builder* subBuilder = [FollowListResponse builder];
+        if (self.hasFollowListResponse) {
+          [subBuilder mergeFrom:self.followListResponse];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setFollowListResponse:[subBuilder buildPartial]];
+        break;
+      }
+      case 90: {
+        FollowedListResponse_Builder* subBuilder = [FollowedListResponse builder];
+        if (self.hasFollowedListResponse) {
+          [subBuilder mergeFrom:self.followedListResponse];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setFollowedListResponse:[subBuilder buildPartial]];
         break;
       }
     }
@@ -624,6 +680,66 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
 - (HTTPResponse_Builder*) clearRoomInfoResponse {
   result.hasRoomInfoResponse = NO;
   result.roomInfoResponse = [RoomInfoResponse defaultInstance];
+  return self;
+}
+- (BOOL) hasFollowListResponse {
+  return result.hasFollowListResponse;
+}
+- (FollowListResponse*) followListResponse {
+  return result.followListResponse;
+}
+- (HTTPResponse_Builder*) setFollowListResponse:(FollowListResponse*) value {
+  result.hasFollowListResponse = YES;
+  result.followListResponse = value;
+  return self;
+}
+- (HTTPResponse_Builder*) setFollowListResponseBuilder:(FollowListResponse_Builder*) builderForValue {
+  return [self setFollowListResponse:[builderForValue build]];
+}
+- (HTTPResponse_Builder*) mergeFollowListResponse:(FollowListResponse*) value {
+  if (result.hasFollowListResponse &&
+      result.followListResponse != [FollowListResponse defaultInstance]) {
+    result.followListResponse =
+      [[[FollowListResponse builderWithPrototype:result.followListResponse] mergeFrom:value] buildPartial];
+  } else {
+    result.followListResponse = value;
+  }
+  result.hasFollowListResponse = YES;
+  return self;
+}
+- (HTTPResponse_Builder*) clearFollowListResponse {
+  result.hasFollowListResponse = NO;
+  result.followListResponse = [FollowListResponse defaultInstance];
+  return self;
+}
+- (BOOL) hasFollowedListResponse {
+  return result.hasFollowedListResponse;
+}
+- (FollowedListResponse*) followedListResponse {
+  return result.followedListResponse;
+}
+- (HTTPResponse_Builder*) setFollowedListResponse:(FollowedListResponse*) value {
+  result.hasFollowedListResponse = YES;
+  result.followedListResponse = value;
+  return self;
+}
+- (HTTPResponse_Builder*) setFollowedListResponseBuilder:(FollowedListResponse_Builder*) builderForValue {
+  return [self setFollowedListResponse:[builderForValue build]];
+}
+- (HTTPResponse_Builder*) mergeFollowedListResponse:(FollowedListResponse*) value {
+  if (result.hasFollowedListResponse &&
+      result.followedListResponse != [FollowedListResponse defaultInstance]) {
+    result.followedListResponse =
+      [[[FollowedListResponse builderWithPrototype:result.followedListResponse] mergeFrom:value] buildPartial];
+  } else {
+    result.followedListResponse = value;
+  }
+  result.hasFollowedListResponse = YES;
+  return self;
+}
+- (HTTPResponse_Builder*) clearFollowedListResponse {
+  result.hasFollowedListResponse = NO;
+  result.followedListResponse = [FollowedListResponse defaultInstance];
   return self;
 }
 @end
