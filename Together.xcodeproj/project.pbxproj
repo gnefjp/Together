@@ -195,6 +195,7 @@
 		38DC96561739664700E0D66A /* UserPersonInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC96551739664600E0D66A /* UserPersonInfoRequest.m */; };
 		38F11FFC173BD97E0079DD91 /* defaultCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38F11FFA173BD97E0079DD91 /* defaultCover.jpg */; };
 		38F11FFD173BD97E0079DD91 /* userCenter_Photo_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */; };
+		38F12001173BDA590079DD91 /* UserFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F12000173BDA590079DD91 /* UserFriendView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -870,6 +871,8 @@
 		38DC96551739664600E0D66A /* UserPersonInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPersonInfoRequest.m; sourceTree = "<group>"; };
 		38F11FFA173BD97E0079DD91 /* defaultCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultCover.jpg; sourceTree = "<group>"; };
 		38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userCenter_Photo_Default@2x.png"; sourceTree = "<group>"; };
+		38F11FFF173BDA590079DD91 /* UserFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFriendView.h; sourceTree = "<group>"; };
+		38F12000173BDA590079DD91 /* UserFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFriendView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1922,6 +1925,7 @@
 		3888875C1724687200B2D2F0 /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
+				38F11FFE173BDA350079DD91 /* UserFriend */,
 				383A5AA6172CFE990064A1B5 /* UserEditInfo */,
 				3828CC16172A846D00EC7EAF /* UserInfo */,
 				3828CC1B172A846D00EC7EAF /* UserRegistAndLogin */,
@@ -1991,6 +1995,15 @@
 				38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		38F11FFE173BDA350079DD91 /* UserFriend */ = {
+			isa = PBXGroup;
+			children = (
+				38F11FFF173BDA590079DD91 /* UserFriendView.h */,
+				38F12000173BDA590079DD91 /* UserFriendView.m */,
+			);
+			path = UserFriend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2230,6 +2243,7 @@
 				18CBC81E173B741C00832E63 /* NetFileManager.m in Sources */,
 				18CBC822173B7C9500832E63 /* ImageOperation.m in Sources */,
 				18CBC825173B881300832E63 /* GMETLibs+NSFileManager.m in Sources */,
+				38F12001173BDA590079DD91 /* UserFriendView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
