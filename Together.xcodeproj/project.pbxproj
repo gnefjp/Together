@@ -69,8 +69,6 @@
 		18C6D5BF1727CB6400184AFA /* RoomGetListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */; };
 		18C6D5C71727D40900184AFA /* room_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C61727D40900184AFA /* room_test.png */; };
 		18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5C81727D53E00184AFA /* room_cell_test.png */; };
-		18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D5CB1727D9C400184AFA /* RoomViewController.m */; };
-		18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C6D5CC1727D9C400184AFA /* RoomViewController.xib */; };
 		18C73BD41739E1D70035BC61 /* GridBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C73BCA1739E1D70035BC61 /* GridBottomView.m */; };
 		18C73BD51739E1D70035BC61 /* GridBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BCB1739E1D70035BC61 /* GridBottomView.xib */; };
 		18C73BD61739E1D70035BC61 /* sr_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BCD1739E1D70035BC61 /* sr_refresh.png */; };
@@ -93,6 +91,11 @@
 		18C73BF9173A59980035BC61 /* room_create_btn_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BF7173A59980035BC61 /* room_create_btn_b.png */; };
 		18C73BFC173A66970035BC61 /* room_small_btn_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BFA173A66960035BC61 /* room_small_btn_a.png */; };
 		18C73BFD173A66970035BC61 /* room_small_btn_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C73BFB173A66960035BC61 /* room_small_btn_b.png */; };
+		18C9A334173CD331002FA0E4 /* room_default_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C9A333173CD331002FA0E4 /* room_default_preview.png */; };
+		18C9A337173CD365002FA0E4 /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C9A336173CD365002FA0E4 /* CommonTool.m */; };
+		18C9A33C173CDAD7002FA0E4 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C9A33A173CDAD7002FA0E4 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18C9A342173CE7B8002FA0E4 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C9A340173CE7B8002FA0E4 /* RoomViewController.m */; };
+		18C9A343173CE7B8002FA0E4 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C9A341173CE7B8002FA0E4 /* RoomViewController.xib */; };
 		18CBC81E173B741C00832E63 /* NetFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBC81D173B741C00832E63 /* NetFileManager.m */; };
 		18CBC822173B7C9500832E63 /* ImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBC821173B7C9500832E63 /* ImageOperation.m */; };
 		18CBC825173B881300832E63 /* GMETLibs+NSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBC824173B881300832E63 /* GMETLibs+NSFileManager.m */; };
@@ -104,7 +107,6 @@
 		18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */; };
 		18D41DF817294BD500D0C950 /* RoomInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF417294BD500D0C950 /* RoomInfoCell.m */; };
 		18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF517294BD500D0C950 /* RoomInfoCell.xib */; };
-		18D5D0B5172BAAFD00799BF7 /* room_default_preview.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18D5D0B4172BAAFD00799BF7 /* room_default_preview.jpeg */; };
 		18D5D0B9172BAF9300799BF7 /* common_blue_btn_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D5D0B7172BAF9300799BF7 /* common_blue_btn_a.png */; };
 		18D5D0BA172BAF9300799BF7 /* common_blue_btn_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D5D0B8172BAF9300799BF7 /* common_blue_btn_b.png */; };
 		18D5D0BD172BB27A00799BF7 /* room_gender_limit_girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D5D0BB172BB27A00799BF7 /* room_gender_limit_girl.png */; };
@@ -690,9 +692,6 @@
 		18C6D5C41727CEC700184AFA /* UserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserConfig.h; sourceTree = "<group>"; };
 		18C6D5C61727D40900184AFA /* room_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_test.png; sourceTree = "<group>"; };
 		18C6D5C81727D53E00184AFA /* room_cell_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_cell_test.png; sourceTree = "<group>"; };
-		18C6D5CA1727D9C300184AFA /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
-		18C6D5CB1727D9C400184AFA /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
-		18C6D5CC1727D9C400184AFA /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
 		18C73BC91739E1D70035BC61 /* GridBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridBottomView.h; sourceTree = "<group>"; };
 		18C73BCA1739E1D70035BC61 /* GridBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridBottomView.m; sourceTree = "<group>"; };
 		18C73BCB1739E1D70035BC61 /* GridBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridBottomView.xib; sourceTree = "<group>"; };
@@ -722,6 +721,15 @@
 		18C73BF7173A59980035BC61 /* room_create_btn_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_create_btn_b.png; sourceTree = "<group>"; };
 		18C73BFA173A66960035BC61 /* room_small_btn_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_small_btn_a.png; sourceTree = "<group>"; };
 		18C73BFB173A66960035BC61 /* room_small_btn_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_small_btn_b.png; sourceTree = "<group>"; };
+		18C9A333173CD331002FA0E4 /* room_default_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_default_preview.png; sourceTree = "<group>"; };
+		18C9A335173CD365002FA0E4 /* CommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTool.h; sourceTree = "<group>"; };
+		18C9A336173CD365002FA0E4 /* CommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTool.m; sourceTree = "<group>"; };
+		18C9A339173CDAD7002FA0E4 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		18C9A33A173CDAD7002FA0E4 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		18C9A33B173CDAD7002FA0E4 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		18C9A33F173CE7B8002FA0E4 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		18C9A340173CE7B8002FA0E4 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		18C9A341173CE7B8002FA0E4 /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
 		18CBC81C173B741C00832E63 /* NetFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetFileManager.h; sourceTree = "<group>"; };
 		18CBC81D173B741C00832E63 /* NetFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetFileManager.m; sourceTree = "<group>"; };
 		18CBC820173B7C9500832E63 /* ImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOperation.h; sourceTree = "<group>"; };
@@ -742,7 +750,6 @@
 		18D41DF317294BD500D0C950 /* RoomInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfoCell.h; sourceTree = "<group>"; };
 		18D41DF417294BD500D0C950 /* RoomInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfoCell.m; sourceTree = "<group>"; };
 		18D41DF517294BD500D0C950 /* RoomInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomInfoCell.xib; sourceTree = "<group>"; };
-		18D5D0B4172BAAFD00799BF7 /* room_default_preview.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = room_default_preview.jpeg; sourceTree = "<group>"; };
 		18D5D0B7172BAF9300799BF7 /* common_blue_btn_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_blue_btn_a.png; sourceTree = "<group>"; };
 		18D5D0B8172BAF9300799BF7 /* common_blue_btn_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_blue_btn_b.png; sourceTree = "<group>"; };
 		18D5D0BB172BB27A00799BF7 /* room_gender_limit_girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_gender_limit_girl.png; sourceTree = "<group>"; };
@@ -963,14 +970,12 @@
 		18BFDFB917244DF600186828 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				18C9A33E173CE7B8002FA0E4 /* RoomView */,
 				18D41DEF17294BD500D0C950 /* RoomCreate */,
 				18BFDFD717245C6400186828 /* RoomGridView */,
 				18BFDFBA17244DF600186828 /* RoomListView.h */,
 				18BFDFBB17244DF600186828 /* RoomListView.m */,
 				18BFDFBD17244DF600186828 /* RoomListView.xib */,
-				18C6D5CA1727D9C300184AFA /* RoomViewController.h */,
-				18C6D5CB1727D9C400184AFA /* RoomViewController.m */,
-				18C6D5CC1727D9C400184AFA /* RoomViewController.xib */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -988,6 +993,8 @@
 		18BFDFD2172456FB00186828 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18C9A335173CD365002FA0E4 /* CommonTool.h */,
+				18C9A336173CD365002FA0E4 /* CommonTool.m */,
 				18C73BDD1739FDE70035BC61 /* SearchPicker */,
 				18C73BC81739E1D70035BC61 /* GridBottomView */,
 				18C73BCC1739E1D70035BC61 /* SlimeRefresh */,
@@ -1592,9 +1599,9 @@
 				18D5D0E4172BB3EC00799BF7 /* room_ screen_btn_b.png */,
 				18D5D0BB172BB27A00799BF7 /* room_gender_limit_girl.png */,
 				18D5D0BC172BB27A00799BF7 /* room_gender_limit_boy.png */,
-				18D5D0B4172BAAFD00799BF7 /* room_default_preview.jpeg */,
 				18C6D5C81727D53E00184AFA /* room_cell_test.png */,
 				18C6D5C61727D40900184AFA /* room_test.png */,
+				18C9A333173CD331002FA0E4 /* room_default_preview.png */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -1630,6 +1637,33 @@
 				18C73BDF1739FDF70035BC61 /* SearchPicker.m */,
 			);
 			path = SearchPicker;
+			sourceTree = "<group>";
+		};
+		18C9A338173CDAD7002FA0E4 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				18C9A339173CDAD7002FA0E4 /* GTMBase64.h */,
+				18C9A33A173CDAD7002FA0E4 /* GTMBase64.m */,
+				18C9A33B173CDAD7002FA0E4 /* GTMDefines.h */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		18C9A33E173CE7B8002FA0E4 /* RoomView */ = {
+			isa = PBXGroup;
+			children = (
+				18C9A33F173CE7B8002FA0E4 /* RoomViewController.h */,
+				18C9A340173CE7B8002FA0E4 /* RoomViewController.m */,
+				18C9A341173CE7B8002FA0E4 /* RoomViewController.xib */,
+			);
+			path = RoomView;
+			sourceTree = "<group>";
+		};
+		18C9A344173CF50C002FA0E4 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		18CBC81F173B7C7200832E63 /* ImageOperation */ = {
@@ -1867,6 +1901,7 @@
 				3895A602172900030025163D /* MapView */,
 				3888875C1724687200B2D2F0 /* UserCenter */,
 				18BFDFBF17244DF600186828 /* NavigationView */,
+				18C9A344173CF50C002FA0E4 /* Chat */,
 				18BFDFB917244DF600186828 /* Room */,
 				18BFDE7417244DF600186828 /* Home */,
 			);
@@ -1887,6 +1922,7 @@
 		18EAB2D717241940003E742D /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				18C9A338173CDAD7002FA0E4 /* Base64 */,
 				18C6D27617279D5600184AFA /* ProtoBuf */,
 				18E78DA91729933F00036B3C /* MBProgressHUD */,
 				3811FB5A17266B6800ED1DD7 /* CropImage */,
@@ -2097,7 +2133,6 @@
 				18C6D5B21727AA1F00184AFA /* README.md in Resources */,
 				18C6D5C71727D40900184AFA /* room_test.png in Resources */,
 				18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */,
-				18C6D5CE1727D9C500184AFA /* RoomViewController.xib in Resources */,
 				3895A610172900030025163D /* MapCustomView.xib in Resources */,
 				3895A612172900030025163D /* MapView.xib in Resources */,
 				18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */,
@@ -2106,7 +2141,6 @@
 				3828CC25172A846D00EC7EAF /* UserLoginView.xib in Resources */,
 				3828CC27172A846D00EC7EAF /* UserRegistView.xib in Resources */,
 				18D76BEE172A8C94004E2C8B /* RoomTypePickerView.xib in Resources */,
-				18D5D0B5172BAAFD00799BF7 /* room_default_preview.jpeg in Resources */,
 				18D5D0B9172BAF9300799BF7 /* common_blue_btn_a.png in Resources */,
 				18D5D0BA172BAF9300799BF7 /* common_blue_btn_b.png in Resources */,
 				18D5D0BD172BB27A00799BF7 /* room_gender_limit_girl.png in Resources */,
@@ -2158,6 +2192,8 @@
 				38F11FFD173BD97E0079DD91 /* userCenter_Photo_Default@2x.png in Resources */,
 				38F12003173BDAB90079DD91 /* UserFriendView.xib in Resources */,
 				38F12008173BDF350079DD91 /* UserFirendCellView.xib in Resources */,
+				18C9A334173CD331002FA0E4 /* room_default_preview.png in Resources */,
+				18C9A343173CE7B8002FA0E4 /* RoomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2225,7 +2261,6 @@
 				18C6D5B91727CA5D00184AFA /* RoomCreateRequest.m in Sources */,
 				18C6D5BC1727CB2900184AFA /* RoomJoinRequest.m in Sources */,
 				18C6D5BF1727CB6400184AFA /* RoomGetListRequest.m in Sources */,
-				18C6D5CD1727D9C500184AFA /* RoomViewController.m in Sources */,
 				3895A60D172900030025163D /* Annotation.m in Sources */,
 				3895A60E172900030025163D /* CustomAnnotationView.m in Sources */,
 				3895A60F172900030025163D /* MapCustomView.m in Sources */,
@@ -2276,6 +2311,9 @@
 				38F1200B173BFC870079DD91 /* UserUnFollowRequest.m in Sources */,
 				38F1200E173BFF5E0079DD91 /* UserFollowList.m in Sources */,
 				38F12011173BFF7D0079DD91 /* UserUnFollowList.m in Sources */,
+				18C9A337173CD365002FA0E4 /* CommonTool.m in Sources */,
+				18C9A33C173CDAD7002FA0E4 /* GTMBase64.m in Sources */,
+				18C9A342173CE7B8002FA0E4 /* RoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -73,9 +73,9 @@
     if (request.responseStatusCode == 200)
     {
         _responseData = [HTTPResponse parseFromData:request.responseData];
-//        NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
+        NSLog(@"code : %d, msg : %@", _responseData.code, _responseData.msg);
     }
-   
+    
     if (_responseData.success)
     {
         [self _requestFinished];

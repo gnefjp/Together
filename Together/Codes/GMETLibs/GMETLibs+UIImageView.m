@@ -47,6 +47,7 @@ static CGContextRef _newBitmapContext(CGSize size)
     }];
 }
 
+
 @end
 
 

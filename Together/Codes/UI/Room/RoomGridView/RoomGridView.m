@@ -5,6 +5,7 @@
 //  Created by Gnef_jp on 13-4-22.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
+#import "CommonTool.h"
 #import "AppSetting.h"
 #import "TipViewManager.h"
 
@@ -223,6 +224,8 @@
     }
     
     cell.roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
+    [cell.previewImageView setImageWithFileID:cell.roomItem.perviewID
+                             placeholderImage:[UIImage imageNamed:kDefaultRoomPreview]];
     
     return cell;
 }

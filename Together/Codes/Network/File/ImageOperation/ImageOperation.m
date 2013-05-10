@@ -28,6 +28,8 @@
     {
         _imageOperation = [ImageOperation imageOperationWithData:imageData
                                                         delegate:self];
+        _delegate = delegate;
+        _userInfo = userInfo;
     }
     return self;
 }

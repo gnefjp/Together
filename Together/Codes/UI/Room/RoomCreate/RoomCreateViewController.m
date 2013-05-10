@@ -19,7 +19,7 @@
 #import "RoomCreateViewController.h"
 #import "RoomViewController.h"
 
-#import "RoomCreateRequest.h"
+#import "GEMTUserManager.h"
 
 #define kRecord_BtnTag      1000 // For _recordView
 #define kRoomType_BtnTag    1000 // For self.view
@@ -30,7 +30,6 @@ static NSString* s_titles[] = {
     @"开始时间",
     @"性别限制",
     @"地址",
-    @"地址备注",
 };
 
 
@@ -61,7 +60,6 @@ static NSString* s_roomTypeNames[] = {
     _infoTableView.dataSource = self;
     
     _roomInfo = [[NetRoomItem alloc] init];
-    _roomInfo.perviewID = @"1";
     
     _roomInfo.address.detailAddr = @"哩度";
     _roomInfo.address.location = [AppSetting defaultSetting].currentLocation;
@@ -309,8 +307,11 @@ static NSString* s_roomTypeNames[] = {
         return;
     }
     
+    [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self.view ID:self];
+    
     RoomCreateRequest* createRequest = [[RoomCreateRequest alloc] init];
-    createRequest.sid = @"b7fbee9a885057aa638df19ecfccb5ba";
+    createRequest.delegate = self;
+    createRequest.sid = @"ef9aadcea02583a798d48870e2512c7c";
     createRequest.ownerID = @"1";
     createRequest.ownerNickname = @"G-Mart";
     
@@ -324,7 +325,7 @@ static NSString* s_roomTypeNames[] = {
     
     createRequest.address = _roomInfo.address;
     
-    createRequest.previewID = @"2";
+    createRequest.previewID = _roomInfo.perviewID;
     createRequest.recordID = @"1";
     
     [[NetRequestManager defaultManager] startRequest:createRequest];
@@ -548,7 +549,7 @@ static NSString* s_roomTypeNames[] = {
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 5;
 }
 
 
@@ -643,7 +644,59 @@ static NSString* s_roomTypeNames[] = {
 #pragma mark- PicChangeDelegate
 - (void)PicChangeSuccess:(PicChange*)picChange img:(UIImage*)img
 {
-    [_previewImageView setImage:img animation:YES];
+    if (img)
+    {
+        [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self.view ID:self];
+        
+        [self performBlock:^{
+            
+            FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
+            updateRequest.image = img;
+            updateRequest.sid = @"ef9aadcea02583a798d48870e2512c7c";
+            updateRequest.userID = @"1";
+            updateRequest.delegate = self;
+            
+            [[NetRequestManager defaultManager] startRequest:updateRequest];
+            
+        }afterDelay:0.01];
+    }
+}
+
+
+#pragma mark- NetFileRequestDelegate
+- (void) NetFileRequestFail:(NetFileRequest *)request
+{
+    if (request.requestType == NetFileRequestType_Upload)
+    {
+        [[TipViewManager defaultManager] showTipText:@"上传失败"
+                                           imageName:kCommonImage_FailIcon
+                                              inView:self.view
+                                                  ID:self];
+        [[TipViewManager defaultManager] hideTipWithID:self
+                                             animation:YES
+                                                 delay:1.25];
+    }
+}
+
+
+- (void) NetFileRequestSuccess:(NetFileRequest *)request
+{
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    
+    if (request.requestType == NetFileRequestType_Upload)
+    {
+        FileUploadRequest* updateRequest = (FileUploadRequest *)request;
+        
+        if (updateRequest.image != nil)
+        {
+            _roomInfo.perviewID = updateRequest.fileID;
+            [_previewImageView setImage:updateRequest.image animation:YES];
+        }
+        else
+        {
+            
+        }
+    }
 }
 
 @end

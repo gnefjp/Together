@@ -10,8 +10,11 @@
 
 @interface FileUploadRequest : NetFileRequest
 
-@property (strong, nonatomic) NSString  *filePath;
-@property (strong, nonatomic) NSString  *userID;
-@property (strong, nonatomic) NSString  *sid;
+@property (strong, nonatomic) UIImage   *image;
+@property (copy,   nonatomic) NSString  *filePath;
+@property (copy,   nonatomic) NSString  *userID;
+@property (copy,   nonatomic) NSString  *sid;
+
+@property (readonly,nonatomic) NSString *fileID;
 
 @end

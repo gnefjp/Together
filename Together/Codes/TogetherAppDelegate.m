@@ -18,7 +18,7 @@
 - (void) _debugNetwork
 {
     return;
-    int count = 5;
+    int count = 1;
     while (count --)
     {
         FileDownloadRequest* request = [[FileDownloadRequest alloc] init];

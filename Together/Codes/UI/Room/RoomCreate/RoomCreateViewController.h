@@ -7,11 +7,16 @@
 //
 #import "PicChange.h"
 
+#import "FileUploadRequest.h"
+#import "RoomCreateRequest.h"
+
 @class RoomTypePickerView;
 @class NetRoomItem;
 @interface RoomCreateViewController : UIViewController <UITableViewDelegate,
                                                         UITableViewDataSource,
-                                                        PicChangeDelegate>
+                                                        PicChangeDelegate,
+                                                        NetFileRequestDelegate,
+                                                        NetRoomRequestDelegate>
 {
     __weak IBOutlet UITableView *_infoTableView;
     

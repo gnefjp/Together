@@ -23,7 +23,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.150:9080/download";
+    return @"http://192.168.1.21:9081/download";
 }
 
 

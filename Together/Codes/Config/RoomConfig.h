@@ -31,6 +31,7 @@ typedef enum
     RoomState_Max       = 3,
 } RoomState;
 
+#define kDefaultRoomPreview                 @"room_default_preview.png"
 
 #define kNotification_InitCurrentLocation   @"Notification_InitCurrentLocation"
 

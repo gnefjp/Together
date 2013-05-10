@@ -7,6 +7,7 @@
 //
 
 #import "FileDownloadRequest.h"
+#import "ImageOperation.h"
 
 @class NetFileManager;
 @protocol NetFileManagerDelegate <NSObject>

@@ -18,7 +18,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 @interface ImageCachesInfo : NSObject
 
-@property (strong, nonatomic) NSString  *fileID;
+@property (copy,   nonatomic) NSString  *fileID;
 @property (strong, nonatomic) UIImage   *image;
 
 + (id) imageCachesInfoWithImage:(UIImage *)image fileID:(NSString *)fileID;
@@ -193,8 +193,9 @@ static NetFileManager *s_defaultManager = nil;
 
 - (UIImage *) imageWithFileID:(NSString *)fileID delegate:(id)delegate
 {
-    for (ImageCachesInfo *imageInfo in _imageCaches)
+    for (int i = 0; i < _imageCaches.count; ++i)
     {
+        ImageCachesInfo *imageInfo = [_imageCaches objectAtIndex:i];
         if ([imageInfo.fileID isEqualToString:fileID])
         {
             [_imageCaches removeObject:imageInfo];
