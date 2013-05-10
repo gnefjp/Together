@@ -15,8 +15,11 @@ typedef enum
     NetUserRequestType_ViewInfo     = 2,
     NetUserRequestType_ModifyInfo   = 3,
     NetUserRequestType_Follow       = 4,
-    NetUserRequestType_Zan          = 5,
-    NetUserRequestType_Max          = 6,
+    NetUserRequestType_UnFollow     = 5,
+    NetUserRequestType_Zan          = 6,
+    NetUserRequestType_FollowList   = 7,
+    NetUserRequestType_UnFollowList = 8,
+    NetUserRequestType_Max          = 9,
 } NetUserRequestType;
 
 

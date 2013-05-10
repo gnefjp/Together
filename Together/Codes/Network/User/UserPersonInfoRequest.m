@@ -27,8 +27,6 @@
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request setPostValue:self.actionCode
                    forKey:@"action"];
-    [request setPostValue:[[GEMTUserManager shareInstance] getUserInfo].userId
-                   forKey:@"self_uid"];
     [request setPostValue:self.aUid
                    forKey:@"visit_uid"];
     [request setPostValue:[[GEMTUserManager shareInstance] sId]

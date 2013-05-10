@@ -56,8 +56,10 @@
             if (!_piker) {
                 _piker = [[DataPicker alloc] init];
                 _piker.delegate = self;
+                
             }
-            [_piker showViewPickerInView:self.view];
+            [_piker showViewPickerInView:self.view
+                          withDateString:[[GEMTUserManager shareInstance] getUserInfo].birthday];
             
             break;
         }
@@ -105,10 +107,10 @@
         }
         case 2:
         {
-            cell.iLeftLb.text = @"生日";
-            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-            [formatter setDateFormat:@"yyyy-MM-dd"];
-            cell.iRightLb.text = [formatter stringFromDate:[NSDate date]];
+//            cell.iLeftLb.text = @"生日";
+//            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+//            [formatter setDateFormat:@"yyyy-MM-dd"];
+            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].birthday;
             break;
         }
         case 3:
@@ -175,7 +177,7 @@
     
     NSString *nickName = [self _getCellRightValueWithIndex:0];
     NSString *sexName = [self _getCellRightValueWithIndex:1];
-//    NSString *birthDay = [self _getCellRightValueWithIndex:2];
+    NSString *birthDay = [self _getCellRightValueWithIndex:2];
     NSString *signName = [self _getCellRightValueWithIndex:3];
     
     UserInfoModifyRequest *modifyRequest = [[UserInfoModifyRequest alloc] init];
@@ -185,6 +187,7 @@
     
     modifyRequest.avatarId = [NSString stringWithFormat:@"%@",avatarId];
     modifyRequest.recordId = [NSString stringWithFormat:@"%@",recordId];
+    modifyRequest.birthDay = birthDay;
     modifyRequest.delegate = self;
     
     [[NetRequestManager defaultManager] startRequest:modifyRequest];
@@ -204,12 +207,13 @@
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
     NSString *nickName = [self _getCellRightValueWithIndex:0];
     NSString *sexName = [self _getCellRightValueWithIndex:1];
-    //    NSString *birthDay = [self _getCellRightValueWithIndex:2];
+    NSString *birthDay = [self _getCellRightValueWithIndex:2];
     NSString *signName = [self _getCellRightValueWithIndex:3];
     
     [[GEMTUserManager shareInstance] getUserInfo].nickName = nickName;
     [[GEMTUserManager shareInstance] getUserInfo].sex = [NSNumber numberWithInt:[sexName isEqualToString:@"女"]?0:1];
     [[GEMTUserManager shareInstance] getUserInfo].signatureText = signName;
+    [[[GEMTUserManager shareInstance] getUserInfo] setAge:birthDay];
     [[GEMTUserManager shareInstance] userInfoWirteToFile];
     
     [_delegate UserEditDidSuccess:self];

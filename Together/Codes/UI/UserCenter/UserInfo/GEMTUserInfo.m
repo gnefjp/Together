@@ -23,6 +23,7 @@
 @synthesize visitNum = _visitNum;
 @synthesize sex = _sex;
 @synthesize avataId = _avataId;
+@synthesize age = _age;
 
 - (void) setUserInfoWithLoginResPonse:(User_Info*)aUserInfo
 {
@@ -36,6 +37,18 @@
     self.signatureText = aUserInfo.signatureText;
     self.visitNum = [NSNumber numberWithInt:aUserInfo.visitNum];
     self.sex = [NSNumber numberWithInt:aUserInfo.sex];
+    self.birthday = aUserInfo.birthday;
+    [self setAge:_birthday];
+}
+
+- (void)setAge:(NSString *)aBirth
+{
+    if (!aBirth) {
+        _age = @"0";
+    }else
+    {
+        _age = [NSString stringWithFormat:@"%d",2013 - [[[aBirth componentsSeparatedByString:@"-"] objectAtIndex:0] intValue]];
+    }
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
@@ -48,6 +61,7 @@
     [aCoder encodeObject:_signatureRecordId forKey:@"signatureRecordId"];
     [aCoder encodeObject:_signatureText forKey:@"signatureText"];
     [aCoder encodeObject:_visitNum forKey:@"visitNum"];
+    [aCoder encodeObject:_age forKey:@"age"];
 }
 - (id)initWithCoder:(NSCoder *)aDecoder {
     _userId = [aDecoder decodeObjectForKey:@"userId"];
@@ -59,6 +73,7 @@
     _signatureRecordId = [aDecoder decodeObjectForKey:@"signatureRecordId"];
     _signatureText = [aDecoder decodeObjectForKey:@"signatureText"];
     _visitNum = [aDecoder decodeObjectForKey:@"visitNum"];
+    _age = [aDecoder decodeObjectForKey:@"age"];
     return self;
 }
 

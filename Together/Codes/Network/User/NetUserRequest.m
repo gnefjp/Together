@@ -23,7 +23,10 @@
         USER_VIEW_INFO,
         USER_SET_INFO,
         USER_FOLLOW,
-        USER_PRISE
+        USER_UNFOLLOW,
+        USER_PRISE,
+        GET_FOLLOW_LIST,
+        GET_FOLLOWED_LIST,
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];

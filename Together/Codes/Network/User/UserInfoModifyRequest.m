@@ -37,7 +37,7 @@
     [request addPostValue:self.actionCode forKey:@"action"];
     
     [request addPostValue:self.nickName forKey:@"nickname"];
-//    [request addPostValue:self.birthDay forKey:@"birthday"];
+    [request addPostValue:self.birthDay forKey:@"birthday"];
     
     [request addPostValue:self.sign forKey:@"signature_text"];
     [request addPostValue:self.sex forKey:@"sex"];

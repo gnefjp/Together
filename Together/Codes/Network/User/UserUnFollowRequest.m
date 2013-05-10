@@ -1,22 +1,22 @@
 //
-//  UserFollowRequest.m
+//  UserUnFollowRequest.m
 //  Together
 //
 //  Created by APPLE on 13-5-9.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import "UserFollowRequest.h"
+#import "UserUnFollowRequest.h"
 #import "GEMTUserManager.h"
 
-@implementation UserFollowRequest
+@implementation UserUnFollowRequest
 
 - (id) init
 {
     self = [super init];
     if (self)
     {
-        self.requestType = NetUserRequestType_Follow;
+        self.requestType = NetUserRequestType_UnFollow;
     }
     return self;
 }
@@ -26,8 +26,10 @@
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:@"2" forKey:@"followed_id"];
-    [request addPostValue:[[GEMTUserManager shareInstance] sId]  forKey:@"sid"];
+    [request addPostValue:@"1" forKey:@"unfollowed_id"];
+    
+    [request addPostValue:[[GEMTUserManager shareInstance] sId]
+                   forKey:@"sid"];
     return request;
 }
 

@@ -13,22 +13,29 @@
 #import "UserPersonInfoRequest.h"
 #import "UserInfoModifyRequest.h"
 #import "UserZanRequest.h"
+#import "UserFriendView.h"
+#import "UserUnFollowRequest.h"
 
 @implementation UserCenterView
-
+@synthesize userInfo = _userInfo;
 
 - (void) resetInfo
 {
-    _iNickName.text = [[GEMTUserManager shareInstance] getUserInfo].nickName;
-    //    _iAgeLb.text = [[GEMTUserManager shareInstance] getUserInfo].
-    _iSexLb.text = [[[GEMTUserManager shareInstance] getUserInfo].sex intValue]?@"男":@"女";
-    _iPraiseLb.text = [NSString stringWithFormat:@"%@",[[GEMTUserManager shareInstance] getUserInfo].praiseNum];
-    _iSignLb.text = [NSString stringWithFormat:@"个性签名 ：%@",[[GEMTUserManager shareInstance] getUserInfo].signatureText];
+    _iNickName.text = _userInfo.nickName;
+    _iAgeLb.text = [NSString stringWithFormat:@"%@岁",_userInfo.age];
+    _iSexLb.text = [_userInfo.sex intValue]?@"男":@"女";
+    _iPraiseLb.text = [NSString stringWithFormat:@"%@",_userInfo.praiseNum];
+    _iSignLb.text = [NSString stringWithFormat:@"个性签名 ：%@",_userInfo.signatureText];
+    if ([_userInfo.userId isEqualToNumber:[[GEMTUserManager shareInstance] getUserInfo].userId])
+    {
+        [_iEditBtn setHidden:NO];
+        [_iZanBtn setEnabled:NO];
+    }
 }
 
 - (void)awakeFromNib
 {
-    [self resetInfo];
+    
 }
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
@@ -40,6 +47,14 @@
 {
     NSLog(@"%@",request.actionCode);
 }
+
+- (void)changeUserInfo:(GEMTUserInfo*)aUserInfo
+{
+    self.userInfo = aUserInfo;
+    [self resetInfo];
+}
+
+
 
 - (IBAction)viewOtherInfo:(id)sender
 {
@@ -72,6 +87,28 @@
     request.delegate = self;
     [[NetRequestManager defaultManager] startRequest:request];
 }
+
+- (IBAction)unfollow:(id)sender
+{
+    UserUnFollowRequest *request = [[UserUnFollowRequest alloc] init];
+    request.delegate = self;
+    [[NetRequestManager defaultManager] startRequest:request];
+}
+
+- (IBAction)showFollowListBtnDidPressed:(id)sender
+{
+    UserFriendView *frinedView = [UserFriendView loadFromNib];
+    [frinedView showRightToCenterAnimation];
+    [self addSubview:frinedView];
+}
+
+- (IBAction)showFanListBtnDidPressed:(id)sender
+{
+    UserFriendView *frinedView = [UserFriendView loadFromNib];
+    [self addSubview:frinedView];
+}
+
+
 
 - (IBAction)showMapViewBtnDidpressed:(id)sender
 {

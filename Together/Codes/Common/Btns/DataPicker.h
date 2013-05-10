@@ -26,5 +26,5 @@
 
 @property (weak) id<DataPickerDelegate>  delegate; 
 
-- (void)showViewPickerInView:(UIView*)v;
+- (void)showViewPickerInView:(UIView*)v withDateString:(NSString*)dateString;
 @end

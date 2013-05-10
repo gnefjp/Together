@@ -12,6 +12,7 @@
 @synthesize delegate = _delegate;
 
 - (void)showViewPickerInView:(UIView*)v
+              withDateString:(NSString*)dateString
 {
     GMETTapView* tapView = [[GMETTapView alloc] initWithFrame:[UIView rootView].bounds];
     tapView.delegate = self;
@@ -19,9 +20,20 @@
     tapView.alpha = 0.0f;
     [v addSubview:tapView];
     
+    NSDate *date ;
+    if (dateString) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        date = [formatter dateFromString:dateString];
+    }else
+    {
+        date = [NSDate date];
+    }
+    
+    
     _iDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0,354 + 586 ,0.0,0.0)];
     _iDatePicker.datePickerMode = UIDatePickerModeDate;
-    [_iDatePicker setDate:[NSDate date]];
+    [_iDatePicker setDate:date];
     [_iDatePicker addTarget:self action:@selector(dateChanged:)
            forControlEvents:UIControlEventValueChanged];
     [v addSubview:_iDatePicker];

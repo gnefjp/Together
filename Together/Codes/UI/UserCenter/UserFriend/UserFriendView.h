@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "UserFollowList.h"
 
-@interface UserFriendView : UIView
+@interface UserFriendView : UIView<UITableViewDelegate,UITableViewDataSource,NetUserRequestDelegate>
 {
-    
+    __weak IBOutlet UILabel             *_iTitleLb;
+    __weak IBOutlet UITableView         *_iFriendTable;
 }
 
 

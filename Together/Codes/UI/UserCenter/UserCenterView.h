@@ -16,6 +16,7 @@
 #import "UserEditUserInfoView.h"
 
 @class GMETRecorder;
+@class GEMTUserInfo;
 
 @interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate,UserEditUserInfoViewDelegate>
 {
@@ -23,6 +24,7 @@
     GMETRecorder                    *_recorder;
     AVAudioPlayer                   *_player;
     PicChange                       *_avatar;
+    GEMTUserInfo                    *_userInfo;
     
     __weak IBOutlet UILabel         *_iSexLb;
     __weak IBOutlet UILabel         *_iAgeLb;
@@ -30,14 +32,21 @@
     __weak IBOutlet UILabel         *_iPraiseLb;
     __weak IBOutlet UILabel         *_iSignLb;
     
+    __weak IBOutlet UIButton        *_iEditBtn;
+    __weak IBOutlet UIButton        *_iZanBtn;
+    
 }
 
+@property (strong , nonatomic) GEMTUserInfo         *userInfo;
+
+
+- (void)changeUserInfo:(GEMTUserInfo*)aUserInfo;
 - (IBAction)viewOtherInfo:(id)sender;
-- (IBAction)modifyInfo:(id)sender;
 - (IBAction)followOther:(id)sender;
 - (IBAction)pariseOthers:(id)sender;
+- (IBAction)unfollow:(id)sender;
 
-
+- (IBAction)modifyInfo:(id)sender;
 - (IBAction)showMapViewBtnDidpressed:(id)sender;
 - (IBAction)recordBtnDidPressed:(id)sender;
 - (IBAction)stopRecordBtnDidPressed:(id)sender;

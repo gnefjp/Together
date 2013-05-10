@@ -196,6 +196,12 @@
 		38F11FFC173BD97E0079DD91 /* defaultCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38F11FFA173BD97E0079DD91 /* defaultCover.jpg */; };
 		38F11FFD173BD97E0079DD91 /* userCenter_Photo_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */; };
 		38F12001173BDA590079DD91 /* UserFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F12000173BDA590079DD91 /* UserFriendView.m */; };
+		38F12003173BDAB90079DD91 /* UserFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F12002173BDAB90079DD91 /* UserFriendView.xib */; };
+		38F12006173BDF020079DD91 /* UserFirendCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F12005173BDF020079DD91 /* UserFirendCellView.m */; };
+		38F12008173BDF350079DD91 /* UserFirendCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F12007173BDF350079DD91 /* UserFirendCellView.xib */; };
+		38F1200B173BFC870079DD91 /* UserUnFollowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F1200A173BFC860079DD91 /* UserUnFollowRequest.m */; };
+		38F1200E173BFF5E0079DD91 /* UserFollowList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F1200D173BFF5D0079DD91 /* UserFollowList.m */; };
+		38F12011173BFF7D0079DD91 /* UserUnFollowList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F12010173BFF7D0079DD91 /* UserUnFollowList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -873,6 +879,16 @@
 		38F11FFB173BD97E0079DD91 /* userCenter_Photo_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userCenter_Photo_Default@2x.png"; sourceTree = "<group>"; };
 		38F11FFF173BDA590079DD91 /* UserFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFriendView.h; sourceTree = "<group>"; };
 		38F12000173BDA590079DD91 /* UserFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFriendView.m; sourceTree = "<group>"; };
+		38F12002173BDAB90079DD91 /* UserFriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserFriendView.xib; sourceTree = "<group>"; };
+		38F12004173BDF020079DD91 /* UserFirendCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFirendCellView.h; sourceTree = "<group>"; };
+		38F12005173BDF020079DD91 /* UserFirendCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFirendCellView.m; sourceTree = "<group>"; };
+		38F12007173BDF350079DD91 /* UserFirendCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserFirendCellView.xib; sourceTree = "<group>"; };
+		38F12009173BFC860079DD91 /* UserUnFollowRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserUnFollowRequest.h; sourceTree = "<group>"; };
+		38F1200A173BFC860079DD91 /* UserUnFollowRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserUnFollowRequest.m; sourceTree = "<group>"; };
+		38F1200C173BFF5D0079DD91 /* UserFollowList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFollowList.h; sourceTree = "<group>"; };
+		38F1200D173BFF5D0079DD91 /* UserFollowList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFollowList.m; sourceTree = "<group>"; };
+		38F1200F173BFF7D0079DD91 /* UserUnFollowList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserUnFollowList.h; sourceTree = "<group>"; };
+		38F12010173BFF7D0079DD91 /* UserUnFollowList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserUnFollowList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1486,8 +1502,14 @@
 				38DC96551739664600E0D66A /* UserPersonInfoRequest.m */,
 				381BAD82173AAFBA00AC42D6 /* UserFollowRequest.h */,
 				381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */,
+				38F12009173BFC860079DD91 /* UserUnFollowRequest.h */,
+				38F1200A173BFC860079DD91 /* UserUnFollowRequest.m */,
 				381BAD85173AB27100AC42D6 /* UserZanRequest.h */,
 				381BAD86173AB27100AC42D6 /* UserZanRequest.m */,
+				38F1200C173BFF5D0079DD91 /* UserFollowList.h */,
+				38F1200D173BFF5D0079DD91 /* UserFollowList.m */,
+				38F1200F173BFF7D0079DD91 /* UserUnFollowList.h */,
+				38F12010173BFF7D0079DD91 /* UserUnFollowList.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2002,6 +2024,10 @@
 			children = (
 				38F11FFF173BDA590079DD91 /* UserFriendView.h */,
 				38F12000173BDA590079DD91 /* UserFriendView.m */,
+				38F12002173BDAB90079DD91 /* UserFriendView.xib */,
+				38F12004173BDF020079DD91 /* UserFirendCellView.h */,
+				38F12005173BDF020079DD91 /* UserFirendCellView.m */,
+				38F12007173BDF350079DD91 /* UserFirendCellView.xib */,
 			);
 			path = UserFriend;
 			sourceTree = "<group>";
@@ -2130,6 +2156,8 @@
 				18C73BFD173A66970035BC61 /* room_small_btn_b.png in Resources */,
 				38F11FFC173BD97E0079DD91 /* defaultCover.jpg in Resources */,
 				38F11FFD173BD97E0079DD91 /* userCenter_Photo_Default@2x.png in Resources */,
+				38F12003173BDAB90079DD91 /* UserFriendView.xib in Resources */,
+				38F12008173BDF350079DD91 /* UserFirendCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2244,6 +2272,10 @@
 				18CBC822173B7C9500832E63 /* ImageOperation.m in Sources */,
 				18CBC825173B881300832E63 /* GMETLibs+NSFileManager.m in Sources */,
 				38F12001173BDA590079DD91 /* UserFriendView.m in Sources */,
+				38F12006173BDF020079DD91 /* UserFirendCellView.m in Sources */,
+				38F1200B173BFC870079DD91 /* UserUnFollowRequest.m in Sources */,
+				38F1200E173BFF5E0079DD91 /* UserFollowList.m in Sources */,
+				38F12011173BFF7D0079DD91 /* UserUnFollowList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
