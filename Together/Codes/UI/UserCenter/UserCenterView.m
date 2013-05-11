@@ -26,26 +26,68 @@
     _iSexLb.text = [_userInfo.sex intValue]?@"男":@"女";
     _iPraiseLb.text = [NSString stringWithFormat:@"%@",_userInfo.praiseNum];
     _iSignLb.text = [NSString stringWithFormat:@"个性签名 ：%@",_userInfo.signatureText];
-    if ([_userInfo.userId isEqualToNumber:[[GEMTUserManager shareInstance] getUserInfo].userId])
+   
+    if ([_userInfo.userId isEqualToNumber:[GEMTUserManager defaultManager].userInfo.userId])
     {
         [_iEditBtn setHidden:NO];
         [_iZanBtn setEnabled:NO];
     }
+
+    switch (_eType)
+    {
+        case followRelation_follow:
+            NSLog(@"follow");
+            break;
+        case followRelation_unFollow:
+             NSLog(@"unfollow");
+            break;
+        case followRelation_Own:
+             NSLog(@"ownfollow");
+            break;
+        default:
+            break;
+    }
+    
 }
 
 - (void)awakeFromNib
 {
     
+//    UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
+//    request.delegate = self;
+//    request.aUid = [NSString stringWithFormat:@"%@",_userInfo.userId];
+//    [[NetRequestManager defaultManager] startRequest:request];
 }
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    NSLog(@"%@",request.responseData.loginResponse.userInfo.nickName);
+    if ([request isKindOfClass:[UserPersonInfoRequest class]])
+    {
+        [[TipViewManager defaultManager] hideTipWithID:self
+                                             animation:YES];
+        if (!_userInfo)
+        {
+            self.userInfo = [[GEMTUserInfo alloc] init];
+        }
+        [_userInfo setUserInfoWithLoginResPonse:request.responseData.detailResponse.userInfo];
+        if ([_userInfo.userId isEqualToNumber:[GEMTUserManager defaultManager].userInfo.userId])
+        {
+            _eType = followRelation_Own;
+        }else
+        {
+            _eType = request.responseData.detailResponse.isFollow?followRelation_follow:followRelation_unFollow;
+        }
+        [self resetInfo];
+    }
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
 {
-    NSLog(@"%@",request.actionCode);
+    [[TipViewManager defaultManager] showTipText:@"网络繁忙"
+                                       imageName:@""
+                                          inView:self
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
 }
 
 - (void)changeUserInfo:(GEMTUserInfo*)aUserInfo
@@ -54,16 +96,38 @@
     [self resetInfo];
 }
 
+- (void)viewUserInfoWithUserId:(NSString*)aUserId
+{
+    [[TipViewManager defaultManager] showTipText:@"loading..."
+                                       imageName:@""
+                                          inView:self
+                                              ID:self];
+    
+    UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
+    request.delegate = self;
+    request.aUid = aUserId;
+    [[NetRequestManager defaultManager] startRequest:request];
+}
+
+- (IBAction)closeBtnDidPressed:(id)sender
+{
+    self.center = CGPointMake(160,274);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         self.center = CGPointMake(160*3,274);
+     }completion:^(BOOL isFinished)
+     {
+         [self removeFromSuperview];
+     }];
+}
 
 
 - (IBAction)viewOtherInfo:(id)sender
 {
-//    if (![[GEMTUserManager shareInstance] shouldAddLoginViewToTopView]) {
-        UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
-        request.delegate = self;
-        request.aUid = @"1";
-        [[NetRequestManager defaultManager] startRequest:request];
-//    }
+    UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
+    request.delegate = self;
+    request.aUid = @"1";
+    [[NetRequestManager defaultManager] startRequest:request];
 }
 
 - (IBAction)modifyInfo:(id)sender
@@ -76,9 +140,17 @@
 - (IBAction)followOther:(id)sender
 {
     UserFollowRequest *follow = [[UserFollowRequest alloc] init];
+    follow.followId = [NSString stringWithFormat:@"%@",_userInfo.userId];
     follow.delegate = self;
     [[NetRequestManager defaultManager] startRequest:follow];
-    
+}
+
+- (IBAction)unfollow:(id)sender
+{
+    UserUnFollowRequest *request = [[UserUnFollowRequest alloc] init];
+    request.delegate = self;
+    request.unFollowId = [NSString stringWithFormat:@"%@",_userInfo.userId];
+    [[NetRequestManager defaultManager] startRequest:request];
 }
 
 - (IBAction)pariseOthers:(id)sender
@@ -88,18 +160,18 @@
     [[NetRequestManager defaultManager] startRequest:request];
 }
 
-- (IBAction)unfollow:(id)sender
-{
-    UserUnFollowRequest *request = [[UserUnFollowRequest alloc] init];
-    request.delegate = self;
-    [[NetRequestManager defaultManager] startRequest:request];
-}
 
 - (IBAction)showFollowListBtnDidPressed:(id)sender
 {
     UserFriendView *frinedView = [UserFriendView loadFromNib];
     [frinedView showRightToCenterAnimation];
     [self addSubview:frinedView];
+    
+    frinedView.center = CGPointMake(160*3,274);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         frinedView.center = CGPointMake(160,274);
+     }];
 }
 
 - (IBAction)showFanListBtnDidPressed:(id)sender
@@ -107,7 +179,6 @@
     UserFriendView *frinedView = [UserFriendView loadFromNib];
     [self addSubview:frinedView];
 }
-
 
 
 - (IBAction)showMapViewBtnDidpressed:(id)sender
@@ -155,7 +226,7 @@
 
 - (IBAction)loginBtnDidPressed:(id)sender
 {
-    [[GEMTUserManager shareInstance] shouldAddLoginViewToTopView];
+    [[GEMTUserManager defaultManager] shouldAddLoginViewToTopView];
 }
 
 - (IBAction)editInfoBtnDidPressed:(id)sender

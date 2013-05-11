@@ -18,6 +18,13 @@
 @class GMETRecorder;
 @class GEMTUserInfo;
 
+typedef enum 
+{
+    followRelation_follow,
+    followRelation_unFollow,
+    followRelation_Own
+}eFollowRelation;
+
 @interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate,UserEditUserInfoViewDelegate>
 {
     __weak IBOutlet UIImageView     *_iAvatarImage;
@@ -25,6 +32,7 @@
     AVAudioPlayer                   *_player;
     PicChange                       *_avatar;
     GEMTUserInfo                    *_userInfo;
+    eFollowRelation                 _eType;
     
     __weak IBOutlet UILabel         *_iSexLb;
     __weak IBOutlet UILabel         *_iAgeLb;
@@ -38,6 +46,11 @@
 }
 
 @property (strong , nonatomic) GEMTUserInfo         *userInfo;
+
+
+//请求目录
+- (void)viewUserInfoWithUserId:(NSString*)aUserId;
+- (IBAction)closeBtnDidPressed:(id)sender;
 
 
 - (void)changeUserInfo:(GEMTUserInfo*)aUserInfo;

@@ -15,12 +15,15 @@ static GEMTUserManager *instance;
 @synthesize userInfo = _userInfo;
 @synthesize sId = _sId;
 
-+ (id)shareInstance
++ (GEMTUserManager*)defaultManager
 {
     
-    if (!instance)
+    @synchronized(self)
     {
-        instance = [[GEMTUserManager alloc] init];
+        if (!instance)
+        {
+         instance = [[GEMTUserManager alloc] init];
+        }
     }
     return instance;
 }
@@ -40,7 +43,7 @@ static GEMTUserManager *instance;
     return filePath;
 }
 
-- (GEMTUserInfo*)getUserInfo
+- (GEMTUserInfo*)userInfo
 {
     if (!_userInfo)
     {
@@ -156,7 +159,7 @@ static GEMTUserManager *instance;
                                          animation:YES];
     UserLoginRequest *tRequest = (UserLoginRequest*)request;
     
-    [[self getUserInfo] setUserInfoWithLoginResPonse:tRequest.responseData.loginResponse.userInfo];
+    [self.userInfo setUserInfoWithLoginResPonse:tRequest.responseData.loginResponse.userInfo];
     
     [self userName:tRequest.userName
           passWord:tRequest.password

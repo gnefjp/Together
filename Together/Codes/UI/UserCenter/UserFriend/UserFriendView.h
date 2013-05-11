@@ -13,6 +13,7 @@
 {
     __weak IBOutlet UILabel             *_iTitleLb;
     __weak IBOutlet UITableView         *_iFriendTable;
+    NSMutableArray                      *_dataArr;
 }
 
 

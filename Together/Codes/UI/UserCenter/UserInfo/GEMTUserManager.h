@@ -27,7 +27,7 @@
 @property (strong , nonatomic) GEMTUserInfo        *userInfo;
 @property (strong , nonatomic) NSString            *sId;
 
-- (GEMTUserInfo*)getUserInfo;
+- (GEMTUserInfo*)userInfo;
 - (void)userName:(NSString*)aUserName
         passWord:(NSString*)aPassWord
              sid:(NSString*)aId;
@@ -41,6 +41,6 @@
 - (void)LogInWithUserName:(NSString*)userName
                  passWord:(NSString*)passWord;
 - (void)LoginOut;
-+ (id)shareInstance;
++ (GEMTUserManager*)defaultManager;
 
 @end

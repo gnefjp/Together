@@ -64,13 +64,13 @@
 }
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    [[[GEMTUserManager shareInstance] getUserInfo] setUserInfoWithLoginResPonse:request.responseData.loginResponse.userInfo];
+    [[[GEMTUserManager defaultManager] userInfo] setUserInfoWithLoginResPonse:request.responseData.loginResponse.userInfo];
     
-    [[GEMTUserManager shareInstance] userName:request.responseData.loginResponse.userInfo.username
+    [[GEMTUserManager defaultManager] userName:request.responseData.loginResponse.userInfo.username
                                      passWord:_iPassWordTextFiled.text
                                           sid:request.responseData.loginResponse.sid];
     
-    [[GEMTUserManager shareInstance] userInfoWirteToFile];
+    [[GEMTUserManager defaultManager] userInfoWirteToFile];
     
     [[TipViewManager defaultManager] showTipText:@"请求成功"
                                        imageName:nil

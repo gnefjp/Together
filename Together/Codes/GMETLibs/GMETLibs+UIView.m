@@ -227,19 +227,19 @@
 
 - (void)showRightToCenterAnimation
 {
-    self.center = CGPointMake(160*3,274);
+    self.center = CGPointMake(160*3,294);
     [UIView animateWithDuration:0.4 animations:^(void)
      {
-         self.center = CGPointMake(160,274);
+         self.center = CGPointMake(160,294);
      }];
 }
 
 - (void)hideCenterToRightAnimation
 {
-    self.center = CGPointMake(160,274);
+    self.center = CGPointMake(160,294);
     [UIView animateWithDuration:0.4 animations:^(void)
      {
-         self.center = CGPointMake(160*3,274);
+         self.center = CGPointMake(160*3,294);
      }completion:^(BOOL isFinished)
      {
          [self removeFromSuperview];

@@ -16,8 +16,8 @@
 
 - (void)awakeFromNib
 {
-    _avartaBtn.tag =  [[[GEMTUserManager shareInstance] getUserInfo].avataId intValue];
-    _recordBtn.tag =  [[[GEMTUserManager shareInstance] getUserInfo].signatureRecordId intValue];
+    _avartaBtn.tag =  [[GEMTUserManager defaultManager].userInfo.avataId intValue];
+    _recordBtn.tag =  [[GEMTUserManager defaultManager].userInfo.signatureRecordId intValue];
 }
 
 - (void)viewDidLoad
@@ -59,7 +59,7 @@
                 
             }
             [_piker showViewPickerInView:self.view
-                          withDateString:[[GEMTUserManager shareInstance] getUserInfo].birthday];
+                          withDateString:[GEMTUserManager defaultManager].userInfo.birthday];
             
             break;
         }
@@ -96,13 +96,13 @@
         case 0:
         {
             cell.iLeftLb.text = @"昵称";
-            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].nickName;
+            cell.iRightLb.text = [GEMTUserManager defaultManager]. userInfo.nickName;
             break;
         }
         case 1:
         {
             cell.iLeftLb.text = @"性别";
-            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].sex ? @"男":@"女";
+            cell.iRightLb.text = [GEMTUserManager defaultManager].userInfo.sex ? @"男":@"女";
             break;
         }
         case 2:
@@ -110,13 +110,13 @@
 //            cell.iLeftLb.text = @"生日";
 //            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
 //            [formatter setDateFormat:@"yyyy-MM-dd"];
-            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].birthday;
+            cell.iRightLb.text = [GEMTUserManager defaultManager].userInfo.birthday;
             break;
         }
         case 3:
         {
             cell.iLeftLb.text = @"个性签名";
-            cell.iRightLb.text = [[GEMTUserManager shareInstance] getUserInfo].signatureText ;
+            cell.iRightLb.text = [GEMTUserManager defaultManager].userInfo.signatureText ;
             break;
         }
         default:
@@ -210,11 +210,11 @@
     NSString *birthDay = [self _getCellRightValueWithIndex:2];
     NSString *signName = [self _getCellRightValueWithIndex:3];
     
-    [[GEMTUserManager shareInstance] getUserInfo].nickName = nickName;
-    [[GEMTUserManager shareInstance] getUserInfo].sex = [NSNumber numberWithInt:[sexName isEqualToString:@"女"]?0:1];
-    [[GEMTUserManager shareInstance] getUserInfo].signatureText = signName;
-    [[[GEMTUserManager shareInstance] getUserInfo] setAge:birthDay];
-    [[GEMTUserManager shareInstance] userInfoWirteToFile];
+    [GEMTUserManager defaultManager].userInfo.nickName = nickName;
+    [GEMTUserManager defaultManager].userInfo.sex = [NSNumber numberWithInt:[sexName isEqualToString:@"女"]?0:1];
+    [GEMTUserManager defaultManager].userInfo.signatureText = signName;
+    [[GEMTUserManager defaultManager].userInfo setAge:birthDay];
+    [[GEMTUserManager defaultManager] userInfoWirteToFile];
     
     [_delegate UserEditDidSuccess:self];
     [self backBtnDidPressed:nil];

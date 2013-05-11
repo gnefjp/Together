@@ -28,7 +28,7 @@
     [request addPostValue:self.actionCode forKey:@"action"];
     [request addPostValue:@"1"
                    forKey:@"uid"];
-    [request addPostValue:[[GEMTUserManager shareInstance] sId]  forKey:@"sid"];
+    [request addPostValue:[[GEMTUserManager defaultManager] sId]  forKey:@"sid"];
     return request;
 }
 

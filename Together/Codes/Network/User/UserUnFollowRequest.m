@@ -10,6 +10,7 @@
 #import "GEMTUserManager.h"
 
 @implementation UserUnFollowRequest
+@synthesize unFollowId = _unFollowId;
 
 - (id) init
 {
@@ -26,9 +27,9 @@
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:@"1" forKey:@"unfollowed_id"];
+    [request addPostValue:_unFollowId forKey:@"unfollowed_id"];
     
-    [request addPostValue:[[GEMTUserManager shareInstance] sId]
+    [request addPostValue:[[GEMTUserManager defaultManager] sId]
                    forKey:@"sid"];
     return request;
 }

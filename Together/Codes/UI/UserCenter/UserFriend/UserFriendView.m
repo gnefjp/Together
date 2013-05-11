@@ -24,7 +24,7 @@
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    NSMutableArray *dataArr = [[NSMutableArray alloc] init];
+    _dataArr = [[NSMutableArray alloc] init];
     NSArray *arr =
     request.responseData.followedListResponse.peopleList.userInfoList;
     BOOL isEnd = request.responseData.followListResponse.peopleList.isEnd;
@@ -33,7 +33,7 @@
     {
         GEMTUserInfo *userinfo = [[GEMTUserInfo alloc] init];
         [userinfo setUserInfoWithLoginResPonse:[arr objectAtIndex:i]];
-        [dataArr addObject:userinfo];
+        [_dataArr addObject:userinfo];
     }
     [_iFriendTable reloadData];
 }
@@ -54,12 +54,24 @@
 
 - (IBAction)closeBtnDidPressed:(id)sender
 {
-    [self hideCenterToRightAnimation];
+    self.center = CGPointMake(160,274);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         self.center = CGPointMake(160*3,274);
+     }completion:^(BOOL isFinished)
+     {
+         [self removeFromSuperview];
+     }];
 }
 
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    return _dataArr.count;
     return 5;
 }
 

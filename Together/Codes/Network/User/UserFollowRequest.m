@@ -10,6 +10,7 @@
 #import "GEMTUserManager.h"
 
 @implementation UserFollowRequest
+@synthesize followId = _followId;
 
 - (id) init
 {
@@ -26,8 +27,8 @@
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:@"2" forKey:@"followed_id"];
-    [request addPostValue:[[GEMTUserManager shareInstance] sId]  forKey:@"sid"];
+    [request addPostValue:self.followId forKey:@"followed_id"];
+    [request addPostValue:[[GEMTUserManager defaultManager] sId]  forKey:@"sid"];
     return request;
 }
 

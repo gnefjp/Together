@@ -29,7 +29,7 @@
                    forKey:@"action"];
     [request setPostValue:self.aUid
                    forKey:@"visit_uid"];
-    [request setPostValue:[[GEMTUserManager shareInstance] sId]
+    [request setPostValue:[[GEMTUserManager defaultManager] sId]
                    forKey:@"sid"];
     [request buildPostBody];
     return request;

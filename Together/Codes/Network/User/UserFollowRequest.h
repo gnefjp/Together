@@ -10,6 +10,9 @@
 
 @interface UserFollowRequest : NetUserRequest
 {
-    
+    NSString            *_followId;
 }
+
+@property (nonatomic, retain)  NSString            *followId;
+
 @end

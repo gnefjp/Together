@@ -31,7 +31,7 @@
                    forKey:@"page_no"];
     [request addPostValue:[NSNumber numberWithInt:100]
                    forKey:@"page_size"];
-    [request addPostValue:[[GEMTUserManager shareInstance] sId]
+    [request addPostValue:[[GEMTUserManager defaultManager] sId]
                    forKey:@"sid"];
     return request;
 }

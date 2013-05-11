@@ -7,8 +7,12 @@
 //
 
 #import "UserFirendCellView.h"
+#import "UserCenterView.h"
+#import "GEMTUserManager.h"
 
 @implementation UserFirendCellView
+@synthesize isFollow = _isFollow;
+@synthesize userInfo = _userInfo;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -19,11 +23,31 @@
     return self;
 }
 
+- (void)initInfoWithUserInfo:(User_Info*)aUserInfo
+                    isFollow:(BOOL)isFollow
+{
+    if (!_userInfo) {
+        _userInfo = [[GEMTUserInfo alloc] init];
+    }
+    [_userInfo setUserInfoWithLoginResPonse:aUserInfo];
+    _isFollow = isFollow;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    if (selected) {
+        UserCenterView *uView = [UserCenterView loadFromNib];
+        [uView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",[GEMTUserManager defaultManager].userInfo.userId]];
+        [self.superview.superview addSubview:uView];
+        uView.center = CGPointMake(160*3,274);
+        [UIView animateWithDuration:0.4 animations:^(void)
+         {
+             uView.center = CGPointMake(160,274);
+         }];
+        
+    }
 }
+
 
 @end

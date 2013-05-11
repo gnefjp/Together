@@ -45,7 +45,7 @@
 //    [request addPostValue:self.recordId forKey:@"signature_record_id"];
 //    [request addPostValue:self.avatarId forKey:@"pic_id"];
     
-    [request addPostValue:[[GEMTUserManager shareInstance] sId] forKey:@"sid"];
+    [request addPostValue:[[GEMTUserManager defaultManager] sId] forKey:@"sid"];
     return request;
 }
 
