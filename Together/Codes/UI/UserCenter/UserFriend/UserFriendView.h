@@ -16,5 +16,6 @@
     NSMutableArray                      *_dataArr;
 }
 
-
+- (void)initWithFolloUserId:(NSString*)userId;
+- (void)initWithFanSUserId:(NSString*)userId;
 @end

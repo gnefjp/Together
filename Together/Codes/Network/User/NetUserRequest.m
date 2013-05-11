@@ -25,8 +25,8 @@
         USER_FOLLOW,
         USER_UNFOLLOW,
         USER_PRISE,
-        GET_FOLLOW_LIST,
-        GET_FOLLOWED_LIST,
+        GET_FOLLOWING_LIST,
+        GET_FOLLOWERS_LIST,
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];

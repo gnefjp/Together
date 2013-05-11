@@ -31,6 +31,7 @@
     }
     [_userInfo setUserInfoWithLoginResPonse:aUserInfo];
     _isFollow = isFollow;
+    _iNIckName.text = _userInfo.nickName;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -38,7 +39,7 @@
     [super setSelected:selected animated:animated];
     if (selected) {
         UserCenterView *uView = [UserCenterView loadFromNib];
-        [uView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",[GEMTUserManager defaultManager].userInfo.userId]];
+        [uView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",_userInfo.userId]];
         [self.superview.superview addSubview:uView];
         uView.center = CGPointMake(160*3,274);
         [UIView animateWithDuration:0.4 animations:^(void)

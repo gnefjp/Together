@@ -6,17 +6,18 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import "UserUnFollowList.h"
+#import "UserFansList.h"
 #import "GEMTUserManager.h"
 
-@implementation UserUnFollowList
+@implementation UserFansList
+@synthesize fansUserId = _fansUserId;
 
 - (id) init
 {
     self = [super init];
     if (self)
     {
-        self.requestType = NetUserRequestType_UnFollowList;
+        self.requestType = NetUserRequestType_FansList;
     }
     return self;
 }
@@ -33,6 +34,7 @@
                    forKey:@"page_size"];
     [request addPostValue:[[GEMTUserManager defaultManager] sId]
                    forKey:@"sid"];
+    [request addPostValue:self.fansUserId  forKey:@"uid"];
     return request;
 }
 

@@ -18,7 +18,7 @@ typedef enum
     NetUserRequestType_UnFollow     = 5,
     NetUserRequestType_Zan          = 6,
     NetUserRequestType_FollowList   = 7,
-    NetUserRequestType_UnFollowList = 8,
+    NetUserRequestType_FansList     = 8,
     NetUserRequestType_Max          = 9,
 } NetUserRequestType;
 

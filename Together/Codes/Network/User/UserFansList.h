@@ -8,6 +8,11 @@
 
 #import "NetUserRequest.h"
 
-@interface UserUnFollowList : NetUserRequest
+@interface UserFansList : NetUserRequest
+{
+    NSString            *_fansUserId;
+}
+
+@property (strong , nonatomic)  NSString            *fansUserId;
 
 @end

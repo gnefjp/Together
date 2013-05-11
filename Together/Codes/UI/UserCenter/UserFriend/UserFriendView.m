@@ -9,7 +9,8 @@
 #import "UserFriendView.h"
 #import "UserFirendCellView.h"
 #import "GEMTUserInfo.h"
-#import "UserUnFollowList.h"
+#import "UserUnFollowRequest.h"
+#import "UserFansList.h"
 
 @implementation UserFriendView
 
@@ -25,16 +26,18 @@
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
     _dataArr = [[NSMutableArray alloc] init];
-    NSArray *arr =
-    request.responseData.followedListResponse.peopleList.userInfoList;
-    BOOL isEnd = request.responseData.followListResponse.peopleList.isEnd;
-    NSLog(@"%d",isEnd);
-    for (int i = 0 ; i<arr.count; i++)
+    NSArray *arr;
+    if ([request isKindOfClass:[UserFollowList class]])
     {
-        GEMTUserInfo *userinfo = [[GEMTUserInfo alloc] init];
-        [userinfo setUserInfoWithLoginResPonse:[arr objectAtIndex:i]];
-        [_dataArr addObject:userinfo];
+        arr =
+        request.responseData.followListResponse.peopleList.userDetailListList;
     }
+    else if ([request isKindOfClass:[UserFansList class]])
+    {
+        arr =
+        request.responseData.followedListResponse.peopleList.userDetailListList;
+    }
+    [_dataArr addObjectsFromArray:arr];
     [_iFriendTable reloadData];
 }
 
@@ -47,9 +50,24 @@
 {
     _iFriendTable.delegate = self;
     _iFriendTable.dataSource = self;
-    UserUnFollowList *followList = [[UserUnFollowList alloc] init];
+}
+
+- (void)initWithFolloUserId:(NSString*)userId
+{
+    UserFollowList *followList = [[UserFollowList alloc] init];
     followList.delegate = self;
+    followList.requestUserId = userId;
     [[NetRequestManager defaultManager] startRequest:followList];
+    _iTitleLb.text = @"关注";
+}
+
+- (void)initWithFanSUserId:(NSString*)userId
+{
+    UserFansList *fansList = [[UserFansList alloc] init];
+    fansList.delegate = self;
+    fansList.fansUserId = userId;
+    [[NetRequestManager defaultManager] startRequest:fansList];
+    _iTitleLb.text = @"粉丝";
 }
 
 - (IBAction)closeBtnDidPressed:(id)sender
@@ -71,13 +89,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return _dataArr.count;
-    return 5;
+    return _dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UserFirendCellView *friendCellView = [UserFirendCellView loadFromNib];
+    UserFirendCellView *friendCellView = [tableView dequeueReusableCellWithIdentifier:@"friendCell"];
+    if (!friendCellView) {
+        friendCellView = [UserFirendCellView loadFromNib];
+    }
+    DetailResponse *detail = [_dataArr objectAtIndex:indexPath.row];
+    [friendCellView initInfoWithUserInfo:detail.userInfo isFollow:detail.isFollow];
+    
     return friendCellView;
 }
 

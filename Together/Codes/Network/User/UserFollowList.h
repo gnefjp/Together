@@ -9,6 +9,10 @@
 #import "NetUserRequest.h"
 
 @interface UserFollowList : NetUserRequest
+{
+    NSString            *_requestUserId;
+    
+}
 
-
+@property (strong , nonatomic)  NSString  *requestUserId;
 @end

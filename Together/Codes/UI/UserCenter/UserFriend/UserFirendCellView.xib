@@ -44,17 +44,21 @@
 							<object class="IBUIImageView" id="576860190">
 								<reference key="NSNextResponder" ref="1039614435"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{11, 8}, {48, 41}}</string>
+								<string key="NSFrame">{{8, 2}, {57, 49}}</string>
 								<reference key="NSSuperview" ref="1039614435"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">userDefaultPhoto.png</string>
+								</object>
 							</object>
 							<object class="IBUILabel" id="888042877">
 								<reference key="NSNextResponder" ref="1039614435"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{81, 20}, {233, 29}}</string>
+								<string key="NSFrame">{{74, 12}, {158, 29}}</string>
 								<reference key="NSSuperview" ref="1039614435"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -140,6 +144,7 @@
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="1039614435"/>
+				<string key="IBUIReuseIdentifier">friendCell</string>
 				<real value="55" key="IBUIRowHeight"/>
 			</object>
 		</array>
@@ -185,9 +190,9 @@
 						<int key="objectID">3</int>
 						<reference key="object" ref="938812669"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="576860190"/>
-							<reference ref="888042877"/>
 							<reference ref="894138776"/>
+							<reference ref="888042877"/>
+							<reference ref="576860190"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -254,6 +259,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">userDefaultPhoto.png</string>
+			<string key="NS.object.0">{194, 194}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

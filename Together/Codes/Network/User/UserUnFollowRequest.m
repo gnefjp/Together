@@ -27,7 +27,7 @@
     NSURL* url = [NSURL URLWithString:self.requestUrl];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:_unFollowId forKey:@"unfollowed_id"];
+    [request addPostValue:_unFollowId forKey:@"uid"];
     
     [request addPostValue:[[GEMTUserManager defaultManager] sId]
                    forKey:@"sid"];

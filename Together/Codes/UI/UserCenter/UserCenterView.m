@@ -140,7 +140,8 @@
 - (IBAction)followOther:(id)sender
 {
     UserFollowRequest *follow = [[UserFollowRequest alloc] init];
-    follow.followId = [NSString stringWithFormat:@"%@",_userInfo.userId];
+//    follow.followId = [NSString stringWithFormat:@"%@",_userInfo.userId];
+    follow.followId =@"1";
     follow.delegate = self;
     [[NetRequestManager defaultManager] startRequest:follow];
 }
@@ -149,7 +150,8 @@
 {
     UserUnFollowRequest *request = [[UserUnFollowRequest alloc] init];
     request.delegate = self;
-    request.unFollowId = [NSString stringWithFormat:@"%@",_userInfo.userId];
+//    request.unFollowId = [NSString stringWithFormat:@"%@",_userInfo.userId];
+     request.unFollowId = @"1";
     [[NetRequestManager defaultManager] startRequest:request];
 }
 
@@ -164,6 +166,7 @@
 - (IBAction)showFollowListBtnDidPressed:(id)sender
 {
     UserFriendView *frinedView = [UserFriendView loadFromNib];
+    [frinedView initWithFolloUserId:[NSString stringWithFormat:@"%@",_userInfo.userId]];
     [frinedView showRightToCenterAnimation];
     [self addSubview:frinedView];
     
@@ -177,7 +180,16 @@
 - (IBAction)showFanListBtnDidPressed:(id)sender
 {
     UserFriendView *frinedView = [UserFriendView loadFromNib];
+    [frinedView initWithFanSUserId:[NSString stringWithFormat:@"%@",_userInfo.userId]];
+    [frinedView showRightToCenterAnimation];
     [self addSubview:frinedView];
+    
+    frinedView.center = CGPointMake(160*3,274);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         frinedView.center = CGPointMake(160,274);
+     }];
+
 }
 
 

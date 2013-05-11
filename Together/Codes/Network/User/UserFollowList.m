@@ -10,6 +10,7 @@
 #import "GEMTUserManager.h"
 
 @implementation UserFollowList
+@synthesize requestUserId = _requestUserId;
 
 - (id) init
 {
@@ -31,6 +32,7 @@
                    forKey:@"page_no"];
     [request addPostValue:[NSNumber numberWithInt:100]
                    forKey:@"page_size"];
+    [request addPostValue:self.requestUserId forKey:@"uid"];
     [request addPostValue:[[GEMTUserManager defaultManager] sId]
                    forKey:@"sid"];
     return request;
