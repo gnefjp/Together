@@ -2,23 +2,12 @@
 
 #import "ProtocolBuffers.h"
 
-#import "Data.pb.h"
 #import "UserData.pb.h"
 
-@class Address;
-@class Address_Builder;
 @class DetailResponse;
 @class DetailResponse_Builder;
-@class FollowListResponse;
-@class FollowListResponse_Builder;
-@class FollowedListResponse;
-@class FollowedListResponse_Builder;
-@class List;
-@class List_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
-@class RoomInfo;
-@class RoomInfo_Builder;
 @class User_Info;
 @class User_Info_Builder;
 @class UsernameExistResponse;
@@ -194,105 +183,5 @@
 - (BOOL) isExist;
 - (UsernameExistResponse_Builder*) setIsExist:(BOOL) value;
 - (UsernameExistResponse_Builder*) clearIsExist;
-@end
-
-@interface FollowListResponse : PBGeneratedMessage {
-@private
-  BOOL hasPeopleList_:1;
-  List* peopleList;
-}
-- (BOOL) hasPeopleList;
-@property (readonly, retain) List* peopleList;
-
-+ (FollowListResponse*) defaultInstance;
-- (FollowListResponse*) defaultInstance;
-
-- (BOOL) isInitialized;
-- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
-- (FollowListResponse_Builder*) builder;
-+ (FollowListResponse_Builder*) builder;
-+ (FollowListResponse_Builder*) builderWithPrototype:(FollowListResponse*) prototype;
-
-+ (FollowListResponse*) parseFromData:(NSData*) data;
-+ (FollowListResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-+ (FollowListResponse*) parseFromInputStream:(NSInputStream*) input;
-+ (FollowListResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-+ (FollowListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
-+ (FollowListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-@end
-
-@interface FollowListResponse_Builder : PBGeneratedMessage_Builder {
-@private
-  FollowListResponse* result;
-}
-
-- (FollowListResponse*) defaultInstance;
-
-- (FollowListResponse_Builder*) clear;
-- (FollowListResponse_Builder*) clone;
-
-- (FollowListResponse*) build;
-- (FollowListResponse*) buildPartial;
-
-- (FollowListResponse_Builder*) mergeFrom:(FollowListResponse*) other;
-- (FollowListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
-- (FollowListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-
-- (BOOL) hasPeopleList;
-- (List*) peopleList;
-- (FollowListResponse_Builder*) setPeopleList:(List*) value;
-- (FollowListResponse_Builder*) setPeopleListBuilder:(List_Builder*) builderForValue;
-- (FollowListResponse_Builder*) mergePeopleList:(List*) value;
-- (FollowListResponse_Builder*) clearPeopleList;
-@end
-
-@interface FollowedListResponse : PBGeneratedMessage {
-@private
-  BOOL hasPeopleList_:1;
-  List* peopleList;
-}
-- (BOOL) hasPeopleList;
-@property (readonly, retain) List* peopleList;
-
-+ (FollowedListResponse*) defaultInstance;
-- (FollowedListResponse*) defaultInstance;
-
-- (BOOL) isInitialized;
-- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
-- (FollowedListResponse_Builder*) builder;
-+ (FollowedListResponse_Builder*) builder;
-+ (FollowedListResponse_Builder*) builderWithPrototype:(FollowedListResponse*) prototype;
-
-+ (FollowedListResponse*) parseFromData:(NSData*) data;
-+ (FollowedListResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-+ (FollowedListResponse*) parseFromInputStream:(NSInputStream*) input;
-+ (FollowedListResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-+ (FollowedListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
-+ (FollowedListResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-@end
-
-@interface FollowedListResponse_Builder : PBGeneratedMessage_Builder {
-@private
-  FollowedListResponse* result;
-}
-
-- (FollowedListResponse*) defaultInstance;
-
-- (FollowedListResponse_Builder*) clear;
-- (FollowedListResponse_Builder*) clone;
-
-- (FollowedListResponse*) build;
-- (FollowedListResponse*) buildPartial;
-
-- (FollowedListResponse_Builder*) mergeFrom:(FollowedListResponse*) other;
-- (FollowedListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
-- (FollowedListResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
-
-- (BOOL) hasPeopleList;
-- (List*) peopleList;
-- (FollowedListResponse_Builder*) setPeopleList:(List*) value;
-- (FollowedListResponse_Builder*) setPeopleListBuilder:(List_Builder*) builderForValue;
-- (FollowedListResponse_Builder*) mergePeopleList:(List*) value;
-- (FollowedListResponse_Builder*) clearPeopleList;
 @end
 

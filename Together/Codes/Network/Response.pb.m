@@ -13,6 +13,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     PBMutableExtensionRegistry* registry = [PBMutableExtensionRegistry registry];
     [self registerAllExtensions:registry];
     [UserResponseRoot registerAllExtensions:registry];
+    [UserListResponseRoot registerAllExtensions:registry];
     [RoomResponseRoot registerAllExtensions:registry];
     extensionRegistry = [registry retain];
   }
@@ -33,6 +34,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property (retain) RoomInfoResponse* roomInfoResponse;
 @property (retain) FollowListResponse* followListResponse;
 @property (retain) FollowedListResponse* followedListResponse;
+@property (retain) UserRoomListResponse* userRoomListResponse;
 @end
 
 @implementation HTTPResponse
@@ -119,6 +121,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasFollowedListResponse_ = !!value;
 }
 @synthesize followedListResponse;
+- (BOOL) hasUserRoomListResponse {
+  return !!hasUserRoomListResponse_;
+}
+- (void) setHasUserRoomListResponse:(BOOL) value {
+  hasUserRoomListResponse_ = !!value;
+}
+@synthesize userRoomListResponse;
 - (void) dealloc {
   self.msg = nil;
   self.loginResponse = nil;
@@ -129,6 +138,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
   self.roomInfoResponse = nil;
   self.followListResponse = nil;
   self.followedListResponse = nil;
+  self.userRoomListResponse = nil;
   [super dealloc];
 }
 - (id) init {
@@ -144,6 +154,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.roomInfoResponse = [RoomInfoResponse defaultInstance];
     self.followListResponse = [FollowListResponse defaultInstance];
     self.followedListResponse = [FollowedListResponse defaultInstance];
+    self.userRoomListResponse = [UserRoomListResponse defaultInstance];
   }
   return self;
 }
@@ -196,6 +207,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (self.hasFollowedListResponse) {
     [output writeMessage:11 value:self.followedListResponse];
   }
+  if (self.hasUserRoomListResponse) {
+    [output writeMessage:12 value:self.userRoomListResponse];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -237,6 +251,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   }
   if (self.hasFollowedListResponse) {
     size += computeMessageSize(11, self.followedListResponse);
+  }
+  if (self.hasUserRoomListResponse) {
+    size += computeMessageSize(12, self.userRoomListResponse);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -346,6 +363,9 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
   if (other.hasFollowedListResponse) {
     [self mergeFollowedListResponse:other.followedListResponse];
   }
+  if (other.hasUserRoomListResponse) {
+    [self mergeUserRoomListResponse:other.userRoomListResponse];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -449,6 +469,15 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
         }
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self setFollowedListResponse:[subBuilder buildPartial]];
+        break;
+      }
+      case 98: {
+        UserRoomListResponse_Builder* subBuilder = [UserRoomListResponse builder];
+        if (self.hasUserRoomListResponse) {
+          [subBuilder mergeFrom:self.userRoomListResponse];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setUserRoomListResponse:[subBuilder buildPartial]];
         break;
       }
     }
@@ -740,6 +769,36 @@ static HTTPResponse* defaultHTTPResponseInstance = nil;
 - (HTTPResponse_Builder*) clearFollowedListResponse {
   result.hasFollowedListResponse = NO;
   result.followedListResponse = [FollowedListResponse defaultInstance];
+  return self;
+}
+- (BOOL) hasUserRoomListResponse {
+  return result.hasUserRoomListResponse;
+}
+- (UserRoomListResponse*) userRoomListResponse {
+  return result.userRoomListResponse;
+}
+- (HTTPResponse_Builder*) setUserRoomListResponse:(UserRoomListResponse*) value {
+  result.hasUserRoomListResponse = YES;
+  result.userRoomListResponse = value;
+  return self;
+}
+- (HTTPResponse_Builder*) setUserRoomListResponseBuilder:(UserRoomListResponse_Builder*) builderForValue {
+  return [self setUserRoomListResponse:[builderForValue build]];
+}
+- (HTTPResponse_Builder*) mergeUserRoomListResponse:(UserRoomListResponse*) value {
+  if (result.hasUserRoomListResponse &&
+      result.userRoomListResponse != [UserRoomListResponse defaultInstance]) {
+    result.userRoomListResponse =
+      [[[UserRoomListResponse builderWithPrototype:result.userRoomListResponse] mergeFrom:value] buildPartial];
+  } else {
+    result.userRoomListResponse = value;
+  }
+  result.hasUserRoomListResponse = YES;
+  return self;
+}
+- (HTTPResponse_Builder*) clearUserRoomListResponse {
+  result.hasUserRoomListResponse = NO;
+  result.userRoomListResponse = [UserRoomListResponse defaultInstance];
   return self;
 }
 @end

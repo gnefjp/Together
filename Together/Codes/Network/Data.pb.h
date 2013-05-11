@@ -4,15 +4,22 @@
 
 #import "RoomData.pb.h"
 #import "UserData.pb.h"
+#import "UserResponse.pb.h"
 
 @class Address;
 @class Address_Builder;
+@class DetailResponse;
+@class DetailResponse_Builder;
 @class List;
 @class List_Builder;
+@class LoginResponse;
+@class LoginResponse_Builder;
 @class RoomInfo;
 @class RoomInfo_Builder;
 @class User_Info;
 @class User_Info_Builder;
+@class UsernameExistResponse;
+@class UsernameExistResponse_Builder;
 
 @interface DataRoot : NSObject {
 }
@@ -26,6 +33,7 @@
   BOOL isEnd_:1;
   NSMutableArray* mutableRoomInfoListList;
   NSMutableArray* mutableUserInfoList;
+  NSMutableArray* mutableUserDetailListList;
 }
 - (BOOL) hasIsEnd;
 - (BOOL) isEnd;
@@ -33,6 +41,8 @@
 - (RoomInfo*) roomInfoListAtIndex:(int32_t) index;
 - (NSArray*) userInfoList;
 - (User_Info*) userInfoAtIndex:(int32_t) index;
+- (NSArray*) userDetailListList;
+- (DetailResponse*) userDetailListAtIndex:(int32_t) index;
 
 + (List*) defaultInstance;
 - (List*) defaultInstance;
@@ -86,5 +96,12 @@
 - (List_Builder*) addUserInfo:(User_Info*) value;
 - (List_Builder*) addAllUserInfo:(NSArray*) values;
 - (List_Builder*) clearUserInfoList;
+
+- (NSArray*) userDetailListList;
+- (DetailResponse*) userDetailListAtIndex:(int32_t) index;
+- (List_Builder*) replaceUserDetailListAtIndex:(int32_t) index with:(DetailResponse*) value;
+- (List_Builder*) addUserDetailList:(DetailResponse*) value;
+- (List_Builder*) addAllUserDetailList:(NSArray*) values;
+- (List_Builder*) clearUserDetailListList;
 @end
 

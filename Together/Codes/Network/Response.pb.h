@@ -3,6 +3,7 @@
 #import "ProtocolBuffers.h"
 
 #import "UserResponse.pb.h"
+#import "UserListResponse.pb.h"
 #import "RoomResponse.pb.h"
 
 @class Address;
@@ -27,6 +28,8 @@
 @class RoomPeopleListResponse_Builder;
 @class ShowRoomListResponse;
 @class ShowRoomListResponse_Builder;
+@class UserRoomListResponse;
+@class UserRoomListResponse_Builder;
 @class User_Info;
 @class User_Info_Builder;
 @class UsernameExistResponse;
@@ -51,6 +54,7 @@
   BOOL hasRoomInfoResponse_:1;
   BOOL hasFollowListResponse_:1;
   BOOL hasFollowedListResponse_:1;
+  BOOL hasUserRoomListResponse_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
@@ -62,6 +66,7 @@
   RoomInfoResponse* roomInfoResponse;
   FollowListResponse* followListResponse;
   FollowedListResponse* followedListResponse;
+  UserRoomListResponse* userRoomListResponse;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
@@ -74,6 +79,7 @@
 - (BOOL) hasRoomInfoResponse;
 - (BOOL) hasFollowListResponse;
 - (BOOL) hasFollowedListResponse;
+- (BOOL) hasUserRoomListResponse;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
@@ -85,6 +91,7 @@
 @property (readonly, retain) RoomInfoResponse* roomInfoResponse;
 @property (readonly, retain) FollowListResponse* followListResponse;
 @property (readonly, retain) FollowedListResponse* followedListResponse;
+@property (readonly, retain) UserRoomListResponse* userRoomListResponse;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -190,5 +197,12 @@
 - (HTTPResponse_Builder*) setFollowedListResponseBuilder:(FollowedListResponse_Builder*) builderForValue;
 - (HTTPResponse_Builder*) mergeFollowedListResponse:(FollowedListResponse*) value;
 - (HTTPResponse_Builder*) clearFollowedListResponse;
+
+- (BOOL) hasUserRoomListResponse;
+- (UserRoomListResponse*) userRoomListResponse;
+- (HTTPResponse_Builder*) setUserRoomListResponse:(UserRoomListResponse*) value;
+- (HTTPResponse_Builder*) setUserRoomListResponseBuilder:(UserRoomListResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeUserRoomListResponse:(UserRoomListResponse*) value;
+- (HTTPResponse_Builder*) clearUserRoomListResponse;
 @end
 
