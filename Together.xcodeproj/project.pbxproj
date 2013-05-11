@@ -107,6 +107,7 @@
 		18D41DF717294BD500D0C950 /* RoomCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF217294BD500D0C950 /* RoomCreateViewController.xib */; };
 		18D41DF817294BD500D0C950 /* RoomInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF417294BD500D0C950 /* RoomInfoCell.m */; };
 		18D41DF917294BD500D0C950 /* RoomInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF517294BD500D0C950 /* RoomInfoCell.xib */; };
+		18D4C419173DEE2A00CB74A1 /* UserListResponse.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4C418173DEE2A00CB74A1 /* UserListResponse.pb.m */; };
 		18D5D0B9172BAF9300799BF7 /* common_blue_btn_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D5D0B7172BAF9300799BF7 /* common_blue_btn_a.png */; };
 		18D5D0BA172BAF9300799BF7 /* common_blue_btn_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D5D0B8172BAF9300799BF7 /* common_blue_btn_b.png */; };
 		18D5D0BD172BB27A00799BF7 /* room_gender_limit_girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D5D0BB172BB27A00799BF7 /* room_gender_limit_girl.png */; };
@@ -750,6 +751,8 @@
 		18D41DF317294BD500D0C950 /* RoomInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfoCell.h; sourceTree = "<group>"; };
 		18D41DF417294BD500D0C950 /* RoomInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfoCell.m; sourceTree = "<group>"; };
 		18D41DF517294BD500D0C950 /* RoomInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomInfoCell.xib; sourceTree = "<group>"; };
+		18D4C417173DEE2A00CB74A1 /* UserListResponse.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListResponse.pb.h; sourceTree = "<group>"; };
+		18D4C418173DEE2A00CB74A1 /* UserListResponse.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListResponse.pb.m; sourceTree = "<group>"; };
 		18D5D0B7172BAF9300799BF7 /* common_blue_btn_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_blue_btn_a.png; sourceTree = "<group>"; };
 		18D5D0B8172BAF9300799BF7 /* common_blue_btn_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_blue_btn_b.png; sourceTree = "<group>"; };
 		18D5D0BB172BB27A00799BF7 /* room_gender_limit_girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_gender_limit_girl.png; sourceTree = "<group>"; };
@@ -1524,6 +1527,8 @@
 		18C6D59517279DE000184AFA /* DataFormat */ = {
 			isa = PBXGroup;
 			children = (
+				18D4C417173DEE2A00CB74A1 /* UserListResponse.pb.h */,
+				18D4C418173DEE2A00CB74A1 /* UserListResponse.pb.m */,
 				18C6D59617279DE000184AFA /* UserData.pb.h */,
 				18C6D59717279DE000184AFA /* UserData.pb.m */,
 			);
@@ -2314,6 +2319,7 @@
 				18C9A337173CD365002FA0E4 /* CommonTool.m in Sources */,
 				18C9A33C173CDAD7002FA0E4 /* GTMBase64.m in Sources */,
 				18C9A342173CE7B8002FA0E4 /* RoomViewController.m in Sources */,
+				18D4C419173DEE2A00CB74A1 /* UserListResponse.pb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
