@@ -78,4 +78,61 @@
     return [dateFormatter dateFromString:self];
 }
 
+
+- (NSString *)URLEncodedString
+{
+    NSString *result = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                           (CFStringRef)self,
+                                                                           NULL,
+																		   CFSTR("!*'();:@&=+$,/?%#[]"),
+                                                                           kCFStringEncodingUTF8);
+	return result;
+}
+
+
+- (NSString*)URLDecodedString
+{
+	NSString *result = (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+																						   (CFStringRef)self,
+																						   CFSTR(""),
+																						   kCFStringEncodingUTF8);
+	return result;
+}
+
+
++ (NSDictionary*) urlArgsDictionaryFromString:(NSString*)string
+{
+    NSArray* array = [string componentsSeparatedByString:@"&"];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:[array count]];
+    
+    for (NSString* keyValue in array)
+    {
+        NSRange range = [keyValue rangeOfString:@"="];
+        if (range.location == NSNotFound)
+        {
+            [dict setValue:@"" forKey:keyValue];
+        }
+        else
+        {
+            NSString* key = [keyValue substringToIndex:range.location];
+            NSString* value = [keyValue substringFromIndex:range.location + range.length];
+            [dict setValue:[value URLDecodedString] forKey:key];
+        }
+    }
+    return dict;
+}
+
+
++ (NSString*)  urlArgsStringFromDictionary:(NSDictionary*)dict
+{
+    NSMutableArray* keyValues = [NSMutableArray arrayWithCapacity:[dict count]];
+    for (NSString* key in dict)
+    {
+        NSString* value = [dict objectForKey:key];
+        NSString* keyValue = [NSString stringWithFormat:@"%@=%@", key, [value URLEncodedString]];
+        [keyValues addObject:keyValue];
+    }
+    return [keyValues componentsJoinedByString:@"&"];
+}
+
 @end

@@ -10,4 +10,6 @@
 
 @interface RoomJoinRequest : NetRoomRequest
 
+//@property (copy, nonatomic) NSString
+
 @end

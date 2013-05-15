@@ -11,6 +11,7 @@
 @interface FileUploadRequest : NetFileRequest
 
 @property (strong, nonatomic) UIImage   *image;
+
 @property (copy,   nonatomic) NSString  *filePath;
 @property (copy,   nonatomic) NSString  *userID;
 @property (copy,   nonatomic) NSString  *sid;

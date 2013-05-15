@@ -36,32 +36,37 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.actionCode forKey:@"action"];
     
-    [request addPostValue:_sid forKey:@"sid"];
-    [request addPostValue:_ownerID forKey:@"userId"];
-    [request addPostValue:_ownerNickname forKey:@"nickName"];
+    [dict setValue:_sid forKey:@"sid"];
+    [dict setValue:_ownerID forKey:@"userId"];
+    [dict setValue:_ownerNickname forKey:@"nickName"];
     
-    [request addPostValue:_roomTitle forKey:@"title"];
-    [request addPostValue:[NSString stringWithInt:_roomType] forKey:@"type"];
+    [dict setValue:_roomTitle forKey:@"title"];
+    [dict setValue:[NSString stringWithInt:_roomType] forKey:@"type"];
     
-    [request addPostValue:[self _formatBeginTime] forKey:@"beginTime"];
+    [dict setValue:[self _formatBeginTime] forKey:@"beginTime"];
     
-    [request addPostValue:[NSString stringWithInt:_personNumLimit] forKey:@"limitPersonNum"];
-    [request addPostValue:[NSString stringWithInt:_genderType] forKey:@"genderType"];
+    [dict setValue:[NSString stringWithInt:_personNumLimit] forKey:@"limitPersonNum"];
+    [dict setValue:[NSString stringWithInt:_genderType] forKey:@"genderType"];
     
-    [request addPostValue:[NSString stringWithDouble:_address.location.coordinate.longitude]
-                   forKey:@"longitude"];
-    [request addPostValue:[NSString stringWithDouble:_address.location.coordinate.latitude]
-                   forKey:@"latitude"];
-    [request addPostValue:_address.detailAddr forKey:@"detailAddr"];
-    [request addPostValue:_address.addrRemark forKey:@"addrRemark"];
+    [dict setValue:[NSString stringWithDouble:_address.location.coordinate.longitude]
+            forKey:@"longitude"];
+    [dict setValue:[NSString stringWithDouble:_address.location.coordinate.latitude]
+            forKey:@"latitude"];
+    [dict setValue:_address.detailAddr forKey:@"detailAddr"];
+    [dict setValue:_address.addrRemark forKey:@"addrRemark"];
     
     _previewID = ([_previewID length] < 1) ? [NSString stringWithInt:_roomType] : _previewID;
-    [request addPostValue:_previewID forKey:@"picId"];
-    [request addPostValue:_recordID forKey:@"recordId"];
+    [dict setValue:_previewID forKey:@"picId"];
+    [dict setValue:_recordID forKey:@"recordId"];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
+                        self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
+    
+    NSURL* url = [NSURL URLWithString:urlStr];
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     
     return request;
 }

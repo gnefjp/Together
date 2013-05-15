@@ -20,4 +20,10 @@
 - (NSString *) timestampToDateUsingFormat:(NSString*)format;
 - (NSDate *) stringToDateWithFormat:(NSString *)format;
 
+- (NSString *)URLEncodedString;
+- (NSString*)URLDecodedString;
+
++ (NSDictionary*) urlArgsDictionaryFromString:(NSString*)string;
++ (NSString*)  urlArgsStringFromDictionary:(NSDictionary*)dict;
+
 @end

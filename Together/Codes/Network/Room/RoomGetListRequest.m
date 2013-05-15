@@ -10,11 +10,6 @@
 
 @implementation RoomGetListRequest
 
-//- (NSString *) requestUrl
-//{
-//    return @"http://192.168.1.102/ROOM";
-//}
-
 
 - (id) init
 {
@@ -29,17 +24,22 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:[NSString stringWithInt:self.roomType] forKey:@"roomType"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.actionCode forKey:@"action"];
+    [dict setValue:[NSString stringWithInt:self.roomType] forKey:@"roomType"];
     
-    [request addPostValue:[NSString stringWithDouble:self.location.longitude] forKey:@"longitude"];
-    [request addPostValue:[NSString stringWithDouble:self.location.latitude] forKey:@"latitude"];
-    [request addPostValue:[NSString stringWithFloat:self.range] forKey:@"range"];
+    [dict setValue:[NSString stringWithDouble:self.location.longitude] forKey:@"longitude"];
+    [dict setValue:[NSString stringWithDouble:self.location.latitude] forKey:@"latitude"];
+    [dict setValue:[NSString stringWithFloat:self.range] forKey:@"range"];
     
-    [request addPostValue:[NSString stringWithInt:self.pageNum + 1] forKey:@"pageNo"];
-    [request addPostValue:[NSString stringWithInt:self.pageSize] forKey:@"pageSize"];
+    [dict setValue:[NSString stringWithInt:self.pageNum + 1] forKey:@"pageNo"];
+    [dict setValue:[NSString stringWithInt:self.pageSize] forKey:@"pageSize"];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
+                        self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
+    
+    NSURL* url = [NSURL URLWithString:urlStr];
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     
     return request;
 }

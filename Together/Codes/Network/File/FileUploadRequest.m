@@ -40,7 +40,8 @@
     NSData *fileData = nil;
     if (_image == nil)
     {
-        [request addPostValue:[self.filePath pathExtension] forKey:@"suffix"];
+        [request addPostValue:[NSString stringWithFormat:@".%@", [self.filePath pathExtension]]
+                       forKey:@"suffix"];
         fileData = [NSData dataWithContentsOfFile:_filePath];
     }
     else
@@ -51,9 +52,6 @@
     
     [request addPostValue:[[NSString md5FromData:fileData] lowercaseString] forKey:@"md5"];
     NSString *fileDataStr = [GTMBase64 stringByEncodingData:fileData];
-    NSLog(@"---------------------------------");
-    NSLog(@"%@",fileDataStr);
-    NSLog(@"---------------------------------");
     [request addPostValue:fileDataStr forKey:@"filedata"];
     
     return request;

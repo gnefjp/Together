@@ -26,8 +26,8 @@
 
 static NSString* s_titles[] = {
     @"标题",
-    @"人数限制",
     @"开始时间",
+    @"人数限制",
     @"性别限制",
     @"地址",
 };
@@ -437,7 +437,7 @@ static NSString* s_roomTypeNames[] = {
     
     if (_infoTableView.visibleCells.count > 2)
     {
-        RoomInfoCell* cell = [_infoTableView.visibleCells objectAtIndex:2];
+        RoomInfoCell* cell = [_infoTableView.visibleCells objectAtIndex:1];
         _roomInfo.beginTime = [beginTime timestampToDateUsingFormat:@"yyyy-MM-dd HH:mm:ss"];
         cell.contentLabel.text = _roomInfo.beginTime;
     }
@@ -509,14 +509,14 @@ static NSString* s_roomTypeNames[] = {
         }
         case 1:
         {
-            InfoFillInViewController* fillController = [self _showInfoFillViewWithType:InfoFillType_Picker
-                                                                                 title:s_titles[1]];
-            fillController.dataList = [NSArray arrayWithObjects:@"不限", @"5", @"10", @"20", @"50", nil];
+            [self _beginTimeSelected];
             break;
         }
         case 2:
         {
-            [self _beginTimeSelected];
+            InfoFillInViewController* fillController = [self _showInfoFillViewWithType:InfoFillType_Picker
+                                                                                 title:s_titles[2]];
+            fillController.dataList = [NSArray arrayWithObjects:@"不限", @"5", @"10", @"20", @"50", nil];
             break;
         }
         case 3:
@@ -578,12 +578,12 @@ static NSString* s_roomTypeNames[] = {
         }
         case 1:
         {
-            roomInfoStr = [self _limitPersonCount];
+            roomInfoStr = _roomInfo.beginTime;
             break;
         }
         case 2:
         {
-            roomInfoStr = _roomInfo.beginTime;
+            roomInfoStr = [self _limitPersonCount];
             break;
         }
         case 3:
