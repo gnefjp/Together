@@ -152,7 +152,7 @@
     
     [[TipViewManager defaultManager] hideTipWithID:self
                                          animation:YES];
-    [_delegate UserRegistViewBack:self];
+//    [_delegate UserRegistViewBack:self];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request

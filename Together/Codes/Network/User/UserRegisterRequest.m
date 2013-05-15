@@ -23,12 +23,13 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
+    NSString *str = [NSString stringWithFormat:@"%@?action=%@&userName=%@&password=%@",self.requestUrl,self.actionCode,_userName,_password];
+    NSURL* url = [NSURL URLWithString:str];
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
-    
-    [request addPostValue:_userName forKey:@"username"];
-    [request addPostValue:_password  forKey:@"password"];
+    [request setRequestMethod:@"GET"];
+//    [request addPostValue:self.actionCode forKey:@"action"];
+//    [request addPostValue:_userName forKey:@"username"];
+//    [request addPostValue:_password  forKey:@"password"];
     
     return request;
 }

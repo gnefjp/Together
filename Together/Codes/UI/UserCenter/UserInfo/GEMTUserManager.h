@@ -21,7 +21,6 @@
     GEMTUserInfo        *_userInfo;
     BOOL                _isLoginIng;
     NSString            *_sId;
-    
 }
 
 @property (strong , nonatomic) GEMTUserInfo        *userInfo;

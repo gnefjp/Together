@@ -10,8 +10,8 @@
 
 typedef enum
 {
-    NetUserRequestType_Register     = 0,
-    NetUserRequestType_Login        = 1,
+    NetUserRequestType_Register     = 0,        
+    NetUserRequestType_Login        = 1,        
     NetUserRequestType_ViewInfo     = 2,
     NetUserRequestType_ModifyInfo   = 3,
     NetUserRequestType_Follow       = 4,

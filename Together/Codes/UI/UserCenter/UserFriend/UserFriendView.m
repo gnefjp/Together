@@ -89,7 +89,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataArr.count;
+//    return _dataArr.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,8 +99,8 @@
     if (!friendCellView) {
         friendCellView = [UserFirendCellView loadFromNib];
     }
-    DetailResponse *detail = [_dataArr objectAtIndex:indexPath.row];
-    [friendCellView initInfoWithUserInfo:detail.userInfo isFollow:detail.isFollow];
+//    DetailResponse *detail = [_dataArr objectAtIndex:indexPath.row];
+//    [friendCellView initInfoWithUserInfo:detail.userInfo isFollow:detail.isFollow];
     
     return friendCellView;
 }
