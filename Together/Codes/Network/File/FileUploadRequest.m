@@ -14,7 +14,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.21:9081";
+    return @"http://192.168.1.103:9081";
 }
 
 
@@ -51,8 +51,9 @@
     }
     
     [request addPostValue:[[NSString md5FromData:fileData] lowercaseString] forKey:@"md5"];
-    NSString *fileDataStr = [GTMBase64 stringByEncodingData:fileData];
-    [request addPostValue:fileDataStr forKey:@"filedata"];
+//    NSString *fileDataStr = [GTMBase64 stringByEncodingData:fileData];
+//    [request addPostValue:fileDataStr forKey:@"filedata"];
+    [request addData:fileData forKey:@"filedata"];
     
     return request;
 }
@@ -69,6 +70,30 @@
     else
     {
         [self _requestFailed];
+    }   
+    
+    [[NetRequestManager defaultManager] removeRequest:self];
+}
+
+
+- (void) _requestFailed
+{
+    if (self.requestCount < 4)
+    {
+        FileUploadRequest *tmpRequest = [[FileUploadRequest alloc] init];
+        tmpRequest.image = self.image;
+        tmpRequest.filePath = self.filePath;
+        tmpRequest.userID = self.userID;
+        tmpRequest.sid = self.sid;
+        tmpRequest.delegate = self.delegate;
+        tmpRequest.requestCount = self.requestCount + 1;
+        
+        [[NetRequestManager defaultManager] startRequest:tmpRequest];
+    }
+    else
+    {
+        NSLog(@"self.delegate : %@", self.delegate);
+        [self.delegate NetFileRequestFail:self];
     }
 }
 

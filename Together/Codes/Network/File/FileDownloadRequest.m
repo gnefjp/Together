@@ -45,6 +45,8 @@
     {
         [self _requestFinished];
     }
+    
+    [[NetRequestManager defaultManager] removeRequest:self];
 }
 
 @end

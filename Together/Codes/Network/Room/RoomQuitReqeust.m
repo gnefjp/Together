@@ -1,21 +1,21 @@
 //
-//  RoomJoinRequest.m
+//  RoomQuitReqeust.m
 //  Together
 //
-//  Created by Gnef_jp on 13-4-24.
+//  Created by Gnef_jp on 13-5-15.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import "RoomJoinRequest.h"
+#import "RoomQuitReqeust.h"
 
-@implementation RoomJoinRequest
+@implementation RoomQuitReqeust
 
 - (id) init
 {
     self = [super init];
     if (self)
     {
-        self.requestType = NetRoomRequestType_JoinRoom;
+        self.requestType = NetRoomRequestType_QuitRoom;
     }
     return self;
 }

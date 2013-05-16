@@ -16,6 +16,7 @@
 @interface NetRequest : NSObject
 {
     NSMutableDictionary     *_expandVar;
+    ASIHTTPRequest          *_httpRequest;
 }
 
 @property (nonatomic, weak)     id               delegate;

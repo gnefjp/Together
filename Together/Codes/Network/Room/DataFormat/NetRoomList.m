@@ -9,7 +9,7 @@
 
 #import "AppSetting.h"
 #import "NetRoomList.h"
-
+#import "GEMTUserManager.h"
 
 #pragma mark- AddressItem
 @implementation NetAddressItem
@@ -63,6 +63,13 @@
 }
 
 
+- (RoomState) roomState
+{
+    // TODO: 根据系统时间和开始时间判断
+    return RoomState_Waiting;
+}
+
+
 - (NetItem *) initWithMessage:(PBGeneratedMessage *)message
 {
     self = [super init];
@@ -77,6 +84,7 @@
             self.perviewID = [NSString stringWithInt:roomInfo.picId];
             
             self.beginTime = roomInfo.beginTime;
+            self.createTime = roomInfo.createTime;
             
             self.genderLimitType = roomInfo.genderType;
             self.personLimitNum = roomInfo.limitPersonCount;
@@ -91,6 +99,11 @@
             
             self.ownerID = [NSString stringWithInt:roomInfo.ownerId];
             self.ownerNickname = roomInfo.ownerNickname;
+            
+            if ([self.ownerID isEqualToString:[[GEMTUserManager defaultManager].userInfo.userId stringValue]])
+            {
+                self.relationWitMe = RoomRelationType_MyRoom;
+            }
         }
     }
     return self;

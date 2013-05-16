@@ -9,6 +9,7 @@
 #import "RoomListView.h"
 
 #import "RoomCreateViewController.h"
+#import "GEMTUserManager.h"
 
 @implementation RoomListView
 @synthesize delegate = _delegate;
@@ -35,7 +36,10 @@
 
 - (IBAction)createRoomBtnPressed:(id)sender
 {
-    RoomCreateViewController* createRoomControll = [RoomCreateViewController loadFromNib];
-    [[UIView rootController] pushViewController:createRoomControll animated:YES];
+//    if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
+    {
+        RoomCreateViewController* createRoomControll = [RoomCreateViewController loadFromNib];
+        [[UIView rootController] pushViewController:createRoomControll animated:YES];
+    }
 }
 @end

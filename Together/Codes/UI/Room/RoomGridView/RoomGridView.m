@@ -19,6 +19,8 @@
 
 #import "SearchPicker.h"
 
+#import "GEMTUserManager.h"
+
 #define kTopRefreshHeight       10
 #define kLoadMoreHeight         50
 
@@ -200,8 +202,12 @@
 #pragma mark- UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RoomViewController *roomViewController = [RoomViewController loadFromNib];
-    [[UIView rootController] pushViewController:roomViewController animated:YES];
+//    if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
+    {
+        RoomViewController *roomViewController = [RoomViewController loadFromNib];
+        [[UIView rootController] pushViewController:roomViewController animated:YES];
+        roomViewController.roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
+    }
 }
 
 

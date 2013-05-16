@@ -1,14 +1,14 @@
 //
-//  RoomJoinRequest.h
+//  RoomQuitReqeust.h
 //  Together
 //
-//  Created by Gnef_jp on 13-4-24.
+//  Created by Gnef_jp on 13-5-15.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
 #import "NetRoomRequest.h"
 
-@interface RoomJoinRequest : NetRoomRequest
+@interface RoomQuitReqeust : NetRoomRequest
 
 @property (copy, nonatomic) NSString    *roomID;
 

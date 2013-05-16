@@ -312,8 +312,8 @@ static NSString* s_roomTypeNames[] = {
     RoomCreateRequest* createRequest = [[RoomCreateRequest alloc] init];
     createRequest.delegate = self;
     createRequest.sid = @"ef9aadcea02583a798d48870e2512c7c";
-    createRequest.ownerID = @"1";
-    createRequest.ownerNickname = @"G-Mart";
+    createRequest.ownerID = @"1"; // [[GEMTUserManager defaultManager].userInfo.userId stringValue];
+    createRequest.ownerNickname = @"G-Mart";// [GEMTUserManager defaultManager].userInfo.nickName;
     
     createRequest.roomTitle = _roomInfo.roomTitle;
     createRequest.roomType = _roomInfo.roomType;

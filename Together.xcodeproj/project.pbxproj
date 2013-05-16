@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189A54D21745049200906043 /* JoinPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D01745049200906043 /* JoinPersonViewController.m */; };
+		189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D11745049200906043 /* JoinPersonViewController.xib */; };
 		18BFDE7817244DF600186828 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDE7617244DF600186828 /* HomeViewController.m */; };
 		18BFDE7917244DF600186828 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDE7717244DF600186828 /* HomeViewController.xib */; };
 		18BFDE7C17244DF600186828 /* GMETLibs+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDE7B17244DF600186828 /* GMETLibs+UIView.m */; };
@@ -145,6 +147,16 @@
 		18D9955D1738E0840040901B /* Data.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9955C1738E0830040901B /* Data.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18D995611738FA410040901B /* common_fail_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D9955F1738FA410040901B /* common_fail_icon.png */; };
 		18D995621738FA410040901B /* common_success_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D995601738FA410040901B /* common_success_icon.png */; };
+		18E4C57B1743555600CE5B43 /* RoomQuitReqeust.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4C57A1743555600CE5B43 /* RoomQuitReqeust.m */; };
+		18E4C57E17435BB700CE5B43 /* RoomShowInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4C57D17435BB600CE5B43 /* RoomShowInfoRequest.m */; };
+		18E4C58117435CDA00CE5B43 /* RoomGetUserRoomsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4C58017435CD900CE5B43 /* RoomGetUserRoomsRequest.m */; };
+		18E4C5841743613B00CE5B43 /* RoomGetJoinPersonsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4C5831743613A00CE5B43 /* RoomGetJoinPersonsRequest.m */; };
+		18E4C58717436C2E00CE5B43 /* common_pause_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E4C58517436C2E00CE5B43 /* common_pause_btn.png */; };
+		18E4C58817436C2E00CE5B43 /* common_play_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E4C58617436C2E00CE5B43 /* common_play_btn.png */; };
+		18E4C58B1743797000CE5B43 /* GMETLibs+UILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4C58A1743797000CE5B43 /* GMETLibs+UILabel.m */; };
+		18E4C58F17438DAB00CE5B43 /* JoinPersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4C58E17438DAB00CE5B43 /* JoinPersonView.m */; };
+		18E4C59117438DB800CE5B43 /* JoinPersonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E4C59017438DB800CE5B43 /* JoinPersonView.xib */; };
+		18E4C59317438EF600CE5B43 /* room_join_person_more_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E4C59217438EF600CE5B43 /* room_join_person_more_btn.png */; };
 		18E78DA217297C4000036B3C /* GMETTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA117297C4000036B3C /* GMETTapView.m */; };
 		18E78DA717298DA400036B3C /* InfoFillInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E78DA517298DA400036B3C /* InfoFillInViewController.m */; };
 		18E78DA817298DA400036B3C /* InfoFillInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E78DA617298DA400036B3C /* InfoFillInViewController.xib */; };
@@ -227,6 +239,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		189A54CF1745049200906043 /* JoinPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonViewController.h; sourceTree = "<group>"; };
+		189A54D01745049200906043 /* JoinPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonViewController.m; sourceTree = "<group>"; };
+		189A54D11745049200906043 /* JoinPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonViewController.xib; sourceTree = "<group>"; };
 		18BFDE7517244DF600186828 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		18BFDE7617244DF600186828 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		18BFDE7717244DF600186828 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -818,6 +833,22 @@
 		18D9955E1738F9EC0040901B /* CommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonConfig.h; sourceTree = "<group>"; };
 		18D9955F1738FA410040901B /* common_fail_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_fail_icon.png; sourceTree = "<group>"; };
 		18D995601738FA410040901B /* common_success_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_success_icon.png; sourceTree = "<group>"; };
+		18E4C5791743555600CE5B43 /* RoomQuitReqeust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomQuitReqeust.h; sourceTree = "<group>"; };
+		18E4C57A1743555600CE5B43 /* RoomQuitReqeust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomQuitReqeust.m; sourceTree = "<group>"; };
+		18E4C57C17435BB600CE5B43 /* RoomShowInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomShowInfoRequest.h; sourceTree = "<group>"; };
+		18E4C57D17435BB600CE5B43 /* RoomShowInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomShowInfoRequest.m; sourceTree = "<group>"; };
+		18E4C57F17435CD900CE5B43 /* RoomGetUserRoomsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGetUserRoomsRequest.h; sourceTree = "<group>"; };
+		18E4C58017435CD900CE5B43 /* RoomGetUserRoomsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGetUserRoomsRequest.m; sourceTree = "<group>"; };
+		18E4C5821743613A00CE5B43 /* RoomGetJoinPersonsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomGetJoinPersonsRequest.h; sourceTree = "<group>"; };
+		18E4C5831743613A00CE5B43 /* RoomGetJoinPersonsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomGetJoinPersonsRequest.m; sourceTree = "<group>"; };
+		18E4C58517436C2E00CE5B43 /* common_pause_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_pause_btn.png; sourceTree = "<group>"; };
+		18E4C58617436C2E00CE5B43 /* common_play_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_play_btn.png; sourceTree = "<group>"; };
+		18E4C5891743797000CE5B43 /* GMETLibs+UILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMETLibs+UILabel.h"; sourceTree = "<group>"; };
+		18E4C58A1743797000CE5B43 /* GMETLibs+UILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMETLibs+UILabel.m"; sourceTree = "<group>"; };
+		18E4C58D17438DAB00CE5B43 /* JoinPersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonView.h; sourceTree = "<group>"; };
+		18E4C58E17438DAB00CE5B43 /* JoinPersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonView.m; sourceTree = "<group>"; };
+		18E4C59017438DB800CE5B43 /* JoinPersonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonView.xib; sourceTree = "<group>"; };
+		18E4C59217438EF600CE5B43 /* room_join_person_more_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_join_person_more_btn.png; sourceTree = "<group>"; };
 		18E78DA017297C4000036B3C /* GMETTapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETTapView.h; sourceTree = "<group>"; };
 		18E78DA117297C4000036B3C /* GMETTapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETTapView.m; sourceTree = "<group>"; };
 		18E78DA417298DA400036B3C /* InfoFillInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoFillInViewController.h; sourceTree = "<group>"; };
@@ -1591,10 +1622,18 @@
 				18C6D5B51727C26A00184AFA /* NetRoomRequest.m */,
 				18C6D5B71727CA5C00184AFA /* RoomCreateRequest.h */,
 				18C6D5B81727CA5C00184AFA /* RoomCreateRequest.m */,
+				18E4C57C17435BB600CE5B43 /* RoomShowInfoRequest.h */,
+				18E4C57D17435BB600CE5B43 /* RoomShowInfoRequest.m */,
 				18C6D5BA1727CB2900184AFA /* RoomJoinRequest.h */,
 				18C6D5BB1727CB2900184AFA /* RoomJoinRequest.m */,
+				18E4C5791743555600CE5B43 /* RoomQuitReqeust.h */,
+				18E4C57A1743555600CE5B43 /* RoomQuitReqeust.m */,
 				18C6D5BD1727CB6400184AFA /* RoomGetListRequest.h */,
 				18C6D5BE1727CB6400184AFA /* RoomGetListRequest.m */,
+				18E4C57F17435CD900CE5B43 /* RoomGetUserRoomsRequest.h */,
+				18E4C58017435CD900CE5B43 /* RoomGetUserRoomsRequest.m */,
+				18E4C5821743613A00CE5B43 /* RoomGetJoinPersonsRequest.h */,
+				18E4C5831743613A00CE5B43 /* RoomGetJoinPersonsRequest.m */,
 				18D76BE7172A6FB1004E2C8B /* NetRoomManager.h */,
 				18D76BE8172A6FB1004E2C8B /* NetRoomManager.m */,
 			);
@@ -1624,6 +1663,7 @@
 		18C6D5C51727D40900184AFA /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				18E4C59217438EF600CE5B43 /* room_join_person_more_btn.png */,
 				18C73BFA173A66960035BC61 /* room_small_btn_a.png */,
 				18C73BFB173A66960035BC61 /* room_small_btn_b.png */,
 				18C73BF6173A59980035BC61 /* room_create_btn_a.png */,
@@ -1695,6 +1735,7 @@
 		18C9A33E173CE7B8002FA0E4 /* RoomView */ = {
 			isa = PBXGroup;
 			children = (
+				18E4C58C17438D7F00CE5B43 /* JoinPersonView */,
 				18C9A33F173CE7B8002FA0E4 /* RoomViewController.h */,
 				18C9A340173CE7B8002FA0E4 /* RoomViewController.m */,
 				18C9A341173CE7B8002FA0E4 /* RoomViewController.xib */,
@@ -1760,6 +1801,8 @@
 				18D5D0D6172BB3E200799BF7 /* common_yellow_btn_b.png */,
 				18D5D0B7172BAF9300799BF7 /* common_blue_btn_a.png */,
 				18D5D0B8172BAF9300799BF7 /* common_blue_btn_b.png */,
+				18E4C58517436C2E00CE5B43 /* common_pause_btn.png */,
+				18E4C58617436C2E00CE5B43 /* common_play_btn.png */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1787,6 +1830,19 @@
 				18D995591738D89D0040901B /* AppSetting.m */,
 			);
 			path = AppSetting;
+			sourceTree = "<group>";
+		};
+		18E4C58C17438D7F00CE5B43 /* JoinPersonView */ = {
+			isa = PBXGroup;
+			children = (
+				18E4C58D17438DAB00CE5B43 /* JoinPersonView.h */,
+				18E4C58E17438DAB00CE5B43 /* JoinPersonView.m */,
+				18E4C59017438DB800CE5B43 /* JoinPersonView.xib */,
+				189A54CF1745049200906043 /* JoinPersonViewController.h */,
+				189A54D01745049200906043 /* JoinPersonViewController.m */,
+				189A54D11745049200906043 /* JoinPersonViewController.xib */,
+			);
+			path = JoinPersonView;
 			sourceTree = "<group>";
 		};
 		18E78D9F17297C1800036B3C /* TapView */ = {
@@ -1907,6 +1963,8 @@
 				18D41DEC17294BC200D0C950 /* GMETLibs+UIColor.m */,
 				18BFDE7A17244DF600186828 /* GMETLibs+UIView.h */,
 				18BFDE7B17244DF600186828 /* GMETLibs+UIView.m */,
+				18E4C5891743797000CE5B43 /* GMETLibs+UILabel.h */,
+				18E4C58A1743797000CE5B43 /* GMETLibs+UILabel.m */,
 				18BFDEAE17244DF600186828 /* GMETLibs+DataContainer.h */,
 				18BFDEAF17244DF600186828 /* GMETLibs+DataContainer.m */,
 				18C73BDA1739F4760035BC61 /* GMETLibs+NSObject.h */,
@@ -2275,6 +2333,11 @@
 				389F2A3B17433692002E02E6 /* userCenter_zanBg.png in Resources */,
 				389F2A3C17433692002E02E6 /* userCenter_zanBtn_a.png in Resources */,
 				389F2A3D17433692002E02E6 /* userCenter_zanBtn_b.png in Resources */,
+				18E4C58717436C2E00CE5B43 /* common_pause_btn.png in Resources */,
+				18E4C58817436C2E00CE5B43 /* common_play_btn.png in Resources */,
+				18E4C59117438DB800CE5B43 /* JoinPersonView.xib in Resources */,
+				18E4C59317438EF600CE5B43 /* room_join_person_more_btn.png in Resources */,
+				189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2396,6 +2459,13 @@
 				18C9A342173CE7B8002FA0E4 /* RoomViewController.m in Sources */,
 				18D4C419173DEE2A00CB74A1 /* UserListResponse.pb.m in Sources */,
 				38F3CCC4173DF81100CAB210 /* UserFansList.m in Sources */,
+				18E4C57B1743555600CE5B43 /* RoomQuitReqeust.m in Sources */,
+				18E4C57E17435BB700CE5B43 /* RoomShowInfoRequest.m in Sources */,
+				18E4C58117435CDA00CE5B43 /* RoomGetUserRoomsRequest.m in Sources */,
+				18E4C5841743613B00CE5B43 /* RoomGetJoinPersonsRequest.m in Sources */,
+				18E4C58B1743797000CE5B43 /* GMETLibs+UILabel.m in Sources */,
+				18E4C58F17438DAB00CE5B43 /* JoinPersonView.m in Sources */,
+				189A54D21745049200906043 /* JoinPersonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

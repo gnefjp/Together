@@ -11,9 +11,15 @@
 typedef enum
 {
     NetRoomRequestType_CreateRoom   = 0,
-    NetRoomRequestType_JoinRoom     = 1,
+    NetRoomRequestType_ShowRoomInfo = 1,
     
-    NetRoomRequestType_GetRooms     = 2,
+    NetRoomRequestType_JoinRoom     = 2,
+    NetRoomRequestType_QuitRoom     = 3,
+    
+    NetRoomRequestType_GetRooms     = 4,
+    NetRoomRequestType_GetUserRooms = 5,
+    
+    NetRoomRequestType_JoinPersons  = 6,
     
 } NetRoomRequestType;
 

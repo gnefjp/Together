@@ -16,6 +16,7 @@
 @property (copy,   nonatomic) NSString  *userID;
 @property (copy,   nonatomic) NSString  *sid;
 
+@property (assign, nonatomic) NSInteger requestCount;
 @property (readonly,nonatomic) NSString *fileID;
 
 @end

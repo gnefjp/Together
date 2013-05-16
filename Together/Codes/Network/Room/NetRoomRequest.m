@@ -15,12 +15,20 @@
     return @"http://192.168.1.103:9080/ROOM";
 }
 
+
 - (NSString *) actionCode
 {
     int actionCodes[] = {
         ROOM_CREATE,
+        SHOW_ROOM_INFO,
+        
         ROOM_JOIN,
+        ROOM_QUIT,
+        
         ROOM_SHOWLIST,
+        SHOW_USER_ROOM,
+        
+        ROOM_PEOPLE_LIST,
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];
