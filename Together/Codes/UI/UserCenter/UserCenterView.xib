@@ -173,7 +173,6 @@
 						<string key="NSFrame">{{95, 294}, {222, 24}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -389,7 +388,6 @@
 						<string key="NSFrame">{{119, 385}, {50, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -1048,6 +1046,7 @@
 					<string key="className">UserCenterView</string>
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="_playBtnDidPressed:">id</string>
 						<string key="changeAvataBtnDidPressed:">id</string>
 						<string key="closeBtnDidPressed:">id</string>
 						<string key="editInfoBtnDidPressed:">id</string>
@@ -1056,12 +1055,18 @@
 						<string key="modifyInfo:">id</string>
 						<string key="pariseOthers:">id</string>
 						<string key="recordBtnDidPressed:">id</string>
+						<string key="showFanListBtnDidPressed:">id</string>
+						<string key="showFollowListBtnDidPressed:">id</string>
 						<string key="showMapViewBtnDidpressed:">id</string>
 						<string key="stopRecordBtnDidPressed:">id</string>
 						<string key="unfollow:">id</string>
 						<string key="viewOtherInfo:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="_playBtnDidPressed:">
+							<string key="name">_playBtnDidPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="changeAvataBtnDidPressed:">
 							<string key="name">changeAvataBtnDidPressed:</string>
 							<string key="candidateClassName">id</string>
@@ -1092,6 +1097,14 @@
 						</object>
 						<object class="IBActionInfo" key="recordBtnDidPressed:">
 							<string key="name">recordBtnDidPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showFanListBtnDidPressed:">
+							<string key="name">showFanListBtnDidPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showFollowListBtnDidPressed:">
+							<string key="name">showFollowListBtnDidPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showMapViewBtnDidpressed:">

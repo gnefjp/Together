@@ -12,7 +12,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.103:9080/ROOM";
+    return [NSString stringWithFormat:@"http://%@:%@/ROOM", kServerAddr, kHttpPort];
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  JoinPersonViewController.h
+//  JoinPersonCell.h
 //  Together
 //
 //  Created by Gnef_jp on 13-5-16.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JoinPersonViewController : UIViewController
+@interface JoinPersonCell : UITableViewCell
 
-- (IBAction)backBtnDidPressed:(id)sender;
 @end

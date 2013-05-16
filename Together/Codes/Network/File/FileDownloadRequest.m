@@ -23,7 +23,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.21:9081/download";
+    return [NSString stringWithFormat:@"http://%@:%@/download", kServerAddr, kFilePort];
 }
 
 
@@ -40,7 +40,6 @@
 
 - (void) requestFinished:(ASIHTTPRequest*)request
 {
-    NSLog(@"request.responseStatusCode : %d", request.responseStatusCode);
     if (request.responseStatusCode == 200)
     {
         [self _requestFinished];

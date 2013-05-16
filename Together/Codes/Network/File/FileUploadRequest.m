@@ -14,7 +14,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.103:9081";
+    return [NSString stringWithFormat:@"http://%@:%@", kServerAddr, kFilePort];
 }
 
 

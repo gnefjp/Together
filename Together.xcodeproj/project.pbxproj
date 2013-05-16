@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		189A54D21745049200906043 /* JoinPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D01745049200906043 /* JoinPersonViewController.m */; };
 		189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D11745049200906043 /* JoinPersonViewController.xib */; };
+		189A54D717450F0400906043 /* JoinPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D617450F0400906043 /* JoinPersonCell.m */; };
+		189A54D917450F6300906043 /* JoinPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D817450F6300906043 /* JoinPersonCell.xib */; };
 		18BFDE7817244DF600186828 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDE7617244DF600186828 /* HomeViewController.m */; };
 		18BFDE7917244DF600186828 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDE7717244DF600186828 /* HomeViewController.xib */; };
 		18BFDE7C17244DF600186828 /* GMETLibs+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDE7B17244DF600186828 /* GMETLibs+UIView.m */; };
@@ -242,6 +244,10 @@
 		189A54CF1745049200906043 /* JoinPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonViewController.h; sourceTree = "<group>"; };
 		189A54D01745049200906043 /* JoinPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonViewController.m; sourceTree = "<group>"; };
 		189A54D11745049200906043 /* JoinPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonViewController.xib; sourceTree = "<group>"; };
+		189A54D417450A8800906043 /* NetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConfig.h; sourceTree = "<group>"; };
+		189A54D517450F0400906043 /* JoinPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonCell.h; sourceTree = "<group>"; };
+		189A54D617450F0400906043 /* JoinPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonCell.m; sourceTree = "<group>"; };
+		189A54D817450F6300906043 /* JoinPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonCell.xib; sourceTree = "<group>"; };
 		18BFDE7517244DF600186828 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		18BFDE7617244DF600186828 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		18BFDE7717244DF600186828 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -1838,6 +1844,9 @@
 				18E4C58D17438DAB00CE5B43 /* JoinPersonView.h */,
 				18E4C58E17438DAB00CE5B43 /* JoinPersonView.m */,
 				18E4C59017438DB800CE5B43 /* JoinPersonView.xib */,
+				189A54D517450F0400906043 /* JoinPersonCell.h */,
+				189A54D617450F0400906043 /* JoinPersonCell.m */,
+				189A54D817450F6300906043 /* JoinPersonCell.xib */,
 				189A54CF1745049200906043 /* JoinPersonViewController.h */,
 				189A54D01745049200906043 /* JoinPersonViewController.m */,
 				189A54D11745049200906043 /* JoinPersonViewController.xib */,
@@ -2016,6 +2025,7 @@
 				18D9955E1738F9EC0040901B /* CommonConfig.h */,
 				18C6D5C31727CC1000184AFA /* RoomConfig.h */,
 				18C6D5C41727CEC700184AFA /* UserConfig.h */,
+				189A54D417450A8800906043 /* NetworkConfig.h */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2338,6 +2348,7 @@
 				18E4C59117438DB800CE5B43 /* JoinPersonView.xib in Resources */,
 				18E4C59317438EF600CE5B43 /* room_join_person_more_btn.png in Resources */,
 				189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */,
+				189A54D917450F6300906043 /* JoinPersonCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2466,6 +2477,7 @@
 				18E4C58B1743797000CE5B43 /* GMETLibs+UILabel.m in Sources */,
 				18E4C58F17438DAB00CE5B43 /* JoinPersonView.m in Sources */,
 				189A54D21745049200906043 /* JoinPersonViewController.m in Sources */,
+				189A54D717450F0400906043 /* JoinPersonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
