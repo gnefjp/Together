@@ -9,6 +9,7 @@
 #import "TipViewManager.h"
 
 #import "RoomViewController.h"
+#import "JoinPersonView.h"
 
 #import "GEMTUserManager.h"
 
@@ -36,6 +37,8 @@
     [self setNicknameLabel:nil];
     [self setOwerAvatarImageView:nil];
     [self setRoomPreviewImageView:nil];
+    [_joinPersonView removeFromSuperview];
+    _joinPersonView = nil;
     
     [[TipViewManager defaultManager] removeTipWithID:self];
     
@@ -80,6 +83,18 @@
 }
 
 
+- (void) _showPersonView
+{
+    [_joinPersonView removeFromSuperview];
+    
+    _joinPersonView = [JoinPersonView loadFromNib];
+    _joinPersonView.frameOrigin = CGPointMake(0, 278);
+    [self.view addSubview:_joinPersonView];
+    
+    _joinPersonView.roomID = _roomItem.ID;
+}
+
+
 - (void) setRoomItem:(NetRoomItem *)roomItem
 {
     _roomItem = roomItem;
@@ -102,6 +117,7 @@
     
     [self _setRoomRelation];
     [self _setJoinPersonNum];
+    [self _showPersonView];
 }
 
 
@@ -175,7 +191,7 @@
 {
     NSString *msg = @"请求失败";
     
-    if (request.requestType == NetRoomRequestType_JoinPersons)
+    if (request.requestType == NetRoomRequestType_JoinRoom)
     {
         msg = @"加入失败";
     }

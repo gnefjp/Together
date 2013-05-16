@@ -10,11 +10,12 @@
 
 #import "RoomGetJoinPersonsRequest.h"
 
+@class NetItemList;
 @interface JoinPersonView : UIView <NetRoomRequestDelegate>
 {
-    __weak IBOutlet UIButton *_reloadBtn;
+    __weak IBOutlet UIButton    *_reloadBtn;
     
-    
+    NetItemList                 *_userList;
 }
 
 @property (copy, nonatomic) NSString                            *roomID;

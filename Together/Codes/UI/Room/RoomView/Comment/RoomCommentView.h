@@ -1,5 +1,5 @@
 //
-//  JoinPersonViewController.h
+//  RoomCommentView.h
 //  Together
 //
 //  Created by Gnef_jp on 13-5-16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JoinPersonViewController : UIViewController
-
-- (IBAction)backBtnDidPressed:(id)sender;
+@interface RoomCommentView : UIView
 
 @end

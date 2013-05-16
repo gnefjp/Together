@@ -11,6 +11,12 @@
 		189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D11745049200906043 /* JoinPersonViewController.xib */; };
 		189A54D717450F0400906043 /* JoinPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D617450F0400906043 /* JoinPersonCell.m */; };
 		189A54D917450F6300906043 /* JoinPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D817450F6300906043 /* JoinPersonCell.xib */; };
+		189A54DD1745259F00906043 /* ChatInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54DC1745259F00906043 /* ChatInputView.m */; };
+		189A54DF174525A800906043 /* ChatInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54DE174525A800906043 /* ChatInputView.xib */; };
+		189A54E21745260A00906043 /* RoomCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54E11745260A00906043 /* RoomCommentView.m */; };
+		189A54E41745261300906043 /* RoomCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54E31745261300906043 /* RoomCommentView.xib */; };
+		189A54E71745262B00906043 /* RoomCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54E61745262B00906043 /* RoomCommentCell.m */; };
+		189A54E91745263600906043 /* RoomCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54E81745263600906043 /* RoomCommentCell.xib */; };
 		18BFDE7817244DF600186828 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDE7617244DF600186828 /* HomeViewController.m */; };
 		18BFDE7917244DF600186828 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDE7717244DF600186828 /* HomeViewController.xib */; };
 		18BFDE7C17244DF600186828 /* GMETLibs+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDE7B17244DF600186828 /* GMETLibs+UIView.m */; };
@@ -248,6 +254,15 @@
 		189A54D517450F0400906043 /* JoinPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonCell.h; sourceTree = "<group>"; };
 		189A54D617450F0400906043 /* JoinPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonCell.m; sourceTree = "<group>"; };
 		189A54D817450F6300906043 /* JoinPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonCell.xib; sourceTree = "<group>"; };
+		189A54DB1745259F00906043 /* ChatInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInputView.h; sourceTree = "<group>"; };
+		189A54DC1745259F00906043 /* ChatInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInputView.m; sourceTree = "<group>"; };
+		189A54DE174525A800906043 /* ChatInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatInputView.xib; sourceTree = "<group>"; };
+		189A54E01745260A00906043 /* RoomCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCommentView.h; sourceTree = "<group>"; };
+		189A54E11745260A00906043 /* RoomCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCommentView.m; sourceTree = "<group>"; };
+		189A54E31745261300906043 /* RoomCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomCommentView.xib; sourceTree = "<group>"; };
+		189A54E51745262B00906043 /* RoomCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCommentCell.h; sourceTree = "<group>"; };
+		189A54E61745262B00906043 /* RoomCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCommentCell.m; sourceTree = "<group>"; };
+		189A54E81745263600906043 /* RoomCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomCommentCell.xib; sourceTree = "<group>"; };
 		18BFDE7517244DF600186828 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		18BFDE7617244DF600186828 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		18BFDE7717244DF600186828 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -999,6 +1014,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		189A54DA1745252A00906043 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				189A54E51745262B00906043 /* RoomCommentCell.h */,
+				189A54E61745262B00906043 /* RoomCommentCell.m */,
+				189A54E81745263600906043 /* RoomCommentCell.xib */,
+				189A54E01745260A00906043 /* RoomCommentView.h */,
+				189A54E11745260A00906043 /* RoomCommentView.m */,
+				189A54E31745261300906043 /* RoomCommentView.xib */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		18BFDE7417244DF600186828 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1741,6 +1769,7 @@
 		18C9A33E173CE7B8002FA0E4 /* RoomView */ = {
 			isa = PBXGroup;
 			children = (
+				189A54DA1745252A00906043 /* Comment */,
 				18E4C58C17438D7F00CE5B43 /* JoinPersonView */,
 				18C9A33F173CE7B8002FA0E4 /* RoomViewController.h */,
 				18C9A340173CE7B8002FA0E4 /* RoomViewController.m */,
@@ -1752,6 +1781,9 @@
 		18C9A344173CF50C002FA0E4 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				189A54DB1745259F00906043 /* ChatInputView.h */,
+				189A54DC1745259F00906043 /* ChatInputView.m */,
+				189A54DE174525A800906043 /* ChatInputView.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -2349,6 +2381,9 @@
 				18E4C59317438EF600CE5B43 /* room_join_person_more_btn.png in Resources */,
 				189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */,
 				189A54D917450F6300906043 /* JoinPersonCell.xib in Resources */,
+				189A54DF174525A800906043 /* ChatInputView.xib in Resources */,
+				189A54E41745261300906043 /* RoomCommentView.xib in Resources */,
+				189A54E91745263600906043 /* RoomCommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2478,6 +2513,9 @@
 				18E4C58F17438DAB00CE5B43 /* JoinPersonView.m in Sources */,
 				189A54D21745049200906043 /* JoinPersonViewController.m in Sources */,
 				189A54D717450F0400906043 /* JoinPersonCell.m in Sources */,
+				189A54DD1745259F00906043 /* ChatInputView.m in Sources */,
+				189A54E21745260A00906043 /* RoomCommentView.m in Sources */,
+				189A54E71745262B00906043 /* RoomCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

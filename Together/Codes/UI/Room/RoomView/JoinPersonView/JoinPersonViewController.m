@@ -19,6 +19,6 @@
 
 - (IBAction)backBtnDidPressed:(id)sender
 {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

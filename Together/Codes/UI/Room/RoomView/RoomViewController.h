@@ -8,7 +8,11 @@
 #import "NetRoomRequest.h"
 #import "NetRoomList.h"
 
+@class JoinPersonView;
 @interface RoomViewController : UIViewController <NetRoomRequestDelegate>
+{
+    JoinPersonView      *_joinPersonView;
+}
 
 @property (strong, nonatomic) NetRoomItem           *roomItem;
 
