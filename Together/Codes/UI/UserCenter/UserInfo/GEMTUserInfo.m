@@ -25,6 +25,8 @@
 @synthesize avataId = _avataId;
 @synthesize age = _age;
 
+
+
 - (void) setUserInfoWithLoginResPonse:(User_Info*)aUserInfo
 {
     self.userId = [NSString stringWithInt:aUserInfo.uid];
