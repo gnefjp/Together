@@ -49,8 +49,8 @@ typedef enum
     
 }
 
-@property (strong , nonatomic) GEMTUserInfo         *userInfo;
-
+@property (strong, nonatomic)  GEMTUserInfo                      *userInfo;
+@property (strong, nonatomic)  UIPanGestureRecognizer            *panGesture;
 
 //请求目录
 - (void)viewUserInfoWithUserId:(NSString*)aUserId;

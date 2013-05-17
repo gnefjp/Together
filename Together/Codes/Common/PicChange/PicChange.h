@@ -16,7 +16,7 @@
 
 @protocol PicChangeDelegate <NSObject>
 
-- (void)PicChangeSuccess:(PicChange*)self img:(UIImage*)img;
+- (void)PicChangeSuccess:(PicChange*)v img:(UIImage*)img;
 
 @end
 

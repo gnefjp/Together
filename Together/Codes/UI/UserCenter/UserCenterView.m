@@ -20,6 +20,7 @@
 
 @implementation UserCenterView
 @synthesize userInfo = _userInfo;
+@synthesize panGesture = _panGesture;
 
 - (void) resetInfo
 {
@@ -258,6 +259,7 @@
 {
     UserEditUserInfoView *editInfo = [UserEditUserInfoView loadFromNib];
     editInfo.delegate = self;
+    editInfo.panGesture = self.panGesture;
     [[UIView rootController] pushViewController:editInfo animated:YES];
 }
 

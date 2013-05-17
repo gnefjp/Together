@@ -21,7 +21,7 @@
 
 @end
 
-@interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate,DataPickerDelegate,NetUserRequestDelegate,RecorderViewDelegate>
+@interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate,DataPickerDelegate,NetUserRequestDelegate,RecorderViewDelegate,NetFileRequestDelegate>
 {
     __weak IBOutlet UITableView                 *_iTableView;
     DataPicker                                  *_piker;
@@ -32,9 +32,10 @@
     __weak id<UserEditUserInfoViewDelegate>     _delegate;
     
     __weak IBOutlet UILabel                     *_iRecordLb;
+    
 }
-
-@property (weak) id<UserEditUserInfoViewDelegate>   delegate;
+@property (strong, nonatomic)  UIPanGestureRecognizer            *panGesture;
+@property (weak) id<UserEditUserInfoViewDelegate>                delegate;
 
 - (IBAction)submitBtnDidPressed:(id)sender;
 - (IBAction)backBtnDidPressed:(id)sender;

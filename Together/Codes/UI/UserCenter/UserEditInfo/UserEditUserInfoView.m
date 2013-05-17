@@ -15,7 +15,7 @@
 @implementation UserEditUserInfoView
 
 @synthesize delegate = _delegate;
-
+@synthesize panGesture;
 - (void)awakeFromNib
 {
    
@@ -29,11 +29,13 @@
 
 - (void)RecorderViewBeginTouch:(RecorderView *)v
 {
+    panGesture.enabled = NO;
     [_iRecordLb setText:@"松开提交"];
 }
 
 - (void)RecorderViewEndTouch:(RecorderView *)v
 {
+    panGesture.enabled = YES;
     [_iRecordLb setText:@"按下录音"];
 }
 
@@ -182,11 +184,58 @@
     [_avarta addAvataActionSheet];
 }
 
-- (void)PicChangeSuccess:(PicChange *)self img:(UIImage *)img
+- (void)PicChangeSuccess:(PicChange *)v img:(UIImage *)img
 {
-    [_avartaBtn setImage:img forState:UIControlStateNormal];
-    [_avartaBtn setImage:img forState:UIControlStateHighlighted];
+    if (img)
+    {
+        [[TipViewManager defaultManager] showTipText:@"loading"
+                                           imageName:@""
+                                              inView:self.view
+                                                  ID:self];
+        FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
+        updateRequest.image = img;
+        updateRequest.sid = [GEMTUserManager defaultManager].sId;
+        updateRequest.userID = @"1";
+        updateRequest.delegate = self;
+        [[NetRequestManager defaultManager] startRequest:updateRequest];
+    }
 
+}
+
+#pragma mark- NetFileRequestDelegate
+- (void) NetFileRequestFail:(NetFileRequest *)request
+{
+    if (request.requestType == NetFileRequestType_Upload)
+    {
+        [[TipViewManager defaultManager] showTipText:@"上传失败"
+                                           imageName:kCommonImage_FailIcon
+                                              inView:self.view
+                                                  ID:self];
+        [[TipViewManager defaultManager] hideTipWithID:self
+                                             animation:YES
+                                                 delay:1.25];
+    }
+}
+
+
+- (void) NetFileRequestSuccess:(NetFileRequest *)request
+{
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    
+    if (request.requestType == NetFileRequestType_Upload)
+    {
+        FileUploadRequest* updateRequest = (FileUploadRequest *)request;
+        
+        if (updateRequest.image != nil)
+        {
+            [_avartaBtn setImage:updateRequest.image forState:UIControlStateNormal];
+            [_avartaBtn setImage:updateRequest.image forState:UIControlStateHighlighted];
+        }
+        else
+        {
+            
+        }
+    }
 }
 
 - (NSString*) _getCellRightValueWithIndex:(int)i

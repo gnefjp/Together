@@ -235,6 +235,7 @@
                 [_mainView removeFromSuperview];
                 UserCenterView *tmpView = [UserCenterView loadFromNib];
                 [tmpView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",[GEMTUserManager defaultManager].userInfo.userId]];
+                tmpView.panGesture = _panGesture;
                 _mainView = tmpView;
 //            }
             break;
@@ -243,7 +244,7 @@
             break;
     }
     
-//    [self _initPanGesture];
+    [self _initPanGesture];
     [self.view addSubview:_mainView];
     _mainView.frameX = 268.0;
     [self _isShowNavigation:NO animation:YES];
