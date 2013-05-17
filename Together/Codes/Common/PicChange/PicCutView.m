@@ -10,6 +10,7 @@
 
 @implementation PicCutView
 @synthesize delegate = _delegate;
+@synthesize eType = _eType;
 
 static inline CGFloat ImageInitScale(CGSize imageSize, CGSize sceenSize)
 {
@@ -25,14 +26,30 @@ static inline CGFloat ImageInitScale(CGSize imageSize, CGSize sceenSize)
 
 - (void) initWithImage:(UIImage*)image
 {
-    _holeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    _holeView.backgroundColor = [UIColor whiteColor];
-    _holeView.center = CGPointMake(160, 280);
-    [self addSubview:_holeView];
+    switch (_eType) {
+        case cutType_avatar:
+            _holeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+            _holeView.backgroundColor = [UIColor whiteColor];
+            _holeView.center = CGPointMake(160, 280);
+            [self addSubview:_holeView];
+            [self sendSubviewToBack:_holeView];
+            _cutView.image = [UIImage imageNamed:@"common_cut_frame_a.png"];
+            break;
+        case cutType_room:
+            _holeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 240)];
+            _holeView.backgroundColor = [UIColor whiteColor];
+            _holeView.center = CGPointMake(160, 280);
+            [self addSubview:_holeView];
+            [self sendSubviewToBack:_holeView];
+            _cutView.image = [UIImage imageNamed:@"common_cut_frame_b.png"];
+            break;
+        default:
+            break;
+    }
     
     _imageView = [[UIImageView alloc] initWithImage:image];
     _imageView.center = _holeView.center;
-    [self addSubview:_imageView];
+    [self insertSubview:_imageView belowSubview:_cutView];
     
     _gestureHelper = [[PtGestureHelper alloc] initWithAttached:self needChanged:_imageView];
     _gestureHelper.numberOfTouchesRequired = 1;
@@ -43,7 +60,17 @@ static inline CGFloat ImageInitScale(CGSize imageSize, CGSize sceenSize)
     _gestureHelper.initScale = ImageInitScale(_imageView.image.size, _holeView.frame.size);
     _imageView.transform = [_gestureHelper makeTransform];
     
-    [self bringSubviewToFront:_cutView];
+}
+
+- (IBAction)closeBtnDidPressed:(id)sender
+{
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         self.center = CGPointMake(160, 280*3);
+     }completion:^(BOOL isFinish)
+     {
+         [self removeFromSuperview];
+     }];
 }
 
 - (UIImage*) resultImageWithSize:(CGSize)size
@@ -81,15 +108,24 @@ static inline CGFloat ImageInitScale(CGSize imageSize, CGSize sceenSize)
 
 - (IBAction)cutPicDidPressed:(id)sender
 {
-    UIImage *img = [self resultImageWithSize:CGSizeMake(200, 200)];
+    UIImage *img;
+    switch (_eType) {
+        case cutType_room:
+        {
+            img = [self resultImageWithSize:CGSizeMake(320, 240)];
+        }
+            break;
+        case cutType_avatar:
+        {
+             img = [self resultImageWithSize:CGSizeMake(200, 200)];
+        }
+            break;
+            
+        default:
+            break;
+    }
     [_delegate PicCutView:self image:img];
-    [UIView animateWithDuration:0.4 animations:^(void)
-     {
-         self.center = CGPointMake(160, 280*3);
-     }completion:^(BOOL isFinish)
-     {
-         [self removeFromSuperview];
-     }];
+    [self closeBtnDidPressed:nil];
 }
 
 @end

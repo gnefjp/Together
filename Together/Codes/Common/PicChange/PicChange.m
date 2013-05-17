@@ -11,6 +11,7 @@
 @implementation PicChange
 
 @synthesize delegate = _delegate;
+@synthesize eType = _eType;
 
 - (void) addAvataActionSheet
 {
@@ -28,12 +29,14 @@
     [picker dismissModalViewControllerAnimated:YES];
     PicCutView  *cutView = [PicCutView loadFromNib];
     cutView.delegate = self;
+     cutView.eType = _eType;
     [cutView initWithImage:image];
+   
     [[UIView rootView] addSubview:cutView];
-    cutView.center = CGPointMake(160, 280*3);
+    cutView.center = CGPointMake(160, 290*3);
     [UIView animateWithDuration:0.4 animations:^(void)
      {
-         cutView.center = CGPointMake(160, 280);
+         cutView.center = CGPointMake(160, 295);
      }];
 }
 

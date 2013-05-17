@@ -63,7 +63,6 @@
     if (!_praiseNum||[_praiseNum isEqualToString:@""]) {
         _praiseNum  = @"0";
     }
-    
 }
 
 - (void)setAge:(NSString *)aBirth

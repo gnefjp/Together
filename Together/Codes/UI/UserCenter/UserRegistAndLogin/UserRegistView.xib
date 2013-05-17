@@ -48,9 +48,9 @@
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage" id="801768493">
+						<object class="NSCustomResource" key="IBUIImage" id="212579477">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">userCenter_inputFrame.png</string>
+							<string key="NSResourceName">usercenter_inputFrame.png</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="508552135">
@@ -63,7 +63,7 @@
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<reference key="IBUIImage" ref="801768493"/>
+						<reference key="IBUIImage" ref="212579477"/>
 					</object>
 					<object class="IBUIImageView" id="565936755">
 						<reference key="NSNextResponder" ref="825379012"/>
@@ -75,7 +75,7 @@
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<reference key="IBUIImage" ref="801768493"/>
+						<reference key="IBUIImage" ref="212579477"/>
 					</object>
 					<object class="IBUILabel" id="76358447">
 						<reference key="NSNextResponder" ref="825379012"/>
@@ -449,7 +449,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">userCenter_together.png</string>
+							<string key="NSResourceName">usercenter_together.png</string>
 						</object>
 					</object>
 				</array>
@@ -747,8 +747,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="userCenter_inputFrame.png">{442, 80}</string>
-			<string key="userCenter_together.png">{258, 80}</string>
+			<string key="usercenter_inputFrame.png">{442, 80}</string>
+			<string key="usercenter_together.png">{258, 80}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

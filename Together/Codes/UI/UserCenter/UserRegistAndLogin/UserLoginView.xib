@@ -49,7 +49,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">userCenter_tab.png</string>
+							<string key="NSResourceName">usercenter_tab.png</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="176057787">
@@ -89,7 +89,7 @@
 					<object class="IBUIButton" id="82576449">
 						<reference key="NSNextResponder" ref="572180705"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{73, 44}</string>
+						<string key="NSFrame">{{0, 6}, {55, 36}}</string>
 						<reference key="NSSuperview" ref="572180705"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="350467218"/>
@@ -116,7 +116,7 @@
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">userCenter_back_a.png</string>
+							<string key="NSResourceName">usercenter_back_a.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="360621176">
 							<int key="type">2</int>
@@ -164,9 +164,9 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage" id="861666313">
+								<object class="NSCustomResource" key="IBUIImage" id="707331900">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">userCenter_inputFrame.png</string>
+									<string key="NSResourceName">usercenter_inputFrame.png</string>
 								</object>
 							</object>
 							<object class="IBUIImageView" id="17454729">
@@ -178,7 +178,7 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="861666313"/>
+								<reference key="IBUIImage" ref="707331900"/>
 							</object>
 							<object class="IBUILabel" id="987475077">
 								<reference key="NSNextResponder" ref="801983791"/>
@@ -4779,14 +4779,13 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">userCenter_together.png</string>
+									<string key="NSResourceName">usercenter_together.png</string>
 								</object>
 							</object>
 						</array>
 						<string key="NSFrame">{{0, 44}, {318, 496}}</string>
 						<reference key="NSSuperview" ref="572180705"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="189920886"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -4931,9 +4930,9 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<array class="NSMutableArray" key="children">
 							<reference ref="801983791"/>
 							<reference ref="964709292"/>
-							<reference ref="176057787"/>
-							<reference ref="82576449"/>
 							<reference ref="350467218"/>
+							<reference ref="82576449"/>
+							<reference ref="176057787"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -5032,7 +5031,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="11.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="11.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.CustomClassName">UserLoginView</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -5135,11 +5134,11 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="userCenter_back_a.png">{100, 66}</string>
 			<string key="userCenter_back_b.png">{100, 66}</string>
-			<string key="userCenter_inputFrame.png">{442, 80}</string>
-			<string key="userCenter_tab.png">{640, 96}</string>
-			<string key="userCenter_together.png">{258, 80}</string>
+			<string key="usercenter_back_a.png">{100, 66}</string>
+			<string key="usercenter_inputFrame.png">{442, 80}</string>
+			<string key="usercenter_tab.png">{640, 96}</string>
+			<string key="usercenter_together.png">{258, 80}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

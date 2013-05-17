@@ -240,6 +240,7 @@
     if (!_avatar)
     {
         _avatar = [[PicChange alloc] init];
+        _avatar.eType = cutType_avatar;
         _avatar.delegate = self;
     }
     [_avatar addAvataActionSheet];

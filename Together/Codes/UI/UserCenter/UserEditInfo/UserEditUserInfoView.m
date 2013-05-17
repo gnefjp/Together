@@ -150,6 +150,7 @@
     {
         _avarta = [[PicChange alloc] init];
         _avarta.delegate = self;
+//        _avarta.eType = cutType_avatar;
     }
     [_avarta addAvataActionSheet];
 }

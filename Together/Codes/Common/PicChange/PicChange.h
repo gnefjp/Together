@@ -11,6 +11,7 @@
 #import "PicCutView.h"
 
 
+
 @class PicChange;
 
 @protocol PicChangeDelegate <NSObject>
@@ -22,10 +23,11 @@
 @interface PicChange : NSObject<PicActioSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PicCutViewDelegate>
 {
     __weak id<PicChangeDelegate>     _delegate;
-    
+    cutType                          _eType;
 }
 
 @property (weak,nonatomic) id<PicChangeDelegate>     delegate;
+@property (nonatomic)       cutType                  eType;
 
 - (void)addAvataActionSheet;
 

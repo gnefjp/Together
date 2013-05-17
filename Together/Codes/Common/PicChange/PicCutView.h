@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "PtGestureHelper.h"
 
+typedef enum {
+    cutType_room,
+    cutType_avatar
+}cutType;
+
 @class PicCutView;
 
 @protocol PicCutViewDelegate <NSObject>
@@ -26,9 +31,13 @@
     __weak IBOutlet UIImageView         *_cutView;
     PtGestureHelper                     *_gestureHelper;
     __weak id<PicCutViewDelegate>       _delegate;
+    cutType                             _eType;
 }
 
 - (void) initWithImage:(UIImage*)image;
+- (IBAction)closeBtnDidPressed:(id)sender;
 
-@property (weak) id<PicCutViewDelegate>       delegate;
+
+@property (weak)      id<PicCutViewDelegate>       delegate;
+@property (nonatomic) cutType                      eType;
 @end
