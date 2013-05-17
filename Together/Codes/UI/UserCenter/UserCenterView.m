@@ -16,6 +16,7 @@
 #import "UserFriendView.h"
 #import "UserUnFollowRequest.h"
 #import "PicCutView.h"
+#import "RecorderView.h"
 
 @implementation UserCenterView
 @synthesize userInfo = _userInfo;

@@ -43,9 +43,15 @@
     return NSTemporaryDirectory();
 }
 
++ (NSString*)getRecordFilePath
+{
+    NSString *filePath = [NSString stringWithFormat:@"%@/record.caf",[GMETRecorder tempPath]];
+    return  filePath;
+}
+
 + (NSURL*)getRecordFileUrl
 {
-    NSString *filePath = [NSString stringWithFormat:@"%@/test.caf",[GMETRecorder tempPath]];
+    NSString *filePath = [NSString stringWithFormat:@"%@/record.caf",[GMETRecorder tempPath]];
     return [NSURL fileURLWithPath:filePath];
 }
 
@@ -73,7 +79,7 @@
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     [session setActive:YES error:nil];
     
-    NSURL *url  = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@test.caf",NSTemporaryDirectory()]];
+    NSURL *url  = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/record.caf",NSTemporaryDirectory()]];
     
     _recorder = [[AVAudioRecorder alloc] initWithURL:url
                                             settings:[self recordSettings] error:nil];

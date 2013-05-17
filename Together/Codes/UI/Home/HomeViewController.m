@@ -231,19 +231,19 @@
         }
         case ModulType_UserCenter:
         {
-            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView]) {
+//            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView]) {
                 [_mainView removeFromSuperview];
                 UserCenterView *tmpView = [UserCenterView loadFromNib];
                 [tmpView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",[GEMTUserManager defaultManager].userInfo.userId]];
                 _mainView = tmpView;
-            }
+//            }
             break;
         }
         default:
             break;
     }
     
-    [self _initPanGesture];
+//    [self _initPanGesture];
     [self.view addSubview:_mainView];
     _mainView.frameX = 268.0;
     [self _isShowNavigation:NO animation:YES];

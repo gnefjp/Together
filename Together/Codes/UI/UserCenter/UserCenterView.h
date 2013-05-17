@@ -44,7 +44,6 @@ typedef enum
     __weak IBOutlet UILabel         *_iPraiseLb;
     __weak IBOutlet UILabel         *_iSignLb;
     
-    
     __weak IBOutlet UIButton        *_iEditBtn;
     __weak IBOutlet UIButton        *_iZanBtn;
     
@@ -64,6 +63,8 @@ typedef enum
 - (IBAction)followOther:(id)sender;
 - (IBAction)pariseOthers:(id)sender;
 - (IBAction)unfollow:(id)sender;
+
+
 
 - (IBAction)modifyInfo:(id)sender;
 - (IBAction)showMapViewBtnDidpressed:(id)sender;

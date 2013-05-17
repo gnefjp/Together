@@ -11,6 +11,7 @@
 #import "DataPicker.h"
 #import "PicChange.h"
 #import "UserInfoModifyRequest.h"
+#import "RecorderView.h"
 
 @class UserEditUserInfoView;
 
@@ -20,7 +21,7 @@
 
 @end
 
-@interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate,DataPickerDelegate,NetUserRequestDelegate>
+@interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate,DataPickerDelegate,NetUserRequestDelegate,RecorderViewDelegate>
 {
     __weak IBOutlet UITableView                 *_iTableView;
     DataPicker                                  *_piker;
@@ -29,6 +30,8 @@
     __weak IBOutlet UIButton                    *_avartaBtn;
     __weak IBOutlet UIButton                    *_recordBtn;
     __weak id<UserEditUserInfoViewDelegate>     _delegate;
+    
+    __weak IBOutlet UILabel                     *_iRecordLb;
 }
 
 @property (weak) id<UserEditUserInfoViewDelegate>   delegate;

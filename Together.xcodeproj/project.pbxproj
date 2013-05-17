@@ -201,8 +201,8 @@
 		18F032A617464C9A001963F3 /* room_unfollow_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F032A417464C9A001963F3 /* room_unfollow_btn.png */; };
 		3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5C17266B6800ED1DD7 /* KICropImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
-		3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */; };
-		3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */; };
+		3816BE0617467B5200EA7DDC /* RecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3816BE0417467B5200EA7DDC /* RecorderView.m */; };
+		3816BE0717467B5200EA7DDC /* RecorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3816BE0517467B5200EA7DDC /* RecorderView.xib */; };
 		381BAD84173AAFBB00AC42D6 /* UserFollowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */; };
 		381BAD87173AB27100AC42D6 /* UserZanRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 381BAD86173AB27100AC42D6 /* UserZanRequest.m */; };
 		3828CC22172A846D00EC7EAF /* GEMTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */; };
@@ -256,8 +256,6 @@
 		38A4C337174682180048BC4B /* common_cut_frame_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A4C335174682170048BC4B /* common_cut_frame_a.png */; };
 		38A4C338174682180048BC4B /* common_cut_frame_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A4C336174682180048BC4B /* common_cut_frame_b.png */; };
 		38DC964B1739590600E0D66A /* DataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC964A1739590600E0D66A /* DataPicker.m */; };
-		38DC964F1739591B00E0D66A /* GMETRecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC964D1739591B00E0D66A /* GMETRecorderView.m */; };
-		38DC96501739591B00E0D66A /* GMETRecorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DC964E1739591B00E0D66A /* GMETRecorderView.xib */; };
 		38DC96531739656D00E0D66A /* UserInfoModifyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC96521739656D00E0D66A /* UserInfoModifyRequest.m */; };
 		38DC96561739664700E0D66A /* UserPersonInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC96551739664600E0D66A /* UserPersonInfoRequest.m */; };
 		38F12001173BDA590079DD91 /* UserFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F12000173BDA590079DD91 /* UserFriendView.m */; };
@@ -945,9 +943,9 @@
 		3811FB5C17266B6800ED1DD7 /* KICropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KICropImageView.m; sourceTree = "<group>"; };
 		3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KIAdditions.h"; sourceTree = "<group>"; };
 		3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KIAdditions.m"; sourceTree = "<group>"; };
-		3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarCutView.h; sourceTree = "<group>"; };
-		3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarCutView.m; sourceTree = "<group>"; };
-		3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarCutView.xib; sourceTree = "<group>"; };
+		3816BE0317467B5200EA7DDC /* RecorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecorderView.h; sourceTree = "<group>"; };
+		3816BE0417467B5200EA7DDC /* RecorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecorderView.m; sourceTree = "<group>"; };
+		3816BE0517467B5200EA7DDC /* RecorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecorderView.xib; sourceTree = "<group>"; };
 		381BAD82173AAFBA00AC42D6 /* UserFollowRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFollowRequest.h; sourceTree = "<group>"; };
 		381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFollowRequest.m; sourceTree = "<group>"; };
 		381BAD85173AB27100AC42D6 /* UserZanRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserZanRequest.h; sourceTree = "<group>"; };
@@ -1021,9 +1019,6 @@
 		38A4C336174682180048BC4B /* common_cut_frame_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_cut_frame_b.png; sourceTree = "<group>"; };
 		38DC96491739590600E0D66A /* DataPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPicker.h; sourceTree = "<group>"; };
 		38DC964A1739590600E0D66A /* DataPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPicker.m; sourceTree = "<group>"; };
-		38DC964C1739591B00E0D66A /* GMETRecorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETRecorderView.h; sourceTree = "<group>"; };
-		38DC964D1739591B00E0D66A /* GMETRecorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETRecorderView.m; sourceTree = "<group>"; };
-		38DC964E1739591B00E0D66A /* GMETRecorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMETRecorderView.xib; sourceTree = "<group>"; };
 		38DC96511739656C00E0D66A /* UserInfoModifyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModifyRequest.h; sourceTree = "<group>"; };
 		38DC96521739656D00E0D66A /* UserInfoModifyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModifyRequest.m; sourceTree = "<group>"; };
 		38DC96541739664600E0D66A /* UserPersonInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPersonInfoRequest.h; sourceTree = "<group>"; };
@@ -2247,9 +2242,6 @@
 				3888875D1724687200B2D2F0 /* UserCenterView.h */,
 				3888875E1724687200B2D2F0 /* UserCenterView.m */,
 				3844A4BC1745E12C00D3A72C /* UserCenterView.xib */,
-				3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */,
-				3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */,
-				3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -2257,9 +2249,9 @@
 		3888876A172476B100B2D2F0 /* Recorder */ = {
 			isa = PBXGroup;
 			children = (
-				38DC964C1739591B00E0D66A /* GMETRecorderView.h */,
-				38DC964D1739591B00E0D66A /* GMETRecorderView.m */,
-				38DC964E1739591B00E0D66A /* GMETRecorderView.xib */,
+				3816BE0317467B5200EA7DDC /* RecorderView.h */,
+				3816BE0417467B5200EA7DDC /* RecorderView.m */,
+				3816BE0517467B5200EA7DDC /* RecorderView.xib */,
 				3888876B172476B100B2D2F0 /* GMETRecorder.h */,
 				3888876C172476B100B2D2F0 /* GMETRecorder.m */,
 			);
@@ -2409,7 +2401,6 @@
 				18BFDFC417244DF600186828 /* NavigationView.xib in Resources */,
 				18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */,
 				18BFDFE817246A4700186828 /* RoomCell.xib in Resources */,
-				3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */,
 				18C6D5B21727AA1F00184AFA /* README.md in Resources */,
 				18C6D5C71727D40900184AFA /* room_test.png in Resources */,
 				18C6D5C91727D53E00184AFA /* room_cell_test.png in Resources */,
@@ -2451,7 +2442,6 @@
 				383A5AB0172CFEFD0064A1B5 /* UserEditUserInfoCellView.xib in Resources */,
 				18D995611738FA410040901B /* common_fail_icon.png in Resources */,
 				18D995621738FA410040901B /* common_success_icon.png in Resources */,
-				38DC96501739591B00E0D66A /* GMETRecorderView.xib in Resources */,
 				18C73BD51739E1D70035BC61 /* GridBottomView.xib in Resources */,
 				18C73BD61739E1D70035BC61 /* sr_refresh.png in Resources */,
 				18C73BD71739E1D70035BC61 /* sr_refresh@2X.png in Resources */,
@@ -2521,6 +2511,7 @@
 				18F0329E1746150C001963F3 /* user_default_avatar.png in Resources */,
 				18F032A517464C9A001963F3 /* room_follow_btn.png in Resources */,
 				18F032A617464C9A001963F3 /* room_unfollow_btn.png in Resources */,
+				3816BE0717467B5200EA7DDC /* RecorderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2555,7 +2546,6 @@
 				3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */,
 				3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */,
 				3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */,
-				3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */,
 				18C6D41517279D5700184AFA /* AbstractMessage.m in Sources */,
 				18C6D41617279D5700184AFA /* AbstractMessage_Builder.m in Sources */,
 				18C6D41717279D5700184AFA /* CodedInputStream.m in Sources */,
@@ -2619,7 +2609,6 @@
 				18D9955A1738D89D0040901B /* AppSetting.m in Sources */,
 				18D9955D1738E0840040901B /* Data.pb.m in Sources */,
 				38DC964B1739590600E0D66A /* DataPicker.m in Sources */,
-				38DC964F1739591B00E0D66A /* GMETRecorderView.m in Sources */,
 				38DC96531739656D00E0D66A /* UserInfoModifyRequest.m in Sources */,
 				38DC96561739664700E0D66A /* UserPersonInfoRequest.m in Sources */,
 				18C73BD41739E1D70035BC61 /* GridBottomView.m in Sources */,
@@ -2658,6 +2647,7 @@
 				3844A4C11745E15400D3A72C /* PicCutView.m in Sources */,
 				3844A4C81745F4BF00D3A72C /* PtGestureHelper.m in Sources */,
 				3844A4CB1745F5F200D3A72C /* NetUserList.m in Sources */,
+				3816BE0617467B5200EA7DDC /* RecorderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

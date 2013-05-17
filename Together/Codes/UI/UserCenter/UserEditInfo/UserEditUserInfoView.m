@@ -11,23 +11,50 @@
 #import "DataPicker.h"
 #import "GEMTUserManager.h"
 #import "TipViewManager.h"
+#import "RecorderView.h"
 @implementation UserEditUserInfoView
+
 @synthesize delegate = _delegate;
 
 - (void)awakeFromNib
 {
-    _avartaBtn.tag =  [[GEMTUserManager defaultManager].userInfo.avataId intValue];
-    _recordBtn.tag =  [[GEMTUserManager defaultManager].userInfo.signatureRecordId intValue];
+   
 }
+
+- (void)RecorderView:(RecorderView *)v
+   successrecorderId:(NSString *)recordId
+{
+    NSLog(@"%@",recordId);
+}
+
+- (void)RecorderViewBeginTouch:(RecorderView *)v
+{
+    [_iRecordLb setText:@"松开提交"];
+}
+
+- (void)RecorderViewEndTouch:(RecorderView *)v
+{
+    [_iRecordLb setText:@"按下录音"];
+}
+
 
 - (void)viewDidLoad
 {
+    _avartaBtn.tag =  [[GEMTUserManager defaultManager].userInfo.avataId intValue];
+    _recordBtn.tag =  [[GEMTUserManager defaultManager].userInfo.signatureRecordId intValue];
+    
+    RecorderView *recordView = [RecorderView loadFromNib];
+    recordView.recordFrame = CGRectMake(20, 478, 102, 44);
+    recordView.delegate = self;
+    [self.view addSubview:recordView];
+    
     _iTableView.delegate = self;
     _iTableView.dataSource = self;
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return 4;
 }
@@ -201,8 +228,6 @@
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-//    NSNumber *avatarId = [NSNumber numberWithInt:_avartaBtn.tag];
-//    NSNumber *recordId = [NSNumber numberWithInt:_recordBtn.tag];
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
     NSString *nickName = [self _getCellRightValueWithIndex:0];
     NSString *sexName = [self _getCellRightValueWithIndex:1];
@@ -237,6 +262,7 @@
     _iTableView = nil;
     _avartaBtn = nil;
     _recordBtn = nil;
+    _iRecordLb = nil;
     [super viewDidUnload];
 }
 @end
