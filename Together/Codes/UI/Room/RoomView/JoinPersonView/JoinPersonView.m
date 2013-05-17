@@ -32,7 +32,7 @@
     if (self)
     {
         _avatarImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _avatarImageView.image = [UIImage imageNamed:@"userDefaultPhoto.png"];
+        _avatarImageView.image = [UIImage imageNamed:kUserDefaultAvatar];
         [self addSubview:_avatarImageView];
         
         _bgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
@@ -48,7 +48,7 @@
     _userItem = userItem;
     
     [_avatarImageView setImageWithFileID:userItem.ID
-                        placeholderImage:[UIImage imageNamed:@"userDefaultPhoto.png"]];
+                        placeholderImage:[UIImage imageNamed:kUserDefaultAvatar]];
 }
 
 @end

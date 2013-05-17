@@ -196,6 +196,7 @@
 		18EAB2DD17241F0B003E742D /* NetItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DC17241F0B003E742D /* NetItemList.m */; };
 		18EAB2E01724245E003E742D /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DF1724245E003E742D /* NetRequest.m */; };
 		18F032981745D5DC001963F3 /* MessageData.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F032971745D5DC001963F3 /* MessageData.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F0329E1746150C001963F3 /* user_default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0329D1746150C001963F3 /* user_default_avatar.png */; };
 		3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5C17266B6800ED1DD7 /* KICropImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
 		3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */; };
@@ -257,7 +258,6 @@
 		38DC96501739591B00E0D66A /* GMETRecorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DC964E1739591B00E0D66A /* GMETRecorderView.xib */; };
 		38DC96531739656D00E0D66A /* UserInfoModifyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC96521739656D00E0D66A /* UserInfoModifyRequest.m */; };
 		38DC96561739664700E0D66A /* UserPersonInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC96551739664600E0D66A /* UserPersonInfoRequest.m */; };
-		38F11FFD173BD97E0079DD91 /* userDefaultPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F11FFB173BD97E0079DD91 /* userDefaultPhoto.png */; };
 		38F12001173BDA590079DD91 /* UserFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F12000173BDA590079DD91 /* UserFriendView.m */; };
 		38F12003173BDAB90079DD91 /* UserFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F12002173BDAB90079DD91 /* UserFriendView.xib */; };
 		38F12006173BDF020079DD91 /* UserFirendCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F12005173BDF020079DD91 /* UserFirendCellView.m */; };
@@ -936,6 +936,7 @@
 		18EAB2DF1724245E003E742D /* NetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
 		18F032961745D5DC001963F3 /* MessageData.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageData.pb.h; sourceTree = "<group>"; };
 		18F032971745D5DC001963F3 /* MessageData.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageData.pb.m; sourceTree = "<group>"; };
+		18F0329D1746150C001963F3 /* user_default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_default_avatar.png; sourceTree = "<group>"; };
 		3811FB5B17266B6800ED1DD7 /* KICropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KICropImageView.h; sourceTree = "<group>"; };
 		3811FB5C17266B6800ED1DD7 /* KICropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KICropImageView.m; sourceTree = "<group>"; };
 		3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KIAdditions.h"; sourceTree = "<group>"; };
@@ -1023,7 +1024,6 @@
 		38DC96521739656D00E0D66A /* UserInfoModifyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModifyRequest.m; sourceTree = "<group>"; };
 		38DC96541739664600E0D66A /* UserPersonInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPersonInfoRequest.h; sourceTree = "<group>"; };
 		38DC96551739664600E0D66A /* UserPersonInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPersonInfoRequest.m; sourceTree = "<group>"; };
-		38F11FFB173BD97E0079DD91 /* userDefaultPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userDefaultPhoto.png; sourceTree = "<group>"; };
 		38F11FFF173BDA590079DD91 /* UserFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFriendView.h; sourceTree = "<group>"; };
 		38F12000173BDA590079DD91 /* UserFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFriendView.m; sourceTree = "<group>"; };
 		38F12002173BDAB90079DD91 /* UserFriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserFriendView.xib; sourceTree = "<group>"; };
@@ -2305,6 +2305,7 @@
 		38F11FF9173BD97E0079DD91 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				18F0329D1746150C001963F3 /* user_default_avatar.png */,
 				389F2A1517433692002E02E6 /* usercenter_add_a.png */,
 				389F2A1617433692002E02E6 /* usercenter_add_b.png */,
 				389F2A1717433692002E02E6 /* usercenter_avatarBg.png */,
@@ -2325,7 +2326,6 @@
 				389F2A2617433692002E02E6 /* usercenter_zanBg.png */,
 				389F2A2717433692002E02E6 /* usercenter_zanBtn_a.png */,
 				389F2A2817433692002E02E6 /* usercenter_zanBtn_b.png */,
-				38F11FFB173BD97E0079DD91 /* userDefaultPhoto.png */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2462,7 +2462,6 @@
 				18C73BF9173A59980035BC61 /* room_create_btn_b.png in Resources */,
 				18C73BFC173A66970035BC61 /* room_small_btn_a.png in Resources */,
 				18C73BFD173A66970035BC61 /* room_small_btn_b.png in Resources */,
-				38F11FFD173BD97E0079DD91 /* userDefaultPhoto.png in Resources */,
 				38F12003173BDAB90079DD91 /* UserFriendView.xib in Resources */,
 				38F12008173BDF350079DD91 /* UserFirendCellView.xib in Resources */,
 				18C9A334173CD331002FA0E4 /* room_default_preview.png in Resources */,
@@ -2513,6 +2512,7 @@
 				3844A4C21745E15400D3A72C /* PicCutView.xib in Resources */,
 				38A4C337174682180048BC4B /* common_cut_frame_a.png in Resources */,
 				38A4C338174682180048BC4B /* common_cut_frame_b.png in Resources */,
+				18F0329E1746150C001963F3 /* user_default_avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

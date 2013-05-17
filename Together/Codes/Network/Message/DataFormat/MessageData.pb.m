@@ -20,7 +20,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @end
 
 @interface Message_Info ()
-@property int32_t id;
+@property int32_t messageId;
 @property int32_t senderId;
 @property int32_t recipientId;
 @property int32_t type;
@@ -33,13 +33,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
 
 @implementation Message_Info
 
-- (BOOL) hasId {
-  return !!hasId_;
+- (BOOL) hasMessageId {
+  return !!hasMessageId_;
 }
-- (void) setHasId:(BOOL) value {
-  hasId_ = !!value;
+- (void) setHasMessageId:(BOOL) value {
+  hasMessageId_ = !!value;
 }
-@synthesize id;
+@synthesize messageId;
 - (BOOL) hasSenderId {
   return !!hasSenderId_;
 }
@@ -104,7 +104,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 }
 - (id) init {
   if ((self = [super init])) {
-    self.id = 0;
+    self.messageId = 0;
     self.senderId = 0;
     self.recipientId = 0;
     self.type = 0;
@@ -132,8 +132,8 @@ static Message_Info* defaultMessage_InfoInstance = nil;
   return YES;
 }
 - (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
-  if (self.hasId) {
-    [output writeInt32:1 value:self.id];
+  if (self.hasMessageId) {
+    [output writeInt32:1 value:self.messageId];
   }
   if (self.hasSenderId) {
     [output writeInt32:2 value:self.senderId];
@@ -168,8 +168,8 @@ static Message_Info* defaultMessage_InfoInstance = nil;
   }
 
   size = 0;
-  if (self.hasId) {
-    size += computeInt32Size(1, self.id);
+  if (self.hasMessageId) {
+    size += computeInt32Size(1, self.messageId);
   }
   if (self.hasSenderId) {
     size += computeInt32Size(2, self.senderId);
@@ -270,8 +270,8 @@ static Message_Info* defaultMessage_InfoInstance = nil;
   if (other == [Message_Info defaultInstance]) {
     return self;
   }
-  if (other.hasId) {
-    [self setId:other.id];
+  if (other.hasMessageId) {
+    [self setMessageId:other.messageId];
   }
   if (other.hasSenderId) {
     [self setSenderId:other.senderId];
@@ -319,7 +319,7 @@ static Message_Info* defaultMessage_InfoInstance = nil;
         break;
       }
       case 8: {
-        [self setId:[input readInt32]];
+        [self setMessageId:[input readInt32]];
         break;
       }
       case 16: {
@@ -357,20 +357,20 @@ static Message_Info* defaultMessage_InfoInstance = nil;
     }
   }
 }
-- (BOOL) hasId {
-  return result.hasId;
+- (BOOL) hasMessageId {
+  return result.hasMessageId;
 }
-- (int32_t) id {
-  return result.id;
+- (int32_t) messageId {
+  return result.messageId;
 }
-- (Message_Info_Builder*) setId:(int32_t) value {
-  result.hasId = YES;
-  result.id = value;
+- (Message_Info_Builder*) setMessageId:(int32_t) value {
+  result.hasMessageId = YES;
+  result.messageId = value;
   return self;
 }
-- (Message_Info_Builder*) clearId {
-  result.hasId = NO;
-  result.id = 0;
+- (Message_Info_Builder*) clearMessageId {
+  result.hasMessageId = NO;
+  result.messageId = 0;
   return self;
 }
 - (BOOL) hasSenderId {

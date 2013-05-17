@@ -117,7 +117,6 @@
 						<string key="NSFrame">{{71, 516}, {216, 21}}</string>
 						<reference key="NSSuperview" ref="229738406"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -236,7 +235,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrame">{{86, 106}, {158, 158}}</string>
+						<string key="NSFrame">{{81, 195}, {158, 158}}</string>
 						<reference key="NSSuperview" ref="229738406"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="350998137"/>
@@ -312,6 +311,38 @@
 						<reference key="destination" ref="22451023"/>
 					</object>
 					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_recordStateView</string>
+						<reference key="source" ref="229738406"/>
+						<reference key="destination" ref="255221499"/>
+					</object>
+					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_recordEmptyImageView</string>
+						<reference key="source" ref="229738406"/>
+						<reference key="destination" ref="750902310"/>
+					</object>
+					<int key="connectionID">25</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_recordDBImageView</string>
+						<reference key="source" ref="229738406"/>
+						<reference key="destination" ref="527093200"/>
+					</object>
+					<int key="connectionID">26</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_recordRemoveImageView</string>
+						<reference key="source" ref="229738406"/>
+						<reference key="destination" ref="176543525"/>
+					</object>
+					<int key="connectionID">27</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -443,7 +474,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">23</int>
+			<int key="maxID">27</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -462,12 +493,32 @@
 						</object>
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="_recordDBImageView">UIImageView</string>
+						<string key="_recordEmptyImageView">UIImageView</string>
+						<string key="_recordRemoveImageView">UIImageView</string>
+						<string key="_recordStateView">UIView</string>
 						<string key="changeTypeBtn">UIButton</string>
 						<string key="inputBgImageView">UIImageView</string>
 						<string key="inputTextField">UITextField</string>
 						<string key="recordTitleLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="_recordDBImageView">
+							<string key="name">_recordDBImageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="_recordEmptyImageView">
+							<string key="name">_recordEmptyImageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="_recordRemoveImageView">
+							<string key="name">_recordRemoveImageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="_recordStateView">
+							<string key="name">_recordStateView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="changeTypeBtn">
 							<string key="name">changeTypeBtn</string>
 							<string key="candidateClassName">UIButton</string>

@@ -10,11 +10,12 @@
 
 @implementation RoomGetListRequest
 
-
+#ifdef kIsSimulatedData
 - (NSString *) requestUrl
 {
-    return @"http://127.0.0.1/ROOM";
+    return @"http://127.0.0.1/ROOM/GetList";
 }
+#endif
 
 
 - (id) init

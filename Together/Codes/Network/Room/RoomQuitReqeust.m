@@ -10,6 +10,7 @@
 
 @implementation RoomQuitReqeust
 
+
 - (id) init
 {
     self = [super init];

@@ -11,6 +11,10 @@
 
 @interface ChatInputView : UIView
 {
+    __weak IBOutlet UIView *_recordStateView;
+    __weak IBOutlet UIImageView *_recordEmptyImageView;
+    __weak IBOutlet UIImageView *_recordDBImageView;
+    __weak IBOutlet UIImageView *_recordRemoveImageView;
     BOOL        _isRecording;
 }
 

@@ -13,7 +13,7 @@
 
 @interface Message_Info : PBGeneratedMessage {
 @private
-  BOOL hasId_:1;
+  BOOL hasMessageId_:1;
   BOOL hasSenderId_:1;
   BOOL hasRecipientId_:1;
   BOOL hasType_:1;
@@ -22,7 +22,7 @@
   BOOL hasContent_:1;
   BOOL hasTitle_:1;
   BOOL hasTime_:1;
-  int32_t id;
+  int32_t messageId;
   int32_t senderId;
   int32_t recipientId;
   int32_t type;
@@ -32,7 +32,7 @@
   NSString* title;
   NSString* time;
 }
-- (BOOL) hasId;
+- (BOOL) hasMessageId;
 - (BOOL) hasSenderId;
 - (BOOL) hasRecipientId;
 - (BOOL) hasType;
@@ -41,7 +41,7 @@
 - (BOOL) hasFileId;
 - (BOOL) hasRoomId;
 - (BOOL) hasTime;
-@property (readonly) int32_t id;
+@property (readonly) int32_t messageId;
 @property (readonly) int32_t senderId;
 @property (readonly) int32_t recipientId;
 @property (readonly) int32_t type;
@@ -85,10 +85,10 @@
 - (Message_Info_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
 - (Message_Info_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
 
-- (BOOL) hasId;
-- (int32_t) id;
-- (Message_Info_Builder*) setId:(int32_t) value;
-- (Message_Info_Builder*) clearId;
+- (BOOL) hasMessageId;
+- (int32_t) messageId;
+- (Message_Info_Builder*) setMessageId:(int32_t) value;
+- (Message_Info_Builder*) clearMessageId;
 
 - (BOOL) hasSenderId;
 - (int32_t) senderId;

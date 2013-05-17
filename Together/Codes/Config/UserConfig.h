@@ -9,8 +9,10 @@
 #ifndef Together_UserConfig_h
 #define Together_UserConfig_h
 
-#define kNotification_userDidLogin @"userDidLoginNotification"
-#define kNotification_userDidLoginOut @"userDidLogOutNotification"
+#define kUserDefaultAvatar                  @"user_default_avatar.png"
+
+#define kNotification_userDidLogin          @"Notification_userDidLogin"
+#define kNotification_userDidLoginOut       @"Notification_userDidLoginOut"
 
 
 typedef enum

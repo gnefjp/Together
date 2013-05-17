@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
+#import "MessageData.pb.h"
+
 #import "NetMessageList.h"
 
 #pragma mark- Item
@@ -16,7 +18,23 @@
     self = [super init];
     if (self)
     {
-        // TODO: 解释
+        if ([message isKindOfClass:[Message_Info class]])
+        {
+            Message_Info *messageInfo = (Message_Info *)message;
+            
+//            self.ID = messageInfo.id;
+            self.messageType = messageInfo.type;
+            
+            self.content = messageInfo.content;
+            self.sendTime = messageInfo.time;
+            
+            self.senderID = [NSString stringWithInt:messageInfo.senderId];
+//            self.senderNickname = messageInfo.
+//            self.senderAvatarID = messageInfo.
+            
+            self.receiverID = [NSString stringWithInt:messageInfo.recipientId];
+            
+        }
     }
     return self;
 }
@@ -30,11 +48,14 @@
     {
         NetMessageItem *newMessage = (NetMessageItem *)newItem;
         self.messageType = newMessage.messageType;
+        
         self.content = newMessage.content;
         self.sendTime = newMessage.sendTime;
+        
         self.senderID = newMessage.senderID;
         self.senderNickname = newMessage.senderNickname;
         self.senderAvatarID = newMessage.senderAvatarID;
+        
         self.receiverID = newMessage.receiverID;
     }
 }
@@ -44,7 +65,6 @@
 
 #pragma mark- List
 @implementation NetMessageList
-
 
 - (NSArray *) _decodeData:(HTTPResponse *)response
 {
