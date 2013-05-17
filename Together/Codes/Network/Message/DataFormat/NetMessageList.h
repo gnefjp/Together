@@ -22,7 +22,8 @@ typedef enum
 
 @property (assign, nonatomic) MessageType   messageType;
 
-@property (copy,   nonatomic) NSString      *content; // 音频ID或者Text
+@property (copy,   nonatomic) NSString      *content;  // 音频ID或者Text
+@property (copy,   nonatomic) NSString      *sendTime; 
 
 @property (copy,   nonatomic) NSString      *senderID;
 @property (copy,   nonatomic) NSString      *senderNickname;

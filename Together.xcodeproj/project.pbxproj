@@ -195,6 +195,7 @@
 		18EAB2CF172417F0003E742D /* TogetherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2CE172417F0003E742D /* TogetherAppDelegate.m */; };
 		18EAB2DD17241F0B003E742D /* NetItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DC17241F0B003E742D /* NetItemList.m */; };
 		18EAB2E01724245E003E742D /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAB2DF1724245E003E742D /* NetRequest.m */; };
+		18F032981745D5DC001963F3 /* MessageData.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F032971745D5DC001963F3 /* MessageData.pb.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5C17266B6800ED1DD7 /* KICropImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
 		3811FB6317266DCC00ED1DD7 /* AvatarCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */; };
@@ -927,6 +928,8 @@
 		18EAB2DC17241F0B003E742D /* NetItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetItemList.m; sourceTree = "<group>"; };
 		18EAB2DE1724245E003E742D /* NetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRequest.h; sourceTree = "<group>"; };
 		18EAB2DF1724245E003E742D /* NetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
+		18F032961745D5DC001963F3 /* MessageData.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageData.pb.h; sourceTree = "<group>"; };
+		18F032971745D5DC001963F3 /* MessageData.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageData.pb.m; sourceTree = "<group>"; };
 		3811FB5B17266B6800ED1DD7 /* KICropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KICropImageView.h; sourceTree = "<group>"; };
 		3811FB5C17266B6800ED1DD7 /* KICropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KICropImageView.m; sourceTree = "<group>"; };
 		3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KIAdditions.h"; sourceTree = "<group>"; };
@@ -1083,6 +1086,8 @@
 		189A54ED17454C7800906043 /* DataFormat */ = {
 			isa = PBXGroup;
 			children = (
+				18F032961745D5DC001963F3 /* MessageData.pb.h */,
+				18F032971745D5DC001963F3 /* MessageData.pb.m */,
 				189A54EE17454CC000906043 /* NetMessageList.h */,
 				189A54EF17454CC000906043 /* NetMessageList.m */,
 			);
@@ -2614,6 +2619,7 @@
 				189A54E21745260A00906043 /* RoomCommentView.m in Sources */,
 				189A54E71745262B00906043 /* RoomCommentCell.m in Sources */,
 				189A54F017454CC000906043 /* NetMessageList.m in Sources */,
+				18F032981745D5DC001963F3 /* MessageData.pb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

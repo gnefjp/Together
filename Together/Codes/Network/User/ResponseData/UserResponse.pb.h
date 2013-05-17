@@ -3,11 +3,16 @@
 #import "ProtocolBuffers.h"
 
 #import "UserData.pb.h"
+#import "MessageData.pb.h"
 
 @class DetailResponse;
 @class DetailResponse_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
+@class Message_Info;
+@class Message_Info_Builder;
+@class UserMessageResponse;
+@class UserMessageResponse_Builder;
 @class User_Info;
 @class User_Info_Builder;
 @class UsernameExistResponse;
@@ -183,5 +188,86 @@
 - (BOOL) isExist;
 - (UsernameExistResponse_Builder*) setIsExist:(BOOL) value;
 - (UsernameExistResponse_Builder*) clearIsExist;
+@end
+
+@interface UserMessageResponse : PBGeneratedMessage {
+@private
+  BOOL hasMessageCount_:1;
+  BOOL hasSender_:1;
+  BOOL hasRecipient_:1;
+  BOOL hasMessageInfo_:1;
+  int32_t messageCount;
+  User_Info* sender;
+  User_Info* recipient;
+  Message_Info* messageInfo;
+}
+- (BOOL) hasSender;
+- (BOOL) hasRecipient;
+- (BOOL) hasMessageInfo;
+- (BOOL) hasMessageCount;
+@property (readonly, retain) User_Info* sender;
+@property (readonly, retain) User_Info* recipient;
+@property (readonly, retain) Message_Info* messageInfo;
+@property (readonly) int32_t messageCount;
+
++ (UserMessageResponse*) defaultInstance;
+- (UserMessageResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (UserMessageResponse_Builder*) builder;
++ (UserMessageResponse_Builder*) builder;
++ (UserMessageResponse_Builder*) builderWithPrototype:(UserMessageResponse*) prototype;
+
++ (UserMessageResponse*) parseFromData:(NSData*) data;
++ (UserMessageResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (UserMessageResponse*) parseFromInputStream:(NSInputStream*) input;
++ (UserMessageResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (UserMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (UserMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface UserMessageResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  UserMessageResponse* result;
+}
+
+- (UserMessageResponse*) defaultInstance;
+
+- (UserMessageResponse_Builder*) clear;
+- (UserMessageResponse_Builder*) clone;
+
+- (UserMessageResponse*) build;
+- (UserMessageResponse*) buildPartial;
+
+- (UserMessageResponse_Builder*) mergeFrom:(UserMessageResponse*) other;
+- (UserMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (UserMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasSender;
+- (User_Info*) sender;
+- (UserMessageResponse_Builder*) setSender:(User_Info*) value;
+- (UserMessageResponse_Builder*) setSenderBuilder:(User_Info_Builder*) builderForValue;
+- (UserMessageResponse_Builder*) mergeSender:(User_Info*) value;
+- (UserMessageResponse_Builder*) clearSender;
+
+- (BOOL) hasRecipient;
+- (User_Info*) recipient;
+- (UserMessageResponse_Builder*) setRecipient:(User_Info*) value;
+- (UserMessageResponse_Builder*) setRecipientBuilder:(User_Info_Builder*) builderForValue;
+- (UserMessageResponse_Builder*) mergeRecipient:(User_Info*) value;
+- (UserMessageResponse_Builder*) clearRecipient;
+
+- (BOOL) hasMessageInfo;
+- (Message_Info*) messageInfo;
+- (UserMessageResponse_Builder*) setMessageInfo:(Message_Info*) value;
+- (UserMessageResponse_Builder*) setMessageInfoBuilder:(Message_Info_Builder*) builderForValue;
+- (UserMessageResponse_Builder*) mergeMessageInfo:(Message_Info*) value;
+- (UserMessageResponse_Builder*) clearMessageInfo;
+
+- (BOOL) hasMessageCount;
+- (int32_t) messageCount;
+- (UserMessageResponse_Builder*) setMessageCount:(int32_t) value;
+- (UserMessageResponse_Builder*) clearMessageCount;
 @end
 

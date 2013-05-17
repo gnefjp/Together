@@ -13,6 +13,8 @@
 @class List_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
+@class Message_Info;
+@class Message_Info_Builder;
 @class RoomInfo;
 @class RoomInfoResponse;
 @class RoomInfoResponse_Builder;
@@ -21,6 +23,8 @@
 @class RoomPeopleListResponse_Builder;
 @class ShowRoomListResponse;
 @class ShowRoomListResponse_Builder;
+@class UserMessageResponse;
+@class UserMessageResponse_Builder;
 @class UserRoomListResponse;
 @class UserRoomListResponse_Builder;
 @class User_Info;

@@ -27,6 +27,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property (retain) NSMutableArray* mutableRoomInfoListList;
 @property (retain) NSMutableArray* mutableUserInfoList;
 @property (retain) NSMutableArray* mutableUserDetailListList;
+@property (retain) NSMutableArray* mutableUserMessageInfoList;
 @end
 
 @implementation List
@@ -46,10 +47,12 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @synthesize mutableRoomInfoListList;
 @synthesize mutableUserInfoList;
 @synthesize mutableUserDetailListList;
+@synthesize mutableUserMessageInfoList;
 - (void) dealloc {
   self.mutableRoomInfoListList = nil;
   self.mutableUserInfoList = nil;
   self.mutableUserDetailListList = nil;
+  self.mutableUserMessageInfoList = nil;
   [super dealloc];
 }
 - (id) init {
@@ -91,6 +94,13 @@ static List* defaultListInstance = nil;
   id value = [mutableUserDetailListList objectAtIndex:index];
   return value;
 }
+- (NSArray*) userMessageInfoList {
+  return mutableUserMessageInfoList;
+}
+- (UserMessageResponse*) userMessageInfoAtIndex:(int32_t) index {
+  id value = [mutableUserMessageInfoList objectAtIndex:index];
+  return value;
+}
 - (BOOL) isInitialized {
   return YES;
 }
@@ -106,6 +116,9 @@ static List* defaultListInstance = nil;
   }
   for (DetailResponse* element in self.userDetailListList) {
     [output writeMessage:4 value:element];
+  }
+  for (UserMessageResponse* element in self.userMessageInfoList) {
+    [output writeMessage:5 value:element];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -127,6 +140,9 @@ static List* defaultListInstance = nil;
   }
   for (DetailResponse* element in self.userDetailListList) {
     size += computeMessageSize(4, element);
+  }
+  for (UserMessageResponse* element in self.userMessageInfoList) {
+    size += computeMessageSize(5, element);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -224,6 +240,12 @@ static List* defaultListInstance = nil;
     }
     [result.mutableUserDetailListList addObjectsFromArray:other.mutableUserDetailListList];
   }
+  if (other.mutableUserMessageInfoList.count > 0) {
+    if (result.mutableUserMessageInfoList == nil) {
+      result.mutableUserMessageInfoList = [NSMutableArray array];
+    }
+    [result.mutableUserMessageInfoList addObjectsFromArray:other.mutableUserMessageInfoList];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -265,6 +287,12 @@ static List* defaultListInstance = nil;
         DetailResponse_Builder* subBuilder = [DetailResponse builder];
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self addUserDetailList:[subBuilder buildPartial]];
+        break;
+      }
+      case 42: {
+        UserMessageResponse_Builder* subBuilder = [UserMessageResponse builder];
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self addUserMessageInfo:[subBuilder buildPartial]];
         break;
       }
     }
@@ -371,6 +399,35 @@ static List* defaultListInstance = nil;
     result.mutableUserDetailListList = [NSMutableArray array];
   }
   [result.mutableUserDetailListList addObject:value];
+  return self;
+}
+- (NSArray*) userMessageInfoList {
+  if (result.mutableUserMessageInfoList == nil) { return [NSArray array]; }
+  return result.mutableUserMessageInfoList;
+}
+- (UserMessageResponse*) userMessageInfoAtIndex:(int32_t) index {
+  return [result userMessageInfoAtIndex:index];
+}
+- (List_Builder*) replaceUserMessageInfoAtIndex:(int32_t) index with:(UserMessageResponse*) value {
+  [result.mutableUserMessageInfoList replaceObjectAtIndex:index withObject:value];
+  return self;
+}
+- (List_Builder*) addAllUserMessageInfo:(NSArray*) values {
+  if (result.mutableUserMessageInfoList == nil) {
+    result.mutableUserMessageInfoList = [NSMutableArray array];
+  }
+  [result.mutableUserMessageInfoList addObjectsFromArray:values];
+  return self;
+}
+- (List_Builder*) clearUserMessageInfoList {
+  result.mutableUserMessageInfoList = nil;
+  return self;
+}
+- (List_Builder*) addUserMessageInfo:(UserMessageResponse*) value {
+  if (result.mutableUserMessageInfoList == nil) {
+    result.mutableUserMessageInfoList = [NSMutableArray array];
+  }
+  [result.mutableUserMessageInfoList addObject:value];
   return self;
 }
 @end

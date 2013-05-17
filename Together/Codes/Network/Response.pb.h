@@ -5,6 +5,7 @@
 #import "UserResponse.pb.h"
 #import "UserListResponse.pb.h"
 #import "RoomResponse.pb.h"
+#import "Data.pb.h"
 
 @class Address;
 @class Address_Builder;
@@ -20,6 +21,8 @@
 @class List_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
+@class Message_Info;
+@class Message_Info_Builder;
 @class RoomInfo;
 @class RoomInfoResponse;
 @class RoomInfoResponse_Builder;
@@ -28,6 +31,8 @@
 @class RoomPeopleListResponse_Builder;
 @class ShowRoomListResponse;
 @class ShowRoomListResponse_Builder;
+@class UserMessageResponse;
+@class UserMessageResponse_Builder;
 @class UserRoomListResponse;
 @class UserRoomListResponse_Builder;
 @class User_Info;
@@ -46,6 +51,7 @@
   BOOL hasSuccess_:1;
   BOOL hasCode_:1;
   BOOL hasMsg_:1;
+  BOOL hasServerTime_:1;
   BOOL hasLoginResponse_:1;
   BOOL hasDetailResponse_:1;
   BOOL hasExistResponse_:1;
@@ -55,9 +61,11 @@
   BOOL hasFollowListResponse_:1;
   BOOL hasFollowedListResponse_:1;
   BOOL hasUserRoomListResponse_:1;
+  BOOL hasUserMessageListResponse_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
+  NSString* serverTime;
   LoginResponse* loginResponse;
   DetailResponse* detailResponse;
   UsernameExistResponse* existResponse;
@@ -67,10 +75,12 @@
   FollowListResponse* followListResponse;
   FollowedListResponse* followedListResponse;
   UserRoomListResponse* userRoomListResponse;
+  List* userMessageListResponse;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
 - (BOOL) hasMsg;
+- (BOOL) hasServerTime;
 - (BOOL) hasLoginResponse;
 - (BOOL) hasDetailResponse;
 - (BOOL) hasExistResponse;
@@ -80,9 +90,11 @@
 - (BOOL) hasFollowListResponse;
 - (BOOL) hasFollowedListResponse;
 - (BOOL) hasUserRoomListResponse;
+- (BOOL) hasUserMessageListResponse;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
+@property (readonly, retain) NSString* serverTime;
 @property (readonly, retain) LoginResponse* loginResponse;
 @property (readonly, retain) DetailResponse* detailResponse;
 @property (readonly, retain) UsernameExistResponse* existResponse;
@@ -92,6 +104,7 @@
 @property (readonly, retain) FollowListResponse* followListResponse;
 @property (readonly, retain) FollowedListResponse* followedListResponse;
 @property (readonly, retain) UserRoomListResponse* userRoomListResponse;
+@property (readonly, retain) List* userMessageListResponse;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -141,6 +154,11 @@
 - (NSString*) msg;
 - (HTTPResponse_Builder*) setMsg:(NSString*) value;
 - (HTTPResponse_Builder*) clearMsg;
+
+- (BOOL) hasServerTime;
+- (NSString*) serverTime;
+- (HTTPResponse_Builder*) setServerTime:(NSString*) value;
+- (HTTPResponse_Builder*) clearServerTime;
 
 - (BOOL) hasLoginResponse;
 - (LoginResponse*) loginResponse;
@@ -204,5 +222,12 @@
 - (HTTPResponse_Builder*) setUserRoomListResponseBuilder:(UserRoomListResponse_Builder*) builderForValue;
 - (HTTPResponse_Builder*) mergeUserRoomListResponse:(UserRoomListResponse*) value;
 - (HTTPResponse_Builder*) clearUserRoomListResponse;
+
+- (BOOL) hasUserMessageListResponse;
+- (List*) userMessageListResponse;
+- (HTTPResponse_Builder*) setUserMessageListResponse:(List*) value;
+- (HTTPResponse_Builder*) setUserMessageListResponseBuilder:(List_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeUserMessageListResponse:(List*) value;
+- (HTTPResponse_Builder*) clearUserMessageListResponse;
 @end
 

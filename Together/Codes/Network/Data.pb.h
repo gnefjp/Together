@@ -14,8 +14,12 @@
 @class List_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
+@class Message_Info;
+@class Message_Info_Builder;
 @class RoomInfo;
 @class RoomInfo_Builder;
+@class UserMessageResponse;
+@class UserMessageResponse_Builder;
 @class User_Info;
 @class User_Info_Builder;
 @class UsernameExistResponse;
@@ -34,6 +38,7 @@
   NSMutableArray* mutableRoomInfoListList;
   NSMutableArray* mutableUserInfoList;
   NSMutableArray* mutableUserDetailListList;
+  NSMutableArray* mutableUserMessageInfoList;
 }
 - (BOOL) hasIsEnd;
 - (BOOL) isEnd;
@@ -43,6 +48,8 @@
 - (User_Info*) userInfoAtIndex:(int32_t) index;
 - (NSArray*) userDetailListList;
 - (DetailResponse*) userDetailListAtIndex:(int32_t) index;
+- (NSArray*) userMessageInfoList;
+- (UserMessageResponse*) userMessageInfoAtIndex:(int32_t) index;
 
 + (List*) defaultInstance;
 - (List*) defaultInstance;
@@ -103,5 +110,12 @@
 - (List_Builder*) addUserDetailList:(DetailResponse*) value;
 - (List_Builder*) addAllUserDetailList:(NSArray*) values;
 - (List_Builder*) clearUserDetailListList;
+
+- (NSArray*) userMessageInfoList;
+- (UserMessageResponse*) userMessageInfoAtIndex:(int32_t) index;
+- (List_Builder*) replaceUserMessageInfoAtIndex:(int32_t) index with:(UserMessageResponse*) value;
+- (List_Builder*) addUserMessageInfo:(UserMessageResponse*) value;
+- (List_Builder*) addAllUserMessageInfo:(NSArray*) values;
+- (List_Builder*) clearUserMessageInfoList;
 @end
 

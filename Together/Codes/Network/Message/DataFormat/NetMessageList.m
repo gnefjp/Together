@@ -31,6 +31,7 @@
         NetMessageItem *newMessage = (NetMessageItem *)newItem;
         self.messageType = newMessage.messageType;
         self.content = newMessage.content;
+        self.sendTime = newMessage.sendTime;
         self.senderID = newMessage.senderID;
         self.senderNickname = newMessage.senderNickname;
         self.senderAvatarID = newMessage.senderAvatarID;

@@ -29,5 +29,8 @@ src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/User/"$dataFormatD
 src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/Room/"$responseDir $protoFileDir"/RoomResponse.proto"
 src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/Room/"$dataFormatDir $protoFileDir"/RoomData.proto"
 
+#消息
+src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/Message/"$dataFormatDir $protoFileDir"/MessageData.proto"
+
 
 exit 0

@@ -7,14 +7,13 @@
 //
 
 @interface AppSetting : NSObject
-{
-    NSMutableDictionary     *_dict;
-}
 
 + (AppSetting *) defaultSetting;
 
-@property (assign, nonatomic) CLLocation    *currentLocation;
+@property (strong, nonatomic) CLLocation        *currentLocation;
 
 //@property (assign, nonatomic) NetUserItem   *userItem; TODO: 老大加一下用户信息
+
+@property (strong, nonatomic) NSString          *serverCurrentTime;
 
 @end

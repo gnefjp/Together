@@ -28,27 +28,4 @@ static AppSetting   *s_defaultSetting = nil;
     return s_defaultSetting;
 }
 
-
-- (id) init
-{
-    self = [super init];
-    if (self)
-    {
-        _dict = [[NSMutableDictionary alloc] init];
-    }
-    return self;
-}
-
-
-- (void) setCurrentLocation:(CLLocation *)currentLocation
-{
-    [_dict setValue:currentLocation forKey:@"CurrentLocation"];
-}
-
-
-- (CLLocation *) currentLocation
-{
-    return [_dict valueForKey:@"CurrentLocation"];
-}
-
 @end

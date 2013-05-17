@@ -13,6 +13,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     PBMutableExtensionRegistry* registry = [PBMutableExtensionRegistry registry];
     [self registerAllExtensions:registry];
     [UserDataRoot registerAllExtensions:registry];
+    [MessageDataRoot registerAllExtensions:registry];
     extensionRegistry = [registry retain];
   }
 }
@@ -674,6 +675,357 @@ static UsernameExistResponse* defaultUsernameExistResponseInstance = nil;
 - (UsernameExistResponse_Builder*) clearIsExist {
   result.hasIsExist = NO;
   result.isExist = NO;
+  return self;
+}
+@end
+
+@interface UserMessageResponse ()
+@property (retain) User_Info* sender;
+@property (retain) User_Info* recipient;
+@property (retain) Message_Info* messageInfo;
+@property int32_t messageCount;
+@end
+
+@implementation UserMessageResponse
+
+- (BOOL) hasSender {
+  return !!hasSender_;
+}
+- (void) setHasSender:(BOOL) value {
+  hasSender_ = !!value;
+}
+@synthesize sender;
+- (BOOL) hasRecipient {
+  return !!hasRecipient_;
+}
+- (void) setHasRecipient:(BOOL) value {
+  hasRecipient_ = !!value;
+}
+@synthesize recipient;
+- (BOOL) hasMessageInfo {
+  return !!hasMessageInfo_;
+}
+- (void) setHasMessageInfo:(BOOL) value {
+  hasMessageInfo_ = !!value;
+}
+@synthesize messageInfo;
+- (BOOL) hasMessageCount {
+  return !!hasMessageCount_;
+}
+- (void) setHasMessageCount:(BOOL) value {
+  hasMessageCount_ = !!value;
+}
+@synthesize messageCount;
+- (void) dealloc {
+  self.sender = nil;
+  self.recipient = nil;
+  self.messageInfo = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.sender = [User_Info defaultInstance];
+    self.recipient = [User_Info defaultInstance];
+    self.messageInfo = [Message_Info defaultInstance];
+    self.messageCount = 0;
+  }
+  return self;
+}
+static UserMessageResponse* defaultUserMessageResponseInstance = nil;
++ (void) initialize {
+  if (self == [UserMessageResponse class]) {
+    defaultUserMessageResponseInstance = [[UserMessageResponse alloc] init];
+  }
+}
++ (UserMessageResponse*) defaultInstance {
+  return defaultUserMessageResponseInstance;
+}
+- (UserMessageResponse*) defaultInstance {
+  return defaultUserMessageResponseInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasSender) {
+    [output writeMessage:1 value:self.sender];
+  }
+  if (self.hasRecipient) {
+    [output writeMessage:2 value:self.recipient];
+  }
+  if (self.hasMessageInfo) {
+    [output writeMessage:3 value:self.messageInfo];
+  }
+  if (self.hasMessageCount) {
+    [output writeInt32:4 value:self.messageCount];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasSender) {
+    size += computeMessageSize(1, self.sender);
+  }
+  if (self.hasRecipient) {
+    size += computeMessageSize(2, self.recipient);
+  }
+  if (self.hasMessageInfo) {
+    size += computeMessageSize(3, self.messageInfo);
+  }
+  if (self.hasMessageCount) {
+    size += computeInt32Size(4, self.messageCount);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (UserMessageResponse*) parseFromData:(NSData*) data {
+  return (UserMessageResponse*)[[[UserMessageResponse builder] mergeFromData:data] build];
+}
++ (UserMessageResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UserMessageResponse*)[[[UserMessageResponse builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (UserMessageResponse*) parseFromInputStream:(NSInputStream*) input {
+  return (UserMessageResponse*)[[[UserMessageResponse builder] mergeFromInputStream:input] build];
+}
++ (UserMessageResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UserMessageResponse*)[[[UserMessageResponse builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (UserMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (UserMessageResponse*)[[[UserMessageResponse builder] mergeFromCodedInputStream:input] build];
+}
++ (UserMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (UserMessageResponse*)[[[UserMessageResponse builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (UserMessageResponse_Builder*) builder {
+  return [[[UserMessageResponse_Builder alloc] init] autorelease];
+}
++ (UserMessageResponse_Builder*) builderWithPrototype:(UserMessageResponse*) prototype {
+  return [[UserMessageResponse builder] mergeFrom:prototype];
+}
+- (UserMessageResponse_Builder*) builder {
+  return [UserMessageResponse builder];
+}
+@end
+
+@interface UserMessageResponse_Builder()
+@property (retain) UserMessageResponse* result;
+@end
+
+@implementation UserMessageResponse_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[UserMessageResponse alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (UserMessageResponse_Builder*) clear {
+  self.result = [[[UserMessageResponse alloc] init] autorelease];
+  return self;
+}
+- (UserMessageResponse_Builder*) clone {
+  return [UserMessageResponse builderWithPrototype:result];
+}
+- (UserMessageResponse*) defaultInstance {
+  return [UserMessageResponse defaultInstance];
+}
+- (UserMessageResponse*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (UserMessageResponse*) buildPartial {
+  UserMessageResponse* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (UserMessageResponse_Builder*) mergeFrom:(UserMessageResponse*) other {
+  if (other == [UserMessageResponse defaultInstance]) {
+    return self;
+  }
+  if (other.hasSender) {
+    [self mergeSender:other.sender];
+  }
+  if (other.hasRecipient) {
+    [self mergeRecipient:other.recipient];
+  }
+  if (other.hasMessageInfo) {
+    [self mergeMessageInfo:other.messageInfo];
+  }
+  if (other.hasMessageCount) {
+    [self setMessageCount:other.messageCount];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (UserMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (UserMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 10: {
+        User_Info_Builder* subBuilder = [User_Info builder];
+        if (self.hasSender) {
+          [subBuilder mergeFrom:self.sender];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setSender:[subBuilder buildPartial]];
+        break;
+      }
+      case 18: {
+        User_Info_Builder* subBuilder = [User_Info builder];
+        if (self.hasRecipient) {
+          [subBuilder mergeFrom:self.recipient];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setRecipient:[subBuilder buildPartial]];
+        break;
+      }
+      case 26: {
+        Message_Info_Builder* subBuilder = [Message_Info builder];
+        if (self.hasMessageInfo) {
+          [subBuilder mergeFrom:self.messageInfo];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setMessageInfo:[subBuilder buildPartial]];
+        break;
+      }
+      case 32: {
+        [self setMessageCount:[input readInt32]];
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasSender {
+  return result.hasSender;
+}
+- (User_Info*) sender {
+  return result.sender;
+}
+- (UserMessageResponse_Builder*) setSender:(User_Info*) value {
+  result.hasSender = YES;
+  result.sender = value;
+  return self;
+}
+- (UserMessageResponse_Builder*) setSenderBuilder:(User_Info_Builder*) builderForValue {
+  return [self setSender:[builderForValue build]];
+}
+- (UserMessageResponse_Builder*) mergeSender:(User_Info*) value {
+  if (result.hasSender &&
+      result.sender != [User_Info defaultInstance]) {
+    result.sender =
+      [[[User_Info builderWithPrototype:result.sender] mergeFrom:value] buildPartial];
+  } else {
+    result.sender = value;
+  }
+  result.hasSender = YES;
+  return self;
+}
+- (UserMessageResponse_Builder*) clearSender {
+  result.hasSender = NO;
+  result.sender = [User_Info defaultInstance];
+  return self;
+}
+- (BOOL) hasRecipient {
+  return result.hasRecipient;
+}
+- (User_Info*) recipient {
+  return result.recipient;
+}
+- (UserMessageResponse_Builder*) setRecipient:(User_Info*) value {
+  result.hasRecipient = YES;
+  result.recipient = value;
+  return self;
+}
+- (UserMessageResponse_Builder*) setRecipientBuilder:(User_Info_Builder*) builderForValue {
+  return [self setRecipient:[builderForValue build]];
+}
+- (UserMessageResponse_Builder*) mergeRecipient:(User_Info*) value {
+  if (result.hasRecipient &&
+      result.recipient != [User_Info defaultInstance]) {
+    result.recipient =
+      [[[User_Info builderWithPrototype:result.recipient] mergeFrom:value] buildPartial];
+  } else {
+    result.recipient = value;
+  }
+  result.hasRecipient = YES;
+  return self;
+}
+- (UserMessageResponse_Builder*) clearRecipient {
+  result.hasRecipient = NO;
+  result.recipient = [User_Info defaultInstance];
+  return self;
+}
+- (BOOL) hasMessageInfo {
+  return result.hasMessageInfo;
+}
+- (Message_Info*) messageInfo {
+  return result.messageInfo;
+}
+- (UserMessageResponse_Builder*) setMessageInfo:(Message_Info*) value {
+  result.hasMessageInfo = YES;
+  result.messageInfo = value;
+  return self;
+}
+- (UserMessageResponse_Builder*) setMessageInfoBuilder:(Message_Info_Builder*) builderForValue {
+  return [self setMessageInfo:[builderForValue build]];
+}
+- (UserMessageResponse_Builder*) mergeMessageInfo:(Message_Info*) value {
+  if (result.hasMessageInfo &&
+      result.messageInfo != [Message_Info defaultInstance]) {
+    result.messageInfo =
+      [[[Message_Info builderWithPrototype:result.messageInfo] mergeFrom:value] buildPartial];
+  } else {
+    result.messageInfo = value;
+  }
+  result.hasMessageInfo = YES;
+  return self;
+}
+- (UserMessageResponse_Builder*) clearMessageInfo {
+  result.hasMessageInfo = NO;
+  result.messageInfo = [Message_Info defaultInstance];
+  return self;
+}
+- (BOOL) hasMessageCount {
+  return result.hasMessageCount;
+}
+- (int32_t) messageCount {
+  return result.messageCount;
+}
+- (UserMessageResponse_Builder*) setMessageCount:(int32_t) value {
+  result.hasMessageCount = YES;
+  result.messageCount = value;
+  return self;
+}
+- (UserMessageResponse_Builder*) clearMessageCount {
+  result.hasMessageCount = NO;
+  result.messageCount = 0;
   return self;
 }
 @end
