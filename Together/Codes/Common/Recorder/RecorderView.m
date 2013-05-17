@@ -155,7 +155,7 @@
     
     if ([uploadRequest.fileID length] > 0)
     {
-        [_delegate RecorderView:self successrecorderId:uploadRequest.fileID];
+        [_delegate RecorderView:self recordId:uploadRequest.fileID];
     }
 
 }

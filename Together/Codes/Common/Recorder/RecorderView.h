@@ -14,7 +14,7 @@
 
 @protocol RecorderViewDelegate <NSObject>
 
-- (void)RecorderView:(RecorderView*)v successrecorderId:(NSString*)recordId;
+- (void)RecorderView:(RecorderView*)v recordId:(NSString*)recordId;
 - (void)RecorderViewBeginTouch:(RecorderView*)v;
 - (void)RecorderViewEndTouch:(RecorderView*)v;
 @end

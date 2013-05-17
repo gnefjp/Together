@@ -22,7 +22,7 @@
 }
 
 - (void)RecorderView:(RecorderView *)v
-   successrecorderId:(NSString *)recordId
+   recordId:(NSString *)recordId
 {
     NSLog(@"%@",recordId);
 }
