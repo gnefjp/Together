@@ -167,7 +167,7 @@
                                               ID:self];
     
     RoomJoinRequest *joinRequest = [[RoomJoinRequest alloc] init];
-    joinRequest.userID = [[GEMTUserManager defaultManager].userInfo.userId stringValue];
+    joinRequest.userID = [GEMTUserManager defaultManager].userInfo.userId ;
     joinRequest.roomID = _roomItem.ID;
     joinRequest.sid = [GEMTUserManager defaultManager].sId;
     joinRequest.delegate = self;
@@ -184,7 +184,7 @@
                                               ID:self];
     
     RoomJoinRequest *joinRequest = [[RoomJoinRequest alloc] init];
-    joinRequest.userID = [[GEMTUserManager defaultManager].userInfo.userId stringValue];
+    joinRequest.userID = [GEMTUserManager defaultManager].userInfo.userId ;
     joinRequest.roomID = _roomItem.ID;
     joinRequest.sid = [GEMTUserManager defaultManager].sId;
     joinRequest.delegate = self;

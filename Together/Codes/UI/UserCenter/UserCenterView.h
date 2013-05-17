@@ -34,11 +34,16 @@ typedef enum
     GEMTUserInfo                    *_userInfo;
     eFollowRelation                 _eType;
     
+    __weak IBOutlet UILabel         *_iFollowLb;
+    __weak IBOutlet UILabel         *_iFansLb;
+    
     __weak IBOutlet UILabel         *_iSexLb;
     __weak IBOutlet UILabel         *_iAgeLb;
+    
     __weak IBOutlet UILabel         *_iNickName;
     __weak IBOutlet UILabel         *_iPraiseLb;
     __weak IBOutlet UILabel         *_iSignLb;
+    
     
     __weak IBOutlet UIButton        *_iEditBtn;
     __weak IBOutlet UIButton        *_iZanBtn;
@@ -52,6 +57,7 @@ typedef enum
 - (void)viewUserInfoWithUserId:(NSString*)aUserId;
 - (IBAction)closeBtnDidPressed:(id)sender;
 
+- (IBAction)testtest:(id)sender;
 
 - (void)changeUserInfo:(GEMTUserInfo*)aUserInfo;
 - (IBAction)viewOtherInfo:(id)sender;

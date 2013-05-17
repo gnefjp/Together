@@ -31,21 +31,26 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.actionCode forKey:@"action"];
     
-    [request addPostValue:self.actionCode forKey:@"action"];
-    
-    [request addPostValue:self.nickName forKey:@"nickname"];
-    [request addPostValue:self.birthDay forKey:@"birthday"];
-    
-    [request addPostValue:self.sign forKey:@"signature_text"];
-    [request addPostValue:self.sex forKey:@"sex"];
+    [dict setValue:self.nickName forKey:@"nickname"];
+    [dict setValue:self.birthDay forKey:@"birthday"];
+    [dict setValue:self.sign forKey:@"signature_text"];
+    [dict setValue:self.sex forKey:@"sex"];
+//    [dict setValue:self.recordId forKey:@"signature_record_id"];
+//    [dict setValue:self.avatarId forKey:@"pic_id"];
+     [dict setValue:[[GEMTUserManager defaultManager] sId]  forKey:@"sid"];
+    NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
+                        self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
+    NSURL* url = [NSURL URLWithString:urlStr];
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     
 //    [request addPostValue:self.recordId forKey:@"signature_record_id"];
 //    [request addPostValue:self.avatarId forKey:@"pic_id"];
+//    
+//    [request addPostValue:[[GEMTUserManager defaultManager] sId] forKey:@"sid"];
     
-    [request addPostValue:[[GEMTUserManager defaultManager] sId] forKey:@"sid"];
     return request;
 }
 

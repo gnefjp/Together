@@ -27,23 +27,46 @@
 
 - (void) setUserInfoWithLoginResPonse:(User_Info*)aUserInfo
 {
-    self.userId = [NSNumber numberWithInt:aUserInfo.uid];
+    self.userId = [NSString stringWithInt:aUserInfo.uid];
     self.userName = aUserInfo.username;
-    self.followedNum = [NSNumber numberWithInt:aUserInfo.followedNum];
-    self.followNum = [NSNumber numberWithInt:aUserInfo.followNum];
+    self.followedNum = [NSString stringWithInt:aUserInfo.followedNum];
+    self.followNum = [NSString stringWithInt:aUserInfo.followNum];
     self.nickName = aUserInfo.nickName;
-    self.praiseNum =[NSNumber numberWithInt:aUserInfo.praiseNum];
-    self.signatureRecordId = [NSNumber numberWithInt:aUserInfo.signatureRecordId];
+    self.praiseNum =[NSString stringWithInt:aUserInfo.praiseNum];
+    self.signatureRecordId = [NSString stringWithInt:aUserInfo.signatureRecordId];
     self.signatureText = aUserInfo.signatureText;
-    self.visitNum = [NSNumber numberWithInt:aUserInfo.visitNum];
-    self.sex = [NSNumber numberWithInt:aUserInfo.sex];
+    self.visitNum = [NSString stringWithInt:aUserInfo.visitNum];
+    self.sex = [NSString stringWithInt:aUserInfo.sex];
     self.birthday = aUserInfo.birthday;
+    self.avataId = [NSString stringWithInt:aUserInfo.picId];
+    
     [self setAge:_birthday];
+    
+    if (!_nickName||[_nickName isEqualToString:@""])
+    {
+        _nickName = @"未知";
+    }
+    if (!_signatureText||[_signatureText isEqualToString:@""])
+    {
+        _signatureText = @"这个家伙很懒，什么都没有留下";
+    }
+    if (!_followedNum||[_followedNum isEqualToString:@""])
+    {
+        _followedNum =@"0";
+    }
+    if (!_followNum||[_followNum isEqualToString:@""])
+    {
+        _followedNum =@"0";
+    }
+    if (!_praiseNum||[_praiseNum isEqualToString:@""]) {
+        _praiseNum  = @"0";
+    }
+    
 }
 
 - (void)setAge:(NSString *)aBirth
 {
-    if (!aBirth) {
+    if (!aBirth||[aBirth isEqualToString:@""]) {
         _age = @"0";
     }else
     {
@@ -62,6 +85,7 @@
     [aCoder encodeObject:_signatureText forKey:@"signatureText"];
     [aCoder encodeObject:_visitNum forKey:@"visitNum"];
     [aCoder encodeObject:_age forKey:@"age"];
+    [aCoder encodeObject:_birthday forKey:@"birthday"];
 }
 - (id)initWithCoder:(NSCoder *)aDecoder {
     _userId = [aDecoder decodeObjectForKey:@"userId"];
@@ -74,6 +98,7 @@
     _signatureText = [aDecoder decodeObjectForKey:@"signatureText"];
     _visitNum = [aDecoder decodeObjectForKey:@"visitNum"];
     _age = [aDecoder decodeObjectForKey:@"age"];
+    _age = [aDecoder decodeObjectForKey:@"birthday"];
     return self;
 }
 

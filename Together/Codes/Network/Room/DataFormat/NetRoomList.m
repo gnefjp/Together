@@ -100,7 +100,7 @@
             self.ownerID = [NSString stringWithInt:roomInfo.ownerId];
             self.ownerNickname = roomInfo.ownerNickname;
             
-            if ([self.ownerID isEqualToString:[[GEMTUserManager defaultManager].userInfo.userId stringValue]])
+            if ([self.ownerID isEqualToString:[GEMTUserManager defaultManager].userInfo.userId])
             {
                 self.relationWitMe = RoomRelationType_MyRoom;
             }

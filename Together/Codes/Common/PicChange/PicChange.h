@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "PicActioSheet.h"
+#import "PicCutView.h"
+
 
 @class PicChange;
 
@@ -17,7 +19,7 @@
 
 @end
 
-@interface PicChange : NSObject<PicActioSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface PicChange : NSObject<PicActioSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PicCutViewDelegate>
 {
     __weak id<PicChangeDelegate>     _delegate;
     

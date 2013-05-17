@@ -24,18 +24,20 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode
-                   forKey:@"action"];
-    [request addPostValue:[NSNumber numberWithInt:1]
-                   forKey:@"page_no"];
-    [request addPostValue:[NSNumber numberWithInt:100]
-                   forKey:@"page_size"];
-    [request addPostValue:self.requestUserId forKey:@"uid"];
-    [request addPostValue:[[GEMTUserManager defaultManager] sId]
-                   forKey:@"sid"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.actionCode forKey:@"action"];
+    [dict setValue:[NSString stringWithInt:1] forKey:@"page_no"];
+    [dict setValue:[NSString stringWithInt:100] forKey:@"page_size"];
+    
+    [dict setValue:[[GEMTUserManager defaultManager] sId] forKey:@"sid"];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
+                        self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
+    
+    NSURL* url = [NSURL URLWithString:urlStr];
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     return request;
+
 }
 
 @end

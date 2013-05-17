@@ -26,7 +26,20 @@
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [picker dismissModalViewControllerAnimated:YES];
-    [_delegate PicChangeSuccess:self img:image];
+    PicCutView  *cutView = [PicCutView loadFromNib];
+    cutView.delegate = self;
+    [cutView initWithImage:image];
+    [[UIView rootView] addSubview:cutView];
+    cutView.center = CGPointMake(160, 280*3);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         cutView.center = CGPointMake(160, 280);
+     }];
+}
+
+- (void)PicCutView:(PicCutView *)pic image:(UIImage *)img
+{
+    [_delegate PicChangeSuccess:self img:img];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

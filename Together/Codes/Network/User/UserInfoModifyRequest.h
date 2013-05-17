@@ -13,7 +13,7 @@
     NSString            *_avatarId;
     NSString            *_recordId;
     NSString            *_nickName;
-    NSNumber            *_sex;
+    NSString            *_sex;
     NSString            *_sign;
     NSString            *_birthDay;
 }
@@ -24,6 +24,6 @@
 
 @property (strong , nonatomic) NSString            *sign;
 @property (strong , nonatomic) NSString            *birthDay;
-@property (strong , nonatomic) NSNumber            *sex;
+@property (strong , nonatomic) NSString            *sex;
 
 @end

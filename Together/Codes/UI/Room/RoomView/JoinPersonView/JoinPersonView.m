@@ -127,7 +127,7 @@
     RoomGetJoinPersonsRequest *getPersonsRequest = [[RoomGetJoinPersonsRequest alloc] init];
     getPersonsRequest.delegate = self;
     getPersonsRequest.roomID = _roomID;
-    getPersonsRequest.sid = [[GEMTUserManager defaultManager].userInfo.userId stringValue];
+    getPersonsRequest.sid = [GEMTUserManager defaultManager].sId;
     getPersonsRequest.pageNum = 0;
     getPersonsRequest.pageSize = 1000000;
     

@@ -30,6 +30,7 @@
     {
         _iTiTleLb.text = @"登陆"; 
         _isLogin = YES;
+        [_iRegistBtn setHidden:NO];
         [UIView animateWithDuration:0.4 animations:^(void)
         {
             _iRegistView.center = CGPointMake(160*3,_iLoginView.center.y);
@@ -42,6 +43,8 @@
 {
     _isLogin = NO;
     _iTiTleLb.text = @"注册";
+    [_iRegistBtn setHidden:YES];
+    
     if (!_iRegistView)
     {
         _iRegistView = [UserRegistView loadFromNib];
@@ -73,7 +76,7 @@
     [[GEMTUserManager defaultManager] userInfoWirteToFile];
     
     [[TipViewManager defaultManager] showTipText:@"请求成功"
-                                       imageName:nil
+                                       imageName:kCommonImage_SuccessIcon
                                           inView:self
                                               ID:self];
     [[TipViewManager defaultManager] hideTipWithID:self
@@ -89,7 +92,7 @@
     switch (request.responseData.code)
     {
         case USER_NOT_EXIST:
-            str = @"用户不存在";
+            str = @"用户名或密码错误";
             break;
         default :
             str = @"网络繁忙,请稍后在试";
@@ -97,7 +100,7 @@
     }
     
     [[TipViewManager defaultManager] showTipText:str
-                                       imageName:nil
+                                       imageName:kCommonImage_FailIcon
                                           inView:self
                                               ID:self];
     [[TipViewManager defaultManager] hideTipWithID:self
@@ -106,14 +109,15 @@
 }
 
 - (IBAction)submitBtnDidPressed:(id)sender
-{
-    [[TipViewManager defaultManager] showTipText:@"loading..."
-                                       imageName:nil
-                                          inView:self
-                                              ID:self];
-    
+{    
     if ([self checkUserName]&&[self checkPassWord])
     {
+        
+        [[TipViewManager defaultManager] showTipText:@"loading..."
+                                           imageName:nil
+                                              inView:self
+                                                  ID:self];
+
         UserLoginRequest *request = [[UserLoginRequest alloc] init];
         request.userName = _iUserNameFiled.text;
         request.delegate = self;
@@ -142,6 +146,7 @@
     else
     {
         NSString *str = @"[a-zA-Z0-9]{5,15}$";
+        [_iUserNameTipInfo setHidden:NO];
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:str options:0 error:nil];
         NSTextCheckingResult *firstMatch = [regex firstMatchInString:_iUserNameFiled.text options:0 range:NSMakeRange(0, [_iUserNameFiled.text length])];
         if (!firstMatch) {

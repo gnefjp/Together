@@ -212,8 +212,11 @@
 		383A5AAB172CFE990064A1B5 /* UserEditUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383A5AA9172CFE990064A1B5 /* UserEditUserInfoView.xib */; };
 		383A5AAE172CFEDA0064A1B5 /* UserEditUserInfoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A5AAD172CFEDA0064A1B5 /* UserEditUserInfoCellView.m */; };
 		383A5AB0172CFEFD0064A1B5 /* UserEditUserInfoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383A5AAF172CFEFC0064A1B5 /* UserEditUserInfoCellView.xib */; };
+		3844A4BD1745E12C00D3A72C /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3844A4BC1745E12C00D3A72C /* UserCenterView.xib */; };
+		3844A4C11745E15400D3A72C /* PicCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3844A4BF1745E15400D3A72C /* PicCutView.m */; };
+		3844A4C21745E15400D3A72C /* PicCutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3844A4C01745E15400D3A72C /* PicCutView.xib */; };
+		3844A4C51745E1C100D3A72C /* PtGestureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3844A4C41745E1C100D3A72C /* PtGestureHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		388887601724687200B2D2F0 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888875E1724687200B2D2F0 /* UserCenterView.m */; };
-		388887611724687200B2D2F0 /* UserCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3888875F1724687200B2D2F0 /* UserCenterView.xib */; };
 		3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888876C172476B100B2D2F0 /* GMETRecorder.m */; };
 		3888876F1724778600B2D2F0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3888876E1724778600B2D2F0 /* AVFoundation.framework */; };
 		3895A60D172900030025163D /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A604172900030025163D /* Annotation.m */; };
@@ -957,9 +960,14 @@
 		383A5AAC172CFEDA0064A1B5 /* UserEditUserInfoCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditUserInfoCellView.h; sourceTree = "<group>"; };
 		383A5AAD172CFEDA0064A1B5 /* UserEditUserInfoCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditUserInfoCellView.m; sourceTree = "<group>"; };
 		383A5AAF172CFEFC0064A1B5 /* UserEditUserInfoCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserEditUserInfoCellView.xib; sourceTree = "<group>"; };
+		3844A4BC1745E12C00D3A72C /* UserCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterView.xib; sourceTree = "<group>"; };
+		3844A4BE1745E15400D3A72C /* PicCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicCutView.h; sourceTree = "<group>"; };
+		3844A4BF1745E15400D3A72C /* PicCutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicCutView.m; sourceTree = "<group>"; };
+		3844A4C01745E15400D3A72C /* PicCutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCutView.xib; sourceTree = "<group>"; };
+		3844A4C31745E1C100D3A72C /* PtGestureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PtGestureHelper.h; path = ../../../../../Desktop/svn/MakeStory/MakeStory/Codes/UI/UserCenter/PtGestureHelper.h; sourceTree = "<group>"; };
+		3844A4C41745E1C100D3A72C /* PtGestureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PtGestureHelper.m; path = ../../../../../Desktop/svn/MakeStory/MakeStory/Codes/UI/UserCenter/PtGestureHelper.m; sourceTree = "<group>"; };
 		3888875D1724687200B2D2F0 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterView.h; sourceTree = "<group>"; };
 		3888875E1724687200B2D2F0 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterView.m; sourceTree = "<group>"; };
-		3888875F1724687200B2D2F0 /* UserCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterView.xib; sourceTree = "<group>"; };
 		3888876B172476B100B2D2F0 /* GMETRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETRecorder.h; sourceTree = "<group>"; };
 		3888876C172476B100B2D2F0 /* GMETRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMETRecorder.m; sourceTree = "<group>"; };
 		3888876E1724778600B2D2F0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -2221,7 +2229,7 @@
 				3828CC1B172A846D00EC7EAF /* UserRegistAndLogin */,
 				3888875D1724687200B2D2F0 /* UserCenterView.h */,
 				3888875E1724687200B2D2F0 /* UserCenterView.m */,
-				3888875F1724687200B2D2F0 /* UserCenterView.xib */,
+				3844A4BC1745E12C00D3A72C /* UserCenterView.xib */,
 				3811FB6117266DCC00ED1DD7 /* AvatarCutView.h */,
 				3811FB6217266DCC00ED1DD7 /* AvatarCutView.m */,
 				3811FB6417266DD900ED1DD7 /* AvatarCutView.xib */,
@@ -2261,6 +2269,11 @@
 		3895A6171729120F0025163D /* PicChange */ = {
 			isa = PBXGroup;
 			children = (
+				3844A4C31745E1C100D3A72C /* PtGestureHelper.h */,
+				3844A4C41745E1C100D3A72C /* PtGestureHelper.m */,
+				3844A4BE1745E15400D3A72C /* PicCutView.h */,
+				3844A4BF1745E15400D3A72C /* PicCutView.m */,
+				3844A4C01745E15400D3A72C /* PicCutView.xib */,
 				3895A61A172912530025163D /* PicChange.h */,
 				3895A61B172912530025163D /* PicChange.m */,
 				3895A618172912530025163D /* PicActioSheet.h */,
@@ -2378,7 +2391,6 @@
 				18BFDFBE17244DF600186828 /* RoomListView.xib in Resources */,
 				18BFDFC417244DF600186828 /* NavigationView.xib in Resources */,
 				18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */,
-				388887611724687200B2D2F0 /* UserCenterView.xib in Resources */,
 				18BFDFE817246A4700186828 /* RoomCell.xib in Resources */,
 				3811FB6517266DDA00ED1DD7 /* AvatarCutView.xib in Resources */,
 				18C6D5B21727AA1F00184AFA /* README.md in Resources */,
@@ -2486,6 +2498,8 @@
 				189A5509174569FE00906043 /* chat_recorder_cancel_bg.png in Resources */,
 				189A550A174569FE00906043 /* chat_recorder_empty.png in Resources */,
 				189A550B174569FE00906043 /* chat_recorder_full.png in Resources */,
+				3844A4BD1745E12C00D3A72C /* UserCenterView.xib in Resources */,
+				3844A4C21745E15400D3A72C /* PicCutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2620,6 +2634,8 @@
 				189A54E71745262B00906043 /* RoomCommentCell.m in Sources */,
 				189A54F017454CC000906043 /* NetMessageList.m in Sources */,
 				18F032981745D5DC001963F3 /* MessageData.pb.m in Sources */,
+				3844A4C11745E15400D3A72C /* PicCutView.m in Sources */,
+				3844A4C51745E1C100D3A72C /* PtGestureHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@
 #import "UserZanRequest.h"
 #import "UserFriendView.h"
 #import "UserUnFollowRequest.h"
+#import "PicCutView.h"
 
 @implementation UserCenterView
 @synthesize userInfo = _userInfo;
@@ -24,10 +25,12 @@
     _iNickName.text = _userInfo.nickName;
     _iAgeLb.text = [NSString stringWithFormat:@"%@岁",_userInfo.age];
     _iSexLb.text = [_userInfo.sex intValue]?@"男":@"女";
-    _iPraiseLb.text = [NSString stringWithFormat:@"%@",_userInfo.praiseNum];
+    _iPraiseLb.text = _userInfo.praiseNum;
     _iSignLb.text = [NSString stringWithFormat:@"个性签名 ：%@",_userInfo.signatureText];
-   
-    if ([_userInfo.userId isEqualToNumber:[GEMTUserManager defaultManager].userInfo.userId])
+    _iFollowLb.text = _userInfo.followNum;
+    _iFansLb.text = _userInfo.followedNum;
+    
+    if ([_userInfo.userId isEqualToString:[GEMTUserManager defaultManager].userInfo.userId])
     {
         [_iEditBtn setHidden:NO];
         [_iZanBtn setEnabled:NO];
@@ -53,14 +56,11 @@
 - (void)awakeFromNib
 {
     
-//    UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
-//    request.delegate = self;
-//    request.aUid = [NSString stringWithFormat:@"%@",_userInfo.userId];
-//    [[NetRequestManager defaultManager] startRequest:request];
 }
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
+    
     if ([request isKindOfClass:[UserPersonInfoRequest class]])
     {
         [[TipViewManager defaultManager] hideTipWithID:self
@@ -70,9 +70,11 @@
             self.userInfo = [[GEMTUserInfo alloc] init];
         }
         [_userInfo setUserInfoWithLoginResPonse:request.responseData.detailResponse.userInfo];
-        if ([_userInfo.userId isEqualToNumber:[GEMTUserManager defaultManager].userInfo.userId])
+        if ([_userInfo.userId intValue] == [[GEMTUserManager defaultManager].userInfo.userId intValue] )
         {
             _eType = followRelation_Own;
+            [GEMTUserManager defaultManager].userInfo = _userInfo;
+            [[GEMTUserManager defaultManager] userInfoWirteToFile];
         }else
         {
             _eType = request.responseData.detailResponse.isFollow?followRelation_follow:followRelation_unFollow;
@@ -119,6 +121,13 @@
      {
          [self removeFromSuperview];
      }];
+}
+
+- (IBAction)testtest:(id)sender
+{
+    PicCutView *picCutView = [PicCutView loadFromNib];
+    [self addSubview:picCutView];
+    
 }
 
 

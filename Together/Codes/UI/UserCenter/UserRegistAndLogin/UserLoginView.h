@@ -29,6 +29,7 @@
     __weak IBOutlet UIView                       *_iLoginView;
     __weak id<UserLoginDelegate>                 _delegate;
     __weak IBOutlet UILabel                      *_iTiTleLb;
+    __weak IBOutlet UIButton                     *_iRegistBtn;
     
     UserRegistView                               *_iRegistView;
     BOOL                                         _isLogin;

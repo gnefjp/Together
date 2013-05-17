@@ -231,12 +231,12 @@
         }
         case ModulType_UserCenter:
         {
-            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView]) {
+//            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView]) {
                 [_mainView removeFromSuperview];
                 UserCenterView *tmpView = [UserCenterView loadFromNib];
                 [tmpView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",[GEMTUserManager defaultManager].userInfo.userId]];
                 _mainView = tmpView;
-            }
+//            }
             break;
         }
         default:

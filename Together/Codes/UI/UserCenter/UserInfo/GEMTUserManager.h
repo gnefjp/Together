@@ -32,8 +32,8 @@
              sid:(NSString*)aId;
 - (BOOL)shouldAddLoginViewToTopView;
 - (void)removeuserNameAndPassWord;
-
 - (void)userInfoWirteToFile;
+
 
 - (NSString*)sId;
 //- (void)autoLogin;

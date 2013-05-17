@@ -102,14 +102,12 @@
         case 1:
         {
             cell.iLeftLb.text = @"性别";
-            cell.iRightLb.text = [GEMTUserManager defaultManager].userInfo.sex ? @"男":@"女";
+            cell.iRightLb.text = [[GEMTUserManager defaultManager].userInfo.sex intValue] ? @"男":@"女";
             break;
         }
         case 2:
         {
-//            cell.iLeftLb.text = @"生日";
-//            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-//            [formatter setDateFormat:@"yyyy-MM-dd"];
+            cell.iLeftLb.text = @"出生年月";
             cell.iRightLb.text = [GEMTUserManager defaultManager].userInfo.birthday;
             break;
         }
@@ -172,8 +170,8 @@
 
 - (IBAction)submitBtnDidPressed:(id)sender
 {
-    NSNumber *avatarId = [NSNumber numberWithInt:_avartaBtn.tag];
-    NSNumber *recordId = [NSNumber numberWithInt:_recordBtn.tag];
+    NSString *avatarId = [NSString stringWithInt:_avartaBtn.tag];
+    NSString *recordId = [NSString stringWithInt:_recordBtn.tag];
     
     NSString *nickName = [self _getCellRightValueWithIndex:0];
     NSString *sexName = [self _getCellRightValueWithIndex:1];
@@ -182,11 +180,11 @@
     
     UserInfoModifyRequest *modifyRequest = [[UserInfoModifyRequest alloc] init];
     modifyRequest.nickName = nickName;
-    modifyRequest.sex = [NSNumber numberWithInt:[sexName isEqualToString:@"女"]?0:1];
+    modifyRequest.sex = [sexName isEqualToString:@"女"]?@"0":@"1";
     modifyRequest.sign = signName;
     
-    modifyRequest.avatarId = [NSString stringWithFormat:@"%@",avatarId];
-    modifyRequest.recordId = [NSString stringWithFormat:@"%@",recordId];
+    modifyRequest.avatarId = avatarId; 
+    modifyRequest.recordId = recordId;
     modifyRequest.birthDay = birthDay;
     modifyRequest.delegate = self;
     
@@ -211,9 +209,10 @@
     NSString *signName = [self _getCellRightValueWithIndex:3];
     
     [GEMTUserManager defaultManager].userInfo.nickName = nickName;
-    [GEMTUserManager defaultManager].userInfo.sex = [NSNumber numberWithInt:[sexName isEqualToString:@"女"]?0:1];
+    [GEMTUserManager defaultManager].userInfo.sex = [NSString stringWithInt:[sexName isEqualToString:@"女"]?0:1];
     [GEMTUserManager defaultManager].userInfo.signatureText = signName;
     [[GEMTUserManager defaultManager].userInfo setAge:birthDay];
+    [GEMTUserManager defaultManager].userInfo.birthday = birthDay;
     [[GEMTUserManager defaultManager] userInfoWirteToFile];
     
     [_delegate UserEditDidSuccess:self];

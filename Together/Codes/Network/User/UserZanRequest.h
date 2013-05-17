@@ -9,5 +9,10 @@
 #import "NetUserRequest.h"
 
 @interface UserZanRequest : NetUserRequest
+{
+    NSString        *_zanUserId;
+}
+
+@property (nonatomic,retain) NSString        *zanUserId;
 
 @end

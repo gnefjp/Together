@@ -10,6 +10,7 @@
 #import "GEMTUserManager.h"
 
 @implementation UserZanRequest
+@synthesize zanUserId = _zanUserId;
 
 - (id) init
 {
@@ -23,12 +24,15 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
-    [request addPostValue:@"1"
-                   forKey:@"uid"];
-    [request addPostValue:[[GEMTUserManager defaultManager] sId]  forKey:@"sid"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.actionCode forKey:@"action"];
+    [dict setValue:_zanUserId forKey:@"uid"];
+    [dict setValue:[[GEMTUserManager defaultManager] sId] forKey:@"sid"];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
+                        self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
+    NSURL* url = [NSURL URLWithString:urlStr];
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     return request;
 }
 

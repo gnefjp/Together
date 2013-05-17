@@ -26,7 +26,8 @@
 - (void)initInfoWithUserInfo:(User_Info*)aUserInfo
                     isFollow:(BOOL)isFollow
 {
-    if (!_userInfo) {
+    if (!_userInfo)
+    {
         _userInfo = [[GEMTUserInfo alloc] init];
     }
     [_userInfo setUserInfoWithLoginResPonse:aUserInfo];
@@ -46,7 +47,6 @@
          {
              uView.center = CGPointMake(160,274);
          }];
-        
     }
 }
 

@@ -31,6 +31,7 @@
     {
         arr =
         request.responseData.followListResponse.peopleList.userDetailListList;
+        
     }
     else if ([request isKindOfClass:[UserFansList class]])
     {
@@ -99,8 +100,8 @@
     if (!friendCellView) {
         friendCellView = [UserFirendCellView loadFromNib];
     }
-//    DetailResponse *detail = [_dataArr objectAtIndex:indexPath.row];
-//    [friendCellView initInfoWithUserInfo:detail.userInfo isFollow:detail.isFollow];
+    DetailResponse *detail = [_dataArr objectAtIndex:indexPath.row];
+    [friendCellView initInfoWithUserInfo:detail.userInfo isFollow:detail.isFollow];
     
     return friendCellView;
 }

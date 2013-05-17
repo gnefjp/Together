@@ -40,6 +40,7 @@
     }
     else
     {
+        [_iUserNameTipsInfo setHidden:NO];
         NSString *str = @"[a-zA-Z0-9]{5,15}$";
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:str options:0 error:nil];
         NSTextCheckingResult *firstMatch = [regex firstMatchInString:_iUserName.text options:0 range:NSMakeRange(0, [_iUserName.text length])];
@@ -73,7 +74,8 @@
         NSString *str = @"[a-zA-Z0-9]{5,15}$";
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:str options:0 error:nil];
         NSTextCheckingResult *firstMatch = [regex firstMatchInString:_iPassWord.text options:0 range:NSMakeRange(0, [_iPassWord.text length])];
-        if (!firstMatch) {
+        if (!firstMatch)
+        {
             _iPassWordTipsInfo.text = @"提示信息:含有非法字符";
             return NO;
         }else
@@ -100,6 +102,7 @@
     }
     else if (![_iRePassWord.text isEqualToString:_iPassWord.text])
     {
+         [_iRePassWordTipsInfo setHidden:NO];
         _iRePassWordTipsInfo.text = @"提示信息: 两次密码错误";
         return NO;
     }
@@ -146,13 +149,13 @@
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
     [[TipViewManager defaultManager] showTipText:@"注册成功"
-                                       imageName:nil
+                                       imageName:kCommonImage_SuccessIcon
                                           inView:self
                                               ID:self];
     
     [[TipViewManager defaultManager] hideTipWithID:self
                                          animation:YES];
-//    [_delegate UserRegistViewBack:self];
+    [_delegate UserRegistViewBack:self];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
@@ -174,7 +177,7 @@
     }
     
     [[TipViewManager defaultManager] showTipText:str
-                                       imageName:nil
+                                       imageName:kCommonImage_FailIcon
                                           inView:self
                                               ID:self];
     [[TipViewManager defaultManager] hideTipWithID:self
