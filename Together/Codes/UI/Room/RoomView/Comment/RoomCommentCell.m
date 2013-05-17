@@ -40,7 +40,7 @@
     _messageItem = messageItem;
     
     [_avatarImageView setImageWithFileID:_messageItem.senderAvatarID
-                        placeholderImage:[UIImage imageNamed:kUserDefaultAvatar]];
+                        placeholderImage:[UIImage imageNamed:kDefaultUserAvatar]];
     
     [self _setMessageType];
 }

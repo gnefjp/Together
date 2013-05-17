@@ -10,19 +10,21 @@
 
 #import "RoomGetJoinPersonsRequest.h"
 
-@class NetItemList;
+@class NetRoomItem;
+@class NetUserList;
 @interface JoinPersonView : UIView <NetRoomRequestDelegate>
 {
     __weak IBOutlet UIButton    *_reloadBtn;
-    
-    NetItemList                 *_userList;
 }
 
-@property (copy, nonatomic) NSString                            *roomID;
-@property (weak, nonatomic) IBOutlet UIScrollView               *joinPersonsScrollView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView    *loadingActivityIndicator;
+@property (strong, nonatomic) NetUserList                       *userList;
+@property (strong, nonatomic) NetRoomItem                       *roomItem;
+@property (weak,   nonatomic) IBOutlet UIScrollView             *joinPersonsScrollView;
+@property (weak,   nonatomic) IBOutlet UIActivityIndicatorView  *loadingActivityIndicator;
 
 - (IBAction)showMoreJoinPerson:(id)sender;
 - (IBAction)reloadDidPressed:(id)sender;
+
+- (void) reloadData;
 
 @end

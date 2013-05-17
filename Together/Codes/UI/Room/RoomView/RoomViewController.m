@@ -97,7 +97,7 @@
     _joinPersonView.frameOrigin = CGPointMake(0, 296);
     [_mainScrollView addSubview:_joinPersonView];
     
-    _joinPersonView.roomID = _roomItem.ID;
+    _joinPersonView.roomItem = _roomItem;
 }
 
 

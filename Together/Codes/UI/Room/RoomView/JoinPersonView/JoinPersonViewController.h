@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JoinPersonViewController : UIViewController
+@class NetUserList;
+@interface JoinPersonViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (assign, nonatomic) int                   joinPersonNum;
+@property (strong, nonatomic) NetUserList           *userList;
+@property (weak,   nonatomic) IBOutlet UITableView  *personTableView;
 
 - (IBAction)backBtnDidPressed:(id)sender;
 

@@ -20,6 +20,8 @@
 - (NSString *) timestampToDateUsingFormat:(NSString*)format;
 - (NSDate *) stringToDateWithFormat:(NSString *)format;
 
+- (int) ageUsingDateFormat:(NSString *)dateFormat;
+
 - (NSString *)URLEncodedString;
 - (NSString*)URLDecodedString;
 

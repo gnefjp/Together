@@ -36,7 +36,7 @@
 
 - (IBAction)createRoomBtnPressed:(id)sender
 {
-//    if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
+    if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
     {
         RoomCreateViewController* createRoomControll = [RoomCreateViewController loadFromNib];
         [[UIView rootController] pushViewController:createRoomControll animated:YES];

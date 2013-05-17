@@ -15,6 +15,7 @@
 #import "RoomViewController.h"
 
 #import "RoomGetListRequest.h"
+#import "RoomShowInfoRequest.h"
 #import "GridBottomView.h"
 
 #import "SearchPicker.h"
@@ -165,19 +166,33 @@
 #pragma mark- NetRoomRequestDelegate
 - (void) NetRoomRequestFail:(NetRoomRequest *)request
 {
-    [[TipViewManager defaultManager] showTipText:@"获取列表失败"
-                                       imageName:kCommonImage_FailIcon
-                                          inView:self
-                                              ID:self];
-    
-    [[TipViewManager defaultManager] hideTipWithID:self
-                                         animation:YES
-                                             delay:1.25];
-    
-    [_refreshView endRefresh];
-    _bottomView.state = _roomList.list.count == 0 ? GridBottomViewState_Finish :
-                                                    GridBottomViewState_LoadMore;
-    _bottomView.hidden = YES;
+    if (request.requestType == NetRoomRequestType_GetRooms)
+    {
+        [[TipViewManager defaultManager] showTipText:@"获取列表失败"
+                                           imageName:kCommonImage_FailIcon
+                                              inView:self
+                                                  ID:self];
+        
+        [[TipViewManager defaultManager] hideTipWithID:self
+                                             animation:YES
+                                                 delay:1.25];
+        
+        [_refreshView endRefresh];
+        _bottomView.state = _roomList.list.count == 0 ? GridBottomViewState_Finish :
+        GridBottomViewState_LoadMore;
+        _bottomView.hidden = YES;
+    }
+    else if (request.requestType == NetRoomRequestType_ShowRoomInfo)
+    {
+        [[TipViewManager defaultManager] showTipText:@"获取房间信息失败"
+                                           imageName:kCommonImage_FailIcon
+                                              inView:self
+                                                  ID:self];
+        
+        [[TipViewManager defaultManager] hideTipWithID:self
+                                             animation:YES
+                                                 delay:1.25];
+    }
 }
 
 
@@ -196,6 +211,13 @@
         _bottomView.state = _roomList.isFinish ? GridBottomViewState_Finish : GridBottomViewState_LoadMore;
         _bottomView.hidden = YES;
     }
+    else if (request.requestType == NetRoomRequestType_ShowRoomInfo)
+    {
+        RoomViewController *roomViewController = [RoomViewController loadFromNib];
+        [[UIView rootController] pushViewController:roomViewController animated:YES];
+        roomViewController.roomItem = (NetRoomItem *) [NetRoomItem itemWithMessage:
+                                                       request.responseData.roomInfoResponse.roomInfo];
+    }
 }
 
 
@@ -203,11 +225,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
-    {
-        RoomViewController *roomViewController = [RoomViewController loadFromNib];
-        [[UIView rootController] pushViewController:roomViewController animated:YES];
-        roomViewController.roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
-    }
+//    {
+//        [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self ID:self];
+//        
+//        RoomShowInfoRequest *showRequest = [[RoomShowInfoRequest alloc] init];
+//        showRequest.delegate = self;
+//        
+//        NetRoomItem *roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
+//        showRequest.roomID = roomItem.ID;
+//        showRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
+//        showRequest.sid = [GEMTUserManager defaultManager].sId;
+//        
+//        [[NetRequestManager defaultManager] startRequest:showRequest];
+//    }
+    
+    RoomViewController *roomViewController = [RoomViewController loadFromNib];
+    [[UIView rootController] pushViewController:roomViewController animated:YES];
+    roomViewController.roomItem = (NetRoomItem *) [_roomList itemAtIndex:indexPath.row];
 }
 
 

@@ -71,6 +71,23 @@
 }
 
 
+- (int) ageUsingDateFormat:(NSString *)dateFormat
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:dateFormat];
+    
+    NSDate *date = [dateFormatter dateFromString:self];
+    
+    [dateFormatter setDateFormat:@"yyyy"];
+    int year = [[dateFormatter stringFromDate:date] intValue];
+    
+    NSDate *nowDate = [NSDate date];
+    int nowYear = [[dateFormatter stringFromDate:nowDate] intValue];
+    
+    return MAX(0, nowYear - year);
+}
+
+
 - (NSDate *) stringToDateWithFormat:(NSString *)format
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

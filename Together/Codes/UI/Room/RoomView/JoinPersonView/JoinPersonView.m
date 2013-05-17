@@ -10,7 +10,8 @@
 
 #import "JoinPersonView.h"
 #import "JoinPersonViewController.h"
-#import "NetItemList.h"
+#import "NetUserList.h"
+#import "NetRoomList.h"
 
 
 #pragma mark- PersonView
@@ -18,9 +19,10 @@
 {
     UIImageView *_bgImageView;
     UIImageView *_avatarImageView;
+    UIImageView *_followStateImageView;
 }
 
-@property (strong, nonatomic) NetItem   *userItem;
+@property (strong, nonatomic) NetUserItem   *userItem;
 
 @end
 
@@ -32,23 +34,34 @@
     if (self)
     {
         _avatarImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _avatarImageView.image = [UIImage imageNamed:kUserDefaultAvatar];
+        _avatarImageView.image = [UIImage imageNamed:kDefaultUserAvatar];
         [self addSubview:_avatarImageView];
         
         _bgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _bgImageView.image = [UIImage imageNamed:@"userCenter_avatarBg.png"];
+        _bgImageView.image = [UIImage imageNamed:@"usercenter_avatarBg.png"];
         [self addSubview:_bgImageView];
+        
+        _followStateImageView = [[UIImageView alloc] initWithFrame:CGRectMake(24, 24, 24, 24)];
+        [self addSubview:_followStateImageView];
     }
     return self;
 }
 
 
-- (void) setUserItem:(NetItem *)userItem
+- (void) setUserItem:(NetUserItem *)userItem
 {
     _userItem = userItem;
     
     [_avatarImageView setImageWithFileID:userItem.ID
-                        placeholderImage:[UIImage imageNamed:kUserDefaultAvatar]];
+                        placeholderImage:[UIImage imageNamed:kDefaultUserAvatar]];
+    
+    NSString *relationImages[] = {
+        @"room_unfollow_btn.png",
+        @"room_follow_btn.png",
+    };
+    
+    _followStateImageView.image = [UIImage imageNamed:
+                                   relationImages[(userItem.relationWithMe == UserRelationType_Follow)]];
 }
 
 @end
@@ -89,21 +102,26 @@
 
 - (void) awakeFromNib
 {
-    _userList = [[NetItemList alloc] init];
+    _userList = [[NetUserList alloc] init];
     
 // 模拟数据
     for (int i = 0; i < 20; i ++)
     {
-        NetItem *item = [[NetItem alloc] init];
-        item.ID = [NSString stringWithInt:i];
-        [_userList addItem:item];
+        NetUserItem *userItem = [[NetUserItem alloc] init];
+        userItem.ID = [NSString stringWithInt:i];
+        userItem.userName = [NSString stringWithFormat:@"测试 %d 号", i];
+        userItem.nickName = userItem.userName;
+        userItem.avataId = @"1";
+        userItem.relationWithMe = (i % UserRelationType_Own);
+        
+        [_userList addItem:userItem];
     }
 }
 
 
-- (void) setRoomID:(NSString *)roomID
+- (void) setRoomItem:(NetRoomItem *)roomItem
 {
-    _roomID = roomID;
+    _roomItem = roomItem;
     
     [self reloadDidPressed:nil];
 }
@@ -113,6 +131,8 @@
 {
     JoinPersonViewController *joinPersonViewController = [JoinPersonViewController loadFromNib];
     [[UIView rootController] pushViewController:joinPersonViewController animated:YES];
+    joinPersonViewController.joinPersonNum = _roomItem.joinPersonNum;
+    joinPersonViewController.userList = _userList;
 }
 
 
@@ -126,7 +146,7 @@
     
     RoomGetJoinPersonsRequest *getPersonsRequest = [[RoomGetJoinPersonsRequest alloc] init];
     getPersonsRequest.delegate = self;
-    getPersonsRequest.roomID = _roomID;
+    getPersonsRequest.roomID = _roomItem.ID;
     getPersonsRequest.sid = [GEMTUserManager defaultManager].sId;
     getPersonsRequest.pageNum = 0;
     getPersonsRequest.pageSize = 1000000;
@@ -135,7 +155,7 @@
 }
 
 
-- (void) _reloadData
+- (void) reloadData
 {
     // RemoveAllPersonView
     for (UIView *subview in _joinPersonsScrollView.subviews)
@@ -151,7 +171,7 @@
     for (int i = 0, len = _userList.list.count; i < len; ++i)
     {
         PersonView *personView = [[PersonView alloc] initWithFrame:frame];
-        personView.userItem = [_userList itemAtIndex:i];
+        personView.userItem = (NetUserItem *)[_userList itemAtIndex:i];
         [_joinPersonsScrollView addSubview:personView];
         
         frame.origin.x += 46;
@@ -167,6 +187,7 @@
 #pragma mark- NetRoomRequestDelegate
 - (void) NetRoomRequestFail:(NetRoomRequest *)request
 {
+    // TODO: 删除下边测试这句
     [self NetRoomRequestSuccess:nil];
     return;
     
@@ -184,7 +205,7 @@
 //    RoomGetJoinPersonsRequest *getListRequest = (RoomGetJoinPersonsRequest *)request;
 //    [_userList addItemList:request.responseData onPage:getListRequest.pageNum];
     
-    [self _reloadData];
+    [self reloadData];
 }
 @end
 

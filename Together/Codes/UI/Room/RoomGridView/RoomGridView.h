@@ -6,7 +6,6 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-
 #import "NetRoomRequest.h"
 #import "NetRoomList.h"
 #import "SRRefreshView.h"
