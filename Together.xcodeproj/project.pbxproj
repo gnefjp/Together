@@ -232,7 +232,6 @@
 		3895A61D172912690025163D /* PicChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895A61B172912530025163D /* PicChange.m */; };
 		389F2A2A17433692002E02E6 /* userCenter_add_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 389F2A1517433692002E02E6 /* userCenter_add_a.png */; };
 		389F2A2B17433692002E02E6 /* userCenter_add_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 389F2A1617433692002E02E6 /* userCenter_add_b.png */; };
-		389F2A2C17433692002E02E6 /* userCenter_avatarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 389F2A1717433692002E02E6 /* userCenter_avatarBg.png */; };
 		389F2A2D17433692002E02E6 /* userCenter_back_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 389F2A1817433692002E02E6 /* userCenter_back_a.png */; };
 		389F2A2E17433692002E02E6 /* userCenter_back_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 389F2A1917433692002E02E6 /* userCenter_back_b.png */; };
 		389F2A2F17433692002E02E6 /* userCenter_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 389F2A1A17433692002E02E6 /* userCenter_bg.jpg */; };

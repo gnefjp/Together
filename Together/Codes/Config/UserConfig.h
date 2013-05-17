@@ -9,8 +9,8 @@
 #ifndef Together_UserConfig_h
 #define Together_UserConfig_h
 
-#define kUserDidLogInNotification @"userDidLoginNotification"
-#define kUserDidLogOutNotification @"userDidLogOutNotification"
+#define kNotification_userDidLogin @"userDidLoginNotification"
+#define kNotification_userDidLoginOut @"userDidLogOutNotification"
 
 
 typedef enum
