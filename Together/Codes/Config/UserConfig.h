@@ -25,4 +25,17 @@ typedef enum
     UserGenderTyp_Max       = 3,
 } UserGenderType;
 
+
+typedef enum
+{
+    UserRelationType_NoRelation     = 0,
+    UserRelationType_Follow         = 1,
+    UserRelationType_Fans           = 2,
+    UserRelationType_FollowEach     = 3,
+    
+    UserRelationType_Own            = 4,
+    
+    UserRelationType_Max            = 5,
+} UserRelationType;
+
 #endif

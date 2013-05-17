@@ -3,18 +3,15 @@
 #import "ProtocolBuffers.h"
 
 #import "UserResponse.pb.h"
-#import "UserListResponse.pb.h"
 #import "RoomResponse.pb.h"
 #import "Data.pb.h"
 
 @class Address;
 @class Address_Builder;
+@class CreateRoomResponse;
+@class CreateRoomResponse_Builder;
 @class DetailResponse;
 @class DetailResponse_Builder;
-@class FollowListResponse;
-@class FollowListResponse_Builder;
-@class FollowedListResponse;
-@class FollowedListResponse_Builder;
 @class HTTPResponse;
 @class HTTPResponse_Builder;
 @class List;
@@ -27,14 +24,8 @@
 @class RoomInfoResponse;
 @class RoomInfoResponse_Builder;
 @class RoomInfo_Builder;
-@class RoomPeopleListResponse;
-@class RoomPeopleListResponse_Builder;
-@class ShowRoomListResponse;
-@class ShowRoomListResponse_Builder;
 @class UserMessageResponse;
 @class UserMessageResponse_Builder;
-@class UserRoomListResponse;
-@class UserRoomListResponse_Builder;
 @class User_Info;
 @class User_Info_Builder;
 @class UsernameExistResponse;
@@ -55,13 +46,9 @@
   BOOL hasLoginResponse_:1;
   BOOL hasDetailResponse_:1;
   BOOL hasExistResponse_:1;
-  BOOL hasRoomListResponse_:1;
-  BOOL hasRoomPeopleListResponse_:1;
   BOOL hasRoomInfoResponse_:1;
-  BOOL hasFollowListResponse_:1;
-  BOOL hasFollowedListResponse_:1;
-  BOOL hasUserRoomListResponse_:1;
-  BOOL hasUserMessageListResponse_:1;
+  BOOL hasCreateRoomResponse_:1;
+  BOOL hasList_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
@@ -69,13 +56,9 @@
   LoginResponse* loginResponse;
   DetailResponse* detailResponse;
   UsernameExistResponse* existResponse;
-  ShowRoomListResponse* roomListResponse;
-  RoomPeopleListResponse* roomPeopleListResponse;
   RoomInfoResponse* roomInfoResponse;
-  FollowListResponse* followListResponse;
-  FollowedListResponse* followedListResponse;
-  UserRoomListResponse* userRoomListResponse;
-  List* userMessageListResponse;
+  CreateRoomResponse* createRoomResponse;
+  List* list;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
@@ -84,13 +67,9 @@
 - (BOOL) hasLoginResponse;
 - (BOOL) hasDetailResponse;
 - (BOOL) hasExistResponse;
-- (BOOL) hasRoomListResponse;
-- (BOOL) hasRoomPeopleListResponse;
 - (BOOL) hasRoomInfoResponse;
-- (BOOL) hasFollowListResponse;
-- (BOOL) hasFollowedListResponse;
-- (BOOL) hasUserRoomListResponse;
-- (BOOL) hasUserMessageListResponse;
+- (BOOL) hasCreateRoomResponse;
+- (BOOL) hasList;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
@@ -98,13 +77,9 @@
 @property (readonly, retain) LoginResponse* loginResponse;
 @property (readonly, retain) DetailResponse* detailResponse;
 @property (readonly, retain) UsernameExistResponse* existResponse;
-@property (readonly, retain) ShowRoomListResponse* roomListResponse;
-@property (readonly, retain) RoomPeopleListResponse* roomPeopleListResponse;
 @property (readonly, retain) RoomInfoResponse* roomInfoResponse;
-@property (readonly, retain) FollowListResponse* followListResponse;
-@property (readonly, retain) FollowedListResponse* followedListResponse;
-@property (readonly, retain) UserRoomListResponse* userRoomListResponse;
-@property (readonly, retain) List* userMessageListResponse;
+@property (readonly, retain) CreateRoomResponse* createRoomResponse;
+@property (readonly, retain) List* list;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -181,20 +156,6 @@
 - (HTTPResponse_Builder*) mergeExistResponse:(UsernameExistResponse*) value;
 - (HTTPResponse_Builder*) clearExistResponse;
 
-- (BOOL) hasRoomListResponse;
-- (ShowRoomListResponse*) roomListResponse;
-- (HTTPResponse_Builder*) setRoomListResponse:(ShowRoomListResponse*) value;
-- (HTTPResponse_Builder*) setRoomListResponseBuilder:(ShowRoomListResponse_Builder*) builderForValue;
-- (HTTPResponse_Builder*) mergeRoomListResponse:(ShowRoomListResponse*) value;
-- (HTTPResponse_Builder*) clearRoomListResponse;
-
-- (BOOL) hasRoomPeopleListResponse;
-- (RoomPeopleListResponse*) roomPeopleListResponse;
-- (HTTPResponse_Builder*) setRoomPeopleListResponse:(RoomPeopleListResponse*) value;
-- (HTTPResponse_Builder*) setRoomPeopleListResponseBuilder:(RoomPeopleListResponse_Builder*) builderForValue;
-- (HTTPResponse_Builder*) mergeRoomPeopleListResponse:(RoomPeopleListResponse*) value;
-- (HTTPResponse_Builder*) clearRoomPeopleListResponse;
-
 - (BOOL) hasRoomInfoResponse;
 - (RoomInfoResponse*) roomInfoResponse;
 - (HTTPResponse_Builder*) setRoomInfoResponse:(RoomInfoResponse*) value;
@@ -202,32 +163,18 @@
 - (HTTPResponse_Builder*) mergeRoomInfoResponse:(RoomInfoResponse*) value;
 - (HTTPResponse_Builder*) clearRoomInfoResponse;
 
-- (BOOL) hasFollowListResponse;
-- (FollowListResponse*) followListResponse;
-- (HTTPResponse_Builder*) setFollowListResponse:(FollowListResponse*) value;
-- (HTTPResponse_Builder*) setFollowListResponseBuilder:(FollowListResponse_Builder*) builderForValue;
-- (HTTPResponse_Builder*) mergeFollowListResponse:(FollowListResponse*) value;
-- (HTTPResponse_Builder*) clearFollowListResponse;
+- (BOOL) hasCreateRoomResponse;
+- (CreateRoomResponse*) createRoomResponse;
+- (HTTPResponse_Builder*) setCreateRoomResponse:(CreateRoomResponse*) value;
+- (HTTPResponse_Builder*) setCreateRoomResponseBuilder:(CreateRoomResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeCreateRoomResponse:(CreateRoomResponse*) value;
+- (HTTPResponse_Builder*) clearCreateRoomResponse;
 
-- (BOOL) hasFollowedListResponse;
-- (FollowedListResponse*) followedListResponse;
-- (HTTPResponse_Builder*) setFollowedListResponse:(FollowedListResponse*) value;
-- (HTTPResponse_Builder*) setFollowedListResponseBuilder:(FollowedListResponse_Builder*) builderForValue;
-- (HTTPResponse_Builder*) mergeFollowedListResponse:(FollowedListResponse*) value;
-- (HTTPResponse_Builder*) clearFollowedListResponse;
-
-- (BOOL) hasUserRoomListResponse;
-- (UserRoomListResponse*) userRoomListResponse;
-- (HTTPResponse_Builder*) setUserRoomListResponse:(UserRoomListResponse*) value;
-- (HTTPResponse_Builder*) setUserRoomListResponseBuilder:(UserRoomListResponse_Builder*) builderForValue;
-- (HTTPResponse_Builder*) mergeUserRoomListResponse:(UserRoomListResponse*) value;
-- (HTTPResponse_Builder*) clearUserRoomListResponse;
-
-- (BOOL) hasUserMessageListResponse;
-- (List*) userMessageListResponse;
-- (HTTPResponse_Builder*) setUserMessageListResponse:(List*) value;
-- (HTTPResponse_Builder*) setUserMessageListResponseBuilder:(List_Builder*) builderForValue;
-- (HTTPResponse_Builder*) mergeUserMessageListResponse:(List*) value;
-- (HTTPResponse_Builder*) clearUserMessageListResponse;
+- (BOOL) hasList;
+- (List*) list;
+- (HTTPResponse_Builder*) setList:(List*) value;
+- (HTTPResponse_Builder*) setListBuilder:(List_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeList:(List*) value;
+- (HTTPResponse_Builder*) clearList;
 @end
 

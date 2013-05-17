@@ -35,6 +35,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property (retain) NSString* createTime;
 @property (retain) NSString* beginTime;
 @property (retain) Address* address;
+@property int32_t joinStatus;
 @end
 
 @implementation RoomInfo
@@ -144,6 +145,13 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasAddress_ = !!value;
 }
 @synthesize address;
+- (BOOL) hasJoinStatus {
+  return !!hasJoinStatus_;
+}
+- (void) setHasJoinStatus:(BOOL) value {
+  hasJoinStatus_ = !!value;
+}
+@synthesize joinStatus;
 - (void) dealloc {
   self.title = nil;
   self.ownerNickname = nil;
@@ -169,6 +177,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.createTime = @"";
     self.beginTime = @"";
     self.address = [Address defaultInstance];
+    self.joinStatus = 0;
   }
   return self;
 }
@@ -233,6 +242,9 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (self.hasAddress) {
     [output writeMessage:15 value:self.address];
   }
+  if (self.hasJoinStatus) {
+    [output writeInt32:16 value:self.joinStatus];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -286,6 +298,9 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   }
   if (self.hasAddress) {
     size += computeMessageSize(15, self.address);
+  }
+  if (self.hasJoinStatus) {
+    size += computeInt32Size(16, self.joinStatus);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -407,6 +422,9 @@ static RoomInfo* defaultRoomInfoInstance = nil;
   if (other.hasAddress) {
     [self mergeAddress:other.address];
   }
+  if (other.hasJoinStatus) {
+    [self setJoinStatus:other.joinStatus];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -491,6 +509,10 @@ static RoomInfo* defaultRoomInfoInstance = nil;
         }
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self setAddress:[subBuilder buildPartial]];
+        break;
+      }
+      case 128: {
+        [self setJoinStatus:[input readInt32]];
         break;
       }
     }
@@ -748,6 +770,22 @@ static RoomInfo* defaultRoomInfoInstance = nil;
 - (RoomInfo_Builder*) clearAddress {
   result.hasAddress = NO;
   result.address = [Address defaultInstance];
+  return self;
+}
+- (BOOL) hasJoinStatus {
+  return result.hasJoinStatus;
+}
+- (int32_t) joinStatus {
+  return result.joinStatus;
+}
+- (RoomInfo_Builder*) setJoinStatus:(int32_t) value {
+  result.hasJoinStatus = YES;
+  result.joinStatus = value;
+  return self;
+}
+- (RoomInfo_Builder*) clearJoinStatus {
+  result.hasJoinStatus = NO;
+  result.joinStatus = 0;
   return self;
 }
 @end

@@ -11,5 +11,6 @@
 @interface UILabel (GMETLibs)
 
 - (void) changeFrameWithText;
+- (void) changeFrameHeightWithText;
 
 @end

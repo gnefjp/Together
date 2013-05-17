@@ -37,6 +37,7 @@ typedef enum
 @property (copy,   nonatomic) NSString          *roomTitle;
 @property (assign, nonatomic) RoomType          roomType;
 @property (copy,   nonatomic) NSString          *perviewID;
+@property (copy,   nonatomic) NSString          *recordID;
 
 @property (copy,   nonatomic) NSString          *createTime;
 @property (copy,   nonatomic) NSString          *beginTime;
@@ -52,6 +53,7 @@ typedef enum
 
 @property (copy,   nonatomic) NSString          *ownerID;
 @property (copy,   nonatomic) NSString          *ownerNickname;
+@property (assign, nonatomic) UserRelationType  ownerRelationWithMe;
 
 @end
 

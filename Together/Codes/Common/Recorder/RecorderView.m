@@ -12,22 +12,31 @@
 #import "GEMTUserManager.h"
 
 @implementation RecorderView
-@synthesize recordFrame;
-@synthesize delegate = _delegate;
 
-- (id)initWithFrame:(CGRect)frame
+#define kDefaultMaxRecordTime   30 // 秒
+
+
++ (RecorderView *) showRecorderViewOnView:(UIView *)view
+                           recordBtnFrame:(CGRect)btnFrame
+                                 delegate:(id<RecorderViewDelegate>)delegate
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    RecorderView *recorderView = [RecorderView loadFromNib];
+    recorderView.delegate = delegate;
+    recorderView.recordFrame = btnFrame;
+    
+    [view addSubview:recorderView];
+    
+    return recorderView;
 }
+
 
 - (void)awakeFromNib
 {
     _recordStateView.alpha = 0.0f;
+    
+    _recordMaxTime = kDefaultMaxRecordTime;
 }
+
 
 - (void) _setIsRecording:(BOOL)isRecording
 {
@@ -42,12 +51,14 @@
                      }];
 }
 
+
 - (void) _isShowRemove:(BOOL)isShowRemove
 {
     _recordRemoveImageView.hidden = !isShowRemove;
     _recordEmptyImageView.hidden = isShowRemove;
     _recordDBImageView.hidden = isShowRemove;
 }
+
 
 - (void) _isWantToRemove:(BOOL)isWantToRemove
 {
@@ -73,7 +84,7 @@
         return self;
     }
     
-    if (CGRectContainsPoint(recordFrame, point))
+    if (CGRectContainsPoint(_recordFrame, point))
     {
         return self;
     }
@@ -82,20 +93,22 @@
 }
 
 
+#pragma mark- TouchesDelegate
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     CGPoint touchPoint = [[touches anyObject] locationInView:self];
-    if (CGRectContainsPoint(recordFrame, touchPoint))
+    if (CGRectContainsPoint(_recordFrame, touchPoint))
     {
-        _recorder = [GMETRecorder startRecordWithTime:30];
+        _recorder = [GMETRecorder startRecordWithTime:_recordMaxTime];
         [_recorder start];
         _isRecording = YES;
         [self _setIsRecording:YES];
         [self _isShowRemove:NO];
         [self _isWantToRemove:NO];
-        [_delegate RecorderViewBeginTouch:self];
+        [_delegate RecorderViewBeginRecord:self];
     }
 }
+
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -103,11 +116,11 @@
     {
         CGPoint touchPoint = [[touches anyObject] locationInView:self];
         
-        [self _isShowRemove:!CGRectContainsPoint(recordFrame, touchPoint)];
-        [self _isWantToRemove:CGRectContainsPoint(recordFrame, touchPoint)];
+        [self _isShowRemove:!CGRectContainsPoint(_recordFrame, touchPoint)];
+        [self _isWantToRemove:CGRectContainsPoint(_recordStateView.frame, touchPoint)];
     }
-
 }
+
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -142,11 +155,25 @@
 //            [_player prepareToPlay];
 //            [_player play];
         }
-        [_delegate RecorderViewEndTouch:self];
+        
+        [_delegate RecorderViewEndRecord:self];
         [self _setIsRecording:NO];
     }
 }
 
+
+- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_recorder stop];
+    if (_isRecording)
+    {
+        [self _setIsRecording:NO];
+        [_delegate RecorderViewEndRecord:self];
+    }
+}
+
+
+#pragma mark- NetFileRequestDelegate
 - (void)NetFileRequestSuccess:(NetFileRequest *)request
 {
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
@@ -157,8 +184,9 @@
     {
         [_delegate RecorderView:self recordId:uploadRequest.fileID];
     }
-
+    
 }
+
 
 - (void)NetFileRequestFail:(NetFileRequest *)request
 {
@@ -168,15 +196,5 @@
                                               ID:self];
     
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
-}
-
-- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [_recorder stop];
-    if (_isRecording)
-    {
-        [self _setIsRecording:NO];
-        [_delegate RecorderViewEndTouch:self];
-    }
 }
 @end

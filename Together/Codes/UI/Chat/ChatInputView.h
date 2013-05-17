@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FileUploadRequest.h"
+#import "RecorderView.h"
 
 @class ChatInputView;
 @protocol ChatInputViewDelegate <NSObject>
@@ -17,16 +17,10 @@
                 isText:(BOOL)isText;
 @end
 
-@interface ChatInputView : UIView <NetFileRequestDelegate>
+
+@interface ChatInputView : UIView <RecorderViewDelegate>
 {
-    BOOL                                    _isRecording;
-    
-    NSString                                *_recordTmpFilePath;
-    __weak IBOutlet UIView                  *_recordStateView;
-    __weak IBOutlet UIImageView             *_recordEmptyImageView;
-    __weak IBOutlet UIImageView             *_recordDBImageView;
-    
-    __weak IBOutlet UIImageView             *_recordRemoveImageView;
+    RecorderView                            *_recorderView;
     
     __weak id <ChatInputViewDelegate>       _delegate;
 }

@@ -224,24 +224,20 @@
 #pragma mark- UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
-//    {
-//        [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self ID:self];
-//        
-//        RoomShowInfoRequest *showRequest = [[RoomShowInfoRequest alloc] init];
-//        showRequest.delegate = self;
-//        
-//        NetRoomItem *roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
-//        showRequest.roomID = roomItem.ID;
-//        showRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
-//        showRequest.sid = [GEMTUserManager defaultManager].sId;
-//        
-//        [[NetRequestManager defaultManager] startRequest:showRequest];
-//    }
-    
-    RoomViewController *roomViewController = [RoomViewController loadFromNib];
-    [[UIView rootController] pushViewController:roomViewController animated:YES];
-    roomViewController.roomItem = (NetRoomItem *) [_roomList itemAtIndex:indexPath.row];
+    if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
+    {
+        [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self ID:self];
+        
+        RoomShowInfoRequest *showRequest = [[RoomShowInfoRequest alloc] init];
+        showRequest.delegate = self;
+        
+        NetRoomItem *roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
+        showRequest.roomID = roomItem.ID;
+        showRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
+        showRequest.sid = [GEMTUserManager defaultManager].sId;
+        
+        [[NetRequestManager defaultManager] startRequest:showRequest];
+    }
 }
 
 

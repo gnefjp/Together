@@ -29,14 +29,12 @@
     NSArray *arr;
     if ([request isKindOfClass:[UserFollowList class]])
     {
-        arr =
-        request.responseData.followListResponse.peopleList.userDetailListList;
+        arr = request.responseData.list.userDetailList;
         
     }
     else if ([request isKindOfClass:[UserFansList class]])
     {
-        arr =
-        request.responseData.followedListResponse.peopleList.userDetailListList;
+        arr = request.responseData.list.userDetailList;
     }
     [_dataArr addObjectsFromArray:arr];
     [_iFriendTable reloadData];

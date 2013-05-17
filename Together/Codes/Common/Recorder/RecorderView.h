@@ -13,24 +13,31 @@
 @class RecorderView;
 
 @protocol RecorderViewDelegate <NSObject>
-
 - (void)RecorderView:(RecorderView*)recorderView recordId:(NSString*)recordId;
-- (void)RecorderViewBeginTouch:(RecorderView*)recorderView;
-- (void)RecorderViewEndTouch:(RecorderView*)recorderView;
+- (void)RecorderViewBeginRecord:(RecorderView*)recorderView;
+- (void)RecorderViewEndRecord:(RecorderView*)recorderView;
 @end
+
 
 @interface RecorderView : UIView<NetFileRequestDelegate>
 {
-    BOOL                                    _isRecording;
     __weak IBOutlet UIView                  *_recordStateView;
     __weak IBOutlet UIImageView             *_recordEmptyImageView;
     __weak IBOutlet UIImageView             *_recordDBImageView;
     __weak IBOutlet UIImageView             *_recordRemoveImageView;
+    
     GMETRecorder                            *_recorder;
     AVAudioPlayer                           *_player;
-    id<RecorderViewDelegate>                _delegate;
 }
 
-@property (nonatomic) CGRect                       recordFrame;
-@property (nonatomic) id<RecorderViewDelegate>     delegate;
+@property (weak,   nonatomic) id<RecorderViewDelegate>      delegate;
+
+@property (assign, nonatomic) BOOL                          isRecording;
+@property (assign, nonatomic) CGRect                        recordFrame;
+@property (assign, nonatomic) NSInteger                     recordMaxTime;
+
+
++ (RecorderView *) showRecorderViewOnView:(UIView *)view
+                           recordBtnFrame:(CGRect)btnFrame
+                                 delegate:(id<RecorderViewDelegate>)delegate;
 @end

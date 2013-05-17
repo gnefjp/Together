@@ -5,23 +5,14 @@
 //  Created by Gnef_jp on 13-4-22.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
+#import "CommonTool.h"
+
 #import "AppSetting.h"
 #import "NetRoomList.h"
 
 #import "RoomCell.h"
 
 @implementation RoomCell
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self)
-    {
-        // Initialization code
-    }
-    return self;
-}
-
 
 - (void) _setGenderType
 {
@@ -43,7 +34,7 @@
     }
     
     _roomTitleLabel.text = _roomItem.roomTitle;
-    _beginTimeLabel.text = [NSString stringWithFormat:@"开始时间：%@", _roomItem.beginTime];
+    _beginTimeLabel.text = [_roomItem.beginTime startTimeIntervalWithServer];
     _addrTitleLabel.text = _roomItem.address.detailAddr;
     _distanceLabel.text = _roomItem.address.formatDistance;
     _ownNicknameLabel.text = _roomItem.ownerNickname;

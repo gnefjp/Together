@@ -11,13 +11,17 @@
 
 @class ChatInputView;
 @class JoinPersonView;
-@interface RoomViewController : UIViewController <NetRoomRequestDelegate, RoomCommentViewDelegate>
+@interface RoomViewController : UIViewController <NetRoomRequestDelegate,
+                                                  RoomCommentViewDelegate,
+                                                  UIScrollViewDelegate>
 {
     JoinPersonView                  *_joinPersonView;
     RoomCommentView                 *_commentView;
     ChatInputView                   *_chatInputView;
     
     __weak IBOutlet UIScrollView    *_mainScrollView;
+    __weak IBOutlet UIButton        *_chatBtn;
+    __weak IBOutlet UIButton        *_followBtn;
 }
 
 @property (strong, nonatomic) NetRoomItem           *roomItem;
@@ -29,7 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel        *createTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *nicknameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView    *owerAvatarImageView;
-@property (weak, nonatomic) IBOutlet UILabel *joinPersonNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel        *joinPersonNumLabel;
 
 - (IBAction)closeBtnPressed:(id)sender;
 
@@ -40,5 +44,6 @@
 - (IBAction)playRoomSound:(id)sender;
 
 - (IBAction)chatDidPressed:(id)sender;
+- (IBAction)followOwnDidPressed:(id)sender;
 
 @end

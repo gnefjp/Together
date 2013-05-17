@@ -14,6 +14,10 @@
 
 - (NSString *) requestUrl
 {
+#ifdef kIsSimulatedData
+    return @"http://127.0.0.1/File/Upload";
+#endif
+    
     return [NSString stringWithFormat:@"http://%@:%@", kServerAddr, kFilePort];
 }
 
@@ -32,6 +36,12 @@
 - (ASIHTTPRequest *) _httpRequest
 {
     NSURL* url = [NSURL URLWithString:self.requestUrl];
+    
+#ifdef kIsSimulatedData
+    ASIHTTPRequest* muRequest = [ASIHTTPRequest requestWithURL:url];
+    return muRequest;
+#endif
+    
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
     
     [request addPostValue:self.sid forKey:@"sid"];

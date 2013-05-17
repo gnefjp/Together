@@ -33,3 +33,12 @@
 - (void) setBgImageWithName:(NSString *)imageName;
 
 @end
+
+
+#pragma mark- NSString
+@interface NSString (CommonTool)
+
+- (NSString *) startTimeIntervalWithServer;
+- (NSString *) timeIntervalWithServer;
+
+@end

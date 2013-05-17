@@ -27,13 +27,13 @@
     NSLog(@"%@",recordId);
 }
 
-- (void)RecorderViewBeginTouch:(RecorderView *)v
+- (void)RecorderViewBeginRecord:(RecorderView *)v
 {
     panGesture.enabled = NO;
     [_iRecordLb setText:@"松开提交"];
 }
 
-- (void)RecorderViewEndTouch:(RecorderView *)v
+- (void)RecorderViewEndRecord:(RecorderView *)v
 {
     panGesture.enabled = YES;
     [_iRecordLb setText:@"按下录音"];

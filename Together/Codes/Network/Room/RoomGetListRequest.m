@@ -13,7 +13,7 @@
 #ifdef kIsSimulatedData
 - (NSString *) requestUrl
 {
-    return @"http://127.0.0.1/ROOM/GetList";
+    return @"http://127.0.0.1/ROOM/GetRooms";
 }
 #endif
 

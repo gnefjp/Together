@@ -8,6 +8,8 @@
 #import "CommonTool.h"
 #import "TipViewManager.h"
 
+#import "NetMessageList.h"
+
 #import "RoomViewController.h"
 #import "JoinPersonView.h"
 #import "ChatInputView.h"
@@ -46,6 +48,8 @@
     
     [self setJoinPersonNumLabel:nil];
     _mainScrollView = nil;
+    _chatBtn = nil;
+    _followBtn = nil;
     [super viewDidUnload];
 }
 
@@ -55,7 +59,10 @@
     [super viewDidLoad];
     
     _chatInputView = [ChatInputView loadFromNib];
+    _chatInputView.delegate = self;
     [self.view addSubview:_chatInputView];
+    
+    _mainScrollView.delegate = self;
 }
 
 
@@ -70,6 +77,26 @@
     joinBtn.alpha = (isWaiting && _roomItem.relationWitMe == RoomRelationType_NoRelation) ? 1.0 : 0.0;
     quitBtn.alpha = (isWaiting && _roomItem.relationWitMe == RoomRelationType_Joined) ? 1.0 : 0.0;
     startBtn.alpha = (isWaiting && _roomItem.relationWitMe == RoomRelationType_MyRoom) ? 1.0 : 0.0;
+    
+    _chatBtn.hidden = (_roomItem.relationWitMe == RoomRelationType_MyRoom);
+    _followBtn.hidden = (_roomItem.relationWitMe == RoomRelationType_MyRoom);
+}
+
+
+- (void) _setOwnerRelation
+{
+    NSString *followImages[] = {
+        @"room_unfollow_btn.png",
+        @"room_follow_btn.png",
+    };
+    
+    BOOL isFollowed = (_roomItem.ownerRelationWithMe == UserRelationType_Follow ||
+                       _roomItem.ownerRelationWithMe == UserRelationType_FollowEach);
+    [_followBtn setImage:[UIImage imageNamed:followImages[isFollowed]]
+                forState:UIControlStateNormal];
+    
+    [_followBtn setImage:[UIImage imageNamed:followImages[isFollowed]]
+                forState:UIControlStateHighlighted];
 }
 
 
@@ -108,7 +135,7 @@
     _commentView = [RoomCommentView loadFromNib];
     _commentView.frameY = 370.0;
     _commentView.delegate = self;
-    _commentView.roomID = _roomItem.ID;
+    _commentView.roomItem = _roomItem;
     
     [_mainScrollView addSubview:_commentView];
 }
@@ -120,7 +147,7 @@
     
     self.roomTitleLabel.text = _roomItem.roomTitle;
     
-    self.beginTimeLabel.text = _roomItem.beginTime;
+    self.beginTimeLabel.text = [_roomItem.beginTime startTimeIntervalWithServer];
     [self.beginTimeLabel changeFrameWithText];
     self.beginTimeLabel.frameWidth += 10;
     
@@ -131,10 +158,11 @@
     [self.roomPreviewImageView setImageWithFileID:_roomItem.perviewID
                                  placeholderImage:[UIImage imageNamed:@"room_create_pic_default.png"]];
     
-    self.createTimeLabel.text = _roomItem.createTime;
+    self.createTimeLabel.text = [_roomItem.createTime timeIntervalWithServer];
     self.nicknameLabel.text = _roomItem.ownerNickname;
     
     [self _setRoomRelation];
+    [self _setOwnerRelation];
     
     [self _setJoinPersonNum];
     [self _showPersonView];
@@ -183,18 +211,19 @@
                                           inView:self.view
                                               ID:self];
     
-    RoomJoinRequest *joinRequest = [[RoomJoinRequest alloc] init];
-    joinRequest.userID = [GEMTUserManager defaultManager].userInfo.userId ;
-    joinRequest.roomID = _roomItem.ID;
-    joinRequest.sid = [GEMTUserManager defaultManager].sId;
-    joinRequest.delegate = self;
+    RoomQuitReqeust *quitRequest = [[RoomQuitReqeust alloc] init];
+    quitRequest.userID = [GEMTUserManager defaultManager].userInfo.userId ;
+    quitRequest.roomID = _roomItem.ID;
+    quitRequest.sid = [GEMTUserManager defaultManager].sId;
+    quitRequest.delegate = self;
     
-    [[NetRequestManager defaultManager] startRequest:joinRequest];
+    [[NetRequestManager defaultManager] startRequest:quitRequest];
 }
 
 
 - (IBAction)startBtnDidPressed:(id)sender
 {
+    
 }
 
 
@@ -205,6 +234,60 @@
 
 - (IBAction)chatDidPressed:(id)sender
 {
+    
+}
+
+
+- (IBAction)followOwnDidPressed:(id)sender
+{
+    // 网络请求
+    
+    BOOL isFollowed = (_roomItem.ownerRelationWithMe == UserRelationType_Follow ||
+                       _roomItem.ownerRelationWithMe == UserRelationType_FollowEach);
+    
+    if (isFollowed)
+    {
+        _roomItem.ownerRelationWithMe -= 1;
+    }
+    else
+    {
+        _roomItem.ownerRelationWithMe += 1;
+    }
+    
+    [self _setOwnerRelation];
+}
+
+
+#pragma mark- UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+}
+
+
+#pragma mark- ChatInputViewDelegate
+- (void) ChatInputView:(ChatInputView *)chatInputView
+               content:(NSString *)content
+                isText:(BOOL)isText
+{
+    // TODO: 网络发送部分
+    
+    NetMessageItem *message = [[NetMessageItem alloc] init];
+    message.ID = [NSString stringWithFormat:@"%p", message];
+    message.messageType = !isText;
+    
+    message.content = content;
+    message.sendTime = @"1 秒前";
+    
+    message.senderID =  [GEMTUserManager defaultManager].userInfo.userId;
+    message.senderNickname = [GEMTUserManager defaultManager].userInfo.nickName;
+    message.senderAvatarID = [GEMTUserManager defaultManager].userInfo.avataId;
+    
+    message.receiverID = _roomItem.ID;
+    
+    [_commentView.commentList addItemAtFirst:message];
+    
+    [_commentView insertItemAtFirstAnimation];
 }
 
 
@@ -212,7 +295,6 @@
 - (void) RoomCommentView:(RoomCommentView *)roomCommentView contentSizeChange:(CGSize)contentSize
 {
     contentSize.height += 370;
-    NSLog(@"contentSize.height : %lf", contentSize.height);
     _mainScrollView.contentSize = contentSize;
 }
 

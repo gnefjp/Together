@@ -24,9 +24,8 @@ static PBExtensionRegistry* extensionRegistry = nil;
 
 @interface List ()
 @property BOOL isEnd;
-@property (retain) NSMutableArray* mutableRoomInfoListList;
-@property (retain) NSMutableArray* mutableUserInfoList;
-@property (retain) NSMutableArray* mutableUserDetailListList;
+@property (retain) NSMutableArray* mutableRoomInfoList;
+@property (retain) NSMutableArray* mutableUserDetailList;
 @property (retain) NSMutableArray* mutableUserMessageInfoList;
 @end
 
@@ -44,14 +43,12 @@ static PBExtensionRegistry* extensionRegistry = nil;
 - (void) setIsEnd:(BOOL) value {
   isEnd_ = !!value;
 }
-@synthesize mutableRoomInfoListList;
-@synthesize mutableUserInfoList;
-@synthesize mutableUserDetailListList;
+@synthesize mutableRoomInfoList;
+@synthesize mutableUserDetailList;
 @synthesize mutableUserMessageInfoList;
 - (void) dealloc {
-  self.mutableRoomInfoListList = nil;
-  self.mutableUserInfoList = nil;
-  self.mutableUserDetailListList = nil;
+  self.mutableRoomInfoList = nil;
+  self.mutableUserDetailList = nil;
   self.mutableUserMessageInfoList = nil;
   [super dealloc];
 }
@@ -73,25 +70,18 @@ static List* defaultListInstance = nil;
 - (List*) defaultInstance {
   return defaultListInstance;
 }
-- (NSArray*) roomInfoListList {
-  return mutableRoomInfoListList;
+- (NSArray*) roomInfoList {
+  return mutableRoomInfoList;
 }
-- (RoomInfo*) roomInfoListAtIndex:(int32_t) index {
-  id value = [mutableRoomInfoListList objectAtIndex:index];
+- (RoomInfo*) roomInfoAtIndex:(int32_t) index {
+  id value = [mutableRoomInfoList objectAtIndex:index];
   return value;
 }
-- (NSArray*) userInfoList {
-  return mutableUserInfoList;
+- (NSArray*) userDetailList {
+  return mutableUserDetailList;
 }
-- (User_Info*) userInfoAtIndex:(int32_t) index {
-  id value = [mutableUserInfoList objectAtIndex:index];
-  return value;
-}
-- (NSArray*) userDetailListList {
-  return mutableUserDetailListList;
-}
-- (DetailResponse*) userDetailListAtIndex:(int32_t) index {
-  id value = [mutableUserDetailListList objectAtIndex:index];
+- (DetailResponse*) userDetailAtIndex:(int32_t) index {
+  id value = [mutableUserDetailList objectAtIndex:index];
   return value;
 }
 - (NSArray*) userMessageInfoList {
@@ -108,17 +98,14 @@ static List* defaultListInstance = nil;
   if (self.hasIsEnd) {
     [output writeBool:1 value:self.isEnd];
   }
-  for (RoomInfo* element in self.roomInfoListList) {
+  for (RoomInfo* element in self.roomInfoList) {
     [output writeMessage:2 value:element];
   }
-  for (User_Info* element in self.userInfoList) {
+  for (DetailResponse* element in self.userDetailList) {
     [output writeMessage:3 value:element];
   }
-  for (DetailResponse* element in self.userDetailListList) {
-    [output writeMessage:4 value:element];
-  }
   for (UserMessageResponse* element in self.userMessageInfoList) {
-    [output writeMessage:5 value:element];
+    [output writeMessage:4 value:element];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -132,17 +119,14 @@ static List* defaultListInstance = nil;
   if (self.hasIsEnd) {
     size += computeBoolSize(1, self.isEnd);
   }
-  for (RoomInfo* element in self.roomInfoListList) {
+  for (RoomInfo* element in self.roomInfoList) {
     size += computeMessageSize(2, element);
   }
-  for (User_Info* element in self.userInfoList) {
+  for (DetailResponse* element in self.userDetailList) {
     size += computeMessageSize(3, element);
   }
-  for (DetailResponse* element in self.userDetailListList) {
-    size += computeMessageSize(4, element);
-  }
   for (UserMessageResponse* element in self.userMessageInfoList) {
-    size += computeMessageSize(5, element);
+    size += computeMessageSize(4, element);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -222,23 +206,17 @@ static List* defaultListInstance = nil;
   if (other.hasIsEnd) {
     [self setIsEnd:other.isEnd];
   }
-  if (other.mutableRoomInfoListList.count > 0) {
-    if (result.mutableRoomInfoListList == nil) {
-      result.mutableRoomInfoListList = [NSMutableArray array];
+  if (other.mutableRoomInfoList.count > 0) {
+    if (result.mutableRoomInfoList == nil) {
+      result.mutableRoomInfoList = [NSMutableArray array];
     }
-    [result.mutableRoomInfoListList addObjectsFromArray:other.mutableRoomInfoListList];
+    [result.mutableRoomInfoList addObjectsFromArray:other.mutableRoomInfoList];
   }
-  if (other.mutableUserInfoList.count > 0) {
-    if (result.mutableUserInfoList == nil) {
-      result.mutableUserInfoList = [NSMutableArray array];
+  if (other.mutableUserDetailList.count > 0) {
+    if (result.mutableUserDetailList == nil) {
+      result.mutableUserDetailList = [NSMutableArray array];
     }
-    [result.mutableUserInfoList addObjectsFromArray:other.mutableUserInfoList];
-  }
-  if (other.mutableUserDetailListList.count > 0) {
-    if (result.mutableUserDetailListList == nil) {
-      result.mutableUserDetailListList = [NSMutableArray array];
-    }
-    [result.mutableUserDetailListList addObjectsFromArray:other.mutableUserDetailListList];
+    [result.mutableUserDetailList addObjectsFromArray:other.mutableUserDetailList];
   }
   if (other.mutableUserMessageInfoList.count > 0) {
     if (result.mutableUserMessageInfoList == nil) {
@@ -274,22 +252,16 @@ static List* defaultListInstance = nil;
       case 18: {
         RoomInfo_Builder* subBuilder = [RoomInfo builder];
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
-        [self addRoomInfoList:[subBuilder buildPartial]];
+        [self addRoomInfo:[subBuilder buildPartial]];
         break;
       }
       case 26: {
-        User_Info_Builder* subBuilder = [User_Info builder];
+        DetailResponse_Builder* subBuilder = [DetailResponse builder];
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
-        [self addUserInfo:[subBuilder buildPartial]];
+        [self addUserDetail:[subBuilder buildPartial]];
         break;
       }
       case 34: {
-        DetailResponse_Builder* subBuilder = [DetailResponse builder];
-        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
-        [self addUserDetailList:[subBuilder buildPartial]];
-        break;
-      }
-      case 42: {
         UserMessageResponse_Builder* subBuilder = [UserMessageResponse builder];
         [input readMessage:subBuilder extensionRegistry:extensionRegistry];
         [self addUserMessageInfo:[subBuilder buildPartial]];
@@ -314,91 +286,62 @@ static List* defaultListInstance = nil;
   result.isEnd = NO;
   return self;
 }
-- (NSArray*) roomInfoListList {
-  if (result.mutableRoomInfoListList == nil) { return [NSArray array]; }
-  return result.mutableRoomInfoListList;
+- (NSArray*) roomInfoList {
+  if (result.mutableRoomInfoList == nil) { return [NSArray array]; }
+  return result.mutableRoomInfoList;
 }
-- (RoomInfo*) roomInfoListAtIndex:(int32_t) index {
-  return [result roomInfoListAtIndex:index];
+- (RoomInfo*) roomInfoAtIndex:(int32_t) index {
+  return [result roomInfoAtIndex:index];
 }
-- (List_Builder*) replaceRoomInfoListAtIndex:(int32_t) index with:(RoomInfo*) value {
-  [result.mutableRoomInfoListList replaceObjectAtIndex:index withObject:value];
+- (List_Builder*) replaceRoomInfoAtIndex:(int32_t) index with:(RoomInfo*) value {
+  [result.mutableRoomInfoList replaceObjectAtIndex:index withObject:value];
   return self;
 }
-- (List_Builder*) addAllRoomInfoList:(NSArray*) values {
-  if (result.mutableRoomInfoListList == nil) {
-    result.mutableRoomInfoListList = [NSMutableArray array];
+- (List_Builder*) addAllRoomInfo:(NSArray*) values {
+  if (result.mutableRoomInfoList == nil) {
+    result.mutableRoomInfoList = [NSMutableArray array];
   }
-  [result.mutableRoomInfoListList addObjectsFromArray:values];
+  [result.mutableRoomInfoList addObjectsFromArray:values];
   return self;
 }
-- (List_Builder*) clearRoomInfoListList {
-  result.mutableRoomInfoListList = nil;
+- (List_Builder*) clearRoomInfoList {
+  result.mutableRoomInfoList = nil;
   return self;
 }
-- (List_Builder*) addRoomInfoList:(RoomInfo*) value {
-  if (result.mutableRoomInfoListList == nil) {
-    result.mutableRoomInfoListList = [NSMutableArray array];
+- (List_Builder*) addRoomInfo:(RoomInfo*) value {
+  if (result.mutableRoomInfoList == nil) {
+    result.mutableRoomInfoList = [NSMutableArray array];
   }
-  [result.mutableRoomInfoListList addObject:value];
+  [result.mutableRoomInfoList addObject:value];
   return self;
 }
-- (NSArray*) userInfoList {
-  if (result.mutableUserInfoList == nil) { return [NSArray array]; }
-  return result.mutableUserInfoList;
+- (NSArray*) userDetailList {
+  if (result.mutableUserDetailList == nil) { return [NSArray array]; }
+  return result.mutableUserDetailList;
 }
-- (User_Info*) userInfoAtIndex:(int32_t) index {
-  return [result userInfoAtIndex:index];
+- (DetailResponse*) userDetailAtIndex:(int32_t) index {
+  return [result userDetailAtIndex:index];
 }
-- (List_Builder*) replaceUserInfoAtIndex:(int32_t) index with:(User_Info*) value {
-  [result.mutableUserInfoList replaceObjectAtIndex:index withObject:value];
+- (List_Builder*) replaceUserDetailAtIndex:(int32_t) index with:(DetailResponse*) value {
+  [result.mutableUserDetailList replaceObjectAtIndex:index withObject:value];
   return self;
 }
-- (List_Builder*) addAllUserInfo:(NSArray*) values {
-  if (result.mutableUserInfoList == nil) {
-    result.mutableUserInfoList = [NSMutableArray array];
+- (List_Builder*) addAllUserDetail:(NSArray*) values {
+  if (result.mutableUserDetailList == nil) {
+    result.mutableUserDetailList = [NSMutableArray array];
   }
-  [result.mutableUserInfoList addObjectsFromArray:values];
+  [result.mutableUserDetailList addObjectsFromArray:values];
   return self;
 }
-- (List_Builder*) clearUserInfoList {
-  result.mutableUserInfoList = nil;
+- (List_Builder*) clearUserDetailList {
+  result.mutableUserDetailList = nil;
   return self;
 }
-- (List_Builder*) addUserInfo:(User_Info*) value {
-  if (result.mutableUserInfoList == nil) {
-    result.mutableUserInfoList = [NSMutableArray array];
+- (List_Builder*) addUserDetail:(DetailResponse*) value {
+  if (result.mutableUserDetailList == nil) {
+    result.mutableUserDetailList = [NSMutableArray array];
   }
-  [result.mutableUserInfoList addObject:value];
-  return self;
-}
-- (NSArray*) userDetailListList {
-  if (result.mutableUserDetailListList == nil) { return [NSArray array]; }
-  return result.mutableUserDetailListList;
-}
-- (DetailResponse*) userDetailListAtIndex:(int32_t) index {
-  return [result userDetailListAtIndex:index];
-}
-- (List_Builder*) replaceUserDetailListAtIndex:(int32_t) index with:(DetailResponse*) value {
-  [result.mutableUserDetailListList replaceObjectAtIndex:index withObject:value];
-  return self;
-}
-- (List_Builder*) addAllUserDetailList:(NSArray*) values {
-  if (result.mutableUserDetailListList == nil) {
-    result.mutableUserDetailListList = [NSMutableArray array];
-  }
-  [result.mutableUserDetailListList addObjectsFromArray:values];
-  return self;
-}
-- (List_Builder*) clearUserDetailListList {
-  result.mutableUserDetailListList = nil;
-  return self;
-}
-- (List_Builder*) addUserDetailList:(DetailResponse*) value {
-  if (result.mutableUserDetailListList == nil) {
-    result.mutableUserDetailListList = [NSMutableArray array];
-  }
-  [result.mutableUserDetailListList addObject:value];
+  [result.mutableUserDetailList addObject:value];
   return self;
 }
 - (NSArray*) userMessageInfoList {

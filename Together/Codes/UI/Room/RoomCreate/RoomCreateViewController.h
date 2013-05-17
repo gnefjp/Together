@@ -10,13 +10,16 @@
 #import "FileUploadRequest.h"
 #import "RoomCreateRequest.h"
 
+#import "RecorderView.h"
+
 @class RoomTypePickerView;
 @class NetRoomItem;
 @interface RoomCreateViewController : UIViewController <UITableViewDelegate,
                                                         UITableViewDataSource,
                                                         PicChangeDelegate,
                                                         NetFileRequestDelegate,
-                                                        NetRoomRequestDelegate>
+                                                        NetRoomRequestDelegate,
+                                                        RecorderViewDelegate>
 {
     __weak IBOutlet UITableView *_infoTableView;
     
@@ -32,6 +35,9 @@
     
     PicChange                   *_picChange;
     __weak IBOutlet UIImageView *_previewImageView;
+    
+    __weak IBOutlet UIButton    *_recorderBtn;
+    RecorderView                *_recorderView;
 }
 
 - (IBAction)closeBtnPressed:(id)sender;
@@ -40,9 +46,6 @@
 - (IBAction)createBtnPressed:(id)sender;
 
 - (IBAction)backToCreateView:(id)sender;
-- (IBAction)startRecord:(id)sender;
-- (IBAction)confirmRecord:(id)sender;
-- (IBAction)cancelRecord:(id)sender;
 
 - (IBAction)backToRecord:(id)sender;
 - (IBAction)playOrStopRecord:(id)sender;

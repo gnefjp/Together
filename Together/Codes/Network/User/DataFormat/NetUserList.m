@@ -7,6 +7,8 @@
 //
 #import "UserData.pb.h"
 
+#import "GEMTUserManager.h"
+
 #import "NetUserList.h"
 
 #pragma mark- Item
@@ -17,9 +19,10 @@
     self = [super init];
     if (self)
     {
-        if ([message isKindOfClass:[User_Info class]])
+        if ([message isKindOfClass:[DetailResponse class]])
         {
-            User_Info *userInfo = (User_Info *)message;
+            DetailResponse *detailResponse = (DetailResponse *)message;
+            User_Info *userInfo = detailResponse.userInfo;
             
             self.ID = [NSString stringWithInt:userInfo.uid];
             self.userName = userInfo.username;
@@ -39,6 +42,12 @@
             
             self.praiseNum = userInfo.praiseNum;
             self.visitNum = userInfo.visitNum;
+            
+            self.relationWithMe = detailResponse.isFollow;
+            if ([self.ID isEqualToString:[GEMTUserManager defaultManager].userInfo.userId])
+            {
+                self.relationWithMe = UserRelationType_Own;
+            }
         }
         
         
@@ -70,16 +79,16 @@
 
 - (NSArray *) _decodeData:(HTTPResponse *)response
 {
-    self.isFinish = response.roomListResponse.roomList.isEnd;
+    self.isFinish = response.list.isEnd;
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
-    int count = response.userRoomListResponse.userRoomList.userInfoList.count;
+    int count = response.list.userDetailList.count;
     for (int i = 0; i < count; i++)
     {
-        User_Info *roomInfo = [response.userRoomListResponse.userRoomList.userInfoList objectAtIndex:i];
+        DetailResponse *detailUser = [response.list.userDetailList objectAtIndex:i];
         
-        NetUserItem *item = (NetUserItem *)[NetUserItem itemWithMessage:roomInfo];
+        NetUserItem *item = (NetUserItem *)[NetUserItem itemWithMessage:detailUser];
         [array addObject:item];
     }
     

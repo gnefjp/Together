@@ -60,8 +60,10 @@
         @"room_follow_btn.png",
     };
     
+    BOOL isFollowed = (_userItem.relationWithMe == UserRelationType_Follow ||
+                       _userItem.relationWithMe == UserRelationType_FollowEach);
     _followStateImageView.image = [UIImage imageNamed:
-                                   relationImages[(userItem.relationWithMe == UserRelationType_Follow)]];
+                                   relationImages[isFollowed]];
 }
 
 @end
@@ -103,19 +105,6 @@
 - (void) awakeFromNib
 {
     _userList = [[NetUserList alloc] init];
-    
-// 模拟数据
-    for (int i = 0; i < 20; i ++)
-    {
-        NetUserItem *userItem = [[NetUserItem alloc] init];
-        userItem.ID = [NSString stringWithInt:i];
-        userItem.userName = [NSString stringWithFormat:@"测试 %d 号", i];
-        userItem.nickName = userItem.userName;
-        userItem.avataId = @"1";
-        userItem.relationWithMe = (i % UserRelationType_Own);
-        
-        [_userList addItem:userItem];
-    }
 }
 
 
@@ -202,8 +191,8 @@
     _loadingActivityIndicator.hidden = YES;
     [_loadingActivityIndicator stopAnimating];
     
-//    RoomGetJoinPersonsRequest *getListRequest = (RoomGetJoinPersonsRequest *)request;
-//    [_userList addItemList:request.responseData onPage:getListRequest.pageNum];
+    RoomGetJoinPersonsRequest *getListRequest = (RoomGetJoinPersonsRequest *)request;
+    [_userList addItemList:request.responseData onPage:getListRequest.pageNum];
     
     [self reloadData];
 }

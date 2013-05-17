@@ -28,4 +28,15 @@ static AppSetting   *s_defaultSetting = nil;
     return s_defaultSetting;
 }
 
+
+- (NSString *) serverCurrentTime
+{
+    if ([_serverCurrentTime length] == 0)
+    {
+        _serverCurrentTime = [NSString stringWithFormat:@"%.0lf", [[NSDate date] timeIntervalSince1970]];
+    }
+    
+    return _serverCurrentTime;
+}
+
 @end

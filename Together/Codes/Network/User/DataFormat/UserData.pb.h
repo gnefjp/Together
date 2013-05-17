@@ -4,6 +4,16 @@
 
 @class User_Info;
 @class User_Info_Builder;
+typedef enum {
+  UserRelationNorelation = 0,
+  UserRelationFollow = 1,
+  UserRelationFans = 2,
+  UserRelationFolloweach = 3,
+  UserRelationOwn = 4,
+} UserRelation;
+
+BOOL UserRelationIsValidValue(UserRelation value);
+
 
 @interface UserDataRoot : NSObject {
 }

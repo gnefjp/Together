@@ -22,7 +22,6 @@ src/protoc --proto_path=$protoFileDir --objc_out=$networkDir $protoFileDir"/data
 #用户模块
 src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/User/"$responseDir $protoFileDir"/UserResponse.proto"
 src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/User/"$dataFormatDir $protoFileDir"/UserData.proto"
-src/protoc --proto_path=$protoFileDir --objc_out=$networkDir"/User/"$dataFormatDir $protoFileDir"/UserListResponse.proto"
 
 
 #房间模块

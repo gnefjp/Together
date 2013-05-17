@@ -22,21 +22,33 @@
     
     _nicknameLabel.text = userItem.nickName;
     
-    NSString *relationImages[] = {
+    [self _setUserRelation];
+}
+
+
+- (void) _setUserRelation
+{
+    NSString *followImages[] = {
         @"room_unfollow_btn.png",
         @"room_follow_btn.png",
     };
     
-    BOOL isFollowed = (_userItem.relationWithMe == UserRelationType_Follow);
-    [_relationBtn setImage:[UIImage imageNamed:relationImages[isFollowed]]
+    BOOL isFollowed = (_userItem.relationWithMe == UserRelationType_Follow ||
+                       _userItem.relationWithMe == UserRelationType_FollowEach);
+    [_relationBtn setImage:[UIImage imageNamed:followImages[isFollowed]]
                   forState:UIControlStateNormal];
-    [_relationBtn setImage:[UIImage imageNamed:relationImages[isFollowed]]
+    
+    [_relationBtn setImage:[UIImage imageNamed:followImages[isFollowed]]
                   forState:UIControlStateHighlighted];
 }
 
 
 - (IBAction)followDidPressed:(id)sender
 {
+    BOOL isFollowed = (_userItem.relationWithMe == UserRelationType_Follow ||
+                       _userItem.relationWithMe == UserRelationType_FollowEach);
+    _userItem.relationWithMe += isFollowed ? -1 : 1;
     
+    [self _setUserRelation];
 }
 @end

@@ -19,6 +19,18 @@ static PBExtensionRegistry* extensionRegistry = nil;
 }
 @end
 
+BOOL UserRelationIsValidValue(UserRelation value) {
+  switch (value) {
+    case UserRelationNorelation:
+    case UserRelationFollow:
+    case UserRelationFans:
+    case UserRelationFolloweach:
+    case UserRelationOwn:
+      return YES;
+    default:
+      return NO;
+  }
+}
 @interface User_Info ()
 @property int32_t uid;
 @property (retain) NSString* username;

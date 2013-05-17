@@ -16,10 +16,21 @@
     CGSize size = [self.text sizeWithFont:self.font
                         constrainedToSize:CGSizeMake(20000, self.frame.size.height)
                             lineBreakMode:self.lineBreakMode];
-    NSLog(@"size.width : %lf", size.width);
     
     CGRect frame = self.frame;
     frame.size.width = size.width;
+    self.frame = frame;
+}
+
+
+- (void) changeFrameHeightWithText
+{
+    CGSize size = [self.text sizeWithFont:self.font
+                        constrainedToSize:CGSizeMake(self.frame.size.width, 20000)
+                            lineBreakMode:self.lineBreakMode];
+    
+    CGRect frame = self.frame;
+    frame.size.height = size.height;
     self.frame = frame;
 }
 

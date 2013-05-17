@@ -39,7 +39,11 @@
 
 - (IBAction)closeBtnDidPressed:(id)sender
 {
-    [self hideCenterToRightAnimation];
+    if (!([_delegate respondsToSelector:@selector(MapViewBackActionIsDelegate:)] &&
+          [_delegate MapViewBackActionIsDelegate:self]))
+    {
+        [self hideCenterToRightAnimation];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

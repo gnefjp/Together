@@ -14,15 +14,16 @@
 @end
 
 
+@class NetRoomItem;
+@class NetMessageList;
 @interface RoomCommentView : UIView
-{
-    
-}
 
-@property (strong, nonatomic) NSString                          *roomID;
+@property (strong, nonatomic) NetMessageList                    *commentList;
+@property (strong, nonatomic) NetRoomItem                       *roomItem;
 @property (weak,   nonatomic) IBOutlet UITableView              *commentTableView;
 @property (weak,   nonatomic) id <RoomCommentViewDelegate>      delegate;
 
 - (void) loadNextPage;
+- (void) insertItemAtFirstAnimation;
 
 @end

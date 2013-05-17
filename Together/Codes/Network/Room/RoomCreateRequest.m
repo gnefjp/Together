@@ -10,6 +10,15 @@
 
 @implementation RoomCreateRequest
 
+
+#ifdef kIsSimulatedData
+- (NSString *) requestUrl
+{
+    return @"http://127.0.0.1/ROOM/CreateRoom";
+}
+#endif
+
+
 - (id) init
 {
     self = [super init];

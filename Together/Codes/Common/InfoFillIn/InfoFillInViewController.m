@@ -59,6 +59,12 @@
 {
     _fillType = fillType;
     
+    if (_fillType == InfoFillType_Map)
+    {
+        [self _initMapView];
+        return;
+    }
+    
     _textField.hidden = (fillType != InfoFillType_TextField);
     if (!_textField.hidden)
     {
@@ -140,7 +146,42 @@
 }
 
 
-#pragma mark- 取消手势
+#pragma mark- 地图
+- (void) _initMapView
+{
+    _mapView = [MapView loadFromNib];
+    _mapView.delegate = self;
+    [self.view addSubview:_mapView];
+}
+
+
+#pragma mark- MapViewDelegate
+- (void)MapView:(MapView*)view
+       location:(CLLocationCoordinate2D)aLocation
+   loactionAddr:(NSString*)aStr
+{
+    if ([_delegate respondsToSelector:@selector(InfoFillInViewController:addLocation:detailAddr:)])
+    {
+        [_delegate InfoFillInViewController:self
+                                addLocation:aLocation
+                                 detailAddr:aStr];
+    }
+    
+    [self.view endEditing:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (BOOL) MapViewBackActionIsDelegate:(MapView *)mapView
+{
+    [self.view endEditing:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    return YES;
+}
+
+
+#pragma mark- 返回手势
 - (void) _initPanGesture
 {
     [self.view removeGestureRecognizer:_panGesture];

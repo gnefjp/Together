@@ -6,24 +6,33 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
+#import "MapView.h"
+
 typedef enum
 {
     InfoFillType_TextField  = 0,
     InfoFillType_TextView   = 1,
     InfoFillType_Picker     = 2,
+    InfoFillType_Map        = 3,
     
-    InfoFillType_Max        = 3,
+    InfoFillType_Max        = 4,
 } InfoFillType;
 
 
 @class InfoFillInViewController;
 @protocol InfoFillInViewControllerDelegate <NSObject>
 - (void) InfoFillInViewController:(InfoFillInViewController *)controller fillValue:(NSString *)fillValue;
+
+@optional
+- (void) InfoFillInViewController:(InfoFillInViewController *)controller
+                      addLocation:(CLLocationCoordinate2D)location
+                       detailAddr:(NSString *)detailAddr;
 @end
 
 
 @interface InfoFillInViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate,
-                                                        UITableViewDelegate, UITableViewDataSource>
+                                                        UITableViewDelegate, UITableViewDataSource,
+                                                        MapViewDelegate>
 {
     __weak id <InfoFillInViewControllerDelegate>    _delegate;
     
@@ -36,6 +45,8 @@ typedef enum
     __weak IBOutlet UITextField                     *_textField;
     __weak IBOutlet UITextView                      *_textView;
     __weak IBOutlet UITableView                     *_tableView;
+    
+    MapView                                         *_mapView;
     
     UIPanGestureRecognizer                          *_panGesture;
 }

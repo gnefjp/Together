@@ -35,19 +35,16 @@
 @private
   BOOL hasIsEnd_:1;
   BOOL isEnd_:1;
-  NSMutableArray* mutableRoomInfoListList;
-  NSMutableArray* mutableUserInfoList;
-  NSMutableArray* mutableUserDetailListList;
+  NSMutableArray* mutableRoomInfoList;
+  NSMutableArray* mutableUserDetailList;
   NSMutableArray* mutableUserMessageInfoList;
 }
 - (BOOL) hasIsEnd;
 - (BOOL) isEnd;
-- (NSArray*) roomInfoListList;
-- (RoomInfo*) roomInfoListAtIndex:(int32_t) index;
-- (NSArray*) userInfoList;
-- (User_Info*) userInfoAtIndex:(int32_t) index;
-- (NSArray*) userDetailListList;
-- (DetailResponse*) userDetailListAtIndex:(int32_t) index;
+- (NSArray*) roomInfoList;
+- (RoomInfo*) roomInfoAtIndex:(int32_t) index;
+- (NSArray*) userDetailList;
+- (DetailResponse*) userDetailAtIndex:(int32_t) index;
 - (NSArray*) userMessageInfoList;
 - (UserMessageResponse*) userMessageInfoAtIndex:(int32_t) index;
 
@@ -90,26 +87,19 @@
 - (List_Builder*) setIsEnd:(BOOL) value;
 - (List_Builder*) clearIsEnd;
 
-- (NSArray*) roomInfoListList;
-- (RoomInfo*) roomInfoListAtIndex:(int32_t) index;
-- (List_Builder*) replaceRoomInfoListAtIndex:(int32_t) index with:(RoomInfo*) value;
-- (List_Builder*) addRoomInfoList:(RoomInfo*) value;
-- (List_Builder*) addAllRoomInfoList:(NSArray*) values;
-- (List_Builder*) clearRoomInfoListList;
+- (NSArray*) roomInfoList;
+- (RoomInfo*) roomInfoAtIndex:(int32_t) index;
+- (List_Builder*) replaceRoomInfoAtIndex:(int32_t) index with:(RoomInfo*) value;
+- (List_Builder*) addRoomInfo:(RoomInfo*) value;
+- (List_Builder*) addAllRoomInfo:(NSArray*) values;
+- (List_Builder*) clearRoomInfoList;
 
-- (NSArray*) userInfoList;
-- (User_Info*) userInfoAtIndex:(int32_t) index;
-- (List_Builder*) replaceUserInfoAtIndex:(int32_t) index with:(User_Info*) value;
-- (List_Builder*) addUserInfo:(User_Info*) value;
-- (List_Builder*) addAllUserInfo:(NSArray*) values;
-- (List_Builder*) clearUserInfoList;
-
-- (NSArray*) userDetailListList;
-- (DetailResponse*) userDetailListAtIndex:(int32_t) index;
-- (List_Builder*) replaceUserDetailListAtIndex:(int32_t) index with:(DetailResponse*) value;
-- (List_Builder*) addUserDetailList:(DetailResponse*) value;
-- (List_Builder*) addAllUserDetailList:(NSArray*) values;
-- (List_Builder*) clearUserDetailListList;
+- (NSArray*) userDetailList;
+- (DetailResponse*) userDetailAtIndex:(int32_t) index;
+- (List_Builder*) replaceUserDetailAtIndex:(int32_t) index with:(DetailResponse*) value;
+- (List_Builder*) addUserDetail:(DetailResponse*) value;
+- (List_Builder*) addAllUserDetail:(NSArray*) values;
+- (List_Builder*) clearUserDetailList;
 
 - (NSArray*) userMessageInfoList;
 - (UserMessageResponse*) userMessageInfoAtIndex:(int32_t) index;

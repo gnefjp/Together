@@ -8,16 +8,6 @@
 
 #import "NetItemList.h"
 
-typedef enum
-{
-    UserRelationType_NoRelation     = 0,
-    UserRelationType_Fans           = 1,
-    UserRelationType_Follow         = 2,
-    UserRelationType_Own            = 3,
-    
-    UserRelationType_Max            = 4,
-} UserRelationType;
-
 #pragma mark- Item
 @interface NetUserItem : NetItem
 

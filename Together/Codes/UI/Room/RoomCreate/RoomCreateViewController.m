@@ -9,6 +9,8 @@
 #import "TipViewManager.h"
 #import "AppSetting.h"
 
+#import "RoomShowInfoRequest.h"
+
 #import "NetRoomList.h"
 #import "RoomInfoCell.h"
 
@@ -52,21 +54,6 @@ static NSString* s_roomTypeNames[] = {
 
 @implementation RoomCreateViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    _infoTableView.delegate = self;
-    _infoTableView.dataSource = self;
-    
-    _roomInfo = [[NetRoomItem alloc] init];
-    
-    _roomInfo.address.detailAddr = @"哩度";
-    _roomInfo.address.location = [AppSetting defaultSetting].currentLocation;
-    
-    [self _isShowRoomTypePicker:YES animation:NO];
-}
-
 
 - (void) dealloc
 {
@@ -83,7 +70,28 @@ static NSString* s_roomTypeNames[] = {
     
     [[TipViewManager defaultManager] removeTipWithID:self];
     _previewImageView = nil;
+    _recorderBtn = nil;
     [super viewDidUnload];
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    _infoTableView.delegate = self;
+    _infoTableView.dataSource = self;
+    
+    _roomInfo = [[NetRoomItem alloc] init];
+    
+    _roomInfo.address.detailAddr = @"模拟哩度";
+    _roomInfo.address.location = [AppSetting defaultSetting].currentLocation;
+    
+    [self _isShowRoomTypePicker:YES animation:NO];
+    
+    [self performBlock:^{
+        [self _initRecord];
+    }afterDelay:0.01];
 }
 
 
@@ -222,22 +230,16 @@ static NSString* s_roomTypeNames[] = {
 
 
 #pragma mark- 录音
-- (IBAction)startRecord:(id)sender
+- (void) _initRecord
 {
-    // TODO: 开始录音
-}
-
-
-- (IBAction)confirmRecord:(id)sender
-{
-    // TODO: 确定录音
-    [self _isShowConfirmView:YES];
-}
-
-
-- (IBAction)cancelRecord:(id)sender
-{
-    // TODO: 取消录音
+    CGRect frame = _recorderBtn.frame;
+    frame.origin.x += _recorderBtn.superview.frameX;
+    frame.origin.y += _recorderBtn.superview.frameY;
+    
+    _recorderView = [RecorderView showRecorderViewOnView:self.view
+                                          recordBtnFrame:frame
+                                                delegate:self];
+    
 }
 
 
@@ -264,6 +266,25 @@ static NSString* s_roomTypeNames[] = {
 - (IBAction)backToCreateView:(id)sender
 {
     [self _isShowRecordView:NO];
+}
+
+
+#pragma mark- RecorderViewDelegate
+- (void)RecorderView:(RecorderView*)recorderView recordId:(NSString*)recordId
+{
+    _roomInfo.recordID = recordId;
+}
+
+
+- (void)RecorderViewBeginRecord:(RecorderView*)recorderView
+{
+    [_recorderBtn setTitle:@"松开取消" forState:UIControlStateNormal];
+}
+
+
+- (void)RecorderViewEndRecord:(RecorderView*)recorderView
+{
+    [_recorderBtn setTitle:@"按下录音" forState:UIControlStateNormal];
 }
 
 
@@ -311,9 +332,9 @@ static NSString* s_roomTypeNames[] = {
     
     RoomCreateRequest* createRequest = [[RoomCreateRequest alloc] init];
     createRequest.delegate = self;
-    createRequest.sid = @"ef9aadcea02583a798d48870e2512c7c";
-    createRequest.ownerID = @"1"; // [[GEMTUserManager defaultManager].userInfo.userId stringValue];
-    createRequest.ownerNickname = @"G-Mart";// [GEMTUserManager defaultManager].userInfo.nickName;
+    createRequest.sid = [GEMTUserManager defaultManager].sId;
+    createRequest.ownerID = [GEMTUserManager defaultManager].userInfo.userId;
+    createRequest.ownerNickname = [GEMTUserManager defaultManager].userInfo.nickName;
     
     createRequest.roomTitle = _roomInfo.roomTitle;
     createRequest.roomType = _roomInfo.roomType;
@@ -326,7 +347,7 @@ static NSString* s_roomTypeNames[] = {
     createRequest.address = _roomInfo.address;
     
     createRequest.previewID = _roomInfo.perviewID;
-    createRequest.recordID = @"1";
+    createRequest.recordID = _roomInfo.recordID;
     
     [[NetRequestManager defaultManager] startRequest:createRequest];
 }
@@ -356,6 +377,8 @@ static NSString* s_roomTypeNames[] = {
     {
         RoomViewController* roomViewController = [RoomViewController loadFromNib];
         [self.navigationController pushViewController:roomViewController animated:YES];
+        roomViewController.roomItem = (NetRoomItem *)[NetRoomItem itemWithMessage:
+                                                      request.responseData.createRoomResponse.roomInfo];
     }
 }
 
@@ -480,6 +503,18 @@ static NSString* s_roomTypeNames[] = {
 }
 
 
+- (void) InfoFillInViewController:(InfoFillInViewController *)controller
+                      addLocation:(CLLocationCoordinate2D)location
+                       detailAddr:(NSString *)detailAddr
+{
+    _roomInfo.address.location = [[CLLocation alloc] initWithLatitude:location.latitude
+                                                            longitude:location.longitude];
+    _roomInfo.address.detailAddr = detailAddr;
+    
+    [_infoTableView reloadData];
+}
+
+
 - (InfoFillInViewController*) _showInfoFillViewWithType:(InfoFillType)type
                                                   title:(NSString *)title
 {
@@ -528,7 +563,8 @@ static NSString* s_roomTypeNames[] = {
         }
         case 4:
         {
-            
+            [self _showInfoFillViewWithType:InfoFillType_Map
+                                      title:s_titles[4]];
             break;
         }
         case 5:
@@ -652,8 +688,8 @@ static NSString* s_roomTypeNames[] = {
             
             FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
             updateRequest.image = img;
-            updateRequest.sid = @"ef9aadcea02583a798d48870e2512c7c";
-            updateRequest.userID = @"1";
+            updateRequest.sid = [GEMTUserManager defaultManager].sId;
+            updateRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
             updateRequest.delegate = self;
             
             [[NetRequestManager defaultManager] startRequest:updateRequest];

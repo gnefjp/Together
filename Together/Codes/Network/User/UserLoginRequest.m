@@ -10,6 +10,14 @@
 
 @implementation UserLoginRequest
 
+#ifdef kIsSimulatedData
+- (NSString *) requestUrl
+{
+    return @"http://127.0.0.1/USER/Login";
+}
+#endif
+
+
 - (id) init
 {
     self = [super init];

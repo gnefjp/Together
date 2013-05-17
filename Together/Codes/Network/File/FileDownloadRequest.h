@@ -19,6 +19,6 @@ typedef enum
 @interface FileDownloadRequest : NetFileRequest
 
 @property (strong, nonatomic) NSString *fileID;
-@property (assign, nonatomic) BOOL      fileType;
+@property (assign, nonatomic) FileType  fileType;
 
 @end

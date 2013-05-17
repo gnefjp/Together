@@ -82,6 +82,7 @@
             self.roomTitle = roomInfo.title;
             self.roomType = roomInfo.type;
             self.perviewID = [NSString stringWithInt:roomInfo.picId];
+            self.recordID = [NSString stringWithInt:roomInfo.recordId];
             
             self.beginTime = roomInfo.beginTime;
             self.createTime = roomInfo.createTime;
@@ -100,36 +101,15 @@
             self.ownerID = [NSString stringWithInt:roomInfo.ownerId];
             self.ownerNickname = roomInfo.ownerNickname;
             
-            if ([self.ownerID isEqualToString:[GEMTUserManager defaultManager].userInfo.userId])
-            {
-                self.relationWitMe = RoomRelationType_MyRoom;
-            }
+#ifdef kIsSimulatedData
+            self.relationWitMe = RoomRelationType_NoRelation;
+#else
+            self.relationWitMe = roomInfo.joinStatus;
+#endif
+            
         }
     }
     return self;
-}
-
-
-- (void) refreshItem:(NetItem *)newItem
-{
-    if ([newItem isKindOfClass:[self class]] && newItem != self)
-    {
-        NetRoomItem* roomItem = (NetRoomItem *)newItem;
-        self.roomTitle = roomItem.roomTitle;
-        self.roomType = roomItem.roomType;
-        self.perviewID = roomItem.perviewID;
-        
-        self.beginTime = roomItem.beginTime;
-        
-        self.genderLimitType = roomItem.genderLimitType;
-        self.personLimitNum = roomItem.personLimitNum;
-        self.joinPersonNum = roomItem.joinPersonNum;
-        
-        self.address = self.address;
-        
-        self.ownerID = roomItem.ownerID;
-        self.ownerNickname = roomItem.ownerNickname;
-    }
 }
 
 @end
@@ -140,14 +120,14 @@
 
 - (NSArray *) _decodeData:(HTTPResponse *)response
 {
-    self.isFinish = response.roomListResponse.roomList.isEnd;
+    self.isFinish = response.list.isEnd;
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
-    int count = response.roomListResponse.roomList.roomInfoListList.count;
+    int count = response.list.roomInfoList.count;
     for (int i = 0; i < count; i++)
     {
-        RoomInfo *roomInfo = [response.roomListResponse.roomList roomInfoListAtIndex:i];
+        RoomInfo *roomInfo = [response.list.roomInfoList objectAtIndex:i];
         NetRoomItem *item = (NetRoomItem *)[NetRoomItem itemWithMessage:roomInfo];
         
         [array addObject:item];

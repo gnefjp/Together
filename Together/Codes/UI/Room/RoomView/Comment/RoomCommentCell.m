@@ -32,12 +32,22 @@
     {
         self.frameHeight = 50.0;
     }
+    else
+    {
+        _contentLabel.text = _messageItem.content;
+        [_contentLabel changeFrameHeightWithText];
+        
+        self.frameHeight = _contentLabel.frameHeight + 32.0;
+    }
 }
 
 
 - (void) setMessageItem:(NetMessageItem *)messageItem
 {
     _messageItem = messageItem;
+    
+    _senderNicknameLabel.text = _messageItem.senderNickname;
+    _sendTimeLabel.text = _messageItem.sendTime;
     
     [_avatarImageView setImageWithFileID:_messageItem.senderAvatarID
                         placeholderImage:[UIImage imageNamed:kDefaultUserAvatar]];

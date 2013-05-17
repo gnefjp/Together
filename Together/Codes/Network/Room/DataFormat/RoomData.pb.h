@@ -25,6 +25,7 @@
   BOOL hasJoinPersonCount_:1;
   BOOL hasLimitPersonCount_:1;
   BOOL hasRecordId_:1;
+  BOOL hasJoinStatus_:1;
   BOOL hasTitle_:1;
   BOOL hasOwnerNickname_:1;
   BOOL hasCreateTime_:1;
@@ -40,6 +41,7 @@
   int32_t joinPersonCount;
   int32_t limitPersonCount;
   int32_t recordId;
+  int32_t joinStatus;
   NSString* title;
   NSString* ownerNickname;
   NSString* createTime;
@@ -61,6 +63,7 @@
 - (BOOL) hasCreateTime;
 - (BOOL) hasBeginTime;
 - (BOOL) hasAddress;
+- (BOOL) hasJoinStatus;
 @property (readonly) int32_t roomId;
 @property (readonly, retain) NSString* title;
 @property (readonly) int32_t ownerId;
@@ -76,6 +79,7 @@
 @property (readonly, retain) NSString* createTime;
 @property (readonly, retain) NSString* beginTime;
 @property (readonly, retain) Address* address;
+@property (readonly) int32_t joinStatus;
 
 + (RoomInfo*) defaultInstance;
 - (RoomInfo*) defaultInstance;
@@ -187,6 +191,11 @@
 - (RoomInfo_Builder*) setAddressBuilder:(Address_Builder*) builderForValue;
 - (RoomInfo_Builder*) mergeAddress:(Address*) value;
 - (RoomInfo_Builder*) clearAddress;
+
+- (BOOL) hasJoinStatus;
+- (int32_t) joinStatus;
+- (RoomInfo_Builder*) setJoinStatus:(int32_t) value;
+- (RoomInfo_Builder*) clearJoinStatus;
 @end
 
 @interface Address : PBGeneratedMessage {

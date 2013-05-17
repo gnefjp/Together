@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 #import "NetFileManager.h"
+#import "AppSetting.h"
 
 #import "CommonTool.h"
 
@@ -85,6 +86,71 @@ static CommonTool *s_shareCommonTool = nil;
     
     [self setBackgroundImage:[UIImage imageNamed:normalName] forState:UIControlStateNormal];
     [self setBackgroundImage:[UIImage imageNamed:highlightedName] forState:UIControlStateHighlighted];
+}
+
+@end
+
+
+#pragma mark- NSString 
+@implementation NSString (CommonTool)
+
+
+- (NSString *) _isForStartTimeInterval:(BOOL)isForStartTime
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate* date = [formatter dateFromString:self];
+    
+    NSTimeInterval serverTime = [[AppSetting defaultSetting].serverCurrentTime doubleValue];
+    
+    NSTimeInterval distance =  serverTime - [date timeIntervalSince1970];
+    if (isForStartTime)
+    {
+        distance = -distance;
+    }
+    
+    typedef struct
+    {
+        NSInteger                       timeInterval;
+        __unsafe_unretained NSString    *msg;
+    } ShowInfo;
+    
+    ShowInfo infos[] = {
+        {((NSInteger)distance / 3600),  @"小时"    },
+        {((NSInteger)distance / 60),    @"分钟"    },
+        {((NSInteger)distance),         @"秒"      },
+    };
+    
+    if ((NSInteger)distance / (24 * 60 * 60) < 1)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (infos[i].timeInterval > 0)
+            {
+                return [NSString stringWithFormat:@"%d %@%@",
+                        infos[i].timeInterval, infos[i].msg,
+                        (isForStartTime ? @"后开始" : @"前")];
+            }
+        }
+        return (isForStartTime ? @"1秒后开始" : @"1秒前");
+    }
+    else
+    {
+        NSInteger day = (NSInteger)distance / (24 * 60 * 60);
+        return [NSString stringWithFormat:@"%d 天%@", day, (isForStartTime ? @"后开始" : @"前")];
+    }
+}
+
+
+- (NSString *) startTimeIntervalWithServer
+{
+    return [self _isForStartTimeInterval:YES];
+}
+
+
+- (NSString *) timeIntervalWithServer
+{
+    return [self _isForStartTimeInterval:NO];
 }
 
 @end
