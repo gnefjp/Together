@@ -14,9 +14,9 @@
 
 @protocol RecorderViewDelegate <NSObject>
 
-- (void)RecorderView:(RecorderView*)v recordId:(NSString*)recordId;
-- (void)RecorderViewBeginTouch:(RecorderView*)v;
-- (void)RecorderViewEndTouch:(RecorderView*)v;
+- (void)RecorderView:(RecorderView*)recorderView recordId:(NSString*)recordId;
+- (void)RecorderViewBeginTouch:(RecorderView*)recorderView;
+- (void)RecorderViewEndTouch:(RecorderView*)recorderView;
 @end
 
 @interface RecorderView : UIView<NetFileRequestDelegate>
