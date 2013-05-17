@@ -210,9 +210,11 @@
     mapView.delegate = self;
 }
 
-- (void)MapView:(MapView *)view location:(CLLocationCoordinate2D)aLocation
+- (void)MapView:(MapView *)view
+       location:(CLLocationCoordinate2D)aLocation
+       loactionAddr:(NSString *)aStr
 {
-    NSLog(@"%lf,%lf",aLocation.latitude,aLocation.longitude);
+    NSLog(@"%lf,%lf,%@",aLocation.latitude,aLocation.longitude,aStr);
 }
 
 - (void)PicChangeSuccess:(PicChange *)self img:(UIImage *)img

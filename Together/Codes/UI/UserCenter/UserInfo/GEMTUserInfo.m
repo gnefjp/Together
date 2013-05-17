@@ -65,13 +65,21 @@
     }
 }
 
+- (int) _getCurrentYear
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy"];
+    NSString *year = [formatter stringFromDate:[NSDate date]];
+    return [year intValue];
+}
+
 - (void)setAge:(NSString *)aBirth
 {
     if (!aBirth||[aBirth isEqualToString:@""]) {
         _age = @"0";
     }else
     {
-        _age = [NSString stringWithFormat:@"%d",2013 - [[[aBirth componentsSeparatedByString:@"-"] objectAtIndex:0] intValue]];
+        _age = [NSString stringWithFormat:@"%d",[self _getCurrentYear] - [[[aBirth componentsSeparatedByString:@"-"] objectAtIndex:0] intValue]];
     }
 }
 

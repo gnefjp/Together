@@ -42,6 +42,33 @@
     [self hideCenterToRightAnimation];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"0");
+            break;
+        case 1:
+        {
+            
+            NSString *str = [alertView textFieldAtIndex:0].text;
+            if ([str length] == 0) {
+                UIAlertView *aAlert = [[UIAlertView alloc] initWithTitle:nil message:@"没有选择的地点" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+                [[UIView rootView] addSubview:aAlert];
+                [aAlert show];
+                return;
+            }
+            [_delegate MapView:self
+                      location:_choosePosition.coordinate
+                  loactionAddr:str];
+            [self hideCenterToRightAnimation];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 - (IBAction)getCurrentChoosePosition:(id)sender
 {
     if (!_choosePosition) {
@@ -50,8 +77,17 @@
         [alert show];
         return;
     }
-    [_delegate MapView:self location:_choosePosition.coordinate];
-    [self hideCenterToRightAnimation];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"输入地址具体描述"
+                                                    message:@""
+                                                   delegate:self
+                                          cancelButtonTitle:@"取消"
+                                          otherButtonTitles:@"确定", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.delegate =self;
+    [alert show];
+    
+
 }
 
 - (IBAction)currentLocation:(id)sender

@@ -16,8 +16,9 @@
 
 @protocol MapViewDelegate <NSObject>
 
-- (void)MapView:(MapView*)view location:(CLLocationCoordinate2D)aLocation;
-
+- (void)MapView:(MapView*)view
+       location:(CLLocationCoordinate2D)aLocation
+   loactionAddr:(NSString*)aStr;
 @end
 
 @interface MapView : UIView<CLLocationManagerDelegate>
