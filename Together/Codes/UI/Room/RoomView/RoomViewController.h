@@ -7,11 +7,17 @@
 //
 #import "NetRoomRequest.h"
 #import "NetRoomList.h"
+#import "RoomCommentView.h"
 
+@class ChatInputView;
 @class JoinPersonView;
-@interface RoomViewController : UIViewController <NetRoomRequestDelegate>
+@interface RoomViewController : UIViewController <NetRoomRequestDelegate, RoomCommentViewDelegate>
 {
-    JoinPersonView      *_joinPersonView;
+    JoinPersonView                  *_joinPersonView;
+    RoomCommentView                 *_commentView;
+    ChatInputView                   *_chatInputView;
+    
+    __weak IBOutlet UIScrollView    *_mainScrollView;
 }
 
 @property (strong, nonatomic) NetRoomItem           *roomItem;

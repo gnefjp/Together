@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ChatInputView : UIView
+{
+    BOOL        _isRecording;
+}
+
+@property (copy,  nonatomic) NSString               *recordTitle;
+
+@property (assign, nonatomic) BOOL                  isTextInput;
+@property (weak, nonatomic) IBOutlet UILabel        *recordTitleLabel;
+@property (weak, nonatomic) IBOutlet UITextField    *inputTextField;
+@property (weak, nonatomic) IBOutlet UIImageView    *inputBgImageView;
+@property (weak, nonatomic) IBOutlet UIButton       *changeTypeBtn;
+
+- (IBAction)changeInputType:(id)sender;
 
 @end

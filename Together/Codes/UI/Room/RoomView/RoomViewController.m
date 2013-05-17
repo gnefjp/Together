@@ -10,11 +10,13 @@
 
 #import "RoomViewController.h"
 #import "JoinPersonView.h"
+#import "ChatInputView.h"
 
 #import "GEMTUserManager.h"
 
 #import "RoomJoinRequest.h"
 #import "RoomQuitReqeust.h"
+#import "RoomCommentView.h"
 
 #define kJoin_BtnTag        1000
 #define kQuit_BtnTag        1001
@@ -43,6 +45,7 @@
     [[TipViewManager defaultManager] removeTipWithID:self];
     
     [self setJoinPersonNumLabel:nil];
+    _mainScrollView = nil;
     [super viewDidUnload];
 }
 
@@ -50,14 +53,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _chatInputView = [ChatInputView loadFromNib];
+    [self.view addSubview:_chatInputView];
 }
 
 
 - (void) _setRoomRelation
 {
-    UIButton *joinBtn = [self.view viewWithTag:kJoin_BtnTag recursive:NO];
-    UIButton *quitBtn = [self.view viewWithTag:kQuit_BtnTag recursive:NO];
-    UIButton *startBtn = [self.view viewWithTag:kStart_BtnTag recursive:NO];
+    UIButton *joinBtn = [_mainScrollView viewWithTag:kJoin_BtnTag recursive:NO];
+    UIButton *quitBtn = [_mainScrollView viewWithTag:kQuit_BtnTag recursive:NO];
+    UIButton *startBtn = [_mainScrollView viewWithTag:kStart_BtnTag recursive:NO];
     
     BOOL isWaiting = (_roomItem.roomState == RoomState_Waiting);
     
@@ -88,10 +94,23 @@
     [_joinPersonView removeFromSuperview];
     
     _joinPersonView = [JoinPersonView loadFromNib];
-    _joinPersonView.frameOrigin = CGPointMake(0, 278);
-    [self.view addSubview:_joinPersonView];
+    _joinPersonView.frameOrigin = CGPointMake(0, 296);
+    [_mainScrollView addSubview:_joinPersonView];
     
     _joinPersonView.roomID = _roomItem.ID;
+}
+
+
+- (void) _showCommentView
+{
+    [_commentView removeFromSuperview];
+    
+    _commentView = [RoomCommentView loadFromNib];
+    _commentView.frameY = 370.0;
+    _commentView.delegate = self;
+    _commentView.roomID = _roomItem.ID;
+    
+    [_mainScrollView addSubview:_commentView];
 }
 
 
@@ -116,8 +135,11 @@
     self.nicknameLabel.text = _roomItem.ownerNickname;
     
     [self _setRoomRelation];
+    
     [self _setJoinPersonNum];
     [self _showPersonView];
+    
+    [self _showCommentView];
 }
 
 
@@ -183,6 +205,15 @@
 
 - (IBAction)chatDidPressed:(id)sender
 {
+}
+
+
+#pragma mark- RoomCommentViewDelegate
+- (void) RoomCommentView:(RoomCommentView *)roomCommentView contentSizeChange:(CGSize)contentSize
+{
+    contentSize.height += 370;
+    NSLog(@"contentSize.height : %lf", contentSize.height);
+    _mainScrollView.contentSize = contentSize;
 }
 
 

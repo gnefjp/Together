@@ -24,3 +24,12 @@
            placeholderImage:(UIImage *)placeholderImage;
 
 @end
+
+
+#pragma mark- UIButton
+@interface UIButton (CommonTool)
+
+- (void) setImageWithName:(NSString *)imageName;
+- (void) setBgImageWithName:(NSString *)imageName;
+
+@end

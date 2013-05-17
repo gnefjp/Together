@@ -62,3 +62,29 @@ static CommonTool *s_shareCommonTool = nil;
 }
 
 @end
+
+
+
+#pragma mark- UIButton
+@implementation UIButton (CommonTool)
+
+- (void) setImageWithName:(NSString *)imageName
+{
+    NSString *normalName = [NSString stringWithFormat:@"%@_a.png", imageName];
+    NSString *highlightedName = [NSString stringWithFormat:@"%@_b.png", imageName];
+    
+    [self setImage:[UIImage imageNamed:normalName] forState:UIControlStateNormal];
+    [self setImage:[UIImage imageNamed:highlightedName] forState:UIControlStateHighlighted];
+}
+
+
+- (void) setBgImageWithName:(NSString *)imageName
+{
+    NSString *normalName = [NSString stringWithFormat:@"%@_a.png", imageName];
+    NSString *highlightedName = [NSString stringWithFormat:@"%@_b.png", imageName];
+    
+    [self setBackgroundImage:[UIImage imageNamed:normalName] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageNamed:highlightedName] forState:UIControlStateHighlighted];
+}
+
+@end

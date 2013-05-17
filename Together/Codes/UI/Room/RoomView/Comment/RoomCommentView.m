@@ -7,25 +7,73 @@
 //
 
 #import "RoomCommentView.h"
+#import "RoomCommentCell.h"
+#import "TipViewManager.h"
 
 @implementation RoomCommentView
 
-- (id)initWithFrame:(CGRect)frame
+
+- (void) dealloc
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    [[TipViewManager defaultManager] removeTipWithID:self];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+
+- (void) awakeFromNib
 {
-    // Drawing code
+    
 }
-*/
+
+
+- (void) setRoomID:(NSString *)roomID
+{
+    _roomID = roomID;
+    
+    [self loadNextPage];
+}
+
+
+- (void) loadNextPage
+{
+    [_commentTableView reloadData];
+    
+    [self performBlock:^{
+        [self.delegate RoomCommentView:self contentSizeChange:_commentTableView.contentSize];
+        _commentTableView.frameHeight = _commentTableView.contentSize.height;
+        self.frameHeight = _commentTableView.frameHeight;
+    }afterDelay:0.75];
+}
+
+
+#pragma mark- UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55;
+}
+
+
+#pragma mark- UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 100;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"RoomCommentIdentifier";
+    
+    RoomCommentCell *cell = (RoomCommentCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [RoomCommentCell loadFromNib];
+    }
+    
+    return cell;
+}
+
+
+
 
 @end

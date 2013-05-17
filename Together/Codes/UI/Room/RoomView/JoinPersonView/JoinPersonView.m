@@ -147,14 +147,14 @@
     }
     
     // AddPersonView
-    CGRect frame = CGRectMake(4, 2, 28, 28);
+    CGRect frame = CGRectMake(6, 6, 40, 40);
     for (int i = 0, len = _userList.list.count; i < len; ++i)
     {
         PersonView *personView = [[PersonView alloc] initWithFrame:frame];
         personView.userItem = [_userList itemAtIndex:i];
         [_joinPersonsScrollView addSubview:personView];
         
-        frame.origin.x += 34;
+        frame.origin.x += 46;
     }
     
     _joinPersonsScrollView.contentSize = CGSizeMake(frame.origin.x,
