@@ -34,7 +34,7 @@
         return @"http://127.0.0.1/File/Download/Sound";
     }
 #endif
-    return [NSString stringWithFormat:@"http://%@:%@/download", kServerAddr, kFilePort];
+    return [NSString stringWithFormat:@"http://%@:%@/download", kServerAddr, kDownloadPort];
 }
 
 

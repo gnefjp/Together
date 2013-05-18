@@ -12,6 +12,7 @@
 #import "PicChange.h"
 #import "UserInfoModifyRequest.h"
 #import "RecorderView.h"
+#import "AsyncSocketUpload.h"
 
 @class UserEditUserInfoView;
 
@@ -21,7 +22,7 @@
 
 @end
 
-@interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate,DataPickerDelegate,NetUserRequestDelegate,RecorderViewDelegate,NetFileRequestDelegate>
+@interface UserEditUserInfoView : UIViewController<UITableViewDelegate,UITableViewDataSource,InfoFillInViewControllerDelegate,PicChangeDelegate,DataPickerDelegate,NetUserRequestDelegate,RecorderViewDelegate,AsyncSocketUploadDelegate>
 {
     __weak IBOutlet UITableView                 *_iTableView;
     DataPicker                                  *_piker;
@@ -32,10 +33,15 @@
     __weak id<UserEditUserInfoViewDelegate>     _delegate;
     
     __weak IBOutlet UILabel                     *_iRecordLb;
-    
+    AsyncSocketUpload                           *_upload;
+    NSString                                    *_recorderId;
+    NSString                                    *_avartaId;
 }
+
 @property (strong, nonatomic)  UIPanGestureRecognizer            *panGesture;
 @property (weak) id<UserEditUserInfoViewDelegate>                delegate;
+@property (strong, nonatomic)   NSString                       *recorderId;
+@property (strong, nonatomic)   NSString                       *avartaId;
 
 - (IBAction)submitBtnDidPressed:(id)sender;
 - (IBAction)backBtnDidPressed:(id)sender;

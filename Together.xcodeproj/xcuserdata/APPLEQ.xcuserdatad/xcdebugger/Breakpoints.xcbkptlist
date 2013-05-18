@@ -56,15 +56,15 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/UI/UserCenter/UserRegistAndLogin/UserRegistView.m"
-         timestampString = "389804507.174526"
+         filePath = "Together/Codes/UI/UserCenter/UserFriend/UserFriendView.m"
+         timestampString = "390553003.025073"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "148"
-         endingLineNumber = "148"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
          landmarkName = "-NetUserRequestSuccess:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -72,13 +72,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/Common/Recorder/RecorderView.m"
-         timestampString = "390506101.398065"
+         filePath = "Together/Codes/Network/File/AsyncSocketUpload.m"
+         timestampString = "390593139.344032"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-hitTest:withEvent:"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "-socket:didReadData:withTag:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

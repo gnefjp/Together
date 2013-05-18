@@ -122,6 +122,7 @@
 }
 
 
+
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [_recorder stop];
@@ -134,15 +135,12 @@
                                                imageName:nil
                                                   inView:self
                                                       ID:self];
-            
-            FileUploadRequest *uploadRequest = [[FileUploadRequest alloc] init];
-            uploadRequest.delegate = self;
-            uploadRequest.filePath = [GMETRecorder getRecordFilePath];
-            uploadRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
-            uploadRequest.sid = [GEMTUserManager defaultManager].sId;
-            
-            [[NetRequestManager defaultManager] startRequest:uploadRequest];
-            
+            _upload = [[AsyncSocketUpload alloc] init];
+            _upload.userID = [GEMTUserManager defaultManager].userInfo.userId;
+            _upload.delegate = self;
+            _upload.sid = [GEMTUserManager defaultManager].sId;
+            _upload.filePath = [GMETRecorder getRecordFilePath];
+            [_upload starRequest];
         
         //测试录制的音频
 //            AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -170,6 +168,30 @@
         [self _setIsRecording:NO];
         [_delegate RecorderViewEndRecord:self];
     }
+}
+
+#pragma mark- ReocrderDelegate
+- (void)AsyncSocketUploadSuccess:(AsyncSocketUpload *)uploadObject
+{
+    [_delegate RecorderView:self recordId:uploadObject.fileID];
+    [[TipViewManager defaultManager] showTipText:@"上传成功"
+                                       imageName:kCommonImage_SuccessIcon
+                                          inView:self
+                                              ID:self];
+    
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
+    
+}
+
+- (void)AsyncSocketUploadFail:(AsyncSocketUpload *)uploadObject
+{
+    [[TipViewManager defaultManager] showTipText:@"上传失败"
+                                       imageName:kCommonImage_FailIcon
+                                          inView:self
+                                              ID:self];
+    
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
+
 }
 
 

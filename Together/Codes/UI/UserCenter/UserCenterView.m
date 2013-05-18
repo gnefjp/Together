@@ -17,10 +17,14 @@
 #import "UserUnFollowRequest.h"
 #import "PicCutView.h"
 #import "RecorderView.h"
+#import "CommonTool.h"
+#import "NetFileManager.h"
 
 @implementation UserCenterView
 @synthesize userInfo = _userInfo;
 @synthesize panGesture = _panGesture;
+@synthesize hasBack = _hasBack;
+
 
 - (void) resetInfo
 {
@@ -32,66 +36,134 @@
     _iFollowLb.text = _userInfo.followNum;
     _iFansLb.text = _userInfo.followedNum;
     
+    [_iAvatarImage setImageWithFileID:_userInfo.avataId placeholderImage:[UIImage imageNamed:@"user_default_avatar.png"]];
+    
     if ([_userInfo.userId isEqualToString:[GEMTUserManager defaultManager].userInfo.userId])
     {
         [_iEditBtn setHidden:NO];
         [_iZanBtn setEnabled:NO];
+        [_followBtn setHidden:NO];
+    }else
+    {
+        [_iEditBtn setHidden:YES];
+        [_iZanBtn setEnabled:YES];
+        [_followBtn setHidden:NO];
     }
 
     switch (_eType)
     {
         case followRelation_follow:
-            NSLog(@"follow");
+            [_followBtn setTitle:@"取消关注" forState:UIControlStateNormal];
+            [_followBtn setTitle:@"取消关注" forState:UIControlStateHighlighted];
             break;
         case followRelation_unFollow:
-             NSLog(@"unfollow");
+            [_followBtn setTitle:@"加关注" forState:UIControlStateNormal];
+            [_followBtn setTitle:@"加关注" forState:UIControlStateHighlighted];
+            
             break;
         case followRelation_Own:
-             NSLog(@"ownfollow");
             break;
         default:
             break;
     }
-    
+}
+
+- (IBAction)playVoicebtnDidPressed:(id)sender
+{
+    [[NetFileManager defaultManager] fileWithID:_userInfo.signatureRecordId delegate:self];
+}
+
+- (void) NetFileManager:(NetFileManager *)fileManager fileID:(NSString *)fileID fileData:(NSData *)fileData
+{
+    _player = [[AVAudioPlayer alloc] initWithData:fileData error:nil];
+    [_player prepareToPlay];
+    [_player play];
+}
+
+- (void)setHasBack:(BOOL)hasBack
+{
+    if (hasBack)
+    {
+        [_iBackBtn setHidden:hasBack];
+    }
 }
 
 - (void)awakeFromNib
 {
-    
+    _hasBack = YES;
+    [_iLoadingActivity setHidden:YES];
+    [_iLoadingActivity stopAnimating];
 }
+
+- (void) _viewInfo:(NetUserRequest *)request
+{
+    [[TipViewManager defaultManager] hideTipWithID:self
+                                         animation:YES];
+    if (!_userInfo)
+    {
+        self.userInfo = [[GEMTUserInfo alloc] init];
+    }
+    [_userInfo setUserInfoWithLoginResPonse:request.responseData.detailResponse.userInfo];
+    if ([_userInfo.userId intValue] == [[GEMTUserManager defaultManager].userInfo.userId intValue] )
+    {
+        _eType = followRelation_Own;
+        [GEMTUserManager defaultManager].userInfo = _userInfo;
+        [[GEMTUserManager defaultManager] userInfoWirteToFile];
+    }else
+    {
+        _eType = request.responseData.detailResponse.isFollow?followRelation_follow:followRelation_unFollow;
+    }
+    [self resetInfo];
+}
+
 
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
 {
-    
-    if ([request isKindOfClass:[UserPersonInfoRequest class]])
+    if (request.requestType == NetUserRequestType_ViewInfo)
     {
-        [[TipViewManager defaultManager] hideTipWithID:self
-                                             animation:YES];
-        if (!_userInfo)
-        {
-            self.userInfo = [[GEMTUserInfo alloc] init];
-        }
-        [_userInfo setUserInfoWithLoginResPonse:request.responseData.detailResponse.userInfo];
-        if ([_userInfo.userId intValue] == [[GEMTUserManager defaultManager].userInfo.userId intValue] )
-        {
-            _eType = followRelation_Own;
-            [GEMTUserManager defaultManager].userInfo = _userInfo;
-            [[GEMTUserManager defaultManager] userInfoWirteToFile];
-        }else
-        {
-            _eType = request.responseData.detailResponse.isFollow?followRelation_follow:followRelation_unFollow;
-        }
-        [self resetInfo];
+        [self _viewInfo:request];
+    }else if (request.requestType == NetUserRequestType_UnFollow)
+    {
+        _eType = followRelation_unFollow;
+        [_iLoadingActivity setHidden:YES];
+        [_iLoadingActivity stopAnimating];
+        [_followBtn setEnabled:YES];
+        [_followBtn setTitle:@"加关注" forState:UIControlStateNormal];
+        [_followBtn setTitle:@"加关注" forState:UIControlStateHighlighted];
+    }else if (request.requestType == NetUserRequestType_Follow)
+    {
+        _eType = followRelation_unFollow;
+        [_iLoadingActivity setHidden:YES];
+        [_iLoadingActivity stopAnimating];
+        [_followBtn setEnabled:YES];
+        [_followBtn setTitle:@"取消关注" forState:UIControlStateNormal];
+        [_followBtn setTitle:@"取消关注" forState:UIControlStateHighlighted];
+    }else if (request.requestType == NetUserRequestType_Zan)
+    {
+        _iPraiseLb.text = [NSString stringWithFormat:@"%d",[_iPraiseLb.text intValue]+1];
     }
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
 {
-    [[TipViewManager defaultManager] showTipText:@"网络繁忙"
-                                       imageName:@""
-                                          inView:self
-                                              ID:self];
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    if (request.requestType == NetUserRequestType_ViewInfo)
+    {
+        [[TipViewManager defaultManager] showTipText:@"网络繁忙"
+                                           imageName:@""
+                                              inView:self
+                                                  ID:self];
+        [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    }else if (request.requestType == NetUserRequestType_UnFollow)
+    {
+        [_iLoadingActivity setHidden:YES];
+        [_iLoadingActivity stopAnimating];
+        [_followBtn setEnabled:NO];
+    }else if (request.requestType == NetUserRequestType_Follow)
+    {
+        [_iLoadingActivity setHidden:YES];
+        [_iLoadingActivity stopAnimating];
+        [_followBtn setEnabled:NO];
+    }
 }
 
 - (void)changeUserInfo:(GEMTUserInfo*)aUserInfo
@@ -125,12 +197,7 @@
      }];
 }
 
-- (IBAction)testtest:(id)sender
-{
-    PicCutView *picCutView = [PicCutView loadFromNib];
-    [self addSubview:picCutView];
-    
-}
+
 
 
 - (IBAction)viewOtherInfo:(id)sender
@@ -141,34 +208,31 @@
     [[NetRequestManager defaultManager] startRequest:request];
 }
 
-- (IBAction)modifyInfo:(id)sender
+- (IBAction)followOther:(UIButton*)sender
 {
-    UserInfoModifyRequest *request = [[UserInfoModifyRequest alloc] init];
-    request.delegate = self;
-    [[NetRequestManager defaultManager] startRequest:request];
+    if([[sender titleForState:UIControlStateNormal] isEqualToString:@"取消关注"])
+    {
+        UserUnFollowRequest *request = [[UserUnFollowRequest alloc] init];
+        request.delegate = self;
+        request.unFollowId = _userInfo.userId;
+        [[NetRequestManager defaultManager] startRequest:request];
+
+    }
+    else
+    {
+        UserFollowRequest *follow = [[UserFollowRequest alloc] init];
+        follow.followId = _userInfo.userId;
+        follow.delegate = self;
+        [[NetRequestManager defaultManager] startRequest:follow];
+    }
+   
 }
 
-- (IBAction)followOther:(id)sender
-{
-    UserFollowRequest *follow = [[UserFollowRequest alloc] init];
-//    follow.followId = [NSString stringWithFormat:@"%@",_userInfo.userId];
-    follow.followId =@"1";
-    follow.delegate = self;
-    [[NetRequestManager defaultManager] startRequest:follow];
-}
-
-- (IBAction)unfollow:(id)sender
-{
-    UserUnFollowRequest *request = [[UserUnFollowRequest alloc] init];
-    request.delegate = self;
-//    request.unFollowId = [NSString stringWithFormat:@"%@",_userInfo.userId];
-     request.unFollowId = @"1";
-    [[NetRequestManager defaultManager] startRequest:request];
-}
-
-- (IBAction)pariseOthers:(id)sender
+- (IBAction)pariseOthers:(UIButton*)sender
 {
     UserZanRequest *request = [[UserZanRequest alloc] init];
+    sender.enabled = NO;
+    request.zanUserId = _userInfo.userId;
     request.delegate = self;
     [[NetRequestManager defaultManager] startRequest:request];
 }
@@ -224,37 +288,6 @@
     _iAvatarImage.image = img;
 }
 
-
-- (IBAction)recordBtnDidPressed:(id)sender
-{
-    if (!_recorder)
-    {
-        _recorder = [GMETRecorder startRecordWithTime:30];
-    }
-    [_recorder start];
-}
-
-- (IBAction)stopRecordBtnDidPressed:(id)sender
-{
-    [_recorder stop];
-}
-
-- (IBAction)changeAvataBtnDidPressed:(id)sender
-{
-    if (!_avatar)
-    {
-        _avatar = [[PicChange alloc] init];
-        _avatar.eType = cutType_avatar;
-        _avatar.delegate = self;
-    }
-    [_avatar addAvataActionSheet];
-}
-
-- (IBAction)loginBtnDidPressed:(id)sender
-{
-    [[GEMTUserManager defaultManager] shouldAddLoginViewToTopView];
-}
-
 - (IBAction)editInfoBtnDidPressed:(id)sender
 {
     UserEditUserInfoView *editInfo = [UserEditUserInfoView loadFromNib];
@@ -267,19 +300,6 @@
 {
     [self resetInfo];
 }
-
-- (IBAction)_playBtnDidPressed:(id)sender
-{
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryAmbient error:nil];
-    [session setActive:YES error:nil];
-    
-    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:
-                                   [GMETRecorder getRecordFileUrl] error:nil];
-    [_player prepareToPlay];
-    [_player play];
-}
-
 
 
 @end

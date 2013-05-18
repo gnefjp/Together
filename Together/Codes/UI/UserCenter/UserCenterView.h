@@ -14,6 +14,8 @@
 #import "UserRegisterRequest.h"
 #import "UserFollowRequest.h"
 #import "UserEditUserInfoView.h"
+#import "AsyncSocketUpload.h"
+#import "FileDownloadRequest.h"
 
 @class GMETRecorder;
 @class GEMTUserInfo;
@@ -25,7 +27,7 @@ typedef enum
     followRelation_Own
 }eFollowRelation;
 
-@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate,UserEditUserInfoViewDelegate>
+@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate,UserEditUserInfoViewDelegate,NetFileRequestDelegate>
 {
     __weak IBOutlet UIImageView     *_iAvatarImage;
     GMETRecorder                    *_recorder;
@@ -46,32 +48,30 @@ typedef enum
     
     __weak IBOutlet UIButton        *_iEditBtn;
     __weak IBOutlet UIButton        *_iZanBtn;
+    __weak IBOutlet UIButton        *_iBackBtn;
+    __weak IBOutlet UIButton        *_followBtn;
     
+    BOOL                            _hasBack;
+    
+    AsyncSocketUpload               *upload;
+    __weak IBOutlet UIActivityIndicatorView *_iLoadingActivity;
 }
 
 @property (strong, nonatomic)  GEMTUserInfo                      *userInfo;
 @property (strong, nonatomic)  UIPanGestureRecognizer            *panGesture;
+@property (nonatomic)           BOOL                             hasBack;
+
 
 //请求目录
 - (void)viewUserInfoWithUserId:(NSString*)aUserId;
 - (IBAction)closeBtnDidPressed:(id)sender;
-
-- (IBAction)testtest:(id)sender;
 
 - (void)changeUserInfo:(GEMTUserInfo*)aUserInfo;
 - (IBAction)viewOtherInfo:(id)sender;
 - (IBAction)followOther:(id)sender;
 - (IBAction)pariseOthers:(id)sender;
 - (IBAction)unfollow:(id)sender;
-
-
-
-- (IBAction)modifyInfo:(id)sender;
 - (IBAction)showMapViewBtnDidpressed:(id)sender;
-- (IBAction)recordBtnDidPressed:(id)sender;
-- (IBAction)stopRecordBtnDidPressed:(id)sender;
-- (IBAction)changeAvataBtnDidPressed:(id)sender;
-- (IBAction)loginBtnDidPressed:(id)sender;
 - (IBAction)editInfoBtnDidPressed:(id)sender;
 
 @end

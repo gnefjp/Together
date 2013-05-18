@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GMETRecorder.h"
-#import "FileUploadRequest.h"
-
+#import "AsyncSocketUpload.h"
 @class RecorderView;
 
 @protocol RecorderViewDelegate <NSObject>
@@ -19,13 +18,13 @@
 @end
 
 
-@interface RecorderView : UIView<NetFileRequestDelegate>
+@interface RecorderView : UIView<AsyncSocketUploadDelegate>
 {
     __weak IBOutlet UIView                  *_recordStateView;
     __weak IBOutlet UIImageView             *_recordEmptyImageView;
     __weak IBOutlet UIImageView             *_recordDBImageView;
     __weak IBOutlet UIImageView             *_recordRemoveImageView;
-    
+    AsyncSocketUpload                       *_upload;
     GMETRecorder                            *_recorder;
     AVAudioPlayer                           *_player;
 }

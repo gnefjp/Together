@@ -205,6 +205,9 @@
 		3816BE0717467B5200EA7DDC /* RecorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3816BE0517467B5200EA7DDC /* RecorderView.xib */; };
 		381BAD84173AAFBB00AC42D6 /* UserFollowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */; };
 		381BAD87173AB27100AC42D6 /* UserZanRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 381BAD86173AB27100AC42D6 /* UserZanRequest.m */; };
+		382422481747B7720050CB82 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 382422451747B7720050CB82 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		382422491747B7720050CB82 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 382422471747B7720050CB82 /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3824224C1747BE630050CB82 /* AsyncSocketUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 3824224B1747BE630050CB82 /* AsyncSocketUpload.m */; };
 		3828CC22172A846D00EC7EAF /* GEMTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */; };
 		3828CC23172A846D00EC7EAF /* GEMTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC1A172A846D00EC7EAF /* GEMTUserManager.m */; };
 		3828CC24172A846D00EC7EAF /* UserLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828CC1D172A846D00EC7EAF /* UserLoginView.m */; };
@@ -220,6 +223,7 @@
 		3844A4C21745E15400D3A72C /* PicCutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3844A4C01745E15400D3A72C /* PicCutView.xib */; };
 		3844A4C81745F4BF00D3A72C /* PtGestureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3844A4C71745F4BF00D3A72C /* PtGestureHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3844A4CB1745F5F200D3A72C /* NetUserList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3844A4CA1745F5F200D3A72C /* NetUserList.m */; };
+		38462E831747255A00643361 /* usercenter_juxing_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 38462E821747255A00643361 /* usercenter_juxing_a.png */; };
 		388887601724687200B2D2F0 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888875E1724687200B2D2F0 /* UserCenterView.m */; };
 		3888876D172476B100B2D2F0 /* GMETRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888876C172476B100B2D2F0 /* GMETRecorder.m */; };
 		3888876F1724778600B2D2F0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3888876E1724778600B2D2F0 /* AVFoundation.framework */; };
@@ -950,6 +954,12 @@
 		381BAD83173AAFBA00AC42D6 /* UserFollowRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFollowRequest.m; sourceTree = "<group>"; };
 		381BAD85173AB27100AC42D6 /* UserZanRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserZanRequest.h; sourceTree = "<group>"; };
 		381BAD86173AB27100AC42D6 /* UserZanRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserZanRequest.m; sourceTree = "<group>"; };
+		382422441747B7720050CB82 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		382422451747B7720050CB82 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		382422461747B7720050CB82 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		382422471747B7720050CB82 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		3824224A1747BE630050CB82 /* AsyncSocketUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocketUpload.h; sourceTree = "<group>"; };
+		3824224B1747BE630050CB82 /* AsyncSocketUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocketUpload.m; sourceTree = "<group>"; };
 		3828CC17172A846D00EC7EAF /* GEMTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMTUserInfo.h; sourceTree = "<group>"; };
 		3828CC18172A846D00EC7EAF /* GEMTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEMTUserInfo.m; sourceTree = "<group>"; };
 		3828CC19172A846D00EC7EAF /* GEMTUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMTUserManager.h; sourceTree = "<group>"; };
@@ -974,6 +984,7 @@
 		3844A4C71745F4BF00D3A72C /* PtGestureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PtGestureHelper.m; sourceTree = "<group>"; };
 		3844A4C91745F5F200D3A72C /* NetUserList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetUserList.h; sourceTree = "<group>"; };
 		3844A4CA1745F5F200D3A72C /* NetUserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetUserList.m; sourceTree = "<group>"; };
+		38462E821747255A00643361 /* usercenter_juxing_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usercenter_juxing_a.png; sourceTree = "<group>"; };
 		3888875D1724687200B2D2F0 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterView.h; sourceTree = "<group>"; };
 		3888875E1724687200B2D2F0 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterView.m; sourceTree = "<group>"; };
 		3888876B172476B100B2D2F0 /* GMETRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMETRecorder.h; sourceTree = "<group>"; };
@@ -1963,6 +1974,8 @@
 				18D5D0FC172BD49500799BF7 /* FileDownloadRequest.m */,
 				18D5D0FE172BD4FE00799BF7 /* FileUploadRequest.h */,
 				18D5D0FF172BD4FE00799BF7 /* FileUploadRequest.m */,
+				3824224A1747BE630050CB82 /* AsyncSocketUpload.h */,
+				3824224B1747BE630050CB82 /* AsyncSocketUpload.m */,
 				18CBC81C173B741C00832E63 /* NetFileManager.h */,
 				18CBC81D173B741C00832E63 /* NetFileManager.m */,
 			);
@@ -2174,6 +2187,7 @@
 		18EAB2D717241940003E742D /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				382422431747B7720050CB82 /* AsyncSocket */,
 				18C9A338173CDAD7002FA0E4 /* Base64 */,
 				18C6D27617279D5600184AFA /* ProtoBuf */,
 				18E78DA91729933F00036B3C /* MBProgressHUD */,
@@ -2193,6 +2207,17 @@
 				3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */,
 			);
 			path = CropImage;
+			sourceTree = "<group>";
+		};
+		382422431747B7720050CB82 /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				382422441747B7720050CB82 /* GCDAsyncSocket.h */,
+				382422451747B7720050CB82 /* GCDAsyncSocket.m */,
+				382422461747B7720050CB82 /* GCDAsyncUdpSocket.h */,
+				382422471747B7720050CB82 /* GCDAsyncUdpSocket.m */,
+			);
+			path = AsyncSocket;
 			sourceTree = "<group>";
 		};
 		3828CC16172A846D00EC7EAF /* UserInfo */ = {
@@ -2309,6 +2334,7 @@
 				389F2A1717433692002E02E6 /* usercenter_avatarBg.png */,
 				389F2A1817433692002E02E6 /* usercenter_back_a.png */,
 				389F2A1917433692002E02E6 /* usercenter_back_b.png */,
+				38462E821747255A00643361 /* usercenter_juxing_a.png */,
 				389F2A1A17433692002E02E6 /* usercenter_bg.jpg */,
 				389F2A1B17433692002E02E6 /* usercenter_followBtn_a.png */,
 				389F2A1C17433692002E02E6 /* usercenter_followBtn_b.png */,
@@ -2512,6 +2538,7 @@
 				18F032A517464C9A001963F3 /* room_follow_btn.png in Resources */,
 				18F032A617464C9A001963F3 /* room_unfollow_btn.png in Resources */,
 				3816BE0717467B5200EA7DDC /* RecorderView.xib in Resources */,
+				38462E831747255A00643361 /* usercenter_juxing_a.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2648,6 +2675,9 @@
 				3844A4C81745F4BF00D3A72C /* PtGestureHelper.m in Sources */,
 				3844A4CB1745F5F200D3A72C /* NetUserList.m in Sources */,
 				3816BE0617467B5200EA7DDC /* RecorderView.m in Sources */,
+				382422481747B7720050CB82 /* GCDAsyncSocket.m in Sources */,
+				382422491747B7720050CB82 /* GCDAsyncUdpSocket.m in Sources */,
+				3824224C1747BE630050CB82 /* AsyncSocketUpload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

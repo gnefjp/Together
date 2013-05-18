@@ -16,6 +16,8 @@
 
 @synthesize delegate = _delegate;
 @synthesize panGesture;
+@synthesize recorderId = _recorderId;
+@synthesize avartaId = _avartaId;
 - (void)awakeFromNib
 {
    
@@ -24,7 +26,7 @@
 - (void)RecorderView:(RecorderView *)v
    recordId:(NSString *)recordId
 {
-    NSLog(@"%@",recordId);
+    self.recorderId = recordId;
 }
 
 - (void)RecorderViewBeginRecord:(RecorderView *)v
@@ -39,11 +41,8 @@
     [_iRecordLb setText:@"按下录音"];
 }
 
-
 - (void)viewDidLoad
 {
-    _avartaBtn.tag =  [[GEMTUserManager defaultManager].userInfo.avataId intValue];
-    _recordBtn.tag =  [[GEMTUserManager defaultManager].userInfo.signatureRecordId intValue];
     
     RecorderView *recordView = [RecorderView loadFromNib];
     recordView.recordFrame = CGRectMake(20, 478, 102, 44);
@@ -179,9 +178,25 @@
     {
         _avarta = [[PicChange alloc] init];
         _avarta.delegate = self;
-//        _avarta.eType = cutType_avatar;
-    }
+        _avarta.eType = cutType_avatar;
+        
+           }
     [_avarta addAvataActionSheet];
+}
+
+- (void)AsyncSocketUploadSuccess:(AsyncSocketUpload*)uploadObject
+{
+    self.avartaId = uploadObject.fileID;
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    
+    [_avartaBtn setImage:uploadObject.image forState:UIControlStateNormal];
+    [_avartaBtn setImage:uploadObject.image forState:UIControlStateHighlighted];
+}
+
+- (void)AsyncSocketUploadFail:(AsyncSocketUpload*)uploadObject
+{
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    NSLog(@"fail");
 }
 
 - (void)PicChangeSuccess:(PicChange *)v img:(UIImage *)img
@@ -192,51 +207,16 @@
                                            imageName:@""
                                               inView:self.view
                                                   ID:self];
-        FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
-        updateRequest.image = img;
-        updateRequest.sid = [GEMTUserManager defaultManager].sId;
-        updateRequest.userID = @"1";
-        updateRequest.delegate = self;
-        [[NetRequestManager defaultManager] startRequest:updateRequest];
+        _upload = [[AsyncSocketUpload alloc] init];
+        _upload.image = img;
+        _upload.userID = [GEMTUserManager defaultManager].userInfo.userId;
+        _upload.delegate = self;
+        _upload.sid = [GEMTUserManager defaultManager].sId;
+        [_upload starRequest];
     }
 
 }
 
-#pragma mark- NetFileRequestDelegate
-- (void) NetFileRequestFail:(NetFileRequest *)request
-{
-    if (request.requestType == NetFileRequestType_Upload)
-    {
-        [[TipViewManager defaultManager] showTipText:@"上传失败"
-                                           imageName:kCommonImage_FailIcon
-                                              inView:self.view
-                                                  ID:self];
-        [[TipViewManager defaultManager] hideTipWithID:self
-                                             animation:YES
-                                                 delay:1.25];
-    }
-}
-
-
-- (void) NetFileRequestSuccess:(NetFileRequest *)request
-{
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
-    
-    if (request.requestType == NetFileRequestType_Upload)
-    {
-        FileUploadRequest* updateRequest = (FileUploadRequest *)request;
-        
-        if (updateRequest.image != nil)
-        {
-            [_avartaBtn setImage:updateRequest.image forState:UIControlStateNormal];
-            [_avartaBtn setImage:updateRequest.image forState:UIControlStateHighlighted];
-        }
-        else
-        {
-            
-        }
-    }
-}
 
 - (NSString*) _getCellRightValueWithIndex:(int)i
 {
@@ -247,8 +227,6 @@
 
 - (IBAction)submitBtnDidPressed:(id)sender
 {
-    NSString *avatarId = [NSString stringWithInt:_avartaBtn.tag];
-    NSString *recordId = [NSString stringWithInt:_recordBtn.tag];
     
     NSString *nickName = [self _getCellRightValueWithIndex:0];
     NSString *sexName = [self _getCellRightValueWithIndex:1];
@@ -260,8 +238,8 @@
     modifyRequest.sex = [sexName isEqualToString:@"女"]?@"0":@"1";
     modifyRequest.sign = signName;
     
-    modifyRequest.avatarId = avatarId; 
-    modifyRequest.recordId = recordId;
+    modifyRequest.avatarId = _avartaId;
+    modifyRequest.recordId = _recorderId;
     modifyRequest.birthDay = birthDay;
     modifyRequest.delegate = self;
     
@@ -271,7 +249,6 @@
                                        imageName:@""
                                           inView:self.view
                                               ID:self];
-    
 }
 
 

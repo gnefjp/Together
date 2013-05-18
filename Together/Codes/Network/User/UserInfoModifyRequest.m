@@ -38,8 +38,8 @@
     [dict setValue:self.birthDay forKey:@"birthday"];
     [dict setValue:self.sign forKey:@"signature_text"];
     [dict setValue:self.sex forKey:@"sex"];
-//    [dict setValue:self.recordId forKey:@"signature_record_id"];
-//    [dict setValue:self.avatarId forKey:@"pic_id"];
+    [dict setValue:self.recordId forKey:@"signature_record_id"];
+    [dict setValue:self.avatarId forKey:@"pic_id"];
      [dict setValue:[[GEMTUserManager defaultManager] sId]  forKey:@"sid"];
     NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
                         self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];

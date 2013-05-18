@@ -83,6 +83,8 @@ static NSString* s_roomTypeNames[] = {
     _infoTableView.dataSource = self;
     
     _roomInfo = [[NetRoomItem alloc] init];
+    _roomInfo.perviewID = @"1";
+    _roomInfo.recordID = @"2";
     
     _roomInfo.address.detailAddr = @"模拟哩度";
     _roomInfo.address.location = [AppSetting defaultSetting].currentLocation;
@@ -304,7 +306,6 @@ static NSString* s_roomTypeNames[] = {
                      }completion:^(BOOL finished){
                          
                          [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-                         
                      }];
 }
 
@@ -683,18 +684,18 @@ static NSString* s_roomTypeNames[] = {
     if (img)
     {
         [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self.view ID:self];
-        
-        [self performBlock:^{
-            
-            FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
-            updateRequest.image = img;
-            updateRequest.sid = [GEMTUserManager defaultManager].sId;
-            updateRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
-            updateRequest.delegate = self;
-            
-            [[NetRequestManager defaultManager] startRequest:updateRequest];
-            
-        }afterDelay:0.01];
+//        
+//        [self performBlock:^{
+//            
+//            FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
+//            updateRequest.image = img;
+//            updateRequest.sid = [GEMTUserManager defaultManager].sId;
+//            updateRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
+//            updateRequest.delegate = self;
+//            
+//            [[NetRequestManager defaultManager] startRequest:updateRequest];
+//            
+//        }afterDelay:0.01];
     }
 }
 

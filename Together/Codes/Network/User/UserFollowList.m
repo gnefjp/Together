@@ -28,8 +28,8 @@
     [dict setValue:self.actionCode forKey:@"action"];
     [dict setValue:[NSString stringWithInt:1] forKey:@"page_no"];
     [dict setValue:[NSString stringWithInt:100] forKey:@"page_size"];
-    
-    [dict setValue:[[GEMTUserManager defaultManager] sId] forKey:@"sid"];
+    [dict setValue:_requestUserId forKey:@"uid"];
+    [dict setValue:[GEMTUserManager defaultManager].sId forKey:@"sid"];
     
     NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
                         self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];

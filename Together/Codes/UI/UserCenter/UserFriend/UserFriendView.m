@@ -27,15 +27,7 @@
 {
     _dataArr = [[NSMutableArray alloc] init];
     NSArray *arr;
-    if ([request isKindOfClass:[UserFollowList class]])
-    {
-        arr = request.responseData.list.userDetailList;
-        
-    }
-    else if ([request isKindOfClass:[UserFansList class]])
-    {
-        arr = request.responseData.list.userDetailList;
-    }
+    arr = request.responseData.list.userDetailList;
     [_dataArr addObjectsFromArray:arr];
     [_iFriendTable reloadData];
 }
@@ -88,8 +80,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return _dataArr.count;
-    return 1;
+    return _dataArr.count;
+//    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

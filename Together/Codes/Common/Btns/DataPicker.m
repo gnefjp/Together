@@ -21,7 +21,7 @@
     [v addSubview:tapView];
     
     NSDate *date ;
-    if (dateString) {
+    if ([dateString length] != 0) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
         date = [formatter dateFromString:dateString];
@@ -30,14 +30,12 @@
         date = [NSDate date];
     }
     
-    
     _iDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0,354 + 586 ,0.0,0.0)];
     _iDatePicker.datePickerMode = UIDatePickerModeDate;
     [_iDatePicker setDate:date];
     [_iDatePicker addTarget:self action:@selector(dateChanged:)
            forControlEvents:UIControlEventValueChanged];
     [v addSubview:_iDatePicker];
-    
     
     [UIView animateWithDuration:0.4 animations:^(void)
      {
