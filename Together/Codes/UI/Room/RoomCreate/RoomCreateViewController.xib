@@ -220,7 +220,7 @@
 								<reference key="IBUIFontDescription" ref="134361143"/>
 								<reference key="IBUIFont" ref="293811316"/>
 							</object>
-							<object class="IBUIImageView" id="610514185">
+							<object class="IBUIImageView" id="90214833">
 								<reference key="NSNextResponder" ref="548350338"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{75, 9}, {220, 40}}</string>
@@ -231,7 +231,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUIImage" ref="1058266991"/>
 							</object>
-							<object class="IBUILabel" id="175031100">
+							<object class="IBUILabel" id="949095510">
 								<reference key="NSNextResponder" ref="548350338"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{75, 9}, {220, 40}}</string>
@@ -490,8 +490,8 @@
 						<reference key="object" ref="548350338"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="12446788"/>
-							<reference ref="610514185"/>
-							<reference ref="175031100"/>
+							<reference ref="90214833"/>
+							<reference ref="949095510"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -527,12 +527,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">48</int>
-						<reference key="object" ref="610514185"/>
+						<reference key="object" ref="90214833"/>
 						<reference key="parent" ref="548350338"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">49</int>
-						<reference key="object" ref="175031100"/>
+						<reference key="object" ref="949095510"/>
 						<reference key="parent" ref="548350338"/>
 					</object>
 				</array>

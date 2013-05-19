@@ -10,22 +10,12 @@
 
 typedef enum
 {
-    GetMessageType_Single   = 1,
-    GetMessageType_Group    = 2,
+    GetMessageType_Group    = 1,
+    GetMessageType_Single   = 2,
     
     GetMessageType_Max      = 3,
 } GetMessageType;
 
-
-typedef enum
-{
-    GetListDirect_Last      = -1,
-    
-    GetListDirect_Before    = 0,
-    GetListDirect_Later     = 1,
-    
-    GetListDirect_Max       = 2,
-} GetListDirect;
 
 @interface MessageGetChatListRequest : NetMessageRequest
 

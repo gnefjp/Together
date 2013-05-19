@@ -22,5 +22,6 @@
 @property (copy, nonatomic) NSString            *nickname;
 @property (weak, nonatomic) IBOutlet UILabel    *targetNicknameLabel;
 
+- (IBAction)backDidPressed:(id)sender;
 
 @end

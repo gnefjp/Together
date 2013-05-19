@@ -22,16 +22,13 @@
         {
             Message_Info *messageInfo = (Message_Info *)message;
             
-//            self.ID = messageInfo.id;
-            self.messageType = messageInfo.type;
+            self.ID = [NSString stringWithInt:messageInfo.messageId];
+            self.messageType = MessageType_Text; // messageInfo.type;
             
             self.content = messageInfo.content;
             self.sendTime = messageInfo.time;
             
             self.senderID = [NSString stringWithInt:messageInfo.senderId];
-//            self.senderNickname = messageInfo.
-//            self.senderAvatarID = messageInfo.
-            
             self.receiverID = [NSString stringWithInt:messageInfo.recipientId];
             
         }
@@ -40,24 +37,18 @@
 }
 
 
-
-- (void) refreshItem:(NetItem*)newItem
+- (NetMessageItem *) initWithMessageResponse:(UserMessageResponse *)response
 {
-    if (newItem != nil && self != newItem &&
-        [newItem isKindOfClass:[self class]])
+    self = [self initWithMessage:response.messageInfo];
+    if (self)
     {
-        NetMessageItem *newMessage = (NetMessageItem *)newItem;
-        self.messageType = newMessage.messageType;
+        self.senderID = [NSString stringWithInt:response.sender.uid];
+        self.senderAvatarID = [NSString stringWithInt:response.sender.picId];
+        self.senderNickname = response.sender.nickName;
         
-        self.content = newMessage.content;
-        self.sendTime = newMessage.sendTime;
-        
-        self.senderID = newMessage.senderID;
-        self.senderNickname = newMessage.senderNickname;
-        self.senderAvatarID = newMessage.senderAvatarID;
-        
-        self.receiverID = newMessage.receiverID;
+        self.receiverID = [NSString stringWithInt:response.recipient.uid];
     }
+    return self;
 }
 
 @end
@@ -68,22 +59,66 @@
 
 - (NSArray *) _decodeData:(HTTPResponse *)response
 {
-//    self.isFinish = response.roomListResponse.roomList.isEnd;
-//    
-//    NSMutableArray *array = [[NSMutableArray alloc] init];
-//    
-//    int count = response.roomListResponse.roomList.roomInfoListList.count;
-//    for (int i = 0; i < count; i++)
-//    {
-//        RoomInfo *roomInfo = [response.roomListResponse.roomList roomInfoListAtIndex:i];
-//        NetRoomItem *item = (NetRoomItem *)[NetRoomItem itemWithMessage:roomInfo];
-//        
-//        [array addObject:item];
-//    }
-//    
-//    return array;
+    // 清除本地的数据
+    for (int i = 0; i < _list.count; i ++)
+    {
+        NetMessageItem *item = [_list objectAtIndex:i];
+        if ([item.ID hasPrefix:@"local_"])
+        {
+            [self removeItemById:item.ID];
+            i --;
+        }
+    }
     
-    return nil;
+    self.isFinish = response.list.isEnd;
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    int count = response.list.userMessageInfoList.count;
+    for (int i = 0; i < count; i++)
+    {
+        UserMessageResponse *messageResponse = [response.list.userMessageInfoList objectAtIndex:i];
+        NetMessageItem *item = [[NetMessageItem alloc] initWithMessageResponse:messageResponse];
+        [array addObject:item];
+    }
+    
+    return array;
+}
+
+
+- (void) addItemList:(HTTPResponse *)response direct:(GetListDirect)direct
+{
+    NSArray *tmpList = [self _decodeData:response];
+    
+    if (tmpList != nil)
+    {
+        if (direct == GetListDirect_Last)
+        {
+            [_list removeAllObjects];
+            [_dict removeAllObjects];
+        }
+        
+        BOOL isAdd = (direct == GetListDirect_Last ||  direct == GetListDirect_Before);
+        
+        for (int idx = 0, len = [tmpList count]; idx < len; idx++)
+        {
+            NetItem* item = (NetItem*) [tmpList objectAtIndex:idx];
+            
+            if ([_dict objectForKey:item.ID] == nil)
+            {
+                if (isAdd)
+                {
+                    [_list addObject:item];
+                }
+                else
+                {
+                    [_list insertObject:item atIndex:0];
+                }
+                
+                [_dict setObject:item forKey:item.ID];
+            }
+        }
+    }
 }
 
 @end

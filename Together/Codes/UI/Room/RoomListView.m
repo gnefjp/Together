@@ -30,17 +30,10 @@
 
 - (IBAction)showNavigationDidPressed:(id)sender
 {
-//    if ([_delegate respondsToSelector:@selector(RoomListViewShowNavigation:)])
-//    {
-//        [_delegate RoomListViewShowNavigation:self];
-//    }
-    
-    // 测试
-    
-    ChatViewController *chatViewController = [ChatViewController loadFromNib];
-    [[UIView rootController] pushViewController:chatViewController animated:YES];
-    chatViewController.userID = @"2";
-    chatViewController.nickname = @"测试用户";
+    if ([_delegate respondsToSelector:@selector(RoomListViewShowNavigation:)])
+    {
+        [_delegate RoomListViewShowNavigation:self];
+    }
 }
 
 

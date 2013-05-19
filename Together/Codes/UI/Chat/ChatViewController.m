@@ -21,6 +21,8 @@
 - (void) dealloc
 {
     [[TipViewManager defaultManager] removeTipWithID:self];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -30,6 +32,7 @@
     [self setTargetNicknameLabel:nil];
     
     [[TipViewManager defaultManager] removeTipWithID:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [super viewDidUnload];
 }
@@ -43,10 +46,17 @@
     
     _chatInputView = [ChatInputView loadFromNib];
     _chatInputView.delegate = self;
+    _chatInputView.isTextInput = YES;
     [self.view addSubview:_chatInputView];
     
     _chatTableView.delegate = self;
     _chatTableView.dataSource = self;
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_refreshData)
+                                                 name:kNotification_SendUserMsgSuccess
+                                               object:nil];
 }
 
 
@@ -72,7 +82,7 @@
                 isText:(BOOL)isText
 {
     NetMessageItem *messageItem = [[NetMessageItem alloc] init];
-    messageItem.ID = [NSString stringWithFormat:@"%@", messageItem];
+    messageItem.ID = [NSString stringWithFormat:@"local_%p", messageItem];
     messageItem.messageType = !isText;
     messageItem.content = content;
     
@@ -170,4 +180,8 @@
 }
 
 
+- (IBAction)backDidPressed:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

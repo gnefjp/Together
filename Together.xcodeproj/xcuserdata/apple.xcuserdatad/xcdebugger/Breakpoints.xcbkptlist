@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Together/Codes/UI/Room/RoomView/RoomViewController.m"
-         timestampString = "390665525.617354"
+         timestampString = "390697742.36255"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "297"
-         endingLineNumber = "297"
+         startingLineNumber = "436"
+         endingLineNumber = "436"
          landmarkName = "-NetRoomRequestFail:"
          landmarkType = "5">
       </FileBreakpoint>

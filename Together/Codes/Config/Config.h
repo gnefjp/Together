@@ -13,5 +13,6 @@
 #import "RoomConfig.h"
 #import "UserConfig.h"
 #import "NetworkConfig.h"
+#import "MessageConfig.h"
 
 #endif

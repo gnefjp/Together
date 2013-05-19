@@ -36,11 +36,11 @@ static KeepSorcket *instance;
                              content:(NSString*)content
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:[NSNumber numberWithInt:302] forKey:@"action"];
+    [dic setValue:@"302" forKey:@"action"];
     [dic setValue:senderId forKey:@"senderId"];
     [dic setValue:receipientId forKey:@"recipientId"];
     [dic setValue:roomId forKey:@"roomId"];
-    [dic setValue:[NSNumber numberWithInt:type] forKey:@"msgType"];
+    [dic setValue:[NSString stringWithInt:type] forKey:@"msgType"];
     [dic setValue:content forKey:@"content"];
     [self _sendInfoWithPostString:[NSString urlArgsStringFromDictionary:dic]];
 }

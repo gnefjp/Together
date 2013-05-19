@@ -16,6 +16,7 @@
 @synthesize delegate = _delegate;
 
 #define kToolBar_ImageViewTag   1000
+#define kInputBg_ImageViewTag   1001
 
 - (void) dealloc
 {
@@ -31,6 +32,10 @@
     _recorderView = [RecorderView showRecorderViewOnView:self
                                           recordBtnFrame:_inputBgImageView.frame
                                                 delegate:self];
+    
+    UIImageView *inputBg = [self viewWithTag:kInputBg_ImageViewTag recursive:NO];
+    inputBg.image = [inputBg.image stretchableImageWithLeftCapWidth:8 topCapHeight:20];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -71,10 +76,10 @@
     _recordTitleLabel.hidden = _isTextInput;
     _inputTextField.hidden = !_isTextInput;
     
-    if (_isTextInput)
-    {
-        [_inputTextField becomeFirstResponder];
-    }
+//    if (_isTextInput)
+//    {
+//        [_inputTextField becomeFirstResponder];
+//    }
 }
 
 
@@ -82,6 +87,18 @@
 {
     [self endEditing:YES];
     self.isTextInput = !self.isTextInput;
+}
+
+
+- (IBAction)sendBtnDidPressed:(id)sender
+{
+    if ([_delegate respondsToSelector:@selector(ChatInputView:content:isText:)])
+    {
+        [_delegate ChatInputView:self content:_inputTextField.text isText:YES];
+    }
+    
+    _inputTextField.text = @"";
+    [_inputTextField resignFirstResponder];
 }
 
 
@@ -185,13 +202,7 @@
 #pragma mark- UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if ([_delegate respondsToSelector:@selector(ChatInputView:content:isText:)])
-    {
-        [_delegate ChatInputView:self content:textField.text isText:YES];
-    }
-    
-    textField.text = @"";
-    [textField resignFirstResponder];
+    [self sendBtnDidPressed:nil];
     return YES;
 }
 

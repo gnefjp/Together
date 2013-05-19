@@ -73,7 +73,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
                         self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
-    
+    NSLog(@"urlStr : %@", urlStr);
     NSURL* url = [NSURL URLWithString:urlStr];
     ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     

@@ -8,12 +8,14 @@
 #import "NetRoomRequest.h"
 #import "NetRoomList.h"
 #import "RoomCommentView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @class ChatInputView;
 @class JoinPersonView;
 @interface RoomViewController : UIViewController <NetRoomRequestDelegate,
                                                   RoomCommentViewDelegate,
-                                                  UIScrollViewDelegate>
+                                                  UIScrollViewDelegate,
+                                                  AVAudioPlayerDelegate>
 {
     JoinPersonView                  *_joinPersonView;
     RoomCommentView                 *_commentView;
@@ -21,6 +23,9 @@
     
     __weak IBOutlet UIScrollView    *_mainScrollView;
     __weak IBOutlet UIButton        *_followBtn;
+    
+    AVAudioPlayer                   *_player;
+    __weak IBOutlet UIButton        *_recordBtn;
 }
 
 @property (strong, nonatomic) NetRoomItem           *roomItem;

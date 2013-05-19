@@ -41,28 +41,20 @@
 
 - (void) loadNextPage
 {
-    // 模拟数据
-    for (int i = 0; i < 3; ++i)
+    if (!_isLoading)
     {
-        NetMessageItem *item = [[NetMessageItem alloc] init];
-        item.ID = [NSString stringWithInt:_commentList.list.count];
-        item.messageType = (i % MessageType_Max);
-        item.content = [NSString stringWithFormat:@"测试内容 %d", _commentList.list.count];
-        item.sendTime = [NSString stringWithFormat:@"%d 分钟前", i + 1];
+        _isLoading = YES;
         
-        item.senderID = [NSString stringWithInt:i];
-        item.senderNickname = [NSString stringWithFormat:@"%d 号测试人员", i];
-        item.senderAvatarID = @"1";
-        
-        item.receiverID = _roomItem.ID;
-        
-        [_commentList addItem:item];
+        if (_commentList.list.count > 0)
+        {
+            [self getCommentsWithDirect:GetListDirect_Before];
+        }
+        else
+        {
+            [self getCommentsWithDirect:GetListDirect_Last];
+        }
     }
-    
-    
-    [_commentTableView reloadData];
-    
-    [self _changeFrame];
+
 }
 
 
@@ -143,7 +135,7 @@
 
 
 #pragma mark- request
-- (void) _getCommentsWithDirect:(GetListDirect)getListDirect
+- (void) getCommentsWithDirect:(GetListDirect)getListDirect
 {
     MessageGetChatListRequest *getListRequest = [[MessageGetChatListRequest alloc] init];
     getListRequest.delegate = self;
@@ -175,7 +167,7 @@
             if (i < 0)
             {
                 getListRequest.getListDirect = GetListDirect_Last;
-                getListRequest.currentID = @"test";
+                getListRequest.currentID = @"0";
             }
             break;
         }
@@ -197,16 +189,18 @@
             if (i == len)
             {
                 getListRequest.getListDirect = GetListDirect_Last;
-                getListRequest.currentID = @"test";
+                getListRequest.currentID = @"0";
             }
             break;
         }
         default:
         {
-            getListRequest.currentID = @"test";
+            getListRequest.currentID = @"0";
             break;
         }
     }
+    
+    [[NetRequestManager defaultManager] startRequest:getListRequest];
 }
 
 
@@ -214,13 +208,21 @@
 #pragma mark- NetMessageRequestDelegate
 - (void) NetMessageRequestFail:(NetRequest *)request
 {
-    
+    _isLoading = NO;
 }
 
 
 - (void) NetMessageRequestSuccess:(NetRequest *)request
 {
+    _isLoading = NO;
     
+    MessageGetChatListRequest *getList = (MessageGetChatListRequest *)request;
+    
+    [_commentList addItemList:request.responseData direct:getList.getListDirect];
+    
+    [_commentTableView reloadData];
+
+    [self _changeFrame];
 }
 
 @end

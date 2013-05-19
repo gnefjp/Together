@@ -37,5 +37,6 @@
 @property (weak,   nonatomic) IBOutlet UIButton         *changeTypeBtn;
 
 - (IBAction)changeInputType:(id)sender;
+- (IBAction)sendBtnDidPressed:(id)sender;
 
 @end

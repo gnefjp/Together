@@ -91,6 +91,11 @@ static NetFileManager *s_defaultManager = nil;
 #pragma mark- NetFileRequestDelegate
 - (void) NetFileRequestFail:(NetFileRequest *)request
 {
+    if ([request.managerDelegate respondsToSelector:@selector(NetFileManagerFail:)])
+    {
+        [request.managerDelegate NetFileManagerFail:self];
+    }
+    
     [self _removeRequest:request];
 }
 

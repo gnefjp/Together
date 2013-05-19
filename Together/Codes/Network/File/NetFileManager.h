@@ -13,6 +13,8 @@
 @protocol NetFileManagerDelegate <NSObject>
 - (void) NetFileManager:(NetFileManager *)fileManager fileID:(NSString *)fileID image:(UIImage *)image;
 - (void) NetFileManager:(NetFileManager *)fileManager fileID:(NSString *)fileID fileData:(NSData *)fileData;
+
+- (void) NetFileManagerFail:(NetFileManager *)fileManager;
 @end
 
 @interface NetFileManager : NSObject <ImageOperationItemDelegate, NetFileRequestDelegate>

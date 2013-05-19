@@ -27,7 +27,7 @@ typedef enum
     RoomState_Waiting   = 1,
     RoomState_Ended     = 2,
     
-    RoomState_Max       = 1,
+    RoomState_Max       = 3,
 } RoomState;
 
 #define kDefaultRoomPreview                 @"room_default_preview.png"

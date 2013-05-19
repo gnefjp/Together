@@ -19,6 +19,12 @@
 		186F7C8517494FBB002C0955 /* MessageGetListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C8417494FBB002C0955 /* MessageGetListRequest.m */; };
 		186F7C8817494FCB002C0955 /* MessageGetChatListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C8717494FCA002C0955 /* MessageGetChatListRequest.m */; };
 		186F7C8B17494FDD002C0955 /* MessageUpdateStateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C8A17494FDC002C0955 /* MessageUpdateStateRequest.m */; };
+		186F7CAA17496C06002C0955 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7CA517496C06002C0955 /* MessageCell.m */; };
+		186F7CAB17496C06002C0955 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7CA617496C06002C0955 /* MessageCell.xib */; };
+		186F7CAC17496C06002C0955 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7CA817496C06002C0955 /* MessageView.m */; };
+		186F7CAD17496C06002C0955 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7CA917496C06002C0955 /* MessageView.xib */; };
+		186F7CB017498247002C0955 /* chat_unread_count_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 186F7CAE17498247002C0955 /* chat_unread_count_a.png */; };
+		186F7CB117498247002C0955 /* chat_unread_count_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 186F7CAF17498247002C0955 /* chat_unread_count_b.png */; };
 		189A54D21745049200906043 /* JoinPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D01745049200906043 /* JoinPersonViewController.m */; };
 		189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D11745049200906043 /* JoinPersonViewController.xib */; };
 		189A54D717450F0400906043 /* JoinPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D617450F0400906043 /* JoinPersonCell.m */; };
@@ -309,6 +315,14 @@
 		186F7C8717494FCA002C0955 /* MessageGetChatListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageGetChatListRequest.m; sourceTree = "<group>"; };
 		186F7C8917494FDC002C0955 /* MessageUpdateStateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageUpdateStateRequest.h; sourceTree = "<group>"; };
 		186F7C8A17494FDC002C0955 /* MessageUpdateStateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageUpdateStateRequest.m; sourceTree = "<group>"; };
+		186F7CA417496C06002C0955 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		186F7CA517496C06002C0955 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		186F7CA617496C06002C0955 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		186F7CA717496C06002C0955 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
+		186F7CA817496C06002C0955 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
+		186F7CA917496C06002C0955 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
+		186F7CAE17498247002C0955 /* chat_unread_count_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_unread_count_a.png; sourceTree = "<group>"; };
+		186F7CAF17498247002C0955 /* chat_unread_count_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_unread_count_b.png; sourceTree = "<group>"; };
 		189A54CF1745049200906043 /* JoinPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonViewController.h; sourceTree = "<group>"; };
 		189A54D01745049200906043 /* JoinPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonViewController.m; sourceTree = "<group>"; };
 		189A54D11745049200906043 /* JoinPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonViewController.xib; sourceTree = "<group>"; };
@@ -1126,6 +1140,19 @@
 			path = UserRooms;
 			sourceTree = "<group>";
 		};
+		186F7CA317496C06002C0955 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				186F7CA417496C06002C0955 /* MessageCell.h */,
+				186F7CA517496C06002C0955 /* MessageCell.m */,
+				186F7CA617496C06002C0955 /* MessageCell.xib */,
+				186F7CA717496C06002C0955 /* MessageView.h */,
+				186F7CA817496C06002C0955 /* MessageView.m */,
+				186F7CA917496C06002C0955 /* MessageView.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		189A54DA1745252A00906043 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1171,6 +1198,8 @@
 		189A54F11745569600906043 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				186F7CAE17498247002C0955 /* chat_unread_count_a.png */,
+				186F7CAF17498247002C0955 /* chat_unread_count_b.png */,
 				186F7C7217492962002C0955 /* chat_bg_a.png */,
 				186F7C7317492962002C0955 /* chat_bg_b.png */,
 				189A5502174569FE00906043 /* chat_recorder_cancel_a.png */,
@@ -2221,6 +2250,7 @@
 		18EAB2D3172418C6003E742D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				186F7CA317496C06002C0955 /* Message */,
 				3895A602172900030025163D /* MapView */,
 				3888875C1724687200B2D2F0 /* UserCenter */,
 				18BFDFBF17244DF600186828 /* NavigationView */,
@@ -2620,6 +2650,10 @@
 				38050D7817495ECD00324FBF /* fuwu@2x.png in Resources */,
 				38050D8017495F7800324FBF /* RoomMapView.xib in Resources */,
 				38050D8217495FB300324FBF /* icon_map.png in Resources */,
+				186F7CAB17496C06002C0955 /* MessageCell.xib in Resources */,
+				186F7CAD17496C06002C0955 /* MessageView.xib in Resources */,
+				186F7CB017498247002C0955 /* chat_unread_count_a.png in Resources */,
+				186F7CB117498247002C0955 /* chat_unread_count_b.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2768,6 +2802,8 @@
 				186F7C8B17494FDD002C0955 /* MessageUpdateStateRequest.m in Sources */,
 				38050D7F17495F7800324FBF /* RoomMapView.m in Sources */,
 				38050D8517496BAC00324FBF /* KeepSorcket.m in Sources */,
+				186F7CAA17496C06002C0955 /* MessageCell.m in Sources */,
+				186F7CAC17496C06002C0955 /* MessageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

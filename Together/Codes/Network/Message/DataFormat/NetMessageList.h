@@ -31,10 +31,16 @@ typedef enum
 
 @property (copy,   nonatomic) NSString      *receiverID;
 
+@property (assign, nonatomic) NSInteger     unreadNum;
+
+- (NetMessageItem *)initWithMessageResponse:(UserMessageResponse *)response;
+
 @end
 
 
 #pragma mark- List
 @interface NetMessageList : NetItemList
+
+- (void) addItemList:(HTTPResponse *)response direct:(GetListDirect)direct;
 
 @end

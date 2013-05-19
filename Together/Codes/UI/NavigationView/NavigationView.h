@@ -12,7 +12,7 @@
 typedef enum
 {
     ModulType_RoomList      = 0,
-    ModulType_Match         = 1,
+    ModulType_Message       = 1,
     ModulType_UserCenter    = 2,
     ModulType_MyRoom        = 3,
     ModulType_Fans          = 4,

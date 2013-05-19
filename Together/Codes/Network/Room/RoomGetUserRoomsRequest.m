@@ -34,15 +34,16 @@
 {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setValue:self.actionCode forKey:@"action"];
-    [dict setValue:[NSString stringWithInt:self.roomStatus] forKey:@"roomType"];
-    [dict setValue:[NSString stringWithInt:self.isMyRoom] forKey:@"showType"];
+    [dict setValue:self.sid forKey:@"sid"];
+    [dict setValue:[NSString stringWithInt:self.roomStatus - 1] forKey:@"roomStatus"];
+    [dict setValue:[NSString stringWithInt:!self.isMyRoom] forKey:@"showType"];
     
     [dict setValue:[NSString stringWithInt:self.pageNum + 1] forKey:@"pageNo"];
     [dict setValue:[NSString stringWithInt:self.pageSize] forKey:@"pageSize"];
     
     NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
                         self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
-    
+    NSLog(@"urlStr : %@", urlStr);
     NSURL* url = [NSURL URLWithString:urlStr];
     ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     

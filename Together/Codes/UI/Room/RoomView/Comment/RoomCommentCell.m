@@ -37,7 +37,7 @@
     _messageItem = messageItem;
     
     _senderNicknameLabel.text = _messageItem.senderNickname;
-    _sendTimeLabel.text = _messageItem.sendTime;
+    _sendTimeLabel.text = [_messageItem.sendTime timeIntervalWithServer];
     
     [_avatarImageView setImageWithFileID:_messageItem.senderAvatarID
                         placeholderImage:[UIImage imageNamed:kDefaultUserAvatar]];

@@ -16,6 +16,7 @@
 #import "RoomListView.h"
 #import "UserCenterView.h"
 #import "UserRoomsView.h"
+#import "MessageView.h"
 
 #import "RoomViewController.h"
 #import "GEMTUserManager.h"
@@ -225,6 +226,13 @@
 }
 
 
+#pragma mark- MessageViewDelegate
+- (void) MessageViewWantShowMenu:(MessageView *)messageView
+{
+    [self _isShowNavigation:YES animation:YES];
+}
+
+
 
 #pragma mark- NavigationViewDelegate
 - (void) NavigationView:(NavigationView *)navigationView wantInModulWithType:(ModulType)modulType
@@ -264,6 +272,17 @@
                                                          nickname:nickname
                                                     isShowBackBtn:NO
                                                          delegate:self];
+            }
+            break;
+        }
+        case ModulType_Message:
+        {
+            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
+            {
+                [_mainView removeFromSuperview];
+                
+                _mainView = [MessageView loadFromNib];
+                ((MessageView *) _mainView).delegate = self;
             }
             break;
         }

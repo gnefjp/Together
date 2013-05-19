@@ -20,15 +20,22 @@
 #import "RoomQuitReqeust.h"
 #import "RoomCommentView.h"
 
+#import "KeepSorcket.h"
+
+#import "NetFileManager.h"
+
 #define kJoin_BtnTag        1000
 #define kQuit_BtnTag        1001
 #define kStart_BtnTag       1002
+
+#define kLoadMoreMsgHeight  20
 
 @implementation RoomViewController
 
 - (void) dealloc
 {
     [[TipViewManager defaultManager] removeTipWithID:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -45,10 +52,12 @@
     _joinPersonView = nil;
     
     [[TipViewManager defaultManager] removeTipWithID:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [self setJoinPersonNumLabel:nil];
     _mainScrollView = nil;
     _followBtn = nil;
+    _recordBtn = nil;
     [super viewDidUnload];
 }
 
@@ -59,9 +68,51 @@
     
     _chatInputView = [ChatInputView loadFromNib];
     _chatInputView.delegate = self;
+    _chatInputView.isTextInput = YES;
     [self.view addSubview:_chatInputView];
     
     _mainScrollView.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_refreshCommentData)
+                                                 name:kNotification_SendGroupMsgSuccess
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_startRoom)
+                                                 name:kNotification_StartRoomSuccess
+                                               object:nil];
+}
+
+
+- (void) _refreshCommentData
+{
+    [_commentView getCommentsWithDirect:GetListDirect_Last];
+}
+
+
+- (void) _isRoomEnded:(BOOL)isRoomEnded
+{
+    _chatInputView.hidden = isRoomEnded;
+    
+    UIButton *joinBtn = [_mainScrollView viewWithTag:kJoin_BtnTag recursive:NO];
+    UIButton *quitBtn = [_mainScrollView viewWithTag:kQuit_BtnTag recursive:NO];
+    UIButton *startBtn = [_mainScrollView viewWithTag:kStart_BtnTag recursive:NO];
+    
+    joinBtn.hidden = isRoomEnded;
+    quitBtn.hidden = isRoomEnded;
+    startBtn.hidden = isRoomEnded;
+}
+
+
+- (void) _startRoom
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    _roomItem.beginTime = [formatter stringFromDate:[NSDate date]];
+    _roomItem.roomState = RoomState_Ended;
+    
+    [self _isRoomEnded:YES];
 }
 
 
@@ -166,6 +217,8 @@
     [self _showPersonView];
     
     [self _showCommentView];
+    
+    [self _isRoomEnded:(_roomItem.roomState == RoomState_Ended)];
 }
 
 
@@ -221,18 +274,69 @@
 
 - (IBAction)startBtnDidPressed:(id)sender
 {
+    [[KeepSorcket defaultManager] sendRoomStart:_roomItem.ID];
+}
+
+
+- (void) _isPlayRecord:(BOOL)isPlay
+{
+    if (isPlay)
+    {
+        [_player prepareToPlay];
+        [_player play];
+    }
+    else
+    {
+        [_player pause];
+    }
     
+    NSString *images[] = {
+        @"common_play_btn.png",
+        @"common_pause_btn.png",
+    };
+    
+    [_recordBtn setImage:[UIImage imageNamed:images[isPlay]] forState:UIControlStateNormal];
+    [_recordBtn setImage:[UIImage imageNamed:images[isPlay]] forState:UIControlStateHighlighted];
 }
 
 
 - (IBAction)playRoomSound:(id)sender
 {
+    if (_player == nil)
+    {
+        NSData *recordData = [[NetFileManager defaultManager] fileWithID:_roomItem.recordID
+                                                                delegate:self];
+        
+        if (recordData == nil)
+        {
+            [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self.view ID:self];
+        }
+        else
+        {
+            _player = [[AVAudioPlayer alloc] initWithData:recordData error:nil];
+            _player.delegate = self;
+            
+            [self _isPlayRecord:YES];
+        }
+    }
+    else
+    {
+        [self _isPlayRecord:![_player isPlaying]];
+    }
+}
+
+
+
+#pragma mark- AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [self _isPlayRecord:NO];
 }
 
 
 - (IBAction)followOwnDidPressed:(id)sender
 {
-    // 网络请求
+    // TODO:网络请求
     
     BOOL isFollowed = (_roomItem.ownerRelationWithMe == UserRelationType_Follow ||
                        _roomItem.ownerRelationWithMe == UserRelationType_FollowEach);
@@ -250,10 +354,38 @@
 }
 
 
+
+#pragma mark- NetFileManagerDelegate
+- (void) NetFileManager:(NetFileManager *)fileManager fileID:(NSString *)fileID fileData:(NSData *)fileData
+{
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
+    
+    _player = [[AVAudioPlayer alloc] initWithData:fileData error:nil];
+    _player.delegate = self;
+    
+    [self _isPlayRecord:YES];
+}
+
+
+- (void) NetFileManagerFail:(NetFileManager *)fileManager
+{
+    [[TipViewManager defaultManager] showTipText:@"下载音频失败"
+                                       imageName:kCommonImage_FailIcon
+                                          inView:self.view
+                                              ID:self];
+    
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
+}
+
+
 #pragma mark- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+    if (scrollView.contentOffset.y + scrollView.frameHeight >
+        scrollView.contentSize.height + kLoadMoreMsgHeight)
+    {
+        [_commentView loadNextPage];
+    }
 }
 
 
@@ -262,14 +394,15 @@
                content:(NSString *)content
                 isText:(BOOL)isText
 {
-    // TODO: 网络发送部分
-    
     NetMessageItem *message = [[NetMessageItem alloc] init];
-    message.ID = [NSString stringWithFormat:@"%p", message];
+    message.ID = [NSString stringWithFormat:@"local_%p", message];
     message.messageType = !isText;
     
     message.content = content;
-    message.sendTime = @"1 秒前";
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    message.sendTime = [formatter stringFromDate:[NSDate date]];
     
     message.senderID =  [GEMTUserManager defaultManager].userInfo.userId;
     message.senderNickname = [GEMTUserManager defaultManager].userInfo.nickName;
@@ -280,6 +413,12 @@
     [_commentView.commentList addItemAtFirst:message];
     
     [_commentView insertItemAtFirstAnimation];
+    
+    [[KeepSorcket defaultManager] sendMsgWithSenderId:message.senderID
+                                             receipId:message.senderID
+                                               roomId:_roomItem.ID
+                                              msgType:1
+                                              content:message.content];
 }
 
 
