@@ -25,8 +25,6 @@
 - (void) awakeFromNib
 {
     _commentList = [[NetMessageList alloc] init];
-    
-    NSLog(@"size.height : %lf", _commentTableView.contentSize.height);
 }
 
 
@@ -68,8 +66,6 @@
 - (void) _changeFrame
 {
     [self performBlock:^{
-        NSLog(@"size.height : %lf", _commentTableView.contentSize.height);
-        
         CGSize size = _commentTableView.contentSize;
         size.height = MAX(134.0, size.height);
         
@@ -82,8 +78,6 @@
 
 - (void) insertItemAtFirstAnimation
 {
-    NSLog(@"size.height : %lf", _commentTableView.contentSize.height);
-    
     NSMutableArray* insertArr = [[NSMutableArray alloc] init];
     [insertArr addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
     
@@ -125,7 +119,6 @@
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"_commentList.list.count : %d", _commentList.list.count);
     return _commentList.list.count;
 }
 

@@ -28,6 +28,8 @@
 
 - (void) _setUserRelation
 {
+    _relationBtn.hidden = (_userItem.relationWithMe == UserRelationType_Own);
+    
     NSString *followImages[] = {
         @"room_unfollow_btn.png",
         @"room_follow_btn.png",
