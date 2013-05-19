@@ -213,10 +213,10 @@
 		18F032A617464C9A001963F3 /* room_unfollow_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F032A417464C9A001963F3 /* room_unfollow_btn.png */; };
 		38050D7717495ECD00324FBF /* fuwu.png in Resources */ = {isa = PBXBuildFile; fileRef = 38050D7517495ECD00324FBF /* fuwu.png */; };
 		38050D7817495ECD00324FBF /* fuwu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38050D7617495ECD00324FBF /* fuwu@2x.png */; };
-		38050D7B17495F1300324FBF /* KeepSorcket.m in Sources */ = {isa = PBXBuildFile; fileRef = 38050D7A17495F1300324FBF /* KeepSorcket.m */; };
 		38050D7F17495F7800324FBF /* RoomMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38050D7D17495F7800324FBF /* RoomMapView.m */; };
 		38050D8017495F7800324FBF /* RoomMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38050D7E17495F7800324FBF /* RoomMapView.xib */; };
 		38050D8217495FB300324FBF /* icon_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 38050D8117495FB300324FBF /* icon_map.png */; };
+		38050D8517496BAC00324FBF /* KeepSorcket.m in Sources */ = {isa = PBXBuildFile; fileRef = 38050D8417496BAC00324FBF /* KeepSorcket.m */; };
 		3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5C17266B6800ED1DD7 /* KICropImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
 		3816BE0617467B5200EA7DDC /* RecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3816BE0417467B5200EA7DDC /* RecorderView.m */; };
@@ -982,12 +982,12 @@
 		18F032A417464C9A001963F3 /* room_unfollow_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_unfollow_btn.png; sourceTree = "<group>"; };
 		38050D7517495ECD00324FBF /* fuwu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuwu.png; sourceTree = "<group>"; };
 		38050D7617495ECD00324FBF /* fuwu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fuwu@2x.png"; sourceTree = "<group>"; };
-		38050D7917495F1300324FBF /* KeepSorcket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeepSorcket.h; path = "../../../../../Desktop/未命名文件夹 9/KeepSorcket.h"; sourceTree = "<group>"; };
-		38050D7A17495F1300324FBF /* KeepSorcket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeepSorcket.m; path = "../../../../../Desktop/未命名文件夹 9/KeepSorcket.m"; sourceTree = "<group>"; };
 		38050D7C17495F7800324FBF /* RoomMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomMapView.h; sourceTree = "<group>"; };
 		38050D7D17495F7800324FBF /* RoomMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomMapView.m; sourceTree = "<group>"; };
 		38050D7E17495F7800324FBF /* RoomMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomMapView.xib; sourceTree = "<group>"; };
 		38050D8117495FB300324FBF /* icon_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_map.png; sourceTree = "<group>"; };
+		38050D8317496BAC00324FBF /* KeepSorcket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepSorcket.h; sourceTree = "<group>"; };
+		38050D8417496BAC00324FBF /* KeepSorcket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeepSorcket.m; sourceTree = "<group>"; };
 		3811FB5B17266B6800ED1DD7 /* KICropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KICropImageView.h; sourceTree = "<group>"; };
 		3811FB5C17266B6800ED1DD7 /* KICropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KICropImageView.m; sourceTree = "<group>"; };
 		3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KIAdditions.h"; sourceTree = "<group>"; };
@@ -1142,8 +1142,8 @@
 		189A54EA17454C6800906043 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				38050D7917495F1300324FBF /* KeepSorcket.h */,
-				38050D7A17495F1300324FBF /* KeepSorcket.m */,
+				38050D8317496BAC00324FBF /* KeepSorcket.h */,
+				38050D8417496BAC00324FBF /* KeepSorcket.m */,
 				189A54ED17454C7800906043 /* DataFormat */,
 				186F7C8017494D55002C0955 /* NetMessageRequest.h */,
 				186F7C8117494D56002C0955 /* NetMessageRequest.m */,
@@ -2766,8 +2766,8 @@
 				186F7C8517494FBB002C0955 /* MessageGetListRequest.m in Sources */,
 				186F7C8817494FCB002C0955 /* MessageGetChatListRequest.m in Sources */,
 				186F7C8B17494FDD002C0955 /* MessageUpdateStateRequest.m in Sources */,
-				38050D7B17495F1300324FBF /* KeepSorcket.m in Sources */,
 				38050D7F17495F7800324FBF /* RoomMapView.m in Sources */,
+				38050D8517496BAC00324FBF /* KeepSorcket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
