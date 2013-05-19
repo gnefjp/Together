@@ -23,7 +23,7 @@
 
 #import "GEMTUserManager.h"
 
-#define kRecord_BtnTag      1000 // For _recordView
+#define kRecord_LabelTag    1000 // For _recordView
 #define kRoomType_BtnTag    1000 // For self.view
 
 static NSString* s_titles[] = {
@@ -66,11 +66,9 @@ static NSString* s_roomTypeNames[] = {
     _infoTableView = nil;
     _recordView = nil;
     _createButton = nil;
-    _confirmView = nil;
     
     [[TipViewManager defaultManager] removeTipWithID:self];
     _previewImageView = nil;
-    _recorderBtn = nil;
     [super viewDidUnload];
 }
 
@@ -232,21 +230,28 @@ static NSString* s_roomTypeNames[] = {
 
 
 #pragma mark- 录音
+- (UILabel *) _recordBtnTitleLabel
+{
+    return [_recordView viewWithTag:kRecord_LabelTag recursive:NO];
+}
+
+
 - (void) _initRecord
 {
-    CGRect frame = _recorderBtn.frame;
-    frame.origin.x += _recorderBtn.superview.frameX;
-    frame.origin.y += _recorderBtn.superview.frameY;
-    
+    CGRect frame = [self _recordBtnTitleLabel].frame;
+    frame.origin.y += [self _recordBtnTitleLabel].superview.frameY;
+
     _recorderView = [RecorderView showRecorderViewOnView:self.view
                                           recordBtnFrame:frame
                                                 delegate:self];
-    
+    _recorderView.userInteractionEnabled = NO;
 }
 
 
 - (void) _isShowRecordView:(BOOL)isShow
 {
+    _recorderView.userInteractionEnabled = isShow;
+    
     _createButton.frameX = isShow ? 0.0 : -270.0;
     _recordView.frameX = isShow ? 320.0 : 0.0;
     
@@ -275,55 +280,7 @@ static NSString* s_roomTypeNames[] = {
 - (void)RecorderView:(RecorderView*)recorderView recordId:(NSString*)recordId
 {
     _roomInfo.recordID = recordId;
-}
-
-
-- (void)RecorderViewBeginRecord:(RecorderView*)recorderView
-{
-    [_recorderBtn setTitle:@"松开取消" forState:UIControlStateNormal];
-}
-
-
-- (void)RecorderViewEndRecord:(RecorderView*)recorderView
-{
-    [_recorderBtn setTitle:@"按下录音" forState:UIControlStateNormal];
-}
-
-
-#pragma mark- 确定
-- (void) _isShowConfirmView:(BOOL)isShow
-{
-    _recordView.frameX = isShow ? 0.0 : -320.0;
-    _confirmView.frameX = isShow ? 320.0 : 0.0;
     
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         
-                         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-                         _recordView.frameX = isShow ? -320.0 : 0.0;
-                         _confirmView.frameX = isShow ? 0.0 : 320.0;
-                         
-                     }completion:^(BOOL finished){
-                         
-                         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-                     }];
-}
-
-
-- (IBAction)backToRecord:(id)sender
-{
-    [self _isShowConfirmView:NO];
-}
-
-
-- (IBAction)playOrStopRecord:(id)sender
-{
-    // TODO: 播放录音
-}
-
-
-- (IBAction)confirmToCreate:(id)sender
-{
     if (![self _checkParam])
     {
         return;
@@ -351,6 +308,18 @@ static NSString* s_roomTypeNames[] = {
     createRequest.recordID = _roomInfo.recordID;
     
     [[NetRequestManager defaultManager] startRequest:createRequest];
+}
+
+
+- (void)RecorderViewBeginRecord:(RecorderView*)recorderView
+{
+    [self _recordBtnTitleLabel].text = @"松开取消";
+}
+
+
+- (void)RecorderViewEndRecord:(RecorderView*)recorderView
+{
+    [self _recordBtnTitleLabel].text = @"按下录音";
 }
 
 
@@ -684,18 +653,14 @@ static NSString* s_roomTypeNames[] = {
     if (img)
     {
         [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self.view ID:self];
-//        
-//        [self performBlock:^{
-//            
-//            FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
-//            updateRequest.image = img;
-//            updateRequest.sid = [GEMTUserManager defaultManager].sId;
-//            updateRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
-//            updateRequest.delegate = self;
-//            
-//            [[NetRequestManager defaultManager] startRequest:updateRequest];
-//            
-//        }afterDelay:0.01];
+        
+        FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
+        updateRequest.image = img;
+        updateRequest.sid = [GEMTUserManager defaultManager].sId;
+        updateRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
+        updateRequest.delegate = self;
+        
+        [[NetRequestManager defaultManager] startRequest:updateRequest];
     }
 }
 

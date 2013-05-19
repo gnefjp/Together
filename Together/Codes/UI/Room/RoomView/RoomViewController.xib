@@ -259,7 +259,7 @@
 								<string key="NSFrame">{{52, 249}, {163, 17}}</string>
 								<reference key="NSSuperview" ref="262080457"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="312612079"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -276,36 +276,6 @@
 								<reference key="IBUIFontDescription" ref="1006229621"/>
 								<reference key="IBUIFont" ref="328243970"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-							</object>
-							<object class="IBUIButton" id="312612079">
-								<reference key="NSNextResponder" ref="262080457"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{223, 232}, {38, 34}}</string>
-								<reference key="NSSuperview" ref="262080457"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="584120826"/>
-								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<bool key="IBUIOpaque">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<int key="IBUIContentHorizontalAlignment">0</int>
-								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
-								<string key="IBUINormalTitle">chat</string>
-								<reference key="IBUIHighlightedTitleColor" ref="201394209"/>
-								<object class="NSColor" key="IBUINormalTitleColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-								</object>
-								<reference key="IBUINormalTitleShadowColor" ref="5364625"/>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="896659284">
-									<int key="type">2</int>
-									<double key="pointSize">15</double>
-								</object>
-								<object class="NSFont" key="IBUIFont" id="1044005121">
-									<string key="NSName">Helvetica-Bold</string>
-									<double key="NSSize">15</double>
-									<int key="NSfFlags">16</int>
-								</object>
 							</object>
 							<object class="IBUILabel" id="543643942">
 								<reference key="NSNextResponder" ref="262080457"/>
@@ -474,8 +444,15 @@
 									<string key="NSResourceName">room_unfollow_btn.png</string>
 								</object>
 								<reference key="IBUINormalImage" ref="288429908"/>
-								<reference key="IBUIFontDescription" ref="896659284"/>
-								<reference key="IBUIFont" ref="1044005121"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="896659284">
+									<int key="type">2</int>
+									<double key="pointSize">15</double>
+								</object>
+								<object class="NSFont" key="IBUIFont" id="783187335">
+									<string key="NSName">Helvetica-Bold</string>
+									<double key="NSSize">15</double>
+									<int key="NSfFlags">16</int>
+								</object>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 504}</string>
@@ -565,7 +542,7 @@
 						</object>
 						<reference key="IBUINormalBackgroundImage" ref="632778763"/>
 						<reference key="IBUIFontDescription" ref="896659284"/>
-						<reference key="IBUIFont" ref="1044005121"/>
+						<reference key="IBUIFont" ref="783187335"/>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 548}}</string>
@@ -682,14 +659,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">_chatBtn</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="312612079"/>
-					</object>
-					<int key="connectionID">57</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">_followBtn</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="584120826"/>
@@ -722,15 +691,6 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">29</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">chatDidPressed:</string>
-						<reference key="source" ref="312612079"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">30</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -808,7 +768,6 @@
 							<reference ref="571287023"/>
 							<reference ref="543643942"/>
 							<reference ref="584120826"/>
-							<reference ref="312612079"/>
 							<reference ref="240868772"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
@@ -851,11 +810,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
 						<reference key="object" ref="706206102"/>
-						<reference key="parent" ref="262080457"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">20</int>
-						<reference key="object" ref="312612079"/>
 						<reference key="parent" ref="262080457"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -927,7 +881,6 @@
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="22.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -956,7 +909,6 @@
 					<string key="className">RoomViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="chatDidPressed:">id</string>
 						<string key="closeBtnPressed:">id</string>
 						<string key="followOwnDidPressed:">id</string>
 						<string key="joinBtnDidPressed:">id</string>
@@ -965,10 +917,6 @@
 						<string key="startBtnDidPressed:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="chatDidPressed:">
-							<string key="name">chatDidPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="closeBtnPressed:">
 							<string key="name">closeBtnPressed:</string>
 							<string key="candidateClassName">id</string>
@@ -995,7 +943,6 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="_chatBtn">UIButton</string>
 						<string key="_followBtn">UIButton</string>
 						<string key="_mainScrollView">UIScrollView</string>
 						<string key="beginTimeLabel">UILabel</string>
@@ -1008,10 +955,6 @@
 						<string key="roomTitleLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="_chatBtn">
-							<string key="name">_chatBtn</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="_followBtn">
 							<string key="name">_followBtn</string>
 							<string key="candidateClassName">UIButton</string>

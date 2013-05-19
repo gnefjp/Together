@@ -25,7 +25,6 @@
     
     __weak IBOutlet UIButton    *_createButton;
     __weak IBOutlet UIView      *_recordView;
-    __weak IBOutlet UIView      *_confirmView;
     
     UIDatePicker                *_datePickerView;
     RoomTypePickerView          *_roomTypePickerView;
@@ -36,7 +35,6 @@
     PicChange                   *_picChange;
     __weak IBOutlet UIImageView *_previewImageView;
     
-    __weak IBOutlet UIButton    *_recorderBtn;
     RecorderView                *_recorderView;
 }
 
@@ -46,10 +44,6 @@
 - (IBAction)createBtnPressed:(id)sender;
 
 - (IBAction)backToCreateView:(id)sender;
-
-- (IBAction)backToRecord:(id)sender;
-- (IBAction)playOrStopRecord:(id)sender;
-- (IBAction)confirmToCreate:(id)sender;
 
 - (IBAction)pickPicDidPressed:(id)sender;
 @end

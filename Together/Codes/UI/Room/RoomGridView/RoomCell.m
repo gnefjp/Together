@@ -26,6 +26,12 @@
 }
 
 
+- (void) setIsNoDistance:(BOOL)isNoDistance
+{
+    _distanceLabel.hidden = isNoDistance;
+}
+
+
 - (void) setRoomItem:(NetRoomItem *)roomItem
 {
     if (_roomItem != roomItem)

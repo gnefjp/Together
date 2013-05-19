@@ -20,4 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel        *ownNicknameLabel;
 
+@property (assign, nonatomic) BOOL                  isNoDistance;
+
 @end

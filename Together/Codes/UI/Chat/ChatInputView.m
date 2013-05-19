@@ -79,6 +79,7 @@
 
 - (IBAction)changeInputType:(id)sender
 {
+    [self endEditing:YES];
     self.isTextInput = !self.isTextInput;
 }
 
@@ -193,7 +194,7 @@
         return self;
     }
     
-    if (_recorderView.isRecording || CGRectContainsPoint(_inputBgImageView.frame, point))
+    if (point.y >= [self _toolBarBgImageView].frameY)
     {
         return [super hitTest:point withEvent:event];
     }

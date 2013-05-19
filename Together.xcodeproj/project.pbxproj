@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186F7C6F174916A5002C0955 /* UserRoomsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C6E174916A5002C0955 /* UserRoomsView.m */; };
+		186F7C71174916AE002C0955 /* UserRoomsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C70174916AE002C0955 /* UserRoomsView.xib */; };
 		189A54D21745049200906043 /* JoinPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D01745049200906043 /* JoinPersonViewController.m */; };
 		189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D11745049200906043 /* JoinPersonViewController.xib */; };
 		189A54D717450F0400906043 /* JoinPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D617450F0400906043 /* JoinPersonCell.m */; };
@@ -272,6 +274,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		186F7C6D174916A5002C0955 /* UserRoomsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRoomsView.h; sourceTree = "<group>"; };
+		186F7C6E174916A5002C0955 /* UserRoomsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRoomsView.m; sourceTree = "<group>"; };
+		186F7C70174916AE002C0955 /* UserRoomsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserRoomsView.xib; sourceTree = "<group>"; };
 		189A54CF1745049200906043 /* JoinPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonViewController.h; sourceTree = "<group>"; };
 		189A54D01745049200906043 /* JoinPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonViewController.m; sourceTree = "<group>"; };
 		189A54D11745049200906043 /* JoinPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonViewController.xib; sourceTree = "<group>"; };
@@ -1071,6 +1076,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		186F7C6C1749163C002C0955 /* UserRooms */ = {
+			isa = PBXGroup;
+			children = (
+				186F7C6D174916A5002C0955 /* UserRoomsView.h */,
+				186F7C6E174916A5002C0955 /* UserRoomsView.m */,
+				186F7C70174916AE002C0955 /* UserRoomsView.xib */,
+			);
+			path = UserRooms;
+			sourceTree = "<group>";
+		};
 		189A54DA1745252A00906043 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1188,6 +1203,7 @@
 		18BFDFB917244DF600186828 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				186F7C6C1749163C002C0955 /* UserRooms */,
 				18C9A33E173CE7B8002FA0E4 /* RoomView */,
 				18D41DEF17294BD500D0C950 /* RoomCreate */,
 				18BFDFD717245C6400186828 /* RoomGridView */,
@@ -2539,6 +2555,7 @@
 				18F032A617464C9A001963F3 /* room_unfollow_btn.png in Resources */,
 				3816BE0717467B5200EA7DDC /* RecorderView.xib in Resources */,
 				38462E831747255A00643361 /* usercenter_juxing_a.png in Resources */,
+				186F7C71174916AE002C0955 /* UserRoomsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2678,6 +2695,7 @@
 				382422481747B7720050CB82 /* GCDAsyncSocket.m in Sources */,
 				382422491747B7720050CB82 /* GCDAsyncUdpSocket.m in Sources */,
 				3824224C1747BE630050CB82 /* AsyncSocketUpload.m in Sources */,
+				186F7C6F174916A5002C0955 /* UserRoomsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

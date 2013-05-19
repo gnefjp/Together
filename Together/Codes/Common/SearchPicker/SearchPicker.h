@@ -19,7 +19,10 @@ typedef enum
     SearchPickerType_RoomType   = 0,
     SearchPickerType_Distance   = 1,
     
-    SearchPickerType_Max        = 2,
+    SearchPickerType_Belongs    = 2,
+    SearchPickerType_State      = 3,
+    
+    SearchPickerType_Max        = 4,
 } SearchPickerType;
 
 @interface SearchPicker : UIView

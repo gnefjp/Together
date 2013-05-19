@@ -48,7 +48,6 @@
     
     [self setJoinPersonNumLabel:nil];
     _mainScrollView = nil;
-    _chatBtn = nil;
     _followBtn = nil;
     [super viewDidUnload];
 }
@@ -78,7 +77,6 @@
     quitBtn.alpha = (isWaiting && _roomItem.relationWitMe == RoomRelationType_Joined) ? 1.0 : 0.0;
     startBtn.alpha = (isWaiting && _roomItem.relationWitMe == RoomRelationType_MyRoom) ? 1.0 : 0.0;
     
-    _chatBtn.hidden = (_roomItem.relationWitMe == RoomRelationType_MyRoom);
     _followBtn.hidden = (_roomItem.relationWitMe == RoomRelationType_MyRoom);
 }
 
@@ -229,12 +227,6 @@
 
 - (IBAction)playRoomSound:(id)sender
 {
-}
-
-
-- (IBAction)chatDidPressed:(id)sender
-{
-    
 }
 
 

@@ -74,6 +74,11 @@
 #pragma mark- hitTest
 - (UIView *) hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
+    if (!self.userInteractionEnabled)
+    {
+        return nil;
+    }
+    
     if ([[TipViewManager defaultManager] progressHUDWithID:self] != nil)
     {
         return self;

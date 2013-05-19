@@ -15,6 +15,7 @@
 #import "NavigationView.h"
 #import "RoomListView.h"
 #import "UserCenterView.h"
+#import "UserRoomsView.h"
 
 #import "RoomViewController.h"
 #import "GEMTUserManager.h"
@@ -217,6 +218,14 @@
 
 
 
+#pragma mark- UserRoomViewDelegate
+- (void) UserRoomsViewWantShowNavigation:(UserRoomsView *)userRoomsView
+{
+    [self _isShowNavigation:YES animation:YES];
+}
+
+
+
 #pragma mark- NavigationViewDelegate
 - (void) NavigationView:(NavigationView *)navigationView wantInModulWithType:(ModulType)modulType
 {
@@ -231,13 +240,30 @@
         }
         case ModulType_UserCenter:
         {
-            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView]) {
+            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
+            {
                 [_mainView removeFromSuperview];
                 UserCenterView *tmpView = [UserCenterView loadFromNib];
                 [tmpView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",[GEMTUserManager defaultManager].userInfo.userId]];
                 [tmpView setHasBack:YES];
                 tmpView.panGesture = _panGesture;
                 _mainView = tmpView;
+            }
+            break;
+        }
+        case ModulType_MyRoom:
+        {
+            if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
+            {
+                [_mainView removeFromSuperview];
+                
+                NSString *userID = [GEMTUserManager defaultManager].userInfo.userId;
+                NSString *nickname = [GEMTUserManager defaultManager].userInfo.nickName;
+                
+                _mainView = [UserRoomsView userRoomViewWithUserId:userID
+                                                         nickname:nickname
+                                                    isShowBackBtn:NO
+                                                         delegate:self];
             }
             break;
         }

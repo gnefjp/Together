@@ -20,7 +20,6 @@
     ChatInputView                   *_chatInputView;
     
     __weak IBOutlet UIScrollView    *_mainScrollView;
-    __weak IBOutlet UIButton        *_chatBtn;
     __weak IBOutlet UIButton        *_followBtn;
 }
 
@@ -43,7 +42,6 @@
 
 - (IBAction)playRoomSound:(id)sender;
 
-- (IBAction)chatDidPressed:(id)sender;
 - (IBAction)followOwnDidPressed:(id)sender;
 
 @end
