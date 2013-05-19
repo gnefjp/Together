@@ -17,7 +17,7 @@
 - (void) _setGenderType
 {
     NSString *imageNames[] = {
-        @""
+        @"",
         @"room_gender_limit_boy.png",
         @"room_gender_limit_girl.png",
     };

@@ -15,6 +15,10 @@
 		186F7C7A1749299E002C0955 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C781749299E002C0955 /* ChatViewController.xib */; };
 		186F7C7D174929F9002C0955 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C7C174929F9002C0955 /* ChatCell.m */; };
 		186F7C7F17492A01002C0955 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C7E17492A01002C0955 /* ChatCell.xib */; };
+		186F7C8217494D56002C0955 /* NetMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C8117494D56002C0955 /* NetMessageRequest.m */; };
+		186F7C8517494FBB002C0955 /* MessageGetListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C8417494FBB002C0955 /* MessageGetListRequest.m */; };
+		186F7C8817494FCB002C0955 /* MessageGetChatListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C8717494FCA002C0955 /* MessageGetChatListRequest.m */; };
+		186F7C8B17494FDD002C0955 /* MessageUpdateStateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C8A17494FDC002C0955 /* MessageUpdateStateRequest.m */; };
 		189A54D21745049200906043 /* JoinPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D01745049200906043 /* JoinPersonViewController.m */; };
 		189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D11745049200906043 /* JoinPersonViewController.xib */; };
 		189A54D717450F0400906043 /* JoinPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D617450F0400906043 /* JoinPersonCell.m */; };
@@ -291,6 +295,14 @@
 		186F7C7B174929F9002C0955 /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		186F7C7C174929F9002C0955 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		186F7C7E17492A01002C0955 /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		186F7C8017494D55002C0955 /* NetMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetMessageRequest.h; sourceTree = "<group>"; };
+		186F7C8117494D56002C0955 /* NetMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetMessageRequest.m; sourceTree = "<group>"; };
+		186F7C8317494FBB002C0955 /* MessageGetListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageGetListRequest.h; sourceTree = "<group>"; };
+		186F7C8417494FBB002C0955 /* MessageGetListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageGetListRequest.m; sourceTree = "<group>"; };
+		186F7C8617494FCA002C0955 /* MessageGetChatListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageGetChatListRequest.h; sourceTree = "<group>"; };
+		186F7C8717494FCA002C0955 /* MessageGetChatListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageGetChatListRequest.m; sourceTree = "<group>"; };
+		186F7C8917494FDC002C0955 /* MessageUpdateStateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageUpdateStateRequest.h; sourceTree = "<group>"; };
+		186F7C8A17494FDC002C0955 /* MessageUpdateStateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageUpdateStateRequest.m; sourceTree = "<group>"; };
 		189A54CF1745049200906043 /* JoinPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonViewController.h; sourceTree = "<group>"; };
 		189A54D01745049200906043 /* JoinPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonViewController.m; sourceTree = "<group>"; };
 		189A54D11745049200906043 /* JoinPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonViewController.xib; sourceTree = "<group>"; };
@@ -1117,24 +1129,16 @@
 			isa = PBXGroup;
 			children = (
 				189A54ED17454C7800906043 /* DataFormat */,
-				189A54EB17454C6800906043 /* Chat */,
-				189A54EC17454C6800906043 /* Comment */,
+				186F7C8017494D55002C0955 /* NetMessageRequest.h */,
+				186F7C8117494D56002C0955 /* NetMessageRequest.m */,
+				186F7C8317494FBB002C0955 /* MessageGetListRequest.h */,
+				186F7C8417494FBB002C0955 /* MessageGetListRequest.m */,
+				186F7C8617494FCA002C0955 /* MessageGetChatListRequest.h */,
+				186F7C8717494FCA002C0955 /* MessageGetChatListRequest.m */,
+				186F7C8917494FDC002C0955 /* MessageUpdateStateRequest.h */,
+				186F7C8A17494FDC002C0955 /* MessageUpdateStateRequest.m */,
 			);
 			path = Message;
-			sourceTree = "<group>";
-		};
-		189A54EB17454C6800906043 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
-		189A54EC17454C6800906043 /* Comment */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Comment;
 			sourceTree = "<group>";
 		};
 		189A54ED17454C7800906043 /* DataFormat */ = {
@@ -2724,6 +2728,10 @@
 				186F7C6F174916A5002C0955 /* UserRoomsView.m in Sources */,
 				186F7C791749299E002C0955 /* ChatViewController.m in Sources */,
 				186F7C7D174929F9002C0955 /* ChatCell.m in Sources */,
+				186F7C8217494D56002C0955 /* NetMessageRequest.m in Sources */,
+				186F7C8517494FBB002C0955 /* MessageGetListRequest.m in Sources */,
+				186F7C8817494FCB002C0955 /* MessageGetChatListRequest.m in Sources */,
+				186F7C8B17494FDD002C0955 /* MessageUpdateStateRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2811,8 +2819,8 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
+				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2831,7 +2839,7 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
+				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				WRAPPER_EXTENSION = app;
 			};

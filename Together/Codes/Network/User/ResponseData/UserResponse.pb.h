@@ -7,6 +7,8 @@
 
 @class DetailResponse;
 @class DetailResponse_Builder;
+@class IsExistNewMessageResponse;
+@class IsExistNewMessageResponse_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
 @class Message_Info;
@@ -269,5 +271,53 @@
 - (int32_t) messageCount;
 - (UserMessageResponse_Builder*) setMessageCount:(int32_t) value;
 - (UserMessageResponse_Builder*) clearMessageCount;
+@end
+
+@interface IsExistNewMessageResponse : PBGeneratedMessage {
+@private
+  BOOL hasIsExist_:1;
+  BOOL isExist_:1;
+}
+- (BOOL) hasIsExist;
+- (BOOL) isExist;
+
++ (IsExistNewMessageResponse*) defaultInstance;
+- (IsExistNewMessageResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (IsExistNewMessageResponse_Builder*) builder;
++ (IsExistNewMessageResponse_Builder*) builder;
++ (IsExistNewMessageResponse_Builder*) builderWithPrototype:(IsExistNewMessageResponse*) prototype;
+
++ (IsExistNewMessageResponse*) parseFromData:(NSData*) data;
++ (IsExistNewMessageResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (IsExistNewMessageResponse*) parseFromInputStream:(NSInputStream*) input;
++ (IsExistNewMessageResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (IsExistNewMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (IsExistNewMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface IsExistNewMessageResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  IsExistNewMessageResponse* result;
+}
+
+- (IsExistNewMessageResponse*) defaultInstance;
+
+- (IsExistNewMessageResponse_Builder*) clear;
+- (IsExistNewMessageResponse_Builder*) clone;
+
+- (IsExistNewMessageResponse*) build;
+- (IsExistNewMessageResponse*) buildPartial;
+
+- (IsExistNewMessageResponse_Builder*) mergeFrom:(IsExistNewMessageResponse*) other;
+- (IsExistNewMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (IsExistNewMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasIsExist;
+- (BOOL) isExist;
+- (IsExistNewMessageResponse_Builder*) setIsExist:(BOOL) value;
+- (IsExistNewMessageResponse_Builder*) clearIsExist;
 @end
 

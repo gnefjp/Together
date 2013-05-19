@@ -105,6 +105,11 @@
             self.relationWitMe = RoomRelationType_NoRelation;
 #else
             self.relationWitMe = roomInfo.joinStatus;
+            
+            if ([self.ownerID isEqualToString:[GEMTUserManager defaultManager].userInfo.userId])
+            {
+                self.relationWitMe = RoomRelationType_MyRoom;
+            }
 #endif
             
         }

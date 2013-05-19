@@ -9,12 +9,12 @@
 #ifndef Together_NetworkConfig_h
 #define Together_NetworkConfig_h
 
-#define kServerAddr         @"kc123kc.vicp.cc"
+#define kServerAddr         @"192.168.2.4"
 
 #define kHttpPort           @"9080"
 #define kFilePort           @"9081"
 #define kDownloadPort       @"9080"
 
-#define kIsSimulatedData    1
+//#define kIsSimulatedData    1
 
 #endif

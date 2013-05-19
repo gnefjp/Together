@@ -1030,3 +1030,185 @@ static UserMessageResponse* defaultUserMessageResponseInstance = nil;
 }
 @end
 
+@interface IsExistNewMessageResponse ()
+@property BOOL isExist;
+@end
+
+@implementation IsExistNewMessageResponse
+
+- (BOOL) hasIsExist {
+  return !!hasIsExist_;
+}
+- (void) setHasIsExist:(BOOL) value {
+  hasIsExist_ = !!value;
+}
+- (BOOL) isExist {
+  return !!isExist_;
+}
+- (void) setIsExist:(BOOL) value {
+  isExist_ = !!value;
+}
+- (void) dealloc {
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.isExist = NO;
+  }
+  return self;
+}
+static IsExistNewMessageResponse* defaultIsExistNewMessageResponseInstance = nil;
++ (void) initialize {
+  if (self == [IsExistNewMessageResponse class]) {
+    defaultIsExistNewMessageResponseInstance = [[IsExistNewMessageResponse alloc] init];
+  }
+}
++ (IsExistNewMessageResponse*) defaultInstance {
+  return defaultIsExistNewMessageResponseInstance;
+}
+- (IsExistNewMessageResponse*) defaultInstance {
+  return defaultIsExistNewMessageResponseInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasIsExist) {
+    [output writeBool:1 value:self.isExist];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasIsExist) {
+    size += computeBoolSize(1, self.isExist);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (IsExistNewMessageResponse*) parseFromData:(NSData*) data {
+  return (IsExistNewMessageResponse*)[[[IsExistNewMessageResponse builder] mergeFromData:data] build];
+}
++ (IsExistNewMessageResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (IsExistNewMessageResponse*)[[[IsExistNewMessageResponse builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (IsExistNewMessageResponse*) parseFromInputStream:(NSInputStream*) input {
+  return (IsExistNewMessageResponse*)[[[IsExistNewMessageResponse builder] mergeFromInputStream:input] build];
+}
++ (IsExistNewMessageResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (IsExistNewMessageResponse*)[[[IsExistNewMessageResponse builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (IsExistNewMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (IsExistNewMessageResponse*)[[[IsExistNewMessageResponse builder] mergeFromCodedInputStream:input] build];
+}
++ (IsExistNewMessageResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (IsExistNewMessageResponse*)[[[IsExistNewMessageResponse builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (IsExistNewMessageResponse_Builder*) builder {
+  return [[[IsExistNewMessageResponse_Builder alloc] init] autorelease];
+}
++ (IsExistNewMessageResponse_Builder*) builderWithPrototype:(IsExistNewMessageResponse*) prototype {
+  return [[IsExistNewMessageResponse builder] mergeFrom:prototype];
+}
+- (IsExistNewMessageResponse_Builder*) builder {
+  return [IsExistNewMessageResponse builder];
+}
+@end
+
+@interface IsExistNewMessageResponse_Builder()
+@property (retain) IsExistNewMessageResponse* result;
+@end
+
+@implementation IsExistNewMessageResponse_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[IsExistNewMessageResponse alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (IsExistNewMessageResponse_Builder*) clear {
+  self.result = [[[IsExistNewMessageResponse alloc] init] autorelease];
+  return self;
+}
+- (IsExistNewMessageResponse_Builder*) clone {
+  return [IsExistNewMessageResponse builderWithPrototype:result];
+}
+- (IsExistNewMessageResponse*) defaultInstance {
+  return [IsExistNewMessageResponse defaultInstance];
+}
+- (IsExistNewMessageResponse*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (IsExistNewMessageResponse*) buildPartial {
+  IsExistNewMessageResponse* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (IsExistNewMessageResponse_Builder*) mergeFrom:(IsExistNewMessageResponse*) other {
+  if (other == [IsExistNewMessageResponse defaultInstance]) {
+    return self;
+  }
+  if (other.hasIsExist) {
+    [self setIsExist:other.isExist];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (IsExistNewMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (IsExistNewMessageResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 8: {
+        [self setIsExist:[input readBool]];
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasIsExist {
+  return result.hasIsExist;
+}
+- (BOOL) isExist {
+  return result.isExist;
+}
+- (IsExistNewMessageResponse_Builder*) setIsExist:(BOOL) value {
+  result.hasIsExist = YES;
+  result.isExist = value;
+  return self;
+}
+- (IsExistNewMessageResponse_Builder*) clearIsExist {
+  result.hasIsExist = NO;
+  result.isExist = NO;
+  return self;
+}
+@end
+

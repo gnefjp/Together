@@ -7,7 +7,7 @@
 //
 #import "PicChange.h"
 
-#import "FileUploadRequest.h"
+#import "AsyncSocketUpload.h"
 #import "RoomCreateRequest.h"
 
 #import "RecorderView.h"
@@ -17,7 +17,7 @@
 @interface RoomCreateViewController : UIViewController <UITableViewDelegate,
                                                         UITableViewDataSource,
                                                         PicChangeDelegate,
-                                                        NetFileRequestDelegate,
+                                                        AsyncSocketUploadDelegate,
                                                         NetRoomRequestDelegate,
                                                         RecorderViewDelegate>
 {
@@ -36,6 +36,8 @@
     __weak IBOutlet UIImageView *_previewImageView;
     
     RecorderView                *_recorderView;
+    
+    AsyncSocketUpload           *_uploadFileRequest;
 }
 
 - (IBAction)closeBtnPressed:(id)sender;

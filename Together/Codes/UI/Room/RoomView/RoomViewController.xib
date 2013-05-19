@@ -322,7 +322,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">  49 条评论</string>
+								<string key="IBUIText">  聊天</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC40OTE5OTg0ODc5AA</bytes>
@@ -448,7 +448,7 @@
 									<int key="type">2</int>
 									<double key="pointSize">15</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="783187335">
+								<object class="NSFont" key="IBUIFont" id="254464434">
 									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
@@ -542,7 +542,7 @@
 						</object>
 						<reference key="IBUINormalBackgroundImage" ref="632778763"/>
 						<reference key="IBUIFontDescription" ref="896659284"/>
-						<reference key="IBUIFont" ref="783187335"/>
+						<reference key="IBUIFont" ref="254464434"/>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 548}}</string>

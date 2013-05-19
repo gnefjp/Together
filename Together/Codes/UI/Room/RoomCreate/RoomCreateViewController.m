@@ -81,10 +81,7 @@ static NSString* s_roomTypeNames[] = {
     _infoTableView.dataSource = self;
     
     _roomInfo = [[NetRoomItem alloc] init];
-    _roomInfo.perviewID = @"1";
-    _roomInfo.recordID = @"2";
     
-    _roomInfo.address.detailAddr = @"模拟哩度";
     _roomInfo.address.location = [AppSetting defaultSetting].currentLocation;
     
     [self _isShowRoomTypePicker:YES animation:NO];
@@ -654,51 +651,36 @@ static NSString* s_roomTypeNames[] = {
     {
         [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self.view ID:self];
         
-        FileUploadRequest *updateRequest = [[FileUploadRequest alloc] init];
-        updateRequest.image = img;
-        updateRequest.sid = [GEMTUserManager defaultManager].sId;
-        updateRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
-        updateRequest.delegate = self;
+        _uploadFileRequest = [[AsyncSocketUpload alloc] init];
+        _uploadFileRequest.image = img;
+        _uploadFileRequest.sid = [GEMTUserManager defaultManager].sId;
+        _uploadFileRequest.userID = [GEMTUserManager defaultManager].userInfo.userId;
+        _uploadFileRequest.delegate = self;
         
-        [[NetRequestManager defaultManager] startRequest:updateRequest];
+        [_uploadFileRequest starRequest];
     }
 }
 
 
-#pragma mark- NetFileRequestDelegate
-- (void) NetFileRequestFail:(NetFileRequest *)request
-{
-    if (request.requestType == NetFileRequestType_Upload)
-    {
-        [[TipViewManager defaultManager] showTipText:@"上传失败"
-                                           imageName:kCommonImage_FailIcon
-                                              inView:self.view
-                                                  ID:self];
-        [[TipViewManager defaultManager] hideTipWithID:self
-                                             animation:YES
-                                                 delay:1.25];
-    }
-}
-
-
-- (void) NetFileRequestSuccess:(NetFileRequest *)request
+#pragma mark- AsyncSocketUploadDelegate
+- (void)AsyncSocketUploadSuccess:(AsyncSocketUpload*)uploadObject
 {
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
     
-    if (request.requestType == NetFileRequestType_Upload)
-    {
-        FileUploadRequest* updateRequest = (FileUploadRequest *)request;
-        
-        if (updateRequest.image != nil)
-        {
-            _roomInfo.perviewID = updateRequest.fileID;
-            [_previewImageView setImage:updateRequest.image animation:YES];
-        }
-        else
-        {
-            
-        }
-    }
+    _roomInfo.perviewID = uploadObject.fileID;
+    [_previewImageView setImage:uploadObject.image animation:YES];
+}
+
+
+- (void)AsyncSocketUploadFail:(AsyncSocketUpload*)uploadObject
+{
+    [[TipViewManager defaultManager] showTipText:@"上传失败"
+                                       imageName:kCommonImage_FailIcon
+                                          inView:self.view
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self
+                                         animation:YES
+                                             delay:1.25];
 }
 
 @end

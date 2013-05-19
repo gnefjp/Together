@@ -8,7 +8,6 @@
 
 #import "RecorderView.h"
 #import "TipViewManager.h"
-#import "FileUploadRequest.h"
 #import "GEMTUserManager.h"
 
 @implementation RecorderView
@@ -197,31 +196,5 @@
     
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
 
-}
-
-
-#pragma mark- NetFileRequestDelegate
-- (void)NetFileRequestSuccess:(NetFileRequest *)request
-{
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
-    
-    FileUploadRequest *uploadRequest = (FileUploadRequest *)request;
-    
-    if ([uploadRequest.fileID length] > 0)
-    {
-        [_delegate RecorderView:self recordId:uploadRequest.fileID];
-    }
-    
-}
-
-
-- (void)NetFileRequestFail:(NetFileRequest *)request
-{
-    [[TipViewManager defaultManager] showTipText:@"上传失败"
-                                       imageName:kCommonImage_FailIcon
-                                          inView:self
-                                              ID:self];
-    
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
 }
 @end

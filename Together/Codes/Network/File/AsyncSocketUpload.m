@@ -18,6 +18,12 @@
 @synthesize requestCount = _requestCount;
 @synthesize delegate = _delegate;
 
+- (void) dealloc
+{
+    socket.delegate = nil;
+    socket = nil;
+}
+
 - (NSMutableDictionary*)_getRequestDict
 {
     NSData *fileData = nil;

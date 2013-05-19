@@ -12,6 +12,8 @@
 @class CreateRoomResponse_Builder;
 @class DetailResponse;
 @class DetailResponse_Builder;
+@class IsExistNewMessageResponse;
+@class IsExistNewMessageResponse_Builder;
 @class List;
 @class List_Builder;
 @class LoginResponse;
