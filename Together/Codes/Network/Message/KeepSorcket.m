@@ -48,7 +48,7 @@ static KeepSorcket *instance;
 - (void) sendRoomStart:(NSString*)roomId
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:[NSNumber numberWithInt:303] forKey:@"action"];
+    [dic setValue:@"303" forKey:@"action"];
     [dic setValue:[GEMTUserManager defaultManager].sId forKey:@"sid"];
     [dic setValue:roomId forKey:@"roomId"];
     [self _sendInfoWithPostString:[NSString urlArgsStringFromDictionary:dic]];

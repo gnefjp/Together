@@ -102,6 +102,8 @@
     joinBtn.hidden = isRoomEnded;
     quitBtn.hidden = isRoomEnded;
     startBtn.hidden = isRoomEnded;
+    
+    _mainScrollView.frameHeight = isRoomEnded ? 548 : 504;
 }
 
 
