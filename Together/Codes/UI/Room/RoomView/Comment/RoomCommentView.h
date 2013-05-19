@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "NetMessageRequest.h"
 
 @class RoomCommentView;
 @protocol RoomCommentViewDelegate <NSObject>
@@ -16,7 +16,7 @@
 
 @class NetRoomItem;
 @class NetMessageList;
-@interface RoomCommentView : UIView
+@interface RoomCommentView : UIView <NetMessageRequestDelegate>
 
 @property (strong, nonatomic) NetMessageList                    *commentList;
 @property (strong, nonatomic) NetRoomItem                       *roomItem;

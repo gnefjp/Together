@@ -6,12 +6,15 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 #import "TipViewManager.h"
+#import "GEMTUserManager.h"
 
 #import "RoomCommentView.h"
 #import "RoomCommentCell.h"
 
 #import "NetRoomList.h"
 #import "NetMessageList.h"
+
+#import "MessageGetChatListRequest.h"
 
 @implementation RoomCommentView
 
@@ -139,6 +142,85 @@
 }
 
 
-#pragma mark- 
+#pragma mark- request
+- (void) _getCommentsWithDirect:(GetListDirect)getListDirect
+{
+    MessageGetChatListRequest *getListRequest = [[MessageGetChatListRequest alloc] init];
+    getListRequest.delegate = self;
+    
+    getListRequest.getMessagetType = GetMessageType_Group;
+    getListRequest.msgNum = 10;
+    getListRequest.recipientID = [GEMTUserManager defaultManager].userInfo.userId;
+    getListRequest.roomID = _roomItem.ID;
+    getListRequest.getListDirect = getListDirect;
+    
+    
+    switch (getListDirect)
+    {
+        case GetListDirect_Before:
+        {
+            int i = _commentList.list.count - 1;
+            while (i >= 0)
+            {
+                NetMessageItem *item = (NetMessageItem *)[_commentList itemAtIndex:i];
+                if (![item.ID hasPrefix:@"local_"])
+                {
+                    getListRequest.currentID = item.ID;
+                    break;
+                }
+                
+                -- i;
+            }
+            
+            if (i < 0)
+            {
+                getListRequest.getListDirect = GetListDirect_Last;
+                getListRequest.currentID = @"test";
+            }
+            break;
+        }
+        case GetListDirect_Later:
+        {
+            int i = 0, len = _commentList.list.count;
+            while (i < len)
+            {
+                NetMessageItem *item = (NetMessageItem *)[_commentList itemAtIndex:i];
+                if (![item.ID hasPrefix:@"local_"])
+                {
+                    getListRequest.currentID = item.ID;
+                    break;
+                }
+                
+                ++ i;
+            }
+            
+            if (i == len)
+            {
+                getListRequest.getListDirect = GetListDirect_Last;
+                getListRequest.currentID = @"test";
+            }
+            break;
+        }
+        default:
+        {
+            getListRequest.currentID = @"test";
+            break;
+        }
+    }
+}
+
+
+
+#pragma mark- NetMessageRequestDelegate
+- (void) NetMessageRequestFail:(NetRequest *)request
+{
+    
+}
+
+
+- (void) NetMessageRequestSuccess:(NetRequest *)request
+{
+    
+}
 
 @end
