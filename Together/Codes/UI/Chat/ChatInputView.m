@@ -53,6 +53,7 @@
 - (void) setIsTextInput:(BOOL)isTextInput
 {
     _isTextInput = isTextInput;
+    _recorderView.userInteractionEnabled = !isTextInput;
     
     NSString *btnImages[] = {
         @"chat_toolbar_text_btn",
@@ -153,6 +154,11 @@
     
     self.frameY = -keyHeight;
     
+    if ([_delegate respondsToSelector:@selector(ChatInputView:changeOriginY:)])
+    {
+        [_delegate ChatInputView:self changeOriginY:self.frameY];
+    }
+    
     [UIView commitAnimations];
 }
 
@@ -166,6 +172,11 @@
     [UIView setAnimationDuration:duration];
     
     self.frameY = 0.0;
+    
+    if ([_delegate respondsToSelector:@selector(ChatInputView:changeOriginY:)])
+    {
+        [_delegate ChatInputView:self changeOriginY:self.frameY];
+    }
     
     [UIView commitAnimations];
 }

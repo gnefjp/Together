@@ -11,6 +11,9 @@
 #import "RoomCreateViewController.h"
 #import "GEMTUserManager.h"
 
+
+#import "ChatViewController.h"
+
 @implementation RoomListView
 @synthesize delegate = _delegate;
 
@@ -27,10 +30,17 @@
 
 - (IBAction)showNavigationDidPressed:(id)sender
 {
-    if ([_delegate respondsToSelector:@selector(RoomListViewShowNavigation:)])
-    {
-        [_delegate RoomListViewShowNavigation:self];
-    }
+//    if ([_delegate respondsToSelector:@selector(RoomListViewShowNavigation:)])
+//    {
+//        [_delegate RoomListViewShowNavigation:self];
+//    }
+    
+    // 测试
+    
+    ChatViewController *chatViewController = [ChatViewController loadFromNib];
+    [[UIView rootController] pushViewController:chatViewController animated:YES];
+    chatViewController.userID = @"2";
+    chatViewController.nickname = @"测试用户";
 }
 
 

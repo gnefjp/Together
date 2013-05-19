@@ -15,6 +15,8 @@
 - (void) ChatInputView:(ChatInputView *)chatInputView
                content:(NSString *)content
                 isText:(BOOL)isText;
+
+- (void) ChatInputView:(ChatInputView *)chatInputView changeOriginY:(CGFloat)originY;
 @end
 
 

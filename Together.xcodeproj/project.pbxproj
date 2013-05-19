@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		186F7C6F174916A5002C0955 /* UserRoomsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C6E174916A5002C0955 /* UserRoomsView.m */; };
 		186F7C71174916AE002C0955 /* UserRoomsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C70174916AE002C0955 /* UserRoomsView.xib */; };
+		186F7C7417492962002C0955 /* chat_bg_a.png in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C7217492962002C0955 /* chat_bg_a.png */; };
+		186F7C7517492962002C0955 /* chat_bg_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C7317492962002C0955 /* chat_bg_b.png */; };
+		186F7C791749299E002C0955 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C771749299E002C0955 /* ChatViewController.m */; };
+		186F7C7A1749299E002C0955 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C781749299E002C0955 /* ChatViewController.xib */; };
+		186F7C7D174929F9002C0955 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F7C7C174929F9002C0955 /* ChatCell.m */; };
+		186F7C7F17492A01002C0955 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F7C7E17492A01002C0955 /* ChatCell.xib */; };
 		189A54D21745049200906043 /* JoinPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D01745049200906043 /* JoinPersonViewController.m */; };
 		189A54D31745049200906043 /* JoinPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189A54D11745049200906043 /* JoinPersonViewController.xib */; };
 		189A54D717450F0400906043 /* JoinPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A54D617450F0400906043 /* JoinPersonCell.m */; };
@@ -277,6 +283,14 @@
 		186F7C6D174916A5002C0955 /* UserRoomsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRoomsView.h; sourceTree = "<group>"; };
 		186F7C6E174916A5002C0955 /* UserRoomsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRoomsView.m; sourceTree = "<group>"; };
 		186F7C70174916AE002C0955 /* UserRoomsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserRoomsView.xib; sourceTree = "<group>"; };
+		186F7C7217492962002C0955 /* chat_bg_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_bg_a.png; sourceTree = "<group>"; };
+		186F7C7317492962002C0955 /* chat_bg_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_bg_b.png; sourceTree = "<group>"; };
+		186F7C761749299E002C0955 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		186F7C771749299E002C0955 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		186F7C781749299E002C0955 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		186F7C7B174929F9002C0955 /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		186F7C7C174929F9002C0955 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		186F7C7E17492A01002C0955 /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		189A54CF1745049200906043 /* JoinPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonViewController.h; sourceTree = "<group>"; };
 		189A54D01745049200906043 /* JoinPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonViewController.m; sourceTree = "<group>"; };
 		189A54D11745049200906043 /* JoinPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonViewController.xib; sourceTree = "<group>"; };
@@ -1137,6 +1151,8 @@
 		189A54F11745569600906043 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				186F7C7217492962002C0955 /* chat_bg_a.png */,
+				186F7C7317492962002C0955 /* chat_bg_b.png */,
 				189A5502174569FE00906043 /* chat_recorder_cancel_a.png */,
 				189A5503174569FE00906043 /* chat_recorder_cancel_b.png */,
 				189A5504174569FE00906043 /* chat_recorder_cancel_bg.png */,
@@ -1917,6 +1933,12 @@
 				189A54DB1745259F00906043 /* ChatInputView.h */,
 				189A54DC1745259F00906043 /* ChatInputView.m */,
 				189A54DE174525A800906043 /* ChatInputView.xib */,
+				186F7C7B174929F9002C0955 /* ChatCell.h */,
+				186F7C7C174929F9002C0955 /* ChatCell.m */,
+				186F7C7E17492A01002C0955 /* ChatCell.xib */,
+				186F7C761749299E002C0955 /* ChatViewController.h */,
+				186F7C771749299E002C0955 /* ChatViewController.m */,
+				186F7C781749299E002C0955 /* ChatViewController.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -2556,6 +2578,10 @@
 				3816BE0717467B5200EA7DDC /* RecorderView.xib in Resources */,
 				38462E831747255A00643361 /* usercenter_juxing_a.png in Resources */,
 				186F7C71174916AE002C0955 /* UserRoomsView.xib in Resources */,
+				186F7C7417492962002C0955 /* chat_bg_a.png in Resources */,
+				186F7C7517492962002C0955 /* chat_bg_b.png in Resources */,
+				186F7C7A1749299E002C0955 /* ChatViewController.xib in Resources */,
+				186F7C7F17492A01002C0955 /* ChatCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2696,6 +2722,8 @@
 				382422491747B7720050CB82 /* GCDAsyncUdpSocket.m in Sources */,
 				3824224C1747BE630050CB82 /* AsyncSocketUpload.m in Sources */,
 				186F7C6F174916A5002C0955 /* UserRoomsView.m in Sources */,
+				186F7C791749299E002C0955 /* ChatViewController.m in Sources */,
+				186F7C7D174929F9002C0955 /* ChatCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
