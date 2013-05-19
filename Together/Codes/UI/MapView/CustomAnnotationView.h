@@ -12,11 +12,11 @@
 
 @interface CustomAnnotationView : MKPinAnnotationView
 {
-    MapCustomView           *_mapView;
+    MapCustomView           *_mapCellView;
 }
 
 @property (strong, nonatomic) UIImageView             *calloutView;
-@property (strong, nonatomic) MapCustomView           *mapView;
+@property (strong, nonatomic) MapCustomView           *mapCellView;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 

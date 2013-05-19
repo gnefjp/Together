@@ -11,6 +11,7 @@
 #import "HomeViewController.h"
 
 #import "FileDownloadRequest.h"
+#import "KeepSorcket.h"
 
 @implementation TogetherAppDelegate
 
@@ -55,6 +56,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [[KeepSorcket defaultManager] connectToHost];
 }
 
 

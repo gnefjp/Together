@@ -16,6 +16,7 @@
 #import "UserEditUserInfoView.h"
 #import "AsyncSocketUpload.h"
 #import "FileDownloadRequest.h"
+#import "RoomMapView.h"
 
 @class GMETRecorder;
 @class GEMTUserInfo;
@@ -65,6 +66,7 @@ typedef enum
 //请求目录
 - (void)viewUserInfoWithUserId:(NSString*)aUserId;
 - (IBAction)closeBtnDidPressed:(id)sender;
+- (IBAction)addMap:(id)sender;
 
 - (void)changeUserInfo:(GEMTUserInfo*)aUserInfo;
 - (IBAction)viewOtherInfo:(id)sender;

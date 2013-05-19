@@ -9,6 +9,7 @@
 #import "NetRoomRequest.h"
 #import "NetRoomList.h"
 #import "SRRefreshView.h"
+#import "RoomMapView.h"
 
 @class GridBottomView;
 @interface RoomGridView : UIView <NetRoomRequestDelegate, SRRefreshDelegate>
@@ -34,5 +35,6 @@
 
 - (IBAction)roomTypeSelected:(id)sender;
 - (IBAction)distanceSelected:(id)sender;
+- (IBAction)showMapView:(id)sender;
 
 @end

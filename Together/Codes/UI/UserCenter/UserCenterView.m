@@ -36,7 +36,7 @@
     _iFollowLb.text = _userInfo.followNum;
     _iFansLb.text = _userInfo.followedNum;
     
-    [_iAvatarImage setImageWithFileID:_userInfo.avataId placeholderImage:[UIImage imageNamed:@"user_default_avatar.png"]];
+    [_iAvatarImage setImageWithFileID:_userInfo.avataId placeholderImage:[UIImage imageNamed:kDefaultUserAvatar]];
     
     if ([_userInfo.userId isEqualToString:[GEMTUserManager defaultManager].userInfo.userId])
     {
@@ -195,6 +195,13 @@
      {
          [self removeFromSuperview];
      }];
+}
+
+- (IBAction)addMap:(id)sender
+{
+    RoomMapView *mapView  = [RoomMapView loadFromNib];
+    [self addSubview:mapView];
+    
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "UserLoginView.h"
 #import "GEMTUserManager.h"
+#import "KeepSorcket.h"
 
 @implementation UserLoginView
 @synthesize delegate = _delegate;
@@ -82,7 +83,7 @@
     [[TipViewManager defaultManager] hideTipWithID:self
                                          animation:YES
                                              delay:1];
-    
+    [[KeepSorcket defaultManager] connectToHost];
     [self closeBtnDidPressed:nil];
 }
 

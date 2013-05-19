@@ -7,10 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetRoomList.h"
 
 @interface MapCustomView : UIView
+{
+    
+}
 
-@property (strong, nonatomic) IBOutlet UIImageView      *_iTypeImage;
-@property (strong, nonatomic) IBOutlet UILabel          *_iLb;
+
+
+@property (weak, nonatomic)   IBOutlet UIImageView      *iRoomImg;
+@property (weak, nonatomic)   IBOutlet UILabel          *iCreator;
+@property (weak, nonatomic)   IBOutlet UILabel          *iStarDate;
+@property (weak, nonatomic)   IBOutlet UILabel          *iPeopleCount;
+@property (strong, nonatomic) NetRoomItem               *roomItem;
+
+- (void) refreshRomm:(NetRoomItem*)roomItem;
+- (IBAction)createRoomController:(id)sender;
 
 @end

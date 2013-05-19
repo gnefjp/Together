@@ -31,7 +31,7 @@ static GEMTUserManager *instance;
 - (NSString*)sId
 {
     // 测试
-    return @"b7fbee9a885057aa638df19ecfccb5ba";
+//    return @"b7fbee9a885057aa638df19ecfccb5ba";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _sId = [defaults valueForKey:@"aSid"];

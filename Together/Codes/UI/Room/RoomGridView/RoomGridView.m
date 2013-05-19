@@ -102,6 +102,19 @@
     picker.type = SearchPickerType_Distance;
 }
 
+- (IBAction)showMapView:(id)sender
+{
+    RoomMapView *mapView = [RoomMapView loadFromNib];
+    [self.superview addSubview:mapView];
+    [mapView reloadMapData:_roomList];
+    mapView.frameOrigin = CGPointMake(320, 0);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         mapView.frameOrigin = CGPointMake(0, 0);
+     }];
+
+}
+
 
 - (void) _setRange:(int)rangeIndex
 {

@@ -14,7 +14,7 @@
 #define kHttpPort           @"9080"
 #define kFilePort           @"9081"
 #define kDownloadPort       @"9080"
-
+#define kKeepPort           @"9082"
 //#define kIsSimulatedData    1
 
 #endif

@@ -49,7 +49,6 @@
 {
     // 数据处理
     NSLog(@"nickname : %@", self.responseData.loginResponse.userInfo.nickName);
-    
     [self.delegate NetUserRequestSuccess:self];
 }
 

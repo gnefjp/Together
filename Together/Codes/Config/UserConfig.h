@@ -11,9 +11,13 @@
 
 #define kDefaultUserAvatar                  @"user_default_avatar.png"
 
+
 #define kNotification_userDidLogin          @"Notification_userDidLogin"
 #define kNotification_userDidLoginOut       @"Notification_userDidLoginOut"
 
+#define kNotification_SendUserMsgSuccess    @"Notification_SendUserMsgSuccess"
+#define kNotification_SendGroupMsgSuccess   @"Notification_SendGroupMsgSuccess"
+#define kNotification_StartRoomSuccess      @"kNotification_StartRoomSuccess"
 
 typedef enum
 {
