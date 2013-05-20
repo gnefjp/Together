@@ -155,7 +155,7 @@
     
     [[TipViewManager defaultManager] hideTipWithID:self
                                          animation:YES];
-    [_delegate UserRegistViewBack:self];
+    [_delegate UserRegistViewBack:self userName:_iUserName.text];
 }
 
 - (void)NetUserRequestFail:(NetUserRequest *)request
@@ -183,6 +183,13 @@
     [[TipViewManager defaultManager] hideTipWithID:self
                                          animation:YES
                                              delay:1];
+}
+
+- (void)resetInfo
+{
+    _iUserName.text = @"";
+    _iPassWord.text = @"";
+    _iRePassWord.text = @"";
 }
 
 - (IBAction)submitBtnDidPressedInfo:(id)sender

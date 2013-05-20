@@ -36,7 +36,7 @@
     cutView.center = CGPointMake(160, 290*3);
     [UIView animateWithDuration:0.4 animations:^(void)
      {
-         cutView.center = CGPointMake(160, 295);
+         cutView.center = CGPointMake(160, 294);
      }];
 }
 

@@ -68,24 +68,25 @@
         switch (ano.roomInfo.roomType)
         {
             case RoomType_BRPG:
-                imageName = @"roomtype_brpg.png";
+                imageName = @"map_roomtype_brpg.png";
                 break;
             case RoomType_Catering:
-                 imageName = @"roomtype_catering.png";
+                 imageName = @"map_roomtype_catering.png";
                 break;
             case RoomType_Sports:
-                 imageName = @"roomtype_sports.png";
+                 imageName = @"map_roomtype_sports.png";
                 break;
             case RoomType_Shopping:
-                 imageName = @"roomtype_shopping.png";
+                 imageName = @"map_roomtype_shopping.png";
                 break;
             case RoomType_Movie:
-                 imageName = @"roomtype_movie.png";
+                 imageName = @"map_roomtype_movie.png";
                 break;
             default:
-                imageName = @"roomtype_other.png";
+                imageName = @"map_roomtype_other.png";
                 break;
         }
+        
         pinView.image = [UIImage imageNamed:imageName];
         return pinView;
     }

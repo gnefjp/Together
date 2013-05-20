@@ -19,7 +19,6 @@
     _iPassWordTextFiled.delegate = self;
     [_iUserNameFiled becomeFirstResponder];
     _isLogin = YES;
-    
     [_iPassWordTextFiled setSecureTextEntry:YES];
 }
 
@@ -36,6 +35,7 @@
         {
             _iRegistView.center = CGPointMake(160*3,_iLoginView.center.y);
             _iLoginView.center = CGPointMake(160,_iLoginView.center.y);
+            
         }];
     }
 }
@@ -53,7 +53,7 @@
         _iRegistView.delegate =self;
         _iRegistView.center = CGPointMake(160*3,_iLoginView.center.y);
     }
-    
+    [_iRegistView resetInfo];
     [UIView animateWithDuration:0.4 animations:^(void)
      {
          _iRegistView.center = CGPointMake(160,_iLoginView.center.y);
@@ -62,8 +62,11 @@
 
 }
 
-- (void)UserRegistViewBack:(UserRegistView *)v
+- (void)UserRegistViewBack:(UserRegistView *)v userName:(NSString *)aUserName
 {
+    _iUserNameFiled.text = aUserName;
+    [self checkUserName];
+    [_iPassWordTextFiled becomeFirstResponder];
     [self closeBtnDidPressed:nil];
 }
 - (void)NetUserRequestSuccess:(NetUserRequest *)request
@@ -166,13 +169,13 @@
     if (_iPassWordTextFiled.text.length<6)
     {
         [_iPassWordTipInfo setHidden:NO];
-        _iPassWordTipInfo.text = @"提示信息:帐号小于6个字符";
+        _iPassWordTipInfo.text = @"提示信息:密码小于6个字符";
         return NO;
     }
     else if (_iPassWordTextFiled.text.length>15)
     {
         [_iPassWordTipInfo setHidden:NO];
-        _iPassWordTipInfo.text = @"提示信息:帐号大于15个字符";
+        _iPassWordTipInfo.text = @"提示信息:密码大于15个字符";
         return NO;
     }
     else

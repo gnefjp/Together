@@ -229,6 +229,12 @@
 		38050D8017495F7800324FBF /* RoomMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38050D7E17495F7800324FBF /* RoomMapView.xib */; };
 		38050D8517496BAC00324FBF /* KeepSorcket.m in Sources */ = {isa = PBXBuildFile; fileRef = 38050D8417496BAC00324FBF /* KeepSorcket.m */; };
 		38092DDC174A8E7A00891F9C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38092DDB174A8E7A00891F9C /* AudioToolbox.framework */; };
+		38092E00174A957900891F9C /* map_roomtype_brpg.png in Resources */ = {isa = PBXBuildFile; fileRef = 38092DFA174A957900891F9C /* map_roomtype_brpg.png */; };
+		38092E01174A957900891F9C /* map_roomtype_catering.png in Resources */ = {isa = PBXBuildFile; fileRef = 38092DFB174A957900891F9C /* map_roomtype_catering.png */; };
+		38092E02174A957900891F9C /* map_roomtype_movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 38092DFC174A957900891F9C /* map_roomtype_movie.png */; };
+		38092E03174A957900891F9C /* map_roomtype_other.png in Resources */ = {isa = PBXBuildFile; fileRef = 38092DFD174A957900891F9C /* map_roomtype_other.png */; };
+		38092E04174A957900891F9C /* map_roomtype_shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 38092DFE174A957900891F9C /* map_roomtype_shopping.png */; };
+		38092E05174A957900891F9C /* map_roomtype_sports.png in Resources */ = {isa = PBXBuildFile; fileRef = 38092DFF174A957900891F9C /* map_roomtype_sports.png */; };
 		3811FB5F17266B6800ED1DD7 /* KICropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5C17266B6800ED1DD7 /* KICropImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3811FB6017266B6800ED1DD7 /* UIImage+KIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB5E17266B6800ED1DD7 /* UIImage+KIAdditions.m */; };
 		3816BE0617467B5200EA7DDC /* RecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3816BE0417467B5200EA7DDC /* RecorderView.m */; };
@@ -1017,6 +1023,12 @@
 		38050D8317496BAC00324FBF /* KeepSorcket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepSorcket.h; sourceTree = "<group>"; };
 		38050D8417496BAC00324FBF /* KeepSorcket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeepSorcket.m; sourceTree = "<group>"; };
 		38092DDB174A8E7A00891F9C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		38092DFA174A957900891F9C /* map_roomtype_brpg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_roomtype_brpg.png; sourceTree = "<group>"; };
+		38092DFB174A957900891F9C /* map_roomtype_catering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_roomtype_catering.png; sourceTree = "<group>"; };
+		38092DFC174A957900891F9C /* map_roomtype_movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_roomtype_movie.png; sourceTree = "<group>"; };
+		38092DFD174A957900891F9C /* map_roomtype_other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_roomtype_other.png; sourceTree = "<group>"; };
+		38092DFE174A957900891F9C /* map_roomtype_shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_roomtype_shopping.png; sourceTree = "<group>"; };
+		38092DFF174A957900891F9C /* map_roomtype_sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_roomtype_sports.png; sourceTree = "<group>"; };
 		3811FB5B17266B6800ED1DD7 /* KICropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KICropImageView.h; sourceTree = "<group>"; };
 		3811FB5C17266B6800ED1DD7 /* KICropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KICropImageView.m; sourceTree = "<group>"; };
 		3811FB5D17266B6800ED1DD7 /* UIImage+KIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KIAdditions.h"; sourceTree = "<group>"; };
@@ -1329,6 +1341,7 @@
 		18BFDFD31724572B00186828 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38092DDD174A93F600891F9C /* Map */,
 				189A54F11745569600906043 /* Chat */,
 				38F11FF9173BD97E0079DD91 /* User */,
 				18D5D0B6172BAF7A00799BF7 /* Common */,
@@ -2332,6 +2345,19 @@
 			path = ThirdPart;
 			sourceTree = "<group>";
 		};
+		38092DDD174A93F600891F9C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				38092DFA174A957900891F9C /* map_roomtype_brpg.png */,
+				38092DFB174A957900891F9C /* map_roomtype_catering.png */,
+				38092DFC174A957900891F9C /* map_roomtype_movie.png */,
+				38092DFD174A957900891F9C /* map_roomtype_other.png */,
+				38092DFE174A957900891F9C /* map_roomtype_shopping.png */,
+				38092DFF174A957900891F9C /* map_roomtype_sports.png */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		3811FB5A17266B6800ED1DD7 /* CropImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2695,6 +2721,12 @@
 				18C11574174A7CB200703306 /* roomtype_shopping.png in Resources */,
 				18C11575174A7CB200703306 /* roomtype_sports.png in Resources */,
 				18C11577174A85D000703306 /* common_meun_icon.png in Resources */,
+				38092E00174A957900891F9C /* map_roomtype_brpg.png in Resources */,
+				38092E01174A957900891F9C /* map_roomtype_catering.png in Resources */,
+				38092E02174A957900891F9C /* map_roomtype_movie.png in Resources */,
+				38092E03174A957900891F9C /* map_roomtype_other.png in Resources */,
+				38092E04174A957900891F9C /* map_roomtype_shopping.png in Resources */,
+				38092E05174A957900891F9C /* map_roomtype_sports.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2938,8 +2970,8 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
+				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2958,7 +2990,7 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
+				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				WRAPPER_EXTENSION = app;
 			};

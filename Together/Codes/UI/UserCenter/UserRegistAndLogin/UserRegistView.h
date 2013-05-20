@@ -14,7 +14,7 @@
 
 @protocol UserRegistViewDelegate <NSObject>
 
-- (void)UserRegistViewBack:(UserRegistView*)v;
+- (void)UserRegistViewBack:(UserRegistView*)v userName:(NSString*)aUserName;
 
 @end
 
@@ -32,7 +32,7 @@
 
 @property (weak , nonatomic)  __weak id<UserRegistViewDelegate>   delegate;
 
-
+- (void)resetInfo;
 - (IBAction)submitBtnDidPressedInfo:(id)sender;
 
 @end

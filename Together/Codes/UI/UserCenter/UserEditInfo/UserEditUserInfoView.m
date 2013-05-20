@@ -62,9 +62,11 @@
     switch (indexPath.row) {
         case 0:
         {
-            [self _showInfoFillViewWithType:InfoFillType_TextField
+            InfoFillInViewController *fillView = [self _showInfoFillViewWithType:InfoFillType_TextField
                                       title:@"昵称"
                                         tag:0];
+            fillView.textMaxLength = 15;
+            [fillView textValue:[GEMTUserManager defaultManager].userInfo.nickName];
             break;
         }
         case 1:
