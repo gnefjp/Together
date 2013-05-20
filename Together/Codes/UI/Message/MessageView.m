@@ -14,6 +14,7 @@
 #import "MessageView.h"
 
 #import "ChatViewController.h"
+#import "MessageUpdateStateRequest.h"
 
 @implementation MessageView
 @synthesize delegate = _delegate;
@@ -52,32 +53,10 @@
 #pragma mark- request
 - (void) _refreshData
 {
-    for (int i = 0; i < 150; i++)
-    {
-        NetMessageItem *item = [[NetMessageItem alloc] init];
-        item.ID = [NSString stringWithFormat:@"locak_%p", item];
-        item.messageType = MessageType_Text;
-        item.content = @"非常非常长的中文测试非常非常长的中文测试非常非常长的中文测试";
-        item.senderID = @"2";
-        item.senderNickname = @"测试账号";
-        item.senderAvatarID = @"1";
-        item.unreadNum = i % 150 + 1;
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        item.sendTime = [dateFormatter stringFromDate:[NSDate date]];
-        
-        item.receiverID = [GEMTUserManager defaultManager].userInfo.userId;
-        
-        [_messageList addItem:item];
-    }
-    
-    [_messageTableView reloadData];
-    
-    return;
     [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self ID:self];
     
     MessageGetListRequest *getListRequest = [[MessageGetListRequest alloc] init];
+    getListRequest.delegate = self;
     getListRequest.recipinetID = [GEMTUserManager defaultManager].userInfo.userId;
     
     [[NetRequestManager defaultManager] startRequest:getListRequest];
@@ -100,7 +79,17 @@
 {
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
     
-    // TODO: 获取成功
+    [_messageList addItemList:request.responseData direct:GetListDirect_Last];
+    [_messageTableView reloadData];
+}
+
+
+- (NSString *) _culRoomIDWithTargetID:(NSString *)targetID
+{
+    int target = [targetID intValue];
+    int mine = [[GEMTUserManager defaultManager].userInfo.userId intValue];
+    
+    return [NSString stringWithFormat:@"%d%d", MIN(target, mine), MAX(target, mine)];
 }
 
 
@@ -109,6 +98,9 @@
 {
     NetMessageItem *item = (NetMessageItem *) [_messageList itemAtIndex:indexPath.row];
     item.unreadNum = 0;
+    
+    MessageUpdateStateRequest *updateMsgState = [[MessageUpdateStateRequest alloc] init];
+    updateMsgState.roomID = [self _culRoomIDWithTargetID:item.senderID];
     
     ChatViewController *chatViewController = [ChatViewController loadFromNib];
     [[UIView rootController] pushViewController:chatViewController animated:YES];

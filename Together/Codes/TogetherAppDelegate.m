@@ -13,6 +13,8 @@
 #import "FileDownloadRequest.h"
 #import "KeepSorcket.h"
 
+#import "ATTimerManager.h"
+
 @implementation TogetherAppDelegate
 
 
@@ -51,12 +53,15 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    [[ATTimerManager shardManager] pauseAllTimers];
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [[KeepSorcket defaultManager] connectToHost];
+    
+    [[ATTimerManager shardManager] resumeAllTimers];
 }
 
 

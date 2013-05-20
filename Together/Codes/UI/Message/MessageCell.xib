@@ -157,7 +157,6 @@
 								</object>
 								<reference key="IBUIHighlightedColor" ref="373920596"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<int key="IBUINumberOfLines">1000</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<string key="name">ArialMT</string>
 									<string key="family">Arial</string>
@@ -170,7 +169,6 @@
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-								<double key="preferredMaxLayoutWidth">250</double>
 							</object>
 							<object class="IBUIImageView" id="642029645">
 								<reference key="NSNextResponder" ref="57004751"/>

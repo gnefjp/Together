@@ -8,15 +8,19 @@
 #import "TipViewManager.h"
 #import "GEMTUserManager.h"
 
+#import "MessageGetChatListRequest.h"
+
 #import "ChatInputView.h"
 #import "NetMessageList.h"
 
 #import "ChatViewController.h"
 
 #import "ChatCell.h"
+#import "KeepSorcket.h"
 
 @implementation ChatViewController
 
+#define kTopRefreshHeight       10
 
 - (void) dealloc
 {
@@ -52,6 +56,10 @@
     _chatTableView.delegate = self;
     _chatTableView.dataSource = self;
     
+    _refreshView = [[SRRefreshView alloc] init];
+    _refreshView.delegate = self;
+    _refreshView.upInset = kTopRefreshHeight;
+    [_chatTableView addSubview:_refreshView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(_refreshData)
@@ -64,7 +72,7 @@
 {
     _userID = userID;
     
-    [self refreshData];
+    [self _refreshData];
 }
 
 
@@ -73,6 +81,15 @@
     _nickname = nickname;
     
     _targetNicknameLabel.text = _nickname;
+}
+
+
+- (NSString *) _culRoomID
+{
+    int myID = [[GEMTUserManager defaultManager].userInfo.userId intValue];
+    int targetID = [_userID intValue];
+    
+    return [NSString stringWithFormat:@"%d%d", myID, targetID];
 }
 
 
@@ -100,13 +117,20 @@
     
     [self _reloadData];
     
-    // TODO: 网络请求
+    [[KeepSorcket defaultManager] sendMsgWithSenderId:messageItem.senderID
+                                             receipId:messageItem.receiverID
+                                               roomId:[self _culRoomID]
+                                              msgType:GetMessageType_Single
+                                              content:messageItem.content];
 }
 
 
 - (void) ChatInputView:(ChatInputView *)chatInputView changeOriginY:(CGFloat)originY
 {
     _chatTableView.frameHeight = 456.0 + originY;
+    
+    CGFloat offsetY = _chatTableView.contentSize.height - _chatTableView.frameHeight;
+    _chatTableView.contentOffset = CGPointMake(0, MAX(0.0, offsetY));
 }
 
 
@@ -126,19 +150,105 @@
 }
 
 
-- (void) refreshData
+- (void) _refreshData
 {
+    [self _getChatsWithDirect:GetListDirect_Last];
+}
+
+
+- (void) _getChatsWithDirect:(GetListDirect)getListDirect
+{
+    MessageGetChatListRequest *getListRequest = [[MessageGetChatListRequest alloc] init];
+    getListRequest.delegate = self;
     
+    getListRequest.getMessagetType = GetMessageType_Group;
+    getListRequest.msgNum = 10;
+    getListRequest.recipientID = [GEMTUserManager defaultManager].userInfo.userId;
+    getListRequest.roomID = [self _culRoomID];
+    getListRequest.getListDirect = getListDirect;
+    
+    
+    switch (getListDirect)
+    {
+        case GetListDirect_Before:
+        {
+            int i = _chatList.list.count - 1;
+            while (i >= 0)
+            {
+                NetMessageItem *item = (NetMessageItem *)[_chatList itemAtIndex:i];
+                if (![item.ID hasPrefix:@"local_"])
+                {
+                    getListRequest.currentID = item.ID;
+                    break;
+                }
+                
+                -- i;
+            }
+            
+            if (i < 0)
+            {
+                getListRequest.getListDirect = GetListDirect_Last;
+                getListRequest.currentID = @"0";
+            }
+            break;
+        }
+        case GetListDirect_Later:
+        {
+            int i = 0, len = _chatList.list.count;
+            while (i < len)
+            {
+                NetMessageItem *item = (NetMessageItem *)[_chatList itemAtIndex:i];
+                if (![item.ID hasPrefix:@"local_"])
+                {
+                    getListRequest.currentID = item.ID;
+                    break;
+                }
+                
+                ++ i;
+            }
+            
+            if (i == len)
+            {
+                getListRequest.getListDirect = GetListDirect_Last;
+                getListRequest.currentID = @"0";
+            }
+            break;
+        }
+        default:
+        {
+            getListRequest.currentID = @"0";
+            break;
+        }
+    }
+    
+    [[NetRequestManager defaultManager] startRequest:getListRequest];
 }
 
 
-- (void) _getChatsOnPage:(NSInteger)page
+#pragma mark- NetMessageRequestDelegate
+- (void) NetMessageRequestFail:(NetRequest *)request
 {
-    // TODO: 发出请求
+    [_refreshView endRefresh];
+    
+    [[TipViewManager defaultManager] showTipText:@"获取列表失败"
+                                       imageName:kCommonImage_FailIcon
+                                          inView:self.view
+                                              ID:self];
+    
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
 }
 
 
-#pragma mark- CallBack
+- (void) NetMessageRequestSuccess:(NetRequest *)request
+{
+    [_refreshView endRefresh];
+    
+    MessageGetChatListRequest *getListRequest = (MessageGetChatListRequest *)request;
+    
+    [_chatList addItemList:getListRequest.responseData direct:getListRequest.getListDirect];
+    
+    [self _reloadData];
+}
 
 
 
@@ -177,6 +287,28 @@
     cell.messageItem = (NetMessageItem *)[_chatList itemAtIndex:indexPath.row];
     
     return cell;
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y < 0)
+    {
+        [_refreshView scrollViewDidScroll];
+    }
+}
+
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	[_refreshView scrollViewDidEndDraging];
+}
+
+
+#pragma mark- SRRefreshViewDelegate
+- (void) slimeRefreshStartRefresh:(SRRefreshView *)refreshView
+{
+    [self _getChatsWithDirect:GetListDirect_Before];
 }
 
 

@@ -80,4 +80,5 @@ typedef enum
 - (IBAction)showMapViewBtnDidpressed:(id)sender;
 - (IBAction)editInfoBtnDidPressed:(id)sender;
 
+- (IBAction)sendMsgBtnDidPressed:(id)sender;
 @end

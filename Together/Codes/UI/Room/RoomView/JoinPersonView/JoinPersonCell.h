@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "NetUserRequest.h"
 
 @class NetUserItem;
-@interface JoinPersonCell : UITableViewCell
+@interface JoinPersonCell : UITableViewCell <NetUserRequestDelegate>
 
 @property (strong, nonatomic) NetUserItem           *userItem;
 

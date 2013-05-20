@@ -11,5 +11,7 @@
 @interface MessageUpdateStateRequest : NetMessageRequest
 
 @property (copy, nonatomic) NSString    *msgID;
+@property (copy, nonatomic) NSString    *roomID;
+@property (copy, nonatomic) NSString    *recipientId;
 
 @end

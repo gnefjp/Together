@@ -38,6 +38,8 @@
 #pragma mark- NSString
 @interface NSString (CommonTool)
 
+- (NSString *) startTimeIntervalWithClient;
+
 - (NSString *) startTimeIntervalWithServer;
 - (NSString *) timeIntervalWithServer;
 

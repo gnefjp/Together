@@ -7,6 +7,7 @@
 //
 #import "CommonTool.h"
 #import "TipViewManager.h"
+#import "AppSetting.h"
 
 #import "NetMessageList.h"
 
@@ -16,13 +17,14 @@
 
 #import "GEMTUserManager.h"
 
-#import "RoomJoinRequest.h"
-#import "RoomQuitReqeust.h"
 #import "RoomCommentView.h"
 
 #import "KeepSorcket.h"
 
 #import "NetFileManager.h"
+
+#import "UserUnFollowRequest.h"
+#import "UserFollowRequest.h"
 
 #define kJoin_BtnTag        1000
 #define kQuit_BtnTag        1001
@@ -34,6 +36,8 @@
 
 - (void) dealloc
 {
+    [[ATTimerManager shardManager] stopTimerDelegate:self];
+    
     [[TipViewManager defaultManager] removeTipWithID:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -85,6 +89,12 @@
 }
 
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [_joinPersonView reloadData];
+}
+
+
 - (void) _refreshCommentData
 {
     [_commentView getCommentsWithDirect:GetListDirect_Last];
@@ -104,6 +114,7 @@
     startBtn.hidden = isRoomEnded;
     
     _mainScrollView.frameHeight = isRoomEnded ? 548 : 504;
+    _commentView.frameHeight = MAX(178.0, _commentView.frameHeight);
 }
 
 
@@ -198,10 +209,6 @@
     
     self.roomTitleLabel.text = _roomItem.roomTitle;
     
-    self.beginTimeLabel.text = [_roomItem.beginTime startTimeIntervalWithServer];
-    [self.beginTimeLabel changeFrameWithText];
-    self.beginTimeLabel.frameWidth += 10;
-    
     self.detailAddLabel.text = _roomItem.address.detailAddr;
     [self.detailAddLabel changeFrameWithText];
     self.detailAddLabel.frameWidth += 10;
@@ -221,6 +228,27 @@
     [self _showCommentView];
     
     [self _isRoomEnded:(_roomItem.roomState == RoomState_Ended)];
+    
+    [self _remainTime];
+}
+
+
+- (void) _remainTime
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    double tmpTime = [[formatter dateFromString:_roomItem.beginTime] timeIntervalSince1970] +
+                        [[NSDate date] timeIntervalSince1970] - 
+                        [[AppSetting defaultSetting].serverCurrentTime doubleValue];
+    NSDate *beginTime = [NSDate dateWithTimeIntervalSince1970:tmpTime];
+    _roomItem.beginTime = [formatter stringFromDate:beginTime];
+    
+    self.beginTimeLabel.text = [_roomItem.beginTime startTimeIntervalWithClient];
+    [self.beginTimeLabel changeFrameWithText];
+    self.beginTimeLabel.frameWidth += 10;
+    
+    [[ATTimerManager shardManager] stopTimerDelegate:self];
+    [[ATTimerManager shardManager] addTimerDelegate:self interval:1.0];
 }
 
 
@@ -242,41 +270,25 @@
         return;
     }
     
-    [[TipViewManager defaultManager] showTipText:nil
-                                       imageName:nil
-                                          inView:self.view
-                                              ID:self];
+    [[KeepSorcket defaultManager] joinRoomWithRoomID:_roomItem.ID];
     
-    RoomJoinRequest *joinRequest = [[RoomJoinRequest alloc] init];
-    joinRequest.userID = [GEMTUserManager defaultManager].userInfo.userId ;
-    joinRequest.roomID = _roomItem.ID;
-    joinRequest.sid = [GEMTUserManager defaultManager].sId;
-    joinRequest.delegate = self;
-    
-    [[NetRequestManager defaultManager] startRequest:joinRequest];
+    _roomItem.relationWitMe = RoomRelationType_Joined;
+    [self _setRoomRelation];
 }
 
 
 - (IBAction)quitBtnDidPressed:(id)sender
 {
-    [[TipViewManager defaultManager] showTipText:nil
-                                       imageName:nil
-                                          inView:self.view
-                                              ID:self];
+    [[KeepSorcket defaultManager] quitRoomWithRoomID:_roomItem.ID];
     
-    RoomQuitReqeust *quitRequest = [[RoomQuitReqeust alloc] init];
-    quitRequest.userID = [GEMTUserManager defaultManager].userInfo.userId ;
-    quitRequest.roomID = _roomItem.ID;
-    quitRequest.sid = [GEMTUserManager defaultManager].sId;
-    quitRequest.delegate = self;
-    
-    [[NetRequestManager defaultManager] startRequest:quitRequest];
+    _roomItem.relationWitMe = RoomRelationType_NoRelation;
+    [self _setRoomRelation];
 }
 
 
 - (IBAction)startBtnDidPressed:(id)sender
 {
-    [[KeepSorcket defaultManager] sendRoomStart:_roomItem.ID];
+    [[KeepSorcket defaultManager] startRoomWithRoomID:_roomItem.ID];
 }
 
 
@@ -328,6 +340,29 @@
 }
 
 
+#pragma mark- ATTimerManagerDelegate
+- (void) timerManager:(ATTimerManager*)manager timerFireWithInfo:(ATTimerStepInfo)info
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    if ([[formatter dateFromString:_roomItem.beginTime] timeIntervalSince1970] <=
+        [[NSDate date] timeIntervalSince1970])
+    {
+        self.beginTimeLabel.text = @"已开始";
+        _roomItem.roomState = RoomState_Ended;
+        [self _isRoomEnded:YES];
+        
+        [[ATTimerManager shardManager] stopTimerDelegate:self];
+    }
+    else
+    {
+        self.beginTimeLabel.text = [_roomItem.beginTime startTimeIntervalWithClient];
+    }
+    
+    [self.beginTimeLabel changeFrameWithText];
+    self.beginTimeLabel.frameWidth += 10;
+}
+
 
 #pragma mark- AVAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
@@ -338,18 +373,28 @@
 
 - (IBAction)followOwnDidPressed:(id)sender
 {
-    // TODO:网络请求
-    
     BOOL isFollowed = (_roomItem.ownerRelationWithMe == UserRelationType_Follow ||
                        _roomItem.ownerRelationWithMe == UserRelationType_FollowEach);
     
     if (isFollowed)
     {
         _roomItem.ownerRelationWithMe -= 1;
+        
+        UserUnFollowRequest *unFollowRequest = [[UserUnFollowRequest alloc] init];
+        unFollowRequest.delegate = self;
+        unFollowRequest.unFollowId = _roomItem.ownerID;
+        
+        [[NetRequestManager defaultManager] startRequest:unFollowRequest];
     }
     else
     {
         _roomItem.ownerRelationWithMe += 1;
+        
+        UserFollowRequest *followRequest = [[UserFollowRequest alloc] init];
+        followRequest.delegate = self;
+        followRequest.followId = _roomItem.ownerID;
+        
+        [[NetRequestManager defaultManager] startRequest:followRequest];
     }
     
     [self _setOwnerRelation];
@@ -432,42 +477,23 @@
 }
 
 
-#pragma mark- NetRoomRequestDelegate
-- (void) NetRoomRequestFail:(NetRoomRequest *)request
+
+#pragma mark- NetUserRequestDelegate
+- (void) NetUserRequestFail:(NetUserRequest*)request
 {
-    NSString *msg = @"请求失败";
-    
-    if (request.requestType == NetRoomRequestType_JoinRoom)
+    if (request.requestType == NetUserRequestType_Follow)
     {
-        msg = @"加入失败";
+        _roomItem.ownerRelationWithMe = UserRelationType_NoRelation;
     }
-    else if (request.requestType == NetRoomRequestType_QuitRoom)
+    else if (request.requestType == NetUserRequestType_UnFollow)
     {
-        msg = @"退出失败";
+        _roomItem.ownerRelationWithMe = UserRelationType_Follow;
     }
-    
-    [[TipViewManager defaultManager] showTipText:msg
-                                       imageName:kCommonImage_FailIcon
-                                          inView:self.view
-                                              ID:self];
-    
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
 }
 
 
-- (void) NetRoomRequestSuccess:(NetRoomRequest *)request
+- (void) NetUserRequestSuccess:(NetUserRequest*)request
 {
-    [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
-    if (request.requestType == NetRoomRequestType_JoinRoom)
-    {
-        _roomItem.relationWitMe = RoomRelationType_Joined;
-        [self _setRoomRelation];
-    }
-    else if (request.requestType == NetRoomRequestType_QuitRoom)
-    {
-        _roomItem.relationWitMe = RoomRelationType_NoRelation;
-        [self _setRoomRelation];
-    }
 }
 
 

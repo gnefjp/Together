@@ -20,6 +20,8 @@
 #import "CommonTool.h"
 #import "NetFileManager.h"
 
+#import "ChatViewController.h"
+
 @implementation UserCenterView
 @synthesize userInfo = _userInfo;
 @synthesize panGesture = _panGesture;
@@ -306,6 +308,17 @@
     editInfo.panGesture = self.panGesture;
     [[UIView rootController] pushViewController:editInfo animated:YES];
 }
+
+
+- (IBAction)sendMsgBtnDidPressed:(id)sender
+{
+    ChatViewController *chatView = [ChatViewController loadFromNib];
+    [[UIView rootController] pushViewController:chatView animated:YES];
+    
+    chatView.userID = _userInfo.userId;
+    chatView.nickname = _userInfo.nickName;
+}
+
 
 - (void)UserEditDidSuccess:(UserEditUserInfoView *)v
 {

@@ -11,6 +11,9 @@
 
 #import "JoinPersonCell.h"
 
+#import "UserUnFollowRequest.h"
+#import "UserFollowRequest.h"
+
 @implementation JoinPersonCell
 
 - (void) setUserItem:(NetUserItem *)userItem
@@ -49,8 +52,56 @@
 {
     BOOL isFollowed = (_userItem.relationWithMe == UserRelationType_Follow ||
                        _userItem.relationWithMe == UserRelationType_FollowEach);
-    _userItem.relationWithMe += isFollowed ? -1 : 1;
+    
+    if (isFollowed)
+    {
+        _userItem.relationWithMe -= 1;
+        
+        UserUnFollowRequest *unFollowRequest = [[UserUnFollowRequest alloc] init];
+        unFollowRequest.delegate = self;
+        unFollowRequest.unFollowId = _userItem.ID;
+        
+        [[NetRequestManager defaultManager] startRequest:unFollowRequest];
+    }
+    else
+    {
+        _userItem.relationWithMe += 1;
+        
+        UserFollowRequest *followRequest = [[UserFollowRequest alloc] init];
+        followRequest.delegate = self;
+        followRequest.followId = _userItem.ID;
+        
+        [[NetRequestManager defaultManager] startRequest:followRequest];
+    }
     
     [self _setUserRelation];
+}
+
+
+#pragma mark- NetUserRequestDelegate
+- (void) NetUserRequestFail:(NetUserRequest*)request
+{
+    if (request.requestType == NetUserRequestType_Follow)
+    {
+        UserFollowRequest *followRequest = (UserFollowRequest *) request;
+        if ([_userItem.ID isEqualToString:followRequest.followId])
+        {
+            _userItem.relationWithMe = UserRelationType_NoRelation;
+        }
+    }
+    else if (request.requestType == NetUserRequestType_UnFollow)
+    {
+        UserUnFollowRequest *unFollowRequest = (UserUnFollowRequest *)request;
+        if ([_userItem.ID isEqualToString:unFollowRequest.unFollowId])
+        {
+            _userItem.relationWithMe = UserRelationType_Follow;
+        }
+    }
+}
+
+
+- (void) NetUserRequestSuccess:(NetUserRequest*)request
+{
+    
 }
 @end

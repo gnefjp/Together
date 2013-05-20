@@ -26,7 +26,9 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
     [dict setValue:self.actionCode forKey:@"action"];
-    [dict setValue:self.msgID forKey:@"recipient_id"];
+    [dict setValue:self.roomID forKey:@"room_id"];
+    [dict setValue:self.recipientId forKey:@"recipient_id"];
+    [dict setValue:self.msgID forKey:@"msg_id"];
     
     NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
                         self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];

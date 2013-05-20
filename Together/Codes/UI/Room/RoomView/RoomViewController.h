@@ -5,17 +5,20 @@
 //  Created by Gnef_jp on 13-4-24.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
-#import "NetRoomRequest.h"
+#import <AVFoundation/AVFoundation.h>
+
+#import "ATTimerManager.h"
 #import "NetRoomList.h"
 #import "RoomCommentView.h"
-#import <AVFoundation/AVFoundation.h>
+#import "NetUserRequest.h"
 
 @class ChatInputView;
 @class JoinPersonView;
-@interface RoomViewController : UIViewController <NetRoomRequestDelegate,
+@interface RoomViewController : UIViewController <NetUserRequestDelegate,
                                                   RoomCommentViewDelegate,
                                                   UIScrollViewDelegate,
-                                                  AVAudioPlayerDelegate>
+                                                  AVAudioPlayerDelegate,
+                                                  ATTimerManagerDelegate>
 {
     JoinPersonView                  *_joinPersonView;
     RoomCommentView                 *_commentView;

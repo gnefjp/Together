@@ -29,6 +29,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @property int32_t fileId;
 @property int32_t roomId;
 @property (retain) NSString* time;
+@property BOOL status;
 @end
 
 @implementation Message_Info
@@ -96,6 +97,18 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasTime_ = !!value;
 }
 @synthesize time;
+- (BOOL) hasStatus {
+  return !!hasStatus_;
+}
+- (void) setHasStatus:(BOOL) value {
+  hasStatus_ = !!value;
+}
+- (BOOL) status {
+  return !!status_;
+}
+- (void) setStatus:(BOOL) value {
+  status_ = !!value;
+}
 - (void) dealloc {
   self.content = nil;
   self.title = nil;
@@ -113,6 +126,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
     self.fileId = 0;
     self.roomId = 0;
     self.time = @"";
+    self.status = NO;
   }
   return self;
 }
@@ -159,6 +173,9 @@ static Message_Info* defaultMessage_InfoInstance = nil;
   if (self.hasTime) {
     [output writeString:9 value:self.time];
   }
+  if (self.hasStatus) {
+    [output writeBool:10 value:self.status];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (int32_t) serializedSize {
@@ -194,6 +211,9 @@ static Message_Info* defaultMessage_InfoInstance = nil;
   }
   if (self.hasTime) {
     size += computeStringSize(9, self.time);
+  }
+  if (self.hasStatus) {
+    size += computeBoolSize(10, self.status);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -297,6 +317,9 @@ static Message_Info* defaultMessage_InfoInstance = nil;
   if (other.hasTime) {
     [self setTime:other.time];
   }
+  if (other.hasStatus) {
+    [self setStatus:other.status];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -352,6 +375,10 @@ static Message_Info* defaultMessage_InfoInstance = nil;
       }
       case 74: {
         [self setTime:[input readString]];
+        break;
+      }
+      case 80: {
+        [self setStatus:[input readBool]];
         break;
       }
     }
@@ -499,6 +526,22 @@ static Message_Info* defaultMessage_InfoInstance = nil;
 - (Message_Info_Builder*) clearTime {
   result.hasTime = NO;
   result.time = @"";
+  return self;
+}
+- (BOOL) hasStatus {
+  return result.hasStatus;
+}
+- (BOOL) status {
+  return result.status;
+}
+- (Message_Info_Builder*) setStatus:(BOOL) value {
+  result.hasStatus = YES;
+  result.status = value;
+  return self;
+}
+- (Message_Info_Builder*) clearStatus {
+  result.hasStatus = NO;
+  result.status = NO;
   return self;
 }
 @end

@@ -76,6 +76,14 @@
 		18BFDFDC17245C9D00186828 /* RoomGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFDB17245C9D00186828 /* RoomGridView.xib */; };
 		18BFDFE717246A4700186828 /* RoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFDFE517246A4700186828 /* RoomCell.m */; };
 		18BFDFE817246A4700186828 /* RoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFDFE617246A4700186828 /* RoomCell.xib */; };
+		18C11568174A7C5A00703306 /* ATTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C11567174A7C5A00703306 /* ATTimerManager.m */; };
+		18C11570174A7CB200703306 /* roomtype_brpg.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C1156A174A7CB200703306 /* roomtype_brpg.png */; };
+		18C11571174A7CB200703306 /* roomtype_catering.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C1156B174A7CB200703306 /* roomtype_catering.png */; };
+		18C11572174A7CB200703306 /* roomtype_movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C1156C174A7CB200703306 /* roomtype_movie.png */; };
+		18C11573174A7CB200703306 /* roomtype_other.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C1156D174A7CB200703306 /* roomtype_other.png */; };
+		18C11574174A7CB200703306 /* roomtype_shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C1156E174A7CB200703306 /* roomtype_shopping.png */; };
+		18C11575174A7CB200703306 /* roomtype_sports.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C1156F174A7CB200703306 /* roomtype_sports.png */; };
+		18C11577174A85D000703306 /* common_meun_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C11576174A85D000703306 /* common_meun_icon.png */; };
 		18C6D41517279D5700184AFA /* AbstractMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D27917279D5600184AFA /* AbstractMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18C6D41617279D5700184AFA /* AbstractMessage_Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D27B17279D5600184AFA /* AbstractMessage_Builder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18C6D41717279D5700184AFA /* CodedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6D27E17279D5600184AFA /* CodedInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -413,6 +421,15 @@
 		18BFDFE417246A4700186828 /* RoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCell.h; sourceTree = "<group>"; };
 		18BFDFE517246A4700186828 /* RoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCell.m; sourceTree = "<group>"; };
 		18BFDFE617246A4700186828 /* RoomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomCell.xib; sourceTree = "<group>"; };
+		18C11566174A7C5A00703306 /* ATTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTimerManager.h; sourceTree = "<group>"; };
+		18C11567174A7C5A00703306 /* ATTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTimerManager.m; sourceTree = "<group>"; };
+		18C1156A174A7CB200703306 /* roomtype_brpg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomtype_brpg.png; sourceTree = "<group>"; };
+		18C1156B174A7CB200703306 /* roomtype_catering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomtype_catering.png; sourceTree = "<group>"; };
+		18C1156C174A7CB200703306 /* roomtype_movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomtype_movie.png; sourceTree = "<group>"; };
+		18C1156D174A7CB200703306 /* roomtype_other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomtype_other.png; sourceTree = "<group>"; };
+		18C1156E174A7CB200703306 /* roomtype_shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomtype_shopping.png; sourceTree = "<group>"; };
+		18C1156F174A7CB200703306 /* roomtype_sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomtype_sports.png; sourceTree = "<group>"; };
+		18C11576174A85D000703306 /* common_meun_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_meun_icon.png; sourceTree = "<group>"; };
 		18C6D27817279D5600184AFA /* AbstractMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractMessage.h; sourceTree = "<group>"; };
 		18C6D27917279D5600184AFA /* AbstractMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractMessage.m; sourceTree = "<group>"; };
 		18C6D27A17279D5600184AFA /* AbstractMessage_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractMessage_Builder.h; sourceTree = "<group>"; };
@@ -1366,6 +1383,28 @@
 			path = RoomGridView;
 			sourceTree = "<group>";
 		};
+		18C11565174A7C5A00703306 /* ATTimerManager */ = {
+			isa = PBXGroup;
+			children = (
+				18C11566174A7C5A00703306 /* ATTimerManager.h */,
+				18C11567174A7C5A00703306 /* ATTimerManager.m */,
+			);
+			path = ATTimerManager;
+			sourceTree = "<group>";
+		};
+		18C11569174A7CB200703306 /* RoomType */ = {
+			isa = PBXGroup;
+			children = (
+				18C1156A174A7CB200703306 /* roomtype_brpg.png */,
+				18C1156B174A7CB200703306 /* roomtype_catering.png */,
+				18C1156C174A7CB200703306 /* roomtype_movie.png */,
+				18C1156D174A7CB200703306 /* roomtype_other.png */,
+				18C1156E174A7CB200703306 /* roomtype_shopping.png */,
+				18C1156F174A7CB200703306 /* roomtype_sports.png */,
+			);
+			path = RoomType;
+			sourceTree = "<group>";
+		};
 		18C6D27617279D5600184AFA /* ProtoBuf */ = {
 			isa = PBXGroup;
 			children = (
@@ -1918,6 +1957,7 @@
 		18C6D5C51727D40900184AFA /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				18C11569174A7CB200703306 /* RoomType */,
 				18F032A317464C9A001963F3 /* room_follow_btn.png */,
 				18F032A417464C9A001963F3 /* room_unfollow_btn.png */,
 				18E4C59217438EF600CE5B43 /* room_join_person_more_btn.png */,
@@ -2045,6 +2085,7 @@
 		18D5D0B6172BAF7A00799BF7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18C11576174A85D000703306 /* common_meun_icon.png */,
 				38666A41174A1B2900CFD269 /* common_nav_bg.png */,
 				38666A42174A1B2900CFD269 /* common_nav_sp.png */,
 				38A4C335174682170048BC4B /* common_cut_frame_a.png */,
@@ -2302,6 +2343,7 @@
 		18EAB2D717241940003E742D /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				18C11565174A7C5A00703306 /* ATTimerManager */,
 				382422431747B7720050CB82 /* AsyncSocket */,
 				18C9A338173CDAD7002FA0E4 /* Base64 */,
 				18C6D27617279D5600184AFA /* ProtoBuf */,
@@ -2702,6 +2744,13 @@
 				38666A40174A108300CFD269 /* yule@2x.png in Resources */,
 				38666A43174A1B2900CFD269 /* common_nav_bg.png in Resources */,
 				38666A44174A1B2900CFD269 /* common_nav_sp.png in Resources */,
+				18C11570174A7CB200703306 /* roomtype_brpg.png in Resources */,
+				18C11571174A7CB200703306 /* roomtype_catering.png in Resources */,
+				18C11572174A7CB200703306 /* roomtype_movie.png in Resources */,
+				18C11573174A7CB200703306 /* roomtype_other.png in Resources */,
+				18C11574174A7CB200703306 /* roomtype_shopping.png in Resources */,
+				18C11575174A7CB200703306 /* roomtype_sports.png in Resources */,
+				18C11577174A85D000703306 /* common_meun_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2852,6 +2901,7 @@
 				38050D8517496BAC00324FBF /* KeepSorcket.m in Sources */,
 				186F7CAA17496C06002C0955 /* MessageCell.m in Sources */,
 				186F7CAC17496C06002C0955 /* MessageView.m in Sources */,
+				18C11568174A7C5A00703306 /* ATTimerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2944,8 +2994,8 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
+				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2964,7 +3014,7 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
+				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				WRAPPER_EXTENSION = app;
 			};

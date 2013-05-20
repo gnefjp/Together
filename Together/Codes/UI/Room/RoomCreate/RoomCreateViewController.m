@@ -43,12 +43,12 @@ static NSString* s_genderTypes[] = {
 
 
 static NSString* s_roomTypeNames[] = {
-    @"其他",
-    @"桌游",
-    @"餐饮",
-    @"运动",
-    @"购物",
-    @"电影",
+    @"roomtype_other.png",
+    @"roomtype_brpg.png",
+    @"roomtype_catering.png",
+    @"roomtype_sports.png",
+    @"roomtype_shopping.png",
+    @"roomtype_movie.png",
 };
 
 
@@ -217,9 +217,9 @@ static NSString* s_roomTypeNames[] = {
     UIButton* roomTypeBtn = [self.view viewWithTag:kRoomType_BtnTag
                                          recursive:NO];
     
-    [roomTypeBtn setTitle:s_roomTypeNames[_roomInfo.roomType]
+    [roomTypeBtn setImage:[UIImage imageNamed:s_roomTypeNames[_roomInfo.roomType]]
                  forState:UIControlStateNormal];
-    [roomTypeBtn setTitle:s_roomTypeNames[_roomInfo.roomType]
+    [roomTypeBtn setImage:[UIImage imageNamed:s_roomTypeNames[_roomInfo.roomType]]
                  forState:UIControlStateHighlighted];
     
     [self _isShowRoomTypePicker:NO animation:YES];

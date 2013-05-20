@@ -95,15 +95,13 @@ static CommonTool *s_shareCommonTool = nil;
 @implementation NSString (CommonTool)
 
 
-- (NSString *) _isForStartTimeInterval:(BOOL)isForStartTime
+- (NSString *) _isForStartTimeInterval:(BOOL)isForStartTime withTime:(NSTimeInterval)time
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate* date = [formatter dateFromString:self];
     
-    NSTimeInterval serverTime = [[AppSetting defaultSetting].serverCurrentTime doubleValue];
-    
-    NSTimeInterval distance =  serverTime - [date timeIntervalSince1970];
+    NSTimeInterval distance =  time - [date timeIntervalSince1970];
     if (isForStartTime)
     {
         distance = -distance;
@@ -142,9 +140,23 @@ static CommonTool *s_shareCommonTool = nil;
 }
 
 
+- (NSString *) _isForStartTimeInterval:(BOOL)isForStartTime
+{
+    NSTimeInterval serverTime = [[AppSetting defaultSetting].serverCurrentTime doubleValue];
+    return [self _isForStartTimeInterval:isForStartTime withTime:serverTime];
+}
+
+
 - (NSString *) startTimeIntervalWithServer
 {
     return [self _isForStartTimeInterval:YES];
+}
+
+
+- (NSString *) startTimeIntervalWithClient
+{
+    NSTimeInterval clientTime = [[NSDate date] timeIntervalSince1970];
+    return [self _isForStartTimeInterval:YES withTime:clientTime];
 }
 
 

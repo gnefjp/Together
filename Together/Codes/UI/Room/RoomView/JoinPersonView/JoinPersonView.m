@@ -52,7 +52,7 @@
 {
     _userItem = userItem;
     
-    [_avatarImageView setImageWithFileID:userItem.ID
+    [_avatarImageView setImageWithFileID:userItem.avataId
                         placeholderImage:[UIImage imageNamed:kDefaultUserAvatar]];
     
     NSString *relationImages[] = {

@@ -6,14 +6,19 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "NetMessageRequest.h"
+#import "SRRefreshView.h"
 
 @class NetMessageList;
 @class ChatInputView;
-@interface ChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ChatViewController : UIViewController <UITableViewDelegate,
+                                                  UITableViewDataSource,
+                                                  NetMessageRequestDelegate,
+                                                  SRRefreshDelegate>
 {
     ChatInputView                   *_chatInputView;
     __weak IBOutlet UITableView     *_chatTableView;
+    SRRefreshView                   *_refreshView;
     
     NetMessageList                  *_chatList;
 }

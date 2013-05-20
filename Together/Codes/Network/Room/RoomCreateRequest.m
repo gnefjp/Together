@@ -5,6 +5,7 @@
 //  Created by Gnef_jp on 13-4-24.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
+#import "AppSetting.h"
 
 #import "RoomCreateRequest.h"
 
@@ -78,6 +79,16 @@
     ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     
     return request;
+}
+
+
+- (void) _requestFinished
+{
+    NSDate *serverDate = [self.responseData.serverTime stringToDateWithFormat:@"yyyyMMddHHmmss"];
+    [AppSetting defaultSetting].serverCurrentTime = [NSString stringWithFormat:@"%.0lf",
+                                                     [serverDate timeIntervalSince1970]];
+    
+    [self.delegate NetRoomRequestSuccess:self];
 }
 
 @end

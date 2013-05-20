@@ -47,6 +47,8 @@
         self.senderNickname = response.sender.nickName;
         
         self.receiverID = [NSString stringWithInt:response.recipient.uid];
+        
+        self.unreadNum = response.messageCount;
     }
     return self;
 }

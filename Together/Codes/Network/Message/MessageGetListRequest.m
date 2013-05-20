@@ -24,6 +24,9 @@
 
 - (NSString *) requestUrl
 {
+#ifdef kIsSimulatedData
+    return @"http://127.0.0.1/MESSAGE/GetMsgList";
+#endif
     return [NSString stringWithFormat:@"http://%@:%@/USER", kServerAddr, kHttpPort];
 }
 

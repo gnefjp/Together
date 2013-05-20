@@ -7,6 +7,8 @@
 //
 #import "NetUserList.h"
 
+#import "UserCenterView.h"
+
 #import "JoinPersonViewController.h"
 #import "JoinPersonCell.h"
 
@@ -43,11 +45,29 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+    
 #pragma mark- UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: 进入个人中心
+    NetUserItem *userItem = (NetUserItem *) [_userList itemAtIndex:indexPath.row];
+    
+    UserCenterView *userCenterView = [UserCenterView loadFromNib];
+    [userCenterView viewUserInfoWithUserId:userItem.ID];
+    [self.view addSubview:userCenterView];
+    
+    userCenterView.frameX = 320.0;
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         
+                         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+                         userCenterView.frameX = 0.0f;
+                         
+                     }completion:^(BOOL finished){
+                         
+                         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                         
+                     }];
 }
 
 

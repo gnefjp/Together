@@ -16,6 +16,7 @@
     __weak IBOutlet UILabel             *_unReadCountLabel;
 }
 
+
 @property (strong, nonatomic) NetMessageItem        *messageItem;
 @property (weak, nonatomic) IBOutlet UIImageView    *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel        *nicknameLabel;

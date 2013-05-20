@@ -13,6 +13,7 @@
 
 @interface Message_Info : PBGeneratedMessage {
 @private
+  BOOL hasStatus_:1;
   BOOL hasMessageId_:1;
   BOOL hasSenderId_:1;
   BOOL hasRecipientId_:1;
@@ -22,6 +23,7 @@
   BOOL hasContent_:1;
   BOOL hasTitle_:1;
   BOOL hasTime_:1;
+  BOOL status_:1;
   int32_t messageId;
   int32_t senderId;
   int32_t recipientId;
@@ -41,6 +43,7 @@
 - (BOOL) hasFileId;
 - (BOOL) hasRoomId;
 - (BOOL) hasTime;
+- (BOOL) hasStatus;
 @property (readonly) int32_t messageId;
 @property (readonly) int32_t senderId;
 @property (readonly) int32_t recipientId;
@@ -50,6 +53,7 @@
 @property (readonly) int32_t fileId;
 @property (readonly) int32_t roomId;
 @property (readonly, retain) NSString* time;
+- (BOOL) status;
 
 + (Message_Info*) defaultInstance;
 - (Message_Info*) defaultInstance;
@@ -129,5 +133,10 @@
 - (NSString*) time;
 - (Message_Info_Builder*) setTime:(NSString*) value;
 - (Message_Info_Builder*) clearTime;
+
+- (BOOL) hasStatus;
+- (BOOL) status;
+- (Message_Info_Builder*) setStatus:(BOOL) value;
+- (Message_Info_Builder*) clearStatus;
 @end
 

@@ -45,14 +45,34 @@ static KeepSorcket *instance;
     [self _sendInfoWithPostString:[NSString urlArgsStringFromDictionary:dic]];
 }
 
-- (void) sendRoomStart:(NSString*)roomId
+
+- (void) _sendRoomMsgWithID:(NSString *)roomID action:(NSString *)action
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"303" forKey:@"action"];
+    [dic setValue:action forKey:@"action"];
     [dic setValue:[GEMTUserManager defaultManager].sId forKey:@"sid"];
-    [dic setValue:roomId forKey:@"roomId"];
+    [dic setValue:roomID forKey:@"roomId"];
     [self _sendInfoWithPostString:[NSString urlArgsStringFromDictionary:dic]];
 }
+
+
+- (void) startRoomWithRoomID:(NSString*)roomID
+{
+    [self _sendRoomMsgWithID:roomID action:@"303"];
+}
+
+
+- (void) joinRoomWithRoomID:(NSString *)roomID
+{
+    [self _sendRoomMsgWithID:roomID action:@"304"];
+}
+
+
+- (void) quitRoomWithRoomID:(NSString *)roomID
+{
+    [self _sendRoomMsgWithID:roomID action:@"305"];
+}
+
 
 //群聊
 //@"action=302&senderId=2&recipientId=-1&roomId=1001&msgType=1&content=123";
@@ -129,7 +149,8 @@ static KeepSorcket *instance;
                 break;
             case START_ROOM_SUCCESS:
             {
-                [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_StartRoomSuccess object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_StartRoomSuccess
+                                                                    object:nil];
             }
                 break;
             case START_ROOM_ISNOT_OWNER:
