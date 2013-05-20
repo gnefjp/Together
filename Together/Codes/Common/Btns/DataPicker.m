@@ -21,7 +21,8 @@
     [v addSubview:tapView];
     
     NSDate *date ;
-    if ([dateString length] != 0) {
+    if ([dateString length] != 0)
+    {
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
         date = [formatter dateFromString:dateString];
@@ -30,7 +31,8 @@
         date = [NSDate date];
     }
     
-    _iDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0,354 + 586 ,0.0,0.0)];
+    _iDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0,334 + 586 ,0.0,0.0)];
+    _iDatePicker.maximumDate = [NSDate date];
     _iDatePicker.datePickerMode = UIDatePickerModeDate;
     [_iDatePicker setDate:date];
     [_iDatePicker addTarget:self action:@selector(dateChanged:)
@@ -40,7 +42,7 @@
     [UIView animateWithDuration:0.4 animations:^(void)
      {
          tapView.alpha = 0.6f;
-         _iDatePicker.frameY = 354;
+         _iDatePicker.frameY = 334;
      }];
 }
 

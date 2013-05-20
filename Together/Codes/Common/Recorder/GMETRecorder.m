@@ -7,7 +7,8 @@
 //
 
 #import "GMETRecorder.h"
- 
+#import <AudioToolbox/AudioServices.h>
+
 @implementation GMETRecorder
 
 @synthesize delegate = _delegate;
@@ -55,8 +56,6 @@
     return [NSURL fileURLWithPath:filePath];
 }
 
-
-
 - (NSDictionary *) recordSettings
 {
     NSDictionary *recordSettings = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -77,12 +76,16 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    AudioSessionSetProperty (kAudioSessionProperty_OverrideAudioRoute,
+                             sizeof (audioRouteOverride),&audioRouteOverride);
     [session setActive:YES error:nil];
     
     NSURL *url  = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/record.caf",NSTemporaryDirectory()]];
     
     _recorder = [[AVAudioRecorder alloc] initWithURL:url
-                                            settings:[self recordSettings] error:nil];
+                                            settings:nil
+                                               error:nil];
     [_recorder setDelegate:self];
     [_recorder prepareToRecord];
     [_recorder recordForDuration:_pTime];

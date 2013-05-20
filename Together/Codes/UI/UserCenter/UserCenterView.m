@@ -172,7 +172,7 @@
     }
 }
 
-- (void)changeUserInfo:(GEMTUserInfo*)aUserInfo
+- (void)changeUserInfo:(GEMTUserInfo*)aUserInfo 
 {
     self.userInfo = aUserInfo;
     [self resetInfo];
@@ -203,23 +203,8 @@
      }];
 }
 
-- (IBAction)addMap:(id)sender
-{
-    RoomMapView *mapView  = [RoomMapView loadFromNib];
-    [self addSubview:mapView];
-    
-}
 
 
-
-
-- (IBAction)viewOtherInfo:(id)sender
-{
-    UserPersonInfoRequest *request = [[UserPersonInfoRequest alloc] init];
-    request.delegate = self;
-    request.aUid = @"1";
-    [[NetRequestManager defaultManager] startRequest:request];
-}
 
 - (IBAction)followOther:(UIButton*)sender
 {
@@ -281,13 +266,6 @@
 }
 
 
-- (IBAction)showMapViewBtnDidpressed:(id)sender
-{
-    MapView *mapView = [MapView loadFromNib];
-    [[UIView rootView] addSubview:mapView];
-    [mapView showRightToCenterAnimation];
-    mapView.delegate = self;
-}
 
 - (void)MapView:(MapView *)view
        location:(CLLocationCoordinate2D)aLocation
@@ -312,30 +290,27 @@
 
 - (IBAction)sendMsgBtnDidPressed:(id)sender
 {
-    ChatViewController *chatView = [ChatViewController loadFromNib];
-    [[UIView rootController] pushViewController:chatView animated:YES];
-    
-    chatView.userID = _userInfo.userId;
-    chatView.nickname = _userInfo.nickName;
-}
-
-
-- (void)UserEditDidSuccess:(UserEditUserInfoView *)v
-{
-    [self resetInfo];
-}
-
-
-- (IBAction)sendMsgDidPressed:(UIButton*)sender
-{
     NSString *str = [sender titleForState:UIControlStateNormal];
     if ([str isEqualToString:@"发消息"])
     {
+        ChatViewController *chatView = [ChatViewController loadFromNib];
+        [[UIView rootController] pushViewController:chatView animated:YES];
         
+        chatView.userID = _userInfo.userId;
+        chatView.nickname = _userInfo.nickName;
     }else{
         [[GEMTUserManager defaultManager] LoginOut];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_userDidLoginOut object:nil];
     }
 }
+
+- (void)UserEditDidSuccess:(UserEditUserInfoView *)v userInfo:(GEMTUserInfo *)userInfo
+{
+    self.userInfo = userInfo;
+    [self resetInfo];
+}
+
+
+
 
 @end

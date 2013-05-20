@@ -76,8 +76,6 @@ typedef enum
 - (IBAction)viewOtherInfo:(id)sender;
 - (IBAction)followOther:(id)sender;
 - (IBAction)pariseOthers:(id)sender;
-- (IBAction)unfollow:(id)sender;
-- (IBAction)showMapViewBtnDidpressed:(id)sender;
 - (IBAction)editInfoBtnDidPressed:(id)sender;
 
 - (IBAction)sendMsgBtnDidPressed:(id)sender;

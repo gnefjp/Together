@@ -18,10 +18,6 @@
 @synthesize panGesture;
 @synthesize recorderId = _recorderId;
 @synthesize avartaId = _avartaId;
-- (void)awakeFromNib
-{
-   
-}
 
 - (void)RecorderView:(RecorderView *)v
    recordId:(NSString *)recordId
@@ -33,25 +29,26 @@
 {
     panGesture.enabled = NO;
     [_iRecordLb setText:@"松开提交"];
+    _iRecordLb.textColor = [UIColor redColor];
 }
 
 - (void)RecorderViewEndRecord:(RecorderView *)v
 {
     panGesture.enabled = YES;
     [_iRecordLb setText:@"按下录音"];
+    _iRecordLb.textColor = [UIColor blackColor];
 }
 
 - (void)viewDidLoad
 {
-    
     RecorderView *recordView = [RecorderView loadFromNib];
-    recordView.recordFrame = CGRectMake(20, 478, 102, 44);
+    recordView.recordFrame = CGRectMake(8, 499, 306, 44);
     recordView.delegate = self;
     [self.view addSubview:recordView];
     
     _iTableView.delegate = self;
     _iTableView.dataSource = self;
-    
+    [_iAvartImg setImageWithFileID:[GEMTUserManager defaultManager].userInfo.avataId placeholderImage:[UIImage imageNamed:@"user_default_avatar.png"]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -188,9 +185,7 @@
 {
     self.avartaId = uploadObject.fileID;
     [[TipViewManager defaultManager] hideTipWithID:self animation:YES];
-    
-    [_avartaBtn setImage:uploadObject.image forState:UIControlStateNormal];
-    [_avartaBtn setImage:uploadObject.image forState:UIControlStateHighlighted];
+    _iAvartImg.image = uploadObject.image;
 }
 
 - (void)AsyncSocketUploadFail:(AsyncSocketUpload*)uploadObject
@@ -238,8 +233,19 @@
     modifyRequest.sex = [sexName isEqualToString:@"女"]?@"0":@"1";
     modifyRequest.sign = signName;
     
-    modifyRequest.avatarId = _avartaId;
-    modifyRequest.recordId = _recorderId;
+    if (_avartaId)
+    {
+        modifyRequest.avatarId = _avartaId;
+    }else
+    {
+        modifyRequest.avatarId = [GEMTUserManager defaultManager].userInfo.avataId;
+    }
+    if (_recorderId) {
+        modifyRequest.recordId = _recorderId;
+    }else
+    {
+        modifyRequest.recordId = [GEMTUserManager defaultManager].userInfo.signatureRecordId;
+    }
     modifyRequest.birthDay = birthDay;
     modifyRequest.delegate = self;
     
@@ -265,9 +271,15 @@
     [GEMTUserManager defaultManager].userInfo.signatureText = signName;
     [[GEMTUserManager defaultManager].userInfo setAge:birthDay];
     [GEMTUserManager defaultManager].userInfo.birthday = birthDay;
+    if (_avartaId) {
+        [GEMTUserManager defaultManager].userInfo.avataId = _avartaId;
+    }
+    if (_recorderId) {
+        [GEMTUserManager defaultManager].userInfo.signatureRecordId = _recorderId;
+    }
     [[GEMTUserManager defaultManager] userInfoWirteToFile];
     
-    [_delegate UserEditDidSuccess:self];
+    [_delegate UserEditDidSuccess:self userInfo:[GEMTUserManager defaultManager].userInfo];
     [self backBtnDidPressed:nil];
 }
 
@@ -286,9 +298,8 @@
 }
 - (void)viewDidUnload {
     _iTableView = nil;
-    _avartaBtn = nil;
-    _recordBtn = nil;
     _iRecordLb = nil;
+    _iAvartImg = nil;
     [super viewDidUnload];
 }
 @end

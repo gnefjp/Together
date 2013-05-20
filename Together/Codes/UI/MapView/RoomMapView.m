@@ -65,23 +65,25 @@
         }
         Annotation *ano = (Annotation*)annotation;
         NSString *imageName;
-        switch (ano.roomInfo.roomType) {
+        switch (ano.roomInfo.roomType)
+        {
             case RoomType_BRPG:
-                imageName = @"yule.png";
+                imageName = @"roomtype_brpg.png";
                 break;
             case RoomType_Catering:
-                 imageName = @"meishi.png";
+                 imageName = @"roomtype_catering.png";
                 break;
             case RoomType_Sports:
-                 imageName = @"fuwu.png";
+                 imageName = @"roomtype_sports.png";
                 break;
             case RoomType_Shopping:
-                 imageName = @"shangpin.png";
+                 imageName = @"roomtype_shopping.png";
                 break;
             case RoomType_Movie:
-                 imageName = @"dianying.png";
+                 imageName = @"roomtype_movie.png";
                 break;
             default:
+                imageName = @"roomtype_other.png";
                 break;
         }
         pinView.image = [UIImage imageNamed:imageName];
@@ -98,11 +100,11 @@
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-    CGPoint touchPoint = [[touches anyObject] locationInView:self];
-//    if (CGRectContainsPoint(_recordFrame, touchPoint))
-//    {
-//        
-//    }
+//    CGPoint touchPoint = [[touches anyObject] locationInView:self];
+////    if (CGRectContainsPoint(_recordFrame, touchPoint))
+////    {
+////        
+////    }
     
 }
 

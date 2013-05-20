@@ -18,7 +18,7 @@
                                                                   delegate:nil
                                                          cancelButtonTitle:@"取消"
                                                     destructiveButtonTitle:nil
-                                                         otherButtonTitles:@"系统图像" ,@"本地图像" ,@"拍照", nil];
+                                                         otherButtonTitles:@"本地图像" ,@"拍照", nil];
     actionSheet.delegate = actionSheet;
     actionSheet.actionDelegate = aDelegate;
     [actionSheet showInView:[UIView rootView]];
@@ -31,15 +31,10 @@
     {
         case 0:
         {
-            [_actionDelegate picActioSheet:self picType:ePicActioSheetType_SysPhoto];
-            break;
-        }
-        case 1:
-        {
             [_actionDelegate picActioSheet:self picType:ePicActioSheetType_LocalPhoto];
             break;
         }
-        case 2:
+        case 1:
         {
             [_actionDelegate picActioSheet:self picType:ePicActioSheetType_TakePhoto];
             break;

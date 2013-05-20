@@ -13,12 +13,14 @@
 #import "UserInfoModifyRequest.h"
 #import "RecorderView.h"
 #import "AsyncSocketUpload.h"
+#import "CommonTool.h"
+#import "GEMTUserInfo.h"
 
 @class UserEditUserInfoView;
 
 @protocol UserEditUserInfoViewDelegate <NSObject>
 
-- (void) UserEditDidSuccess:(UserEditUserInfoView*)v;
+- (void) UserEditDidSuccess:(UserEditUserInfoView*)v userInfo:(GEMTUserInfo*)userInfo;
 
 @end
 
@@ -28,11 +30,11 @@
     DataPicker                                  *_piker;
     PicChange                                   *_avarta;
     
-    __weak IBOutlet UIButton                    *_avartaBtn;
-    __weak IBOutlet UIButton                    *_recordBtn;
     __weak id<UserEditUserInfoViewDelegate>     _delegate;
-    
     __weak IBOutlet UILabel                     *_iRecordLb;
+    
+    
+    __weak IBOutlet UIImageView                 *_iAvartImg;
     AsyncSocketUpload                           *_upload;
     NSString                                    *_recorderId;
     NSString                                    *_avartaId;
