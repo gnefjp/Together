@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel        *ownNicknameLabel;
 
 @property (assign, nonatomic) BOOL                  isNoDistance;
+@property (weak, nonatomic) IBOutlet UIImageView *roomTypeImageView;
 
 @end
