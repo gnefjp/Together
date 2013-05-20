@@ -41,6 +41,8 @@ typedef enum
 #pragma mark- List
 @interface NetMessageList : NetItemList
 
+@property (assign, nonatomic) GetMessageType    getMessageType;
+
 - (void) addItemList:(HTTPResponse *)response direct:(GetListDirect)direct;
 
 @end

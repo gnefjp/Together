@@ -21,4 +21,12 @@ typedef enum
 } GetListDirect;
 
 
+typedef enum
+{
+    GetMessageType_Group    = 1,
+    GetMessageType_Single   = 2,
+    
+    GetMessageType_Max      = 3,
+} GetMessageType;
+
 #endif

@@ -88,12 +88,12 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(_updateJoinPerson)
+                                             selector:@selector(_joinRoomSuccess)
                                                  name:kNotification_JoinRoomSuccess
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(_updateJoinPerson)
+                                             selector:@selector(_quitRoomSuccess)
                                                  name:kNotification_QuitRoomSuccess
                                                object:nil];
 }

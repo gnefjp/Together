@@ -337,6 +337,7 @@
 		186F7CA917496C06002C0955 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		186F7CAE17498247002C0955 /* chat_unread_count_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_unread_count_a.png; sourceTree = "<group>"; };
 		186F7CAF17498247002C0955 /* chat_unread_count_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_unread_count_b.png; sourceTree = "<group>"; };
+		189382C8174AA5BA00FD44CF /* MessageConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageConfig.h; sourceTree = "<group>"; };
 		189A54CF1745049200906043 /* JoinPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinPersonViewController.h; sourceTree = "<group>"; };
 		189A54D01745049200906043 /* JoinPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinPersonViewController.m; sourceTree = "<group>"; };
 		189A54D11745049200906043 /* JoinPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinPersonViewController.xib; sourceTree = "<group>"; };
@@ -2326,6 +2327,7 @@
 				18C6D5C31727CC1000184AFA /* RoomConfig.h */,
 				18C6D5C41727CEC700184AFA /* UserConfig.h */,
 				189A54D417450A8800906043 /* NetworkConfig.h */,
+				189382C8174AA5BA00FD44CF /* MessageConfig.h */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2970,8 +2972,8 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
+				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2990,7 +2992,7 @@
 					"\"$(SRCROOT)/Together/Codes/ThirdPart/ProtoBuf/src/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F62E58EF-9A81-4787-8B9F-67ACA04F037E";
+				PROVISIONING_PROFILE = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1859A198-99E3-44DB-A4FF-34C28B3097E3";
 				WRAPPER_EXTENSION = app;
 			};

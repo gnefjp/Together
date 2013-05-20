@@ -28,6 +28,7 @@
 - (void) awakeFromNib
 {
     _commentList = [[NetMessageList alloc] init];
+    _commentList.getMessageType = GetMessageType_Group;
 }
 
 
