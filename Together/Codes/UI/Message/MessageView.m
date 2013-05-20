@@ -57,6 +57,7 @@
     
     MessageGetListRequest *getListRequest = [[MessageGetListRequest alloc] init];
     getListRequest.delegate = self;
+    NSLog(@"[GEMTUserManager defaultManager].userInfo.userId : %@", [GEMTUserManager defaultManager].userInfo.userId);
     getListRequest.recipinetID = [GEMTUserManager defaultManager].userInfo.userId;
     
     [[NetRequestManager defaultManager] startRequest:getListRequest];
@@ -101,6 +102,10 @@
     
     MessageUpdateStateRequest *updateMsgState = [[MessageUpdateStateRequest alloc] init];
     updateMsgState.roomID = [self _culRoomIDWithTargetID:item.senderID];
+    updateMsgState.recipientId = [GEMTUserManager defaultManager].userInfo.userId;
+    updateMsgState.msgID = item.ID;
+    [[NetRequestManager defaultManager] startRequest:updateMsgState];
+    
     
     ChatViewController *chatViewController = [ChatViewController loadFromNib];
     [[UIView rootController] pushViewController:chatViewController animated:YES];

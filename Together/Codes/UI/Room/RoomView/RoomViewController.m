@@ -86,6 +86,32 @@
                                              selector:@selector(_startRoom)
                                                  name:kNotification_StartRoomSuccess
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_updateJoinPerson)
+                                                 name:kNotification_JoinRoomSuccess
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_updateJoinPerson)
+                                                 name:kNotification_QuitRoomSuccess
+                                               object:nil];
+}
+
+
+- (void) _joinRoomSuccess
+{
+    _roomItem.joinPersonNum ++;
+    [self _setJoinPersonNum];
+    [_joinPersonView reloadDidPressed:nil];
+}
+
+
+- (void) _quitRoomSuccess
+{
+    _roomItem.joinPersonNum --;
+    [self _setJoinPersonNum];
+    [_joinPersonView reloadDidPressed:nil];
 }
 
 

@@ -218,6 +218,22 @@
         RoomGetListRequest *getListRequest = (RoomGetListRequest *)request;
         
         [_roomList addItemList:request.responseData onPage:getListRequest.pageNum];
+        
+        for (int i = 0; i < _roomList.list.count; ++i)
+        {
+            NetRoomItem *roomItem = (NetRoomItem *)[_roomList itemAtIndex:i];
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            double beginTime = [[formatter dateFromString:roomItem.beginTime] timeIntervalSince1970];
+            if (beginTime < [[NSDate date] timeIntervalSince1970])
+            {
+                [_roomList removeItemById:roomItem.ID];
+                
+                --i;
+            }
+        }
+        
         [_roomsTableView reloadData];
         
         [_refreshView endRefresh];
@@ -240,7 +256,28 @@
     if (![[GEMTUserManager defaultManager] shouldAddLoginViewToTopView])
     {
         NetRoomItem *roomItem = (NetRoomItem *)[_roomList itemAtIndex:indexPath.row];
-//        if (roomItem.genderLimitType == UserGenderType_Boy && [GEMTUserManager defaultManager].userInfo.sex)
+        if ((roomItem.genderLimitType == UserGenderType_Boy &&
+             [GEMTUserManager defaultManager].userInfo.eGenderType == UserGenderType_Girl))
+        {
+            [[TipViewManager defaultManager] showTipText:@"只限男进入"
+                                               imageName:kCommonImage_FailIcon
+                                                  inView:self
+                                                      ID:self];
+            [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
+            
+            return;
+        }
+        else if (roomItem.genderLimitType == UserGenderType_Girl &&
+                 [GEMTUserManager defaultManager].userInfo.eGenderType == UserGenderType_Boy)
+        {
+            [[TipViewManager defaultManager] showTipText:@"只限女进入"
+                                               imageName:kCommonImage_FailIcon
+                                                  inView:self
+                                                      ID:self];
+            [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1.25];
+            
+            return;
+        }
         
         
         [[TipViewManager defaultManager] showTipText:nil imageName:nil inView:self ID:self];

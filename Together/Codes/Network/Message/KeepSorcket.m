@@ -157,7 +157,18 @@ static KeepSorcket *instance;
                 break;
             case START_ROOM_HASSTARTED_OR_NOTEXIST:
                 break;
-                
+            case LC_JOIN_ROOM_SUCCESS:
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_JoinRoomSuccess
+                                                                    object:nil];
+                break;
+            }
+            case LC_QUIT_ROOM_SUCCESS:
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_QuitRoomSuccess
+                                                                    object:nil];
+                break;
+            }
             default:
                 break;
         }

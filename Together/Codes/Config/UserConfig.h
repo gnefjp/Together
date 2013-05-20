@@ -19,6 +19,9 @@
 #define kNotification_SendGroupMsgSuccess   @"Notification_SendGroupMsgSuccess"
 #define kNotification_StartRoomSuccess      @"kNotification_StartRoomSuccess"
 
+#define kNotification_JoinRoomSuccess       @"Notification_JoinRoomSuccess"
+#define kNotification_QuitRoomSuccess       @"Notification_QuitRoomSuccess"
+
 typedef enum
 {
     UserGenderType_Unknow   = 0,

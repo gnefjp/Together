@@ -7,26 +7,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/Network/Message/KeepSorcket.m"
-         timestampString = "390756861.192957"
+         filePath = "Together/Codes/UI/Chat/ChatViewController.m"
+         timestampString = "390766175.730911"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
-         landmarkName = "-socket:didReadData:withTag:"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
+         landmarkName = "-_getChatsWithDirect:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/UI/Room/RoomView/RoomViewController.m"
-         timestampString = "390760543.828289"
+         filePath = "Together/Codes/Network/Message/KeepSorcket.m"
+         timestampString = "390765442.598932"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
-         landmarkName = "-_refreshCommentData"
+         startingLineNumber = "134"
+         endingLineNumber = "134"
+         landmarkName = "-socket:didReadData:withTag:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

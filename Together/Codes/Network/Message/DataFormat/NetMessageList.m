@@ -81,7 +81,7 @@
     {
         UserMessageResponse *messageResponse = [response.list.userMessageInfoList objectAtIndex:i];
         NetMessageItem *item = [[NetMessageItem alloc] initWithMessageResponse:messageResponse];
-        [array addObject:item];
+        [array insertObject:item atIndex:0];
     }
     
     return array;

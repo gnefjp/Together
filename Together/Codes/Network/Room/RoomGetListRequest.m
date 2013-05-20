@@ -34,6 +34,7 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setValue:self.actionCode forKey:@"action"];
     [dict setValue:[NSString stringWithInt:self.roomType] forKey:@"roomType"];
+    [dict setValue:@"0" forKey:@"roomStatus"];
     
     [dict setValue:[NSString stringWithDouble:self.location.longitude] forKey:@"longitude"];
     [dict setValue:[NSString stringWithDouble:self.location.latitude] forKey:@"latitude"];

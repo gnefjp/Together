@@ -40,7 +40,6 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
                         self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
-    
     NSURL* url = [NSURL URLWithString:urlStr];
     ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     

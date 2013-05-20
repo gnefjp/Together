@@ -18,6 +18,8 @@
 #import "ChatCell.h"
 #import "KeepSorcket.h"
 
+#import "MessageUpdateStateRequest.h"
+
 @implementation ChatViewController
 
 #define kTopRefreshHeight       10
@@ -89,7 +91,7 @@
     int myID = [[GEMTUserManager defaultManager].userInfo.userId intValue];
     int targetID = [_userID intValue];
     
-    return [NSString stringWithFormat:@"%d%d", myID, targetID];
+    return [NSString stringWithFormat:@"%d%d", MIN(myID, targetID), MAX(myID, targetID)];
 }
 
 
@@ -141,10 +143,13 @@
     
     [self performBlock:^{
         
-        NSIndexPath *tmpPath = [NSIndexPath indexPathForRow:_chatList.list.count - 1 inSection:0];
-        [_chatTableView scrollToRowAtIndexPath:tmpPath
-                              atScrollPosition:UITableViewScrollPositionBottom
-                                      animated:YES];
+        if (_chatList.list.count > 0)
+        {
+            NSIndexPath *tmpPath = [NSIndexPath indexPathForRow:_chatList.list.count - 1 inSection:0];
+            [_chatTableView scrollToRowAtIndexPath:tmpPath
+                                  atScrollPosition:UITableViewScrollPositionBottom
+                                          animated:YES];
+        }
         
     }afterDelay:0.2];
 }
@@ -161,7 +166,7 @@
     MessageGetChatListRequest *getListRequest = [[MessageGetChatListRequest alloc] init];
     getListRequest.delegate = self;
     
-    getListRequest.getMessagetType = GetMessageType_Group;
+    getListRequest.getMessagetType = GetMessageType_Single;
     getListRequest.msgNum = 10;
     getListRequest.recipientID = [GEMTUserManager defaultManager].userInfo.userId;
     getListRequest.roomID = [self _culRoomID];
@@ -239,6 +244,27 @@
 }
 
 
+- (NSString *) _culRoomIDWithTargetID:(NSString *)targetID
+{
+    int target = [targetID intValue];
+    int mine = [[GEMTUserManager defaultManager].userInfo.userId intValue];
+    
+    return [NSString stringWithFormat:@"%d%d", MIN(target, mine), MAX(target, mine)];
+}
+
+
+- (void) _updateMsgState
+{
+    NetMessageItem *messageItem = [_chatList.list lastObject];
+    
+    MessageUpdateStateRequest *updateMsgState = [[MessageUpdateStateRequest alloc] init];
+    updateMsgState.roomID = [self _culRoomIDWithTargetID:messageItem.senderID];
+    updateMsgState.recipientId = [GEMTUserManager defaultManager].userInfo.userId;
+    updateMsgState.msgID = messageItem.ID;
+    [[NetRequestManager defaultManager] startRequest:updateMsgState];
+}
+
+
 - (void) NetMessageRequestSuccess:(NetRequest *)request
 {
     [_refreshView endRefresh];
@@ -246,6 +272,8 @@
     MessageGetChatListRequest *getListRequest = (MessageGetChatListRequest *)request;
     
     [_chatList addItemList:getListRequest.responseData direct:getListRequest.getListDirect];
+    
+    [self _updateMsgState];
     
     [self _reloadData];
 }
