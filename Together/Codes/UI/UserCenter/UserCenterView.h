@@ -56,12 +56,16 @@ typedef enum
     
     AsyncSocketUpload               *upload;
     __weak IBOutlet UIActivityIndicatorView *_iLoadingActivity;
+    
+    __weak IBOutlet UIButton        *_sendMsgBtn;
+    
 }
 
 @property (strong, nonatomic)  GEMTUserInfo                      *userInfo;
 @property (strong, nonatomic)  UIPanGestureRecognizer            *panGesture;
 @property (nonatomic)           BOOL                             hasBack;
 
+- (IBAction)sendMsgDidPressed:(id)sender;
 
 //请求目录
 - (void)viewUserInfoWithUserId:(NSString*)aUserId;

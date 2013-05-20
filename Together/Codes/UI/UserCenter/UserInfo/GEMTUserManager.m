@@ -28,6 +28,8 @@ static GEMTUserManager *instance;
     return instance;
 }
 
+
+
 - (NSString*)sId
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -190,6 +192,11 @@ static GEMTUserManager *instance;
 
 - (void)LoginOut
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"aSid"];
     
+    [GEMTUserManager defaultManager].sId = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:[self _getUserFilePath] error:nil];
+    [GEMTUserManager defaultManager].userInfo = nil;
 }
 @end

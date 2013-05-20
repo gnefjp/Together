@@ -40,7 +40,7 @@
     [super setSelected:selected animated:animated];
     if (selected) {
         UserCenterView *uView = [UserCenterView loadFromNib];
-        [uView viewUserInfoWithUserId:[NSString stringWithFormat:@"%@",_userInfo.userId]];
+        [uView viewUserInfoWithUserId:_userInfo.userId];
         [self.superview.superview addSubview:uView];
         uView.center = CGPointMake(160*3,274);
         [UIView animateWithDuration:0.4 animations:^(void)

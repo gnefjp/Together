@@ -9,7 +9,7 @@
 #ifndef Together_NetworkConfig_h
 #define Together_NetworkConfig_h
 
-#define kServerAddr         @"kc123kc.vicp.cc"
+#define kServerAddr         @"192.168.1.150"
 
 #define kHttpPort           @"9080"
 #define kFilePort           @"9081"

@@ -28,7 +28,8 @@
     NSString                    *_visitNum;
     NSString                    *_followNum;
     NSString                    *_followedNum;
-    NSString                    *_sex;
+    UserGenderType              _eGenderType;
+    
 }
 
 @property (strong, nonatomic) NSString             *userName;
@@ -46,7 +47,7 @@
 @property (strong, nonatomic) NSString             *visitNum;
 @property (strong, nonatomic) NSString             *followNum;
 @property (strong, nonatomic) NSString             *followedNum;
-@property (strong, nonatomic) NSString             *sex;
+@property (nonatomic)         UserGenderType       eGenderType;
 @property (strong, nonatomic) NSString             *age;
 
 

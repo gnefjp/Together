@@ -42,6 +42,11 @@
     [self _initPanGesture];
     
     [self _isShowNavigation:NO animation:NO];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(logoutForRommListView)
+                                                 name:kNotification_userDidLoginOut
+                                               object:nil];
 }
 
 
@@ -294,6 +299,20 @@
     [self.view addSubview:_mainView];
     _mainView.frameX = 268.0;
     [self _isShowNavigation:NO animation:YES];
+}
+
+- (void) logoutForRommListView
+{
+    [_mainView removeFromSuperview];
+    _mainView = [RoomListView loadFromNib];
+    [self _initPanGesture];
+    ((RoomListView *)_mainView).delegate = self;
+    [self.view addSubview:_mainView];
+    _mainView.frameOrigin = CGPointMake(320, 0);
+    [UIView animateWithDuration:0.4 animations:^(void)
+     {
+         _mainView.frameOrigin = CGPointMake(0, 0);
+     }];
 }
 
 @end

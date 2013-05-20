@@ -21,7 +21,7 @@
 @synthesize signatureText = _signatureText;
 @synthesize userId = _userId;
 @synthesize visitNum = _visitNum;
-@synthesize sex = _sex;
+@synthesize eGenderType = _eGenderType;
 @synthesize avataId = _avataId;
 @synthesize age = _age;
 
@@ -38,29 +38,29 @@
     self.signatureRecordId = [NSString stringWithInt:aUserInfo.signatureRecordId];
     self.signatureText = aUserInfo.signatureText;
     self.visitNum = [NSString stringWithInt:aUserInfo.visitNum];
-    self.sex = [NSString stringWithInt:aUserInfo.sex];
+    self.eGenderType = aUserInfo.sex;
     self.birthday = aUserInfo.birthday;
     self.avataId = [NSString stringWithInt:aUserInfo.picId];
     
     [self setAge:_birthday];
     
-    if (!_nickName||[_nickName isEqualToString:@""])
+    if (_nickName.length == 0)
     {
         _nickName = @"未知";
     }
-    if (!_signatureText||[_signatureText isEqualToString:@""])
+    if (_signatureText.length == 0)
     {
         _signatureText = @"这个家伙很懒，什么都没有留下";
     }
-    if (!_followedNum||[_followedNum isEqualToString:@""])
+    if (_followedNum.length == 0)
     {
         _followedNum =@"0";
     }
-    if (!_followNum||[_followNum isEqualToString:@""])
+    if (_followNum.length == 0)
     {
         _followedNum =@"0";
     }
-    if (!_praiseNum||[_praiseNum isEqualToString:@""]) {
+    if (_praiseNum.length == 0) {
         _praiseNum  = @"0";
     }
 }

@@ -130,7 +130,7 @@
         case 1:
         {
             cell.iLeftLb.text = @"性别";
-            cell.iRightLb.text = [[GEMTUserManager defaultManager].userInfo.sex intValue] ? @"男":@"女";
+            cell.iRightLb.text = [GEMTUserManager defaultManager].userInfo.eGenderType ? @"男":@"女";
             break;
         }
         case 2:
@@ -261,7 +261,7 @@
     NSString *signName = [self _getCellRightValueWithIndex:3];
     
     [GEMTUserManager defaultManager].userInfo.nickName = nickName;
-    [GEMTUserManager defaultManager].userInfo.sex = [NSString stringWithInt:[sexName isEqualToString:@"女"]?0:1];
+    [GEMTUserManager defaultManager].userInfo.eGenderType = [sexName isEqualToString:@"女"]?0:1;
     [GEMTUserManager defaultManager].userInfo.signatureText = signName;
     [[GEMTUserManager defaultManager].userInfo setAge:birthDay];
     [GEMTUserManager defaultManager].userInfo.birthday = birthDay;

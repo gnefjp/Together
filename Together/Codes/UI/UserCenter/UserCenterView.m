@@ -30,7 +30,7 @@
 {
     _iNickName.text = _userInfo.nickName;
     _iAgeLb.text = [NSString stringWithFormat:@"%@岁",_userInfo.age];
-    _iSexLb.text = [_userInfo.sex intValue]?@"男":@"女";
+    _iSexLb.text = _userInfo.eGenderType?@"男":@"女";
     _iPraiseLb.text = _userInfo.praiseNum;
     _iSignLb.text = [NSString stringWithFormat:@"个性签名 ：%@",_userInfo.signatureText];
     _iFollowLb.text = _userInfo.followNum;
@@ -42,12 +42,16 @@
     {
         [_iEditBtn setHidden:NO];
         [_iZanBtn setEnabled:NO];
-        [_followBtn setHidden:NO];
+        [_followBtn setHidden:YES];
+        [_sendMsgBtn setTitle:@"注销" forState:UIControlStateNormal];
+        [_sendMsgBtn setTitle:@"注销" forState:UIControlStateNormal];
     }else
     {
         [_iEditBtn setHidden:YES];
         [_iZanBtn setEnabled:YES];
         [_followBtn setHidden:NO];
+        [_sendMsgBtn setTitle:@"发消息" forState:UIControlStateNormal];
+        [_sendMsgBtn setTitle:@"发消息" forState:UIControlStateHighlighted];
     }
 
     switch (_eType)
@@ -59,7 +63,7 @@
         case followRelation_unFollow:
             [_followBtn setTitle:@"加关注" forState:UIControlStateNormal];
             [_followBtn setTitle:@"加关注" forState:UIControlStateHighlighted];
-            
+    
             break;
         case followRelation_Own:
             break;
@@ -308,5 +312,17 @@
     [self resetInfo];
 }
 
+
+- (IBAction)sendMsgDidPressed:(UIButton*)sender
+{
+    NSString *str = [sender titleForState:UIControlStateNormal];
+    if ([str isEqualToString:@"发消息"])
+    {
+        
+    }else{
+        [[GEMTUserManager defaultManager] LoginOut];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_userDidLoginOut object:nil];
+    }
+}
 
 @end

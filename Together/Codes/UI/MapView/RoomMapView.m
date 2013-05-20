@@ -63,7 +63,28 @@
         {
             pinView = [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
         }
-        pinView.image = [UIImage imageNamed:@"fuwu.png"];
+        Annotation *ano = (Annotation*)annotation;
+        NSString *imageName;
+        switch (ano.roomInfo.roomType) {
+            case RoomType_BRPG:
+                imageName = @"yule.png";
+                break;
+            case RoomType_Catering:
+                 imageName = @"meishi.png";
+                break;
+            case RoomType_Sports:
+                 imageName = @"fuwu.png";
+                break;
+            case RoomType_Shopping:
+                 imageName = @"shangpin.png";
+                break;
+            case RoomType_Movie:
+                 imageName = @"dianying.png";
+                break;
+            default:
+                break;
+        }
+        pinView.image = [UIImage imageNamed:imageName];
         return pinView;
     }
     return nil;
