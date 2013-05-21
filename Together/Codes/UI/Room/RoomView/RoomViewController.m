@@ -276,9 +276,9 @@ static NSString* s_roomTypeNames[] = {
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    double tmpTime = [[formatter dateFromString:_roomItem.beginTime] timeIntervalSince1970] +
-                        [[NSDate date] timeIntervalSince1970] - 
-                        [[AppSetting defaultSetting].serverCurrentTime doubleValue];
+    double tmpTimeInterval = [[NSDate date] timeIntervalSince1970] -
+    [[AppSetting defaultSetting].serverCurrentTime doubleValue];
+    double tmpTime = [[formatter dateFromString:_roomItem.beginTime] timeIntervalSince1970] + tmpTimeInterval;
     NSDate *beginTime = [NSDate dateWithTimeIntervalSince1970:tmpTime];
     _roomItem.beginTime = [formatter stringFromDate:beginTime];
     
@@ -384,6 +384,7 @@ static NSString* s_roomTypeNames[] = {
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
     if ([[formatter dateFromString:_roomItem.beginTime] timeIntervalSince1970] <=
         [[NSDate date] timeIntervalSince1970])
     {

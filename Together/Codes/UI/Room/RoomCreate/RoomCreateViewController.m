@@ -344,8 +344,16 @@ static NSString* s_roomTypeNames[] = {
     {
         RoomViewController* roomViewController = [RoomViewController loadFromNib];
         [self.navigationController pushViewController:roomViewController animated:YES];
-        roomViewController.roomItem = (NetRoomItem *)[NetRoomItem itemWithMessage:
-                                                      request.responseData.createRoomResponse.roomInfo];
+        NetRoomItem *roomItem = (NetRoomItem *)[NetRoomItem itemWithMessage:
+                                                request.responseData.createRoomResponse.roomInfo];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyyMMddHHmmss"];
+        NSDate *beginTime = [formatter dateFromString:roomItem.beginTime];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        roomItem.beginTime = [formatter stringFromDate:beginTime];
+        
+        roomViewController.roomItem = roomItem;
     }
 }
 
