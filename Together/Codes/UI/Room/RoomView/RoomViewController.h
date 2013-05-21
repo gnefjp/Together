@@ -29,6 +29,8 @@
     
     AVAudioPlayer                   *_player;
     __weak IBOutlet UIButton        *_recordBtn;
+    
+    __weak IBOutlet UIImageView *_roomTypeImageView;
 }
 
 @property (strong, nonatomic) NetRoomItem           *roomItem;

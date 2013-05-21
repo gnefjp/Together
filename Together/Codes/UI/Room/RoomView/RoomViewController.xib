@@ -259,6 +259,7 @@
 								<string key="NSFrame">{{52, 249}, {163, 17}}</string>
 								<reference key="NSSuperview" ref="262080457"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="584120826"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -474,7 +475,7 @@
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="667805704"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
@@ -524,6 +525,7 @@
 						<string key="NSFrame">{{268, 0}, {52, 52}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="857379608"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -542,6 +544,21 @@
 						<reference key="IBUINormalBackgroundImage" ref="632778763"/>
 						<reference key="IBUIFontDescription" ref="896659284"/>
 						<reference key="IBUIFont" ref="963205086"/>
+					</object>
+					<object class="IBUIImageView" id="857379608">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{7, 4}, {26, 36}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">roomtype_sports.png</string>
+						</object>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 548}}</string>
@@ -673,6 +690,14 @@
 					<int key="connectionID">60</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_roomTypeImageView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="857379608"/>
+					</object>
+					<int key="connectionID">64</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">closeBtnPressed:</string>
 						<reference key="source" ref="773300888"/>
@@ -743,6 +768,7 @@
 							<reference ref="667805704"/>
 							<reference ref="262080457"/>
 							<reference ref="590837207"/>
+							<reference ref="857379608"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -869,6 +895,11 @@
 						<reference key="object" ref="240868772"/>
 						<reference key="parent" ref="262080457"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">63</int>
+						<reference key="object" ref="857379608"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -901,6 +932,7 @@
 				<string key="55.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="0.0" key="55.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="63.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -908,7 +940,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">60</int>
+			<int key="maxID">64</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -953,6 +985,7 @@
 						<string key="_followBtn">UIButton</string>
 						<string key="_mainScrollView">UIScrollView</string>
 						<string key="_recordBtn">UIButton</string>
+						<string key="_roomTypeImageView">UIImageView</string>
 						<string key="beginTimeLabel">UILabel</string>
 						<string key="createTimeLabel">UILabel</string>
 						<string key="detailAddLabel">UILabel</string>
@@ -974,6 +1007,10 @@
 						<object class="IBToOneOutletInfo" key="_recordBtn">
 							<string key="name">_recordBtn</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="_roomTypeImageView">
+							<string key="name">_roomTypeImageView</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="beginTimeLabel">
 							<string key="name">beginTimeLabel</string>
@@ -1029,6 +1066,7 @@
 			<string key="common_yellow_btn_b.png">{100, 38}</string>
 			<string key="room_create_pic_default.png">{320, 224}</string>
 			<string key="room_unfollow_btn.png">{44, 44}</string>
+			<string key="roomtype_sports.png">{50, 72}</string>
 			<string key="user_default_avatar.png">{126, 126}</string>
 			<string key="usercenter_avatarBg.png">{166, 166}</string>
 		</dictionary>

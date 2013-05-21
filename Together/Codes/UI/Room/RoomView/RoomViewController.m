@@ -34,6 +34,16 @@
 
 @implementation RoomViewController
 
+static NSString* s_roomTypeNames[] = {
+    @"roomtype_other.png",
+    @"roomtype_brpg.png",
+    @"roomtype_catering.png",
+    @"roomtype_sports.png",
+    @"roomtype_shopping.png",
+    @"roomtype_movie.png",
+};
+
+
 - (void) dealloc
 {
     [[ATTimerManager shardManager] stopTimerDelegate:self];
@@ -62,6 +72,7 @@
     _mainScrollView = nil;
     _followBtn = nil;
     _recordBtn = nil;
+    _roomTypeImageView = nil;
     [super viewDidUnload];
 }
 
@@ -256,6 +267,8 @@
     [self _isRoomEnded:(_roomItem.roomState == RoomState_Ended)];
     
     [self _remainTime];
+    
+    _roomTypeImageView.image = [UIImage imageNamed:s_roomTypeNames[_roomItem.roomType]];
 }
 
 
