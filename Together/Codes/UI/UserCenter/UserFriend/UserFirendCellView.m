@@ -9,6 +9,7 @@
 #import "UserFirendCellView.h"
 #import "UserCenterView.h"
 #import "GEMTUserManager.h"
+#import "CommonTool.h"
 
 @implementation UserFirendCellView
 @synthesize isFollow = _isFollow;
@@ -33,6 +34,9 @@
     [_userInfo setUserInfoWithLoginResPonse:aUserInfo];
     _isFollow = isFollow;
     _iNIckName.text = _userInfo.nickName;
+    [_iAvataImg setImageWithFileID:_userInfo.avataId
+                  placeholderImage:[UIImage
+                                    imageNamed:@"user_default_avatar.png"]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

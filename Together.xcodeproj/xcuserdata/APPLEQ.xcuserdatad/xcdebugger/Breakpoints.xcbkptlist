@@ -59,19 +59,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/UI/UserCenter/UserFriend/UserFriendView.m"
-         timestampString = "390553003.025073"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "-NetUserRequestSuccess:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Together/Codes/Network/File/AsyncSocketUpload.m"
          timestampString = "390593139.344032"
          startingColumnNumber = "9223372036854775807"

@@ -41,6 +41,7 @@
 {
     _iFriendTable.delegate = self;
     _iFriendTable.dataSource = self;
+    
 }
 
 - (void)initWithFolloUserId:(NSString*)userId

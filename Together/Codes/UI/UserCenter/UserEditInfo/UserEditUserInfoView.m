@@ -92,9 +92,10 @@
         }
         case 3:
         {
-            [self _showInfoFillViewWithType:InfoFillType_TextView
+            InfoFillInViewController *fillView = [self _showInfoFillViewWithType:InfoFillType_TextView
                                       title:@"个性签名"
                                         tag:3];
+            [fillView textValue:[GEMTUserManager defaultManager].userInfo.nickName];
         }
             break;
         default:
