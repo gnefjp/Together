@@ -18,7 +18,12 @@
     [_iRoomImg setImageWithFileID:roomItem.perviewID placeholderImage:[UIImage imageNamed:@"room_create_pic_frame.png"]];
     _iCreator.text = roomItem.roomTitle;
     _iStarDate.text = roomItem.beginTime;
-    _iPeopleCount.text = [NSString stringWithFormat:@"%d/%d",roomItem.joinPersonNum,roomItem.personLimitNum];
+    if (roomItem.personLimitNum<1) {
+         _iPeopleCount.text = [NSString stringWithFormat:@"%d/不限",roomItem.joinPersonNum];
+    }else
+    {
+        _iPeopleCount.text = [NSString stringWithFormat:@"%d/%d",roomItem.joinPersonNum,roomItem.personLimitNum];
+    }
 }
 
 - (IBAction)createRoomController:(id)sender

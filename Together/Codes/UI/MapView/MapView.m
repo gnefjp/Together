@@ -10,7 +10,7 @@
 #import "Annotation.h"
 #import "CustomAnnotationView.h"
 #import "Annotation.h"
-
+#import "TipViewManager.h"
 @implementation MapView
 
 @synthesize delegate = _delegate;
@@ -21,6 +21,11 @@
     [dropPin addTarget:self action:@selector(handleLongPress:)];
 	dropPin.minimumPressDuration = 0.5;
 	[_iMapView addGestureRecognizer:dropPin];
+    [[TipViewManager defaultManager] showTipText:@"长按地图选择"
+                                       imageName:@"ss"
+                                          inView:self
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1];
 }
 
 - (void)handleLongPress:(UITapGestureRecognizer*)tap
@@ -115,22 +120,6 @@
 {
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
-//    if ([annotation isKindOfClass:[Annotation class]]){
-//        // Try to dequeue an existing pin view first.
-//        CustomAnnotationView* pinView = (CustomAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
-//        if (!pinView){
-//            // If an existing pin view was not available, create one.
-//            pinView = [[CustomAnnotationView alloc] initWithAnnotation:annotation
-//                                                       reuseIdentifier:@"CustomPinAnnotationView"];
-//        }
-//        else
-//        {
-//            pinView.annotation = annotation;
-//        }
-//        [pinView setPinColor:MKPinAnnotationColorGreen];
-//        return pinView;
-//    }
-//    return nil;
     if ([annotation isKindOfClass:[Annotation class]])
     {
         Annotation *ann = (Annotation*)annotation;

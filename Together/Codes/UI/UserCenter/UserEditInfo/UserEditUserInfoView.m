@@ -95,7 +95,7 @@
             InfoFillInViewController *fillView = [self _showInfoFillViewWithType:InfoFillType_TextView
                                       title:@"个性签名"
                                         tag:3];
-            [fillView textValue:[GEMTUserManager defaultManager].userInfo.nickName];
+            [fillView textValue:[GEMTUserManager defaultManager].userInfo.signatureText];
         }
             break;
         default:
