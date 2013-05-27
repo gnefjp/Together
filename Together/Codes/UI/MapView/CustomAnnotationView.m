@@ -13,7 +13,7 @@
 #define Arror_height 16
 
 @implementation CustomAnnotationView
-@synthesize mapView = _mapView;
+@synthesize mapCellView = _mapCellView;
 
 @synthesize calloutView;
 
@@ -24,72 +24,32 @@
     {
         self.backgroundColor = [UIColor clearColor];
         self.canShowCallout = NO;
-        _mapView = [[[NSBundle mainBundle] loadNibNamed:@"MapCustomView" owner:nil options:0] objectAtIndex:0];
-        self.frame = CGRectMake(0, 0, _mapView.frame.size.width, _mapView.frame.size.height + Arror_height);
-        [self addSubview:_mapView];
-        [_mapView setHidden:YES];
-        _mapView.center = CGPointMake(-10, -10);
+        _mapCellView = [MapCustomView loadFromNib];
+        self.frame = CGRectMake(0, 0, _mapCellView.frame.size.width, _mapCellView.frame.size.height + Arror_height);
+        [self addSubview:_mapCellView];
+        [_mapCellView setHidden:YES];
+        _mapCellView.center = CGPointMake(-10, -10);
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
-
-//    Annotation *ann = self.annotation;
-//    if(selected)
-//    {
-//        
-//        [_mapView setHidden:NO];
-//        //Add your custom view to self...
-//        if ([ann.locationType isEqualToString:@"airport"])
-//        {
-//            calloutView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"airport.png"]];
-//            _mapView._iTypeImage.image = [UIImage imageNamed:@"airport.png"];
-//            _mapView._iLb.text = @"airPort";
-//        }
-//        if ([ann.locationType isEqualToString:@"restaurant"])
-//        {
-//            calloutView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"restaurant.png"]];
-//            _mapView._iTypeImage.image = [UIImage imageNamed:@"restaurant"];
-//            _mapView._iLb.text = @"restaurant";
-//        }
-//        if ([ann.locationType isEqualToString:@"shopping"])
-//        {
-//            _mapView._iTypeImage.image = [UIImage imageNamed:@"shopping.png"];
-//            calloutView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shopping.png"]];
-//            _mapView._iLb.text = @"shopping";
-//        }
-//        
-//    }
-//    else
-//    {
-//        [_mapView setHidden:YES];
-//        [calloutView removeFromSuperview];
-//    }
+    Annotation *ann = self.annotation;
+    if(selected)
+    {
+        [_mapCellView setHidden:NO];
+        [_mapCellView refreshRomm:ann.roomInfo];
+    }
+    else
+    {
+        [_mapCellView setHidden:YES];
+    }
 }
 
 - (void)didAddSubview:(UIView *)subview{
-//    Annotation *ann = self.annotation;
-//    if (![ann.locationType isEqualToString:@"dropped"])
-//    {
-//        if ([[[subview class] description] isEqualToString:@"UICalloutView"])
-//        {
-//            for (UIView *subsubView in subview.subviews)
-//            {
-//                if ([subsubView class] == [UIImageView class])
-//                {
-//                    UIImageView *imageView = ((UIImageView *)subsubView);
-//                    [imageView removeFromSuperview];
-//                }
-//                else if ([subsubView class] == [UILabel class])
-//                {
-//                    UILabel *labelView = ((UILabel *)subsubView);
-//                    [labelView removeFromSuperview];
-//                }
-//            }
-//        }
-//    }
+
 }
 
 @end

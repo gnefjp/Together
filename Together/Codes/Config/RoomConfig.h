@@ -11,23 +11,27 @@
 
 typedef enum
 {
-    RoomType_BRPG           = 0, // 桌游（board role-playing games）
-    RoomType_Catering       = 1, // 餐饮
-    RoomType_Sports         = 2, // 运动
-    RoomType_Shopping       = 3, // 购物
-    RoomType_Movie          = 4, // 电影
+    RoomType_All            = 0, 
+    RoomType_BRPG           = 1, // 桌游（board role-playing games）
+    RoomType_Catering       = 2, // 餐饮
+    RoomType_Sports         = 3, // 运动
+    RoomType_Shopping       = 4, // 购物
+    RoomType_Movie          = 5, // 电影
     
-    RoomType_Max            = 5,
+    RoomType_Max            = 6,
 } RoomType;
 
 
 typedef enum
 {
-    RoomState_Waiting   = 0,
-    RoomState_Playing   = 1,
+    RoomState_Waiting   = 1,
     RoomState_Ended     = 2,
     
     RoomState_Max       = 3,
 } RoomState;
+
+#define kDefaultRoomPreview                 @"room_default_preview.png"
+
+#define kNotification_InitCurrentLocation   @"Notification_InitCurrentLocation"
 
 #endif

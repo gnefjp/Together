@@ -2,16 +2,147 @@
 
 #import "ProtocolBuffers.h"
 
+#import "Data.pb.h"
 #import "RoomData.pb.h"
+#import "UserData.pb.h"
 
 @class Address;
 @class Address_Builder;
+@class CreateRoomResponse;
+@class CreateRoomResponse_Builder;
+@class DetailResponse;
+@class DetailResponse_Builder;
+@class IsExistNewMessageResponse;
+@class IsExistNewMessageResponse_Builder;
+@class List;
+@class List_Builder;
+@class LoginResponse;
+@class LoginResponse_Builder;
+@class Message_Info;
+@class Message_Info_Builder;
 @class RoomInfo;
+@class RoomInfoResponse;
+@class RoomInfoResponse_Builder;
 @class RoomInfo_Builder;
+@class UserMessageResponse;
+@class UserMessageResponse_Builder;
+@class User_Info;
+@class User_Info_Builder;
+@class UsernameExistResponse;
+@class UsernameExistResponse_Builder;
 
 @interface RoomResponseRoot : NSObject {
 }
 + (PBExtensionRegistry*) extensionRegistry;
 + (void) registerAllExtensions:(PBMutableExtensionRegistry*) registry;
+@end
+
+@interface CreateRoomResponse : PBGeneratedMessage {
+@private
+  BOOL hasRoomInfo_:1;
+  RoomInfo* roomInfo;
+}
+- (BOOL) hasRoomInfo;
+@property (readonly, retain) RoomInfo* roomInfo;
+
++ (CreateRoomResponse*) defaultInstance;
+- (CreateRoomResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (CreateRoomResponse_Builder*) builder;
++ (CreateRoomResponse_Builder*) builder;
++ (CreateRoomResponse_Builder*) builderWithPrototype:(CreateRoomResponse*) prototype;
+
++ (CreateRoomResponse*) parseFromData:(NSData*) data;
++ (CreateRoomResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (CreateRoomResponse*) parseFromInputStream:(NSInputStream*) input;
++ (CreateRoomResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (CreateRoomResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (CreateRoomResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface CreateRoomResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  CreateRoomResponse* result;
+}
+
+- (CreateRoomResponse*) defaultInstance;
+
+- (CreateRoomResponse_Builder*) clear;
+- (CreateRoomResponse_Builder*) clone;
+
+- (CreateRoomResponse*) build;
+- (CreateRoomResponse*) buildPartial;
+
+- (CreateRoomResponse_Builder*) mergeFrom:(CreateRoomResponse*) other;
+- (CreateRoomResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (CreateRoomResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasRoomInfo;
+- (RoomInfo*) roomInfo;
+- (CreateRoomResponse_Builder*) setRoomInfo:(RoomInfo*) value;
+- (CreateRoomResponse_Builder*) setRoomInfoBuilder:(RoomInfo_Builder*) builderForValue;
+- (CreateRoomResponse_Builder*) mergeRoomInfo:(RoomInfo*) value;
+- (CreateRoomResponse_Builder*) clearRoomInfo;
+@end
+
+@interface RoomInfoResponse : PBGeneratedMessage {
+@private
+  BOOL hasRoomInfo_:1;
+  BOOL hasRelation_:1;
+  RoomInfo* roomInfo;
+  UserRelation relation;
+}
+- (BOOL) hasRoomInfo;
+- (BOOL) hasRelation;
+@property (readonly, retain) RoomInfo* roomInfo;
+@property (readonly) UserRelation relation;
+
++ (RoomInfoResponse*) defaultInstance;
+- (RoomInfoResponse*) defaultInstance;
+
+- (BOOL) isInitialized;
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output;
+- (RoomInfoResponse_Builder*) builder;
++ (RoomInfoResponse_Builder*) builder;
++ (RoomInfoResponse_Builder*) builderWithPrototype:(RoomInfoResponse*) prototype;
+
++ (RoomInfoResponse*) parseFromData:(NSData*) data;
++ (RoomInfoResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (RoomInfoResponse*) parseFromInputStream:(NSInputStream*) input;
++ (RoomInfoResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
++ (RoomInfoResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input;
++ (RoomInfoResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+@end
+
+@interface RoomInfoResponse_Builder : PBGeneratedMessage_Builder {
+@private
+  RoomInfoResponse* result;
+}
+
+- (RoomInfoResponse*) defaultInstance;
+
+- (RoomInfoResponse_Builder*) clear;
+- (RoomInfoResponse_Builder*) clone;
+
+- (RoomInfoResponse*) build;
+- (RoomInfoResponse*) buildPartial;
+
+- (RoomInfoResponse_Builder*) mergeFrom:(RoomInfoResponse*) other;
+- (RoomInfoResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
+- (RoomInfoResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
+
+- (BOOL) hasRoomInfo;
+- (RoomInfo*) roomInfo;
+- (RoomInfoResponse_Builder*) setRoomInfo:(RoomInfo*) value;
+- (RoomInfoResponse_Builder*) setRoomInfoBuilder:(RoomInfo_Builder*) builderForValue;
+- (RoomInfoResponse_Builder*) mergeRoomInfo:(RoomInfo*) value;
+- (RoomInfoResponse_Builder*) clearRoomInfo;
+
+- (BOOL) hasRelation;
+- (UserRelation) relation;
+- (RoomInfoResponse_Builder*) setRelation:(UserRelation) value;
+- (RoomInfoResponse_Builder*) clearRelation;
 @end
 

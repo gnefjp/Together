@@ -12,21 +12,71 @@
 #import "MapView.h"
 #import "UserLoginRequest.h"
 #import "UserRegisterRequest.h"
+#import "UserFollowRequest.h"
+#import "UserEditUserInfoView.h"
+#import "AsyncSocketUpload.h"
+#import "FileDownloadRequest.h"
+#import "RoomMapView.h"
 
 @class GMETRecorder;
+@class GEMTUserInfo;
 
-@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate>
+typedef enum 
+{
+    followRelation_follow,
+    followRelation_unFollow,
+    followRelation_Own
+}eFollowRelation;
+
+@interface UserCenterView : UIView<PicChangeDelegate,MapViewDelegate,NetUserRequestDelegate,UserEditUserInfoViewDelegate,NetFileRequestDelegate>
 {
     __weak IBOutlet UIImageView     *_iAvatarImage;
     GMETRecorder                    *_recorder;
     AVAudioPlayer                   *_player;
     PicChange                       *_avatar;
+    GEMTUserInfo                    *_userInfo;
+    eFollowRelation                 _eType;
+    
+    __weak IBOutlet UILabel         *_iFollowLb;
+    __weak IBOutlet UILabel         *_iFansLb;
+    
+    __weak IBOutlet UILabel         *_iSexLb;
+    __weak IBOutlet UILabel         *_iAgeLb;
+    
+    __weak IBOutlet UILabel         *_iNickName;
+    __weak IBOutlet UILabel         *_iPraiseLb;
+    __weak IBOutlet UILabel         *_iSignLb;
+    
+    __weak IBOutlet UIButton        *_iEditBtn;
+    __weak IBOutlet UIButton        *_iZanBtn;
+    __weak IBOutlet UIButton        *_iBackBtn;
+    __weak IBOutlet UIButton        *_followBtn;
+    
+    BOOL                            _hasBack;
+    
+    AsyncSocketUpload               *upload;
+    __weak IBOutlet UIActivityIndicatorView *_iLoadingActivity;
+    
+    __weak IBOutlet UIButton        *_sendMsgBtn;
+    
 }
 
-- (IBAction)showMapViewBtnDidpressed:(id)sender;
-- (IBAction)recordBtnDidPressed:(id)sender;
-- (IBAction)stopRecordBtnDidPressed:(id)sender;
-- (IBAction)changeAvataBtnDidPressed:(id)sender;
-- (IBAction)loginBtnDidPressed:(id)sender;
+@property (strong, nonatomic)  GEMTUserInfo                      *userInfo;
+@property (strong, nonatomic)  UIPanGestureRecognizer            *panGesture;
+@property (nonatomic)           BOOL                             hasBack;
 
+- (IBAction)sendMsgDidPressed:(id)sender;
+
+//请求目录
+- (void)viewUserInfoWithUserId:(NSString*)aUserId;
+- (IBAction)closeBtnDidPressed:(id)sender;
+- (IBAction)addMap:(id)sender;
+
+- (void)changeUserInfo:(GEMTUserInfo*)aUserInfo;
+- (IBAction)viewOtherInfo:(id)sender;
+- (IBAction)followOther:(id)sender;
+- (IBAction)pariseOthers:(id)sender;
+- (IBAction)editInfoBtnDidPressed:(id)sender;
+
+- (IBAction)sendMsgBtnDidPressed:(id)sender;
 @end

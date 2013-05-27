@@ -11,6 +11,9 @@
 #import "HomeViewController.h"
 
 #import "FileDownloadRequest.h"
+#import "KeepSorcket.h"
+
+#import "ATTimerManager.h"
 
 @implementation TogetherAppDelegate
 
@@ -18,10 +21,13 @@
 - (void) _debugNetwork
 {
     return;
-    
-    FileDownloadRequest* request = [[FileDownloadRequest alloc] init];
-    request.fileID = @"2";
-    [[NetRequestManager defaultManager] startRequest:request];
+    int count = 1;
+    while (count --)
+    {
+        FileDownloadRequest* request = [[FileDownloadRequest alloc] init];
+        request.fileID = @"2";
+        [[NetRequestManager defaultManager] startRequest:request];
+    }
 }
 
 
@@ -47,11 +53,15 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    [[ATTimerManager shardManager] pauseAllTimers];
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [[KeepSorcket defaultManager] connectToHost];
+    
+    [[ATTimerManager shardManager] resumeAllTimers];
 }
 
 

@@ -6,12 +6,12 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "NetRoomList.h"
 
 @interface NetRoomManager : NSObject
 
-+ (NetRoomManager *) defaultManager;
+@property (strong, nonatomic) NetRoomList   *roomList;
 
-//- (void) 
++ (NetRoomManager *) defaultManager;
 
 @end

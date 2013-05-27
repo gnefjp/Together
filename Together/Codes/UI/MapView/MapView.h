@@ -15,9 +15,12 @@
 @class CustomAnnotationView;
 
 @protocol MapViewDelegate <NSObject>
+- (void)MapView:(MapView*)view
+       location:(CLLocationCoordinate2D)aLocation
+   loactionAddr:(NSString*)aStr;
 
-- (void)MapView:(MapView*)view location:(CLLocationCoordinate2D)aLocation;
-
+@optional
+- (BOOL) MapViewBackActionIsDelegate:(MapView *)mapView;
 @end
 
 @interface MapView : UIView<CLLocationManagerDelegate>
@@ -30,7 +33,7 @@
     Annotation                      *_choosePosition;
 }
 
-@property (weak ,nonatomic) __weak id<MapViewDelegate>    delegate;
+@property (weak ,nonatomic) id<MapViewDelegate>    delegate;
 
 - (IBAction)closeBtnDidPressed:(id)sender;
 - (IBAction)getCurrentChoosePosition:(id)sender;

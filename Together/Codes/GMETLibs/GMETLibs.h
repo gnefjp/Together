@@ -10,8 +10,12 @@
 #define Together_GMETLibs_h
 
 #import "GMETLibs+UIView.h"
+#import "GMETLibs+UILabel.h"
+#import "GMETLibs+UIImageView.h"
 #import "GMETLibs+NSString.h"
 #import "GMETLibs+UIColor.h"
 #import "GMETLibs+DataContainer.h"
+#import "GMETLibs+NSObject.h"
+#import "GMETLibs+NSFileManager.h"
 
 #endif

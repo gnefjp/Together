@@ -7,20 +7,39 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UserConfig.h"
-#import "UserLoginView.h"
-#import "UserLoginView.h"
 
-@interface GEMTUserManager : NSObject<UserLoginViewDelegate>
+#import "UserConfig.h"
+#import "GEMTUserInfo.h"
+#import "UserLoginView.h"
+#import "UserLoginRequest.h"
+
+@class UserLoginView;
+
+@interface GEMTUserManager : NSObject<UserLoginDelegate,NetUserRequestDelegate>
 {
     BOOL                _isShowLoginView;
+    GEMTUserInfo        *_userInfo;
+    BOOL                _isLoginIng;
+    NSString            *_sId;
 }
 
-- (void)addLoginViewToTopView;
-- (void)autoLogin;
+@property (strong , nonatomic) GEMTUserInfo        *userInfo;
+@property (strong , nonatomic) NSString            *sId;
+
+- (GEMTUserInfo*)userInfo;
+- (void)userName:(NSString*)aUserName
+        passWord:(NSString*)aPassWord
+             sid:(NSString*)aId;
+- (BOOL)shouldAddLoginViewToTopView;
+- (void)removeuserNameAndPassWord;
+- (void)userInfoWirteToFile;
+
+
+- (NSString*)sId;
+//- (void)autoLogin;
 - (void)LogInWithUserName:(NSString*)userName
                  passWord:(NSString*)passWord;
 - (void)LoginOut;
-+ (id)shareInstance;
++ (GEMTUserManager*)defaultManager;
 
 @end

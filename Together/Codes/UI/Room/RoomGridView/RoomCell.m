@@ -5,25 +5,70 @@
 //  Created by Gnef_jp on 13-4-22.
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
+#import "CommonTool.h"
+
+#import "AppSetting.h"
+#import "NetRoomList.h"
 
 #import "RoomCell.h"
 
 @implementation RoomCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+static NSString* s_roomTypeNames[] = {
+    @"roomtype_other.png",
+    @"roomtype_brpg.png",
+    @"roomtype_catering.png",
+    @"roomtype_sports.png",
+    @"roomtype_shopping.png",
+    @"roomtype_movie.png",
+};
+
+
+- (void) _setGenderType
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    NSString *imageNames[] = {
+        @"",
+        @"room_gender_limit_boy.png",
+        @"room_gender_limit_girl.png",
+    };
+    
+    _genderTypeImageView.image = [UIImage imageNamed:imageNames[_roomItem.genderLimitType]];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+- (void) setIsNoDistance:(BOOL)isNoDistance
+{
+    _distanceLabel.hidden = isNoDistance;
+}
+
+
+- (void) setRoomItem:(NetRoomItem *)roomItem
+{
+    if (_roomItem != roomItem)
+    {
+        _roomItem = roomItem;
+    }
+    
+    _roomTitleLabel.text = _roomItem.roomTitle;
+    _beginTimeLabel.text = [_roomItem.beginTime startTimeIntervalWithServer];
+    _addrTitleLabel.text = _roomItem.address.detailAddr;
+    _distanceLabel.text = _roomItem.address.formatDistance;
+    _ownNicknameLabel.text = _roomItem.ownerNickname;
+    
+    if (_roomItem.personLimitNum < 1)
+    {
+        _joinPersonNum.text = [NSString stringWithFormat:@"%d 人/ 不限", _roomItem.joinPersonNum];
+    }
+    else
+    {
+        _joinPersonNum.text = [NSString stringWithFormat:@"%d 人/ %d 人",
+                               _roomItem.joinPersonNum,
+                               _roomItem.personLimitNum];
+    }
+    
+    _roomTypeImageView.image = [UIImage imageNamed:s_roomTypeNames[_roomItem.roomType]];
+    
+    [self _setGenderType];
 }
 
 @end

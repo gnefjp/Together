@@ -8,22 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "PicActioSheet.h"
+#import "PicCutView.h"
+
+
 
 @class PicChange;
 
 @protocol PicChangeDelegate <NSObject>
 
-- (void)PicChangeSuccess:(PicChange*)self img:(UIImage*)img;
+- (void)PicChangeSuccess:(PicChange*)v img:(UIImage*)img;
 
 @end
 
-@interface PicChange : NSObject<PicActioSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface PicChange : NSObject<PicActioSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PicCutViewDelegate>
 {
     __weak id<PicChangeDelegate>     _delegate;
-    
+    cutType                          _eType;
 }
 
 @property (weak,nonatomic) id<PicChangeDelegate>     delegate;
+@property (nonatomic)       cutType                  eType;
 
 - (void)addAvataActionSheet;
 

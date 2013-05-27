@@ -12,7 +12,7 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://172.18.18.169:9080/USER";
+    return [NSString stringWithFormat:@"http://%@:%@/USER", kServerAddr, kHttpPort];
 }
 
 - (NSString *) actionCode
@@ -20,6 +20,13 @@
     int actionCodes[] = {
         USER_REGIEST,
         USER_LOGIN,
+        USER_VIEW_INFO,
+        USER_SET_INFO,
+        USER_FOLLOW,
+        USER_UNFOLLOW,
+        USER_PRISE,
+        GET_FOLLOWING_LIST,
+        GET_FOLLOWERS_LIST,
     };
     
     return [NSString stringWithFormat:@"%d", actionCodes[_requestType]];

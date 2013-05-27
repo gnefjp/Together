@@ -7,13 +7,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Together/Codes/Network/NetRequest.m"
-         timestampString = "388749046.820266"
+         filePath = "Together/Codes/UI/Chat/ChatViewController.m"
+         timestampString = "390766175.730911"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "94"
-         endingLineNumber = "94"
-         landmarkName = "-requestFailed:"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
+         landmarkName = "-_getChatsWithDirect:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Together/Codes/Network/Message/KeepSorcket.m"
+         timestampString = "390765442.598932"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "134"
+         endingLineNumber = "134"
+         landmarkName = "-socket:didReadData:withTag:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

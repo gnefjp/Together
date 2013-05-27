@@ -23,12 +23,16 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.actionCode forKey:@"action"];
+    [dict setValue:self.userName forKey:@"username"];
+    [dict setValue:self.password forKey:@"password"];
     
-    [request addPostValue:_userName forKey:@"username"];
-    [request addPostValue:_password  forKey:@"password"];
+    NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
+                        self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
+    
+    NSURL* url = [NSURL URLWithString:urlStr];
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     
     return request;
 }

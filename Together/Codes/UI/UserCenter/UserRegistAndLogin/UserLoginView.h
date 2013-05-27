@@ -8,31 +8,36 @@
 
 #import <UIKit/UIKit.h>
 #import "UserRegistView.h"
+#import "UserLoginRequest.h"
+#import "TipViewManager.h"
 
 @class UserLoginView;
 
-@protocol UserLoginViewDelegate <NSObject>
+@protocol UserLoginDelegate <NSObject>
 
-- (void)UserLoginViewDidRemove:(UserLoginView*)v;
+- (void)userLoginViewDidRemove:(UserLoginView*)v;
 
 @end
 
-@interface UserLoginView : UIView<UITextFieldDelegate>
+@interface UserLoginView : UIView<UITextFieldDelegate,NetUserRequestDelegate,UserRegistViewDelegate>
 {
-   __weak id<UserLoginViewDelegate>           _delegate;
-   __weak IBOutlet UITextField *_iUserNameFiled;
-   __weak IBOutlet UITextField *_iPassWordTextFiled;
-   __weak IBOutlet UIButton    *_iSubMitBtn;
-   __weak IBOutlet UILabel     *_iUserNameTipInfo;
-   __weak IBOutlet UILabel     *_iPassWordTipInfo;
-   __weak IBOutlet UIView      *_iLoginView;
-   UserRegistView              *_iRegistView;
-   BOOL                        _isLogin;
+    __weak IBOutlet UITextField                  *_iUserNameFiled;
+    __weak IBOutlet UITextField                  *_iPassWordTextFiled;
+    __weak IBOutlet UIButton                     *_iSubMitBtn;
+    __weak IBOutlet UILabel                      *_iUserNameTipInfo;
+    __weak IBOutlet UILabel                      *_iPassWordTipInfo;
+    __weak IBOutlet UIView                       *_iLoginView;
+    __weak id<UserLoginDelegate>                 _delegate;
+    __weak IBOutlet UILabel                      *_iTiTleLb;
+    __weak IBOutlet UIButton                     *_iRegistBtn;
+    
+    UserRegistView                               *_iRegistView;
+    BOOL                                         _isLogin;
 }
 
 
 
-@property (weak, nonatomic) id<UserLoginViewDelegate>   delegate;
+@property (weak, nonatomic) id<UserLoginDelegate>   delegate;
 
 - (IBAction)closeBtnDidPressed:(id)sender;
 - (IBAction)registBtnDidPressed:(id)sender;

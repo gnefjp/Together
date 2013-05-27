@@ -7,7 +7,8 @@
 //
 
 #import "GMETRecorder.h"
- 
+#import <AudioToolbox/AudioServices.h>
+
 @implementation GMETRecorder
 
 @synthesize delegate = _delegate;
@@ -43,18 +44,17 @@
     return NSTemporaryDirectory();
 }
 
++ (NSString*)getRecordFilePath
+{
+    NSString *filePath = [NSString stringWithFormat:@"%@/record.caf",[GMETRecorder tempPath]];
+    return  filePath;
+}
+
 + (NSURL*)getRecordFileUrl
 {
-    NSString *filePath = [NSString stringWithFormat:@"%@/test.caf",[GMETRecorder tempPath]];
+    NSString *filePath = [NSString stringWithFormat:@"%@/record.caf",[GMETRecorder tempPath]];
     return [NSURL fileURLWithPath:filePath];
 }
-
-+ (NSString*)getTestAudioFilePath
-{
-    NSString *filePath = [NSString stringWithFormat:@"%@/test.caf",[GMETRecorder tempPath]];
-    return filePath;
-}
-
 
 - (NSDictionary *) recordSettings
 {
@@ -76,12 +76,16 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    AudioSessionSetProperty (kAudioSessionProperty_OverrideAudioRoute,
+                             sizeof (audioRouteOverride),&audioRouteOverride);
     [session setActive:YES error:nil];
     
-    NSURL *url  = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@test.caf",NSTemporaryDirectory()]];
+    NSURL *url  = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/record.caf",NSTemporaryDirectory()]];
     
     _recorder = [[AVAudioRecorder alloc] initWithURL:url
-                                            settings:[self recordSettings] error:nil];
+                                            settings:nil
+                                               error:nil];
     [_recorder setDelegate:self];
     [_recorder prepareToRecord];
     [_recorder recordForDuration:_pTime];

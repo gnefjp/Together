@@ -12,11 +12,450 @@ static PBExtensionRegistry* extensionRegistry = nil;
   if (self == [RoomResponseRoot class]) {
     PBMutableExtensionRegistry* registry = [PBMutableExtensionRegistry registry];
     [self registerAllExtensions:registry];
+    [DataRoot registerAllExtensions:registry];
     [RoomDataRoot registerAllExtensions:registry];
+    [UserDataRoot registerAllExtensions:registry];
     extensionRegistry = [registry retain];
   }
 }
 + (void) registerAllExtensions:(PBMutableExtensionRegistry*) registry {
+}
+@end
+
+@interface CreateRoomResponse ()
+@property (retain) RoomInfo* roomInfo;
+@end
+
+@implementation CreateRoomResponse
+
+- (BOOL) hasRoomInfo {
+  return !!hasRoomInfo_;
+}
+- (void) setHasRoomInfo:(BOOL) value {
+  hasRoomInfo_ = !!value;
+}
+@synthesize roomInfo;
+- (void) dealloc {
+  self.roomInfo = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.roomInfo = [RoomInfo defaultInstance];
+  }
+  return self;
+}
+static CreateRoomResponse* defaultCreateRoomResponseInstance = nil;
++ (void) initialize {
+  if (self == [CreateRoomResponse class]) {
+    defaultCreateRoomResponseInstance = [[CreateRoomResponse alloc] init];
+  }
+}
++ (CreateRoomResponse*) defaultInstance {
+  return defaultCreateRoomResponseInstance;
+}
+- (CreateRoomResponse*) defaultInstance {
+  return defaultCreateRoomResponseInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasRoomInfo) {
+    [output writeMessage:1 value:self.roomInfo];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasRoomInfo) {
+    size += computeMessageSize(1, self.roomInfo);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (CreateRoomResponse*) parseFromData:(NSData*) data {
+  return (CreateRoomResponse*)[[[CreateRoomResponse builder] mergeFromData:data] build];
+}
++ (CreateRoomResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (CreateRoomResponse*)[[[CreateRoomResponse builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (CreateRoomResponse*) parseFromInputStream:(NSInputStream*) input {
+  return (CreateRoomResponse*)[[[CreateRoomResponse builder] mergeFromInputStream:input] build];
+}
++ (CreateRoomResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (CreateRoomResponse*)[[[CreateRoomResponse builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (CreateRoomResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (CreateRoomResponse*)[[[CreateRoomResponse builder] mergeFromCodedInputStream:input] build];
+}
++ (CreateRoomResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (CreateRoomResponse*)[[[CreateRoomResponse builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (CreateRoomResponse_Builder*) builder {
+  return [[[CreateRoomResponse_Builder alloc] init] autorelease];
+}
++ (CreateRoomResponse_Builder*) builderWithPrototype:(CreateRoomResponse*) prototype {
+  return [[CreateRoomResponse builder] mergeFrom:prototype];
+}
+- (CreateRoomResponse_Builder*) builder {
+  return [CreateRoomResponse builder];
+}
+@end
+
+@interface CreateRoomResponse_Builder()
+@property (retain) CreateRoomResponse* result;
+@end
+
+@implementation CreateRoomResponse_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[CreateRoomResponse alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (CreateRoomResponse_Builder*) clear {
+  self.result = [[[CreateRoomResponse alloc] init] autorelease];
+  return self;
+}
+- (CreateRoomResponse_Builder*) clone {
+  return [CreateRoomResponse builderWithPrototype:result];
+}
+- (CreateRoomResponse*) defaultInstance {
+  return [CreateRoomResponse defaultInstance];
+}
+- (CreateRoomResponse*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (CreateRoomResponse*) buildPartial {
+  CreateRoomResponse* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (CreateRoomResponse_Builder*) mergeFrom:(CreateRoomResponse*) other {
+  if (other == [CreateRoomResponse defaultInstance]) {
+    return self;
+  }
+  if (other.hasRoomInfo) {
+    [self mergeRoomInfo:other.roomInfo];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (CreateRoomResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (CreateRoomResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 10: {
+        RoomInfo_Builder* subBuilder = [RoomInfo builder];
+        if (self.hasRoomInfo) {
+          [subBuilder mergeFrom:self.roomInfo];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setRoomInfo:[subBuilder buildPartial]];
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasRoomInfo {
+  return result.hasRoomInfo;
+}
+- (RoomInfo*) roomInfo {
+  return result.roomInfo;
+}
+- (CreateRoomResponse_Builder*) setRoomInfo:(RoomInfo*) value {
+  result.hasRoomInfo = YES;
+  result.roomInfo = value;
+  return self;
+}
+- (CreateRoomResponse_Builder*) setRoomInfoBuilder:(RoomInfo_Builder*) builderForValue {
+  return [self setRoomInfo:[builderForValue build]];
+}
+- (CreateRoomResponse_Builder*) mergeRoomInfo:(RoomInfo*) value {
+  if (result.hasRoomInfo &&
+      result.roomInfo != [RoomInfo defaultInstance]) {
+    result.roomInfo =
+      [[[RoomInfo builderWithPrototype:result.roomInfo] mergeFrom:value] buildPartial];
+  } else {
+    result.roomInfo = value;
+  }
+  result.hasRoomInfo = YES;
+  return self;
+}
+- (CreateRoomResponse_Builder*) clearRoomInfo {
+  result.hasRoomInfo = NO;
+  result.roomInfo = [RoomInfo defaultInstance];
+  return self;
+}
+@end
+
+@interface RoomInfoResponse ()
+@property (retain) RoomInfo* roomInfo;
+@property UserRelation relation;
+@end
+
+@implementation RoomInfoResponse
+
+- (BOOL) hasRoomInfo {
+  return !!hasRoomInfo_;
+}
+- (void) setHasRoomInfo:(BOOL) value {
+  hasRoomInfo_ = !!value;
+}
+@synthesize roomInfo;
+- (BOOL) hasRelation {
+  return !!hasRelation_;
+}
+- (void) setHasRelation:(BOOL) value {
+  hasRelation_ = !!value;
+}
+@synthesize relation;
+- (void) dealloc {
+  self.roomInfo = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.roomInfo = [RoomInfo defaultInstance];
+    self.relation = UserRelationNorelation;
+  }
+  return self;
+}
+static RoomInfoResponse* defaultRoomInfoResponseInstance = nil;
++ (void) initialize {
+  if (self == [RoomInfoResponse class]) {
+    defaultRoomInfoResponseInstance = [[RoomInfoResponse alloc] init];
+  }
+}
++ (RoomInfoResponse*) defaultInstance {
+  return defaultRoomInfoResponseInstance;
+}
+- (RoomInfoResponse*) defaultInstance {
+  return defaultRoomInfoResponseInstance;
+}
+- (BOOL) isInitialized {
+  return YES;
+}
+- (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasRoomInfo) {
+    [output writeMessage:1 value:self.roomInfo];
+  }
+  if (self.hasRelation) {
+    [output writeEnum:2 value:self.relation];
+  }
+  [self.unknownFields writeToCodedOutputStream:output];
+}
+- (int32_t) serializedSize {
+  int32_t size = memoizedSerializedSize;
+  if (size != -1) {
+    return size;
+  }
+
+  size = 0;
+  if (self.hasRoomInfo) {
+    size += computeMessageSize(1, self.roomInfo);
+  }
+  if (self.hasRelation) {
+    size += computeEnumSize(2, self.relation);
+  }
+  size += self.unknownFields.serializedSize;
+  memoizedSerializedSize = size;
+  return size;
+}
++ (RoomInfoResponse*) parseFromData:(NSData*) data {
+  return (RoomInfoResponse*)[[[RoomInfoResponse builder] mergeFromData:data] build];
+}
++ (RoomInfoResponse*) parseFromData:(NSData*) data extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (RoomInfoResponse*)[[[RoomInfoResponse builder] mergeFromData:data extensionRegistry:extensionRegistry] build];
+}
++ (RoomInfoResponse*) parseFromInputStream:(NSInputStream*) input {
+  return (RoomInfoResponse*)[[[RoomInfoResponse builder] mergeFromInputStream:input] build];
+}
++ (RoomInfoResponse*) parseFromInputStream:(NSInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (RoomInfoResponse*)[[[RoomInfoResponse builder] mergeFromInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (RoomInfoResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input {
+  return (RoomInfoResponse*)[[[RoomInfoResponse builder] mergeFromCodedInputStream:input] build];
+}
++ (RoomInfoResponse*) parseFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  return (RoomInfoResponse*)[[[RoomInfoResponse builder] mergeFromCodedInputStream:input extensionRegistry:extensionRegistry] build];
+}
++ (RoomInfoResponse_Builder*) builder {
+  return [[[RoomInfoResponse_Builder alloc] init] autorelease];
+}
++ (RoomInfoResponse_Builder*) builderWithPrototype:(RoomInfoResponse*) prototype {
+  return [[RoomInfoResponse builder] mergeFrom:prototype];
+}
+- (RoomInfoResponse_Builder*) builder {
+  return [RoomInfoResponse builder];
+}
+@end
+
+@interface RoomInfoResponse_Builder()
+@property (retain) RoomInfoResponse* result;
+@end
+
+@implementation RoomInfoResponse_Builder
+@synthesize result;
+- (void) dealloc {
+  self.result = nil;
+  [super dealloc];
+}
+- (id) init {
+  if ((self = [super init])) {
+    self.result = [[[RoomInfoResponse alloc] init] autorelease];
+  }
+  return self;
+}
+- (PBGeneratedMessage*) internalGetResult {
+  return result;
+}
+- (RoomInfoResponse_Builder*) clear {
+  self.result = [[[RoomInfoResponse alloc] init] autorelease];
+  return self;
+}
+- (RoomInfoResponse_Builder*) clone {
+  return [RoomInfoResponse builderWithPrototype:result];
+}
+- (RoomInfoResponse*) defaultInstance {
+  return [RoomInfoResponse defaultInstance];
+}
+- (RoomInfoResponse*) build {
+  [self checkInitialized];
+  return [self buildPartial];
+}
+- (RoomInfoResponse*) buildPartial {
+  RoomInfoResponse* returnMe = [[result retain] autorelease];
+  self.result = nil;
+  return returnMe;
+}
+- (RoomInfoResponse_Builder*) mergeFrom:(RoomInfoResponse*) other {
+  if (other == [RoomInfoResponse defaultInstance]) {
+    return self;
+  }
+  if (other.hasRoomInfo) {
+    [self mergeRoomInfo:other.roomInfo];
+  }
+  if (other.hasRelation) {
+    [self setRelation:other.relation];
+  }
+  [self mergeUnknownFields:other.unknownFields];
+  return self;
+}
+- (RoomInfoResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input {
+  return [self mergeFromCodedInputStream:input extensionRegistry:[PBExtensionRegistry emptyRegistry]];
+}
+- (RoomInfoResponse_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry {
+  PBUnknownFieldSet_Builder* unknownFields = [PBUnknownFieldSet builderWithUnknownFields:self.unknownFields];
+  while (YES) {
+    int32_t tag = [input readTag];
+    switch (tag) {
+      case 0:
+        [self setUnknownFields:[unknownFields build]];
+        return self;
+      default: {
+        if (![self parseUnknownField:input unknownFields:unknownFields extensionRegistry:extensionRegistry tag:tag]) {
+          [self setUnknownFields:[unknownFields build]];
+          return self;
+        }
+        break;
+      }
+      case 10: {
+        RoomInfo_Builder* subBuilder = [RoomInfo builder];
+        if (self.hasRoomInfo) {
+          [subBuilder mergeFrom:self.roomInfo];
+        }
+        [input readMessage:subBuilder extensionRegistry:extensionRegistry];
+        [self setRoomInfo:[subBuilder buildPartial]];
+        break;
+      }
+      case 16: {
+        int32_t value = [input readEnum];
+        if (UserRelationIsValidValue(value)) {
+          [self setRelation:value];
+        } else {
+          [unknownFields mergeVarintField:2 value:value];
+        }
+        break;
+      }
+    }
+  }
+}
+- (BOOL) hasRoomInfo {
+  return result.hasRoomInfo;
+}
+- (RoomInfo*) roomInfo {
+  return result.roomInfo;
+}
+- (RoomInfoResponse_Builder*) setRoomInfo:(RoomInfo*) value {
+  result.hasRoomInfo = YES;
+  result.roomInfo = value;
+  return self;
+}
+- (RoomInfoResponse_Builder*) setRoomInfoBuilder:(RoomInfo_Builder*) builderForValue {
+  return [self setRoomInfo:[builderForValue build]];
+}
+- (RoomInfoResponse_Builder*) mergeRoomInfo:(RoomInfo*) value {
+  if (result.hasRoomInfo &&
+      result.roomInfo != [RoomInfo defaultInstance]) {
+    result.roomInfo =
+      [[[RoomInfo builderWithPrototype:result.roomInfo] mergeFrom:value] buildPartial];
+  } else {
+    result.roomInfo = value;
+  }
+  result.hasRoomInfo = YES;
+  return self;
+}
+- (RoomInfoResponse_Builder*) clearRoomInfo {
+  result.hasRoomInfo = NO;
+  result.roomInfo = [RoomInfo defaultInstance];
+  return self;
+}
+- (BOOL) hasRelation {
+  return result.hasRelation;
+}
+- (UserRelation) relation {
+  return result.relation;
+}
+- (RoomInfoResponse_Builder*) setRelation:(UserRelation) value {
+  result.hasRelation = YES;
+  result.relation = value;
+  return self;
+}
+- (RoomInfoResponse_Builder*) clearRelation {
+  result.hasRelation = NO;
+  result.relation = UserRelationNorelation;
+  return self;
 }
 @end
 

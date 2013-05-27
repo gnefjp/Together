@@ -10,6 +10,7 @@
 
 @implementation FileDownloadRequest
 
+
 - (id) init
 {
     self = [super init];
@@ -23,35 +24,38 @@
 
 - (NSString *) requestUrl
 {
-    return @"http://192.168.1.21:9080/download";
+#ifdef kIsSimulatedData
+    if (_fileType == FileType_Image)
+    {
+        return @"http://127.0.0.1/File/Download/Image";
+    }
+    else
+    {
+        return @"http://127.0.0.1/File/Download/Sound";
+    }
+#endif
+    return [NSString stringWithFormat:@"http://%@:%@/download", kServerAddr, kDownloadPort];
 }
 
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    NSLog(@"_fileID : %@", _fileID);
-    [request addPostValue:_fileID forKey:@"fileId"];
+    NSString *urlStr = [NSString stringWithFormat:@"%@?fileId=%@", self.requestUrl, _fileID];
+    NSURL* url = [NSURL URLWithString:urlStr];
     
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     return request;
 }
 
 
 - (void) requestFinished:(ASIHTTPRequest*)request
 {
-    NSLog(@"request.responseStatusCode : %d", request.responseStatusCode);
     if (request.responseStatusCode == 200)
     {
         [self _requestFinished];
     }
-}
-
-
-- (void) _requestFinished
-{
-    // TODO: 下载成功
-    [self.httpRequest.responseData writeToFile:@"/Users/apple/Desktop/TEST.caf" atomically:YES];
+    
+    [[NetRequestManager defaultManager] removeRequest:self];
 }
 
 @end

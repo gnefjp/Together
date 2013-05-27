@@ -6,13 +6,23 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-@class RoomGridView;
+#import "RoomGridView.h"
+
+@class RoomListView;
+@protocol RoomListViewDelegate <NSObject>
+- (void) RoomListViewShowNavigation:(RoomListView *)roomListView;
+@end
+
+
 @interface RoomListView : UIView
 {
-    RoomGridView        *_defaultRoomGridView;
-    RoomGridView        *_searchRoomGridView;
+    __weak id<RoomListViewDelegate>     _delegate;
 }
 
+@property (weak,   nonatomic) id            delegate;
+@property (strong, nonatomic) RoomGridView  *roomGrid;
+
+- (IBAction)showNavigationDidPressed:(id)sender;
 - (IBAction)createRoomBtnPressed:(id)sender;
 
 @end

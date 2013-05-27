@@ -10,4 +10,9 @@
 
 @interface RoomJoinRequest : NetRoomRequest
 
+@property (copy, nonatomic) NSString    *roomID;
+
+@property (copy, nonatomic) NSString    *userID;
+@property (copy, nonatomic) NSString    *sid;
+
 @end

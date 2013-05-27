@@ -19,20 +19,42 @@ static PBExtensionRegistry* extensionRegistry = nil;
 }
 @end
 
+BOOL UserRelationIsValidValue(UserRelation value) {
+  switch (value) {
+    case UserRelationNorelation:
+    case UserRelationFollow:
+    case UserRelationFans:
+    case UserRelationFolloweach:
+    case UserRelationOwn:
+      return YES;
+    default:
+      return NO;
+  }
+}
 @interface User_Info ()
+@property int32_t uid;
 @property (retain) NSString* username;
 @property (retain) NSString* nickName;
-@property int32_t birthday;
+@property (retain) NSString* birthday;
 @property (retain) NSString* signatureText;
 @property int32_t signatureRecordId;
 @property int32_t praiseNum;
 @property int32_t visitNum;
 @property int32_t followedNum;
 @property int32_t followNum;
+@property int32_t sex;
+@property int32_t picId;
 @end
 
 @implementation User_Info
 
+- (BOOL) hasUid {
+  return !!hasUid_;
+}
+- (void) setHasUid:(BOOL) value {
+  hasUid_ = !!value;
+}
+@synthesize uid;
 - (BOOL) hasUsername {
   return !!hasUsername_;
 }
@@ -96,23 +118,41 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasFollowNum_ = !!value;
 }
 @synthesize followNum;
+- (BOOL) hasSex {
+  return !!hasSex_;
+}
+- (void) setHasSex:(BOOL) value {
+  hasSex_ = !!value;
+}
+@synthesize sex;
+- (BOOL) hasPicId {
+  return !!hasPicId_;
+}
+- (void) setHasPicId:(BOOL) value {
+  hasPicId_ = !!value;
+}
+@synthesize picId;
 - (void) dealloc {
   self.username = nil;
   self.nickName = nil;
+  self.birthday = nil;
   self.signatureText = nil;
   [super dealloc];
 }
 - (id) init {
   if ((self = [super init])) {
+    self.uid = 0;
     self.username = @"";
     self.nickName = @"";
-    self.birthday = 0;
+    self.birthday = @"";
     self.signatureText = @"";
     self.signatureRecordId = 0;
     self.praiseNum = 0;
     self.visitNum = 0;
     self.followedNum = 0;
     self.followNum = 0;
+    self.sex = 0;
+    self.picId = 0;
   }
   return self;
 }
@@ -132,32 +172,41 @@ static User_Info* defaultUser_InfoInstance = nil;
   return YES;
 }
 - (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
+  if (self.hasUid) {
+    [output writeInt32:1 value:self.uid];
+  }
   if (self.hasUsername) {
-    [output writeString:1 value:self.username];
+    [output writeString:2 value:self.username];
   }
   if (self.hasNickName) {
-    [output writeString:2 value:self.nickName];
+    [output writeString:3 value:self.nickName];
   }
   if (self.hasBirthday) {
-    [output writeInt32:3 value:self.birthday];
+    [output writeString:4 value:self.birthday];
   }
   if (self.hasSignatureText) {
-    [output writeString:4 value:self.signatureText];
+    [output writeString:5 value:self.signatureText];
   }
   if (self.hasSignatureRecordId) {
-    [output writeInt32:5 value:self.signatureRecordId];
+    [output writeInt32:6 value:self.signatureRecordId];
   }
   if (self.hasPraiseNum) {
-    [output writeInt32:6 value:self.praiseNum];
+    [output writeInt32:7 value:self.praiseNum];
   }
   if (self.hasVisitNum) {
-    [output writeInt32:7 value:self.visitNum];
+    [output writeInt32:8 value:self.visitNum];
   }
   if (self.hasFollowedNum) {
-    [output writeInt32:8 value:self.followedNum];
+    [output writeInt32:9 value:self.followedNum];
   }
   if (self.hasFollowNum) {
-    [output writeInt32:9 value:self.followNum];
+    [output writeInt32:10 value:self.followNum];
+  }
+  if (self.hasSex) {
+    [output writeInt32:11 value:self.sex];
+  }
+  if (self.hasPicId) {
+    [output writeInt32:12 value:self.picId];
   }
   [self.unknownFields writeToCodedOutputStream:output];
 }
@@ -168,32 +217,41 @@ static User_Info* defaultUser_InfoInstance = nil;
   }
 
   size = 0;
+  if (self.hasUid) {
+    size += computeInt32Size(1, self.uid);
+  }
   if (self.hasUsername) {
-    size += computeStringSize(1, self.username);
+    size += computeStringSize(2, self.username);
   }
   if (self.hasNickName) {
-    size += computeStringSize(2, self.nickName);
+    size += computeStringSize(3, self.nickName);
   }
   if (self.hasBirthday) {
-    size += computeInt32Size(3, self.birthday);
+    size += computeStringSize(4, self.birthday);
   }
   if (self.hasSignatureText) {
-    size += computeStringSize(4, self.signatureText);
+    size += computeStringSize(5, self.signatureText);
   }
   if (self.hasSignatureRecordId) {
-    size += computeInt32Size(5, self.signatureRecordId);
+    size += computeInt32Size(6, self.signatureRecordId);
   }
   if (self.hasPraiseNum) {
-    size += computeInt32Size(6, self.praiseNum);
+    size += computeInt32Size(7, self.praiseNum);
   }
   if (self.hasVisitNum) {
-    size += computeInt32Size(7, self.visitNum);
+    size += computeInt32Size(8, self.visitNum);
   }
   if (self.hasFollowedNum) {
-    size += computeInt32Size(8, self.followedNum);
+    size += computeInt32Size(9, self.followedNum);
   }
   if (self.hasFollowNum) {
-    size += computeInt32Size(9, self.followNum);
+    size += computeInt32Size(10, self.followNum);
+  }
+  if (self.hasSex) {
+    size += computeInt32Size(11, self.sex);
+  }
+  if (self.hasPicId) {
+    size += computeInt32Size(12, self.picId);
   }
   size += self.unknownFields.serializedSize;
   memoizedSerializedSize = size;
@@ -270,6 +328,9 @@ static User_Info* defaultUser_InfoInstance = nil;
   if (other == [User_Info defaultInstance]) {
     return self;
   }
+  if (other.hasUid) {
+    [self setUid:other.uid];
+  }
   if (other.hasUsername) {
     [self setUsername:other.username];
   }
@@ -297,6 +358,12 @@ static User_Info* defaultUser_InfoInstance = nil;
   if (other.hasFollowNum) {
     [self setFollowNum:other.followNum];
   }
+  if (other.hasSex) {
+    [self setSex:other.sex];
+  }
+  if (other.hasPicId) {
+    [self setPicId:other.picId];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -318,44 +385,72 @@ static User_Info* defaultUser_InfoInstance = nil;
         }
         break;
       }
-      case 10: {
-        [self setUsername:[input readString]];
+      case 8: {
+        [self setUid:[input readInt32]];
         break;
       }
       case 18: {
+        [self setUsername:[input readString]];
+        break;
+      }
+      case 26: {
         [self setNickName:[input readString]];
         break;
       }
-      case 24: {
-        [self setBirthday:[input readInt32]];
+      case 34: {
+        [self setBirthday:[input readString]];
         break;
       }
-      case 34: {
+      case 42: {
         [self setSignatureText:[input readString]];
         break;
       }
-      case 40: {
+      case 48: {
         [self setSignatureRecordId:[input readInt32]];
         break;
       }
-      case 48: {
+      case 56: {
         [self setPraiseNum:[input readInt32]];
         break;
       }
-      case 56: {
+      case 64: {
         [self setVisitNum:[input readInt32]];
         break;
       }
-      case 64: {
+      case 72: {
         [self setFollowedNum:[input readInt32]];
         break;
       }
-      case 72: {
+      case 80: {
         [self setFollowNum:[input readInt32]];
+        break;
+      }
+      case 88: {
+        [self setSex:[input readInt32]];
+        break;
+      }
+      case 96: {
+        [self setPicId:[input readInt32]];
         break;
       }
     }
   }
+}
+- (BOOL) hasUid {
+  return result.hasUid;
+}
+- (int32_t) uid {
+  return result.uid;
+}
+- (User_Info_Builder*) setUid:(int32_t) value {
+  result.hasUid = YES;
+  result.uid = value;
+  return self;
+}
+- (User_Info_Builder*) clearUid {
+  result.hasUid = NO;
+  result.uid = 0;
+  return self;
 }
 - (BOOL) hasUsername {
   return result.hasUsername;
@@ -392,17 +487,17 @@ static User_Info* defaultUser_InfoInstance = nil;
 - (BOOL) hasBirthday {
   return result.hasBirthday;
 }
-- (int32_t) birthday {
+- (NSString*) birthday {
   return result.birthday;
 }
-- (User_Info_Builder*) setBirthday:(int32_t) value {
+- (User_Info_Builder*) setBirthday:(NSString*) value {
   result.hasBirthday = YES;
   result.birthday = value;
   return self;
 }
 - (User_Info_Builder*) clearBirthday {
   result.hasBirthday = NO;
-  result.birthday = 0;
+  result.birthday = @"";
   return self;
 }
 - (BOOL) hasSignatureText {
@@ -499,6 +594,38 @@ static User_Info* defaultUser_InfoInstance = nil;
 - (User_Info_Builder*) clearFollowNum {
   result.hasFollowNum = NO;
   result.followNum = 0;
+  return self;
+}
+- (BOOL) hasSex {
+  return result.hasSex;
+}
+- (int32_t) sex {
+  return result.sex;
+}
+- (User_Info_Builder*) setSex:(int32_t) value {
+  result.hasSex = YES;
+  result.sex = value;
+  return self;
+}
+- (User_Info_Builder*) clearSex {
+  result.hasSex = NO;
+  result.sex = 0;
+  return self;
+}
+- (BOOL) hasPicId {
+  return result.hasPicId;
+}
+- (int32_t) picId {
+  return result.picId;
+}
+- (User_Info_Builder*) setPicId:(int32_t) value {
+  result.hasPicId = YES;
+  result.picId = value;
+  return self;
+}
+- (User_Info_Builder*) clearPicId {
+  result.hasPicId = NO;
+  result.picId = 0;
   return self;
 }
 @end

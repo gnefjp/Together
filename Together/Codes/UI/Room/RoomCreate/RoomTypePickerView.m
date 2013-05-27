@@ -10,6 +10,7 @@
 
 
 static NSString* s_roomTypeNames[] = {
+    @"其他",
     @"桌游",
     @"餐饮",
     @"运动",
@@ -59,6 +60,8 @@ static NSString* s_roomTypeNames[] = {
     }
     
     NSString* showMsg = s_roomTypeNames[indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"ArialMT" size:16.0];
+    cell.textLabel.textColor = GMETColorRGBMake(39, 39, 39);
     cell.textLabel.text = showMsg;
     return cell;
 }

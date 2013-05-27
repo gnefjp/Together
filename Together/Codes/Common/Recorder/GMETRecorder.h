@@ -33,7 +33,7 @@
 
 +(id)startRecordWithTime:(float)recordTime;
 + (NSURL*)getRecordFileUrl;
-+ (NSString*)getTestAudioFilePath;
++ (NSString*)getRecordFilePath;
 + (id)startRecord:(NSURL *)fileUrl recordTime:(float)recordTime;
 - (void)start;
 - (void)stop;

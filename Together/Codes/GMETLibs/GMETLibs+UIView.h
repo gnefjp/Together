@@ -22,6 +22,10 @@
 @property (assign, nonatomic) CGFloat   frameX;
 @property (assign, nonatomic) CGFloat   frameY;
 
+@property (assign, nonatomic) CGSize    frameSize;
+@property (assign, nonatomic) CGFloat   frameHeight;
+@property (assign, nonatomic) CGFloat   frameWidth;
+
 @property (assign, nonatomic) CGSize    boundsSize;
 @property (assign, nonatomic) CGFloat   boundsHeight;   
 @property (assign, nonatomic) CGFloat   boundsWidth;

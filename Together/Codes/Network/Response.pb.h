@@ -4,19 +4,34 @@
 
 #import "UserResponse.pb.h"
 #import "RoomResponse.pb.h"
+#import "Data.pb.h"
 
 @class Address;
 @class Address_Builder;
+@class CreateRoomResponse;
+@class CreateRoomResponse_Builder;
 @class DetailResponse;
 @class DetailResponse_Builder;
 @class HTTPResponse;
 @class HTTPResponse_Builder;
+@class IsExistNewMessageResponse;
+@class IsExistNewMessageResponse_Builder;
+@class List;
+@class List_Builder;
 @class LoginResponse;
 @class LoginResponse_Builder;
+@class Message_Info;
+@class Message_Info_Builder;
 @class RoomInfo;
+@class RoomInfoResponse;
+@class RoomInfoResponse_Builder;
 @class RoomInfo_Builder;
+@class UserMessageResponse;
+@class UserMessageResponse_Builder;
 @class User_Info;
 @class User_Info_Builder;
+@class UsernameExistResponse;
+@class UsernameExistResponse_Builder;
 
 @interface ResponseRoot : NSObject {
 }
@@ -29,24 +44,48 @@
   BOOL hasSuccess_:1;
   BOOL hasCode_:1;
   BOOL hasMsg_:1;
+  BOOL hasServerTime_:1;
   BOOL hasLoginResponse_:1;
   BOOL hasDetailResponse_:1;
+  BOOL hasExistUsernameResponse_:1;
+  BOOL hasRoomInfoResponse_:1;
+  BOOL hasCreateRoomResponse_:1;
+  BOOL hasList_:1;
+  BOOL hasExistNewMessageResponse_:1;
   BOOL success_:1;
   int32_t code;
   NSString* msg;
+  NSString* serverTime;
   LoginResponse* loginResponse;
   DetailResponse* detailResponse;
+  UsernameExistResponse* existUsernameResponse;
+  RoomInfoResponse* roomInfoResponse;
+  CreateRoomResponse* createRoomResponse;
+  List* list;
+  IsExistNewMessageResponse* existNewMessageResponse;
 }
 - (BOOL) hasCode;
 - (BOOL) hasSuccess;
 - (BOOL) hasMsg;
+- (BOOL) hasServerTime;
 - (BOOL) hasLoginResponse;
 - (BOOL) hasDetailResponse;
+- (BOOL) hasExistUsernameResponse;
+- (BOOL) hasRoomInfoResponse;
+- (BOOL) hasCreateRoomResponse;
+- (BOOL) hasList;
+- (BOOL) hasExistNewMessageResponse;
 @property (readonly) int32_t code;
 - (BOOL) success;
 @property (readonly, retain) NSString* msg;
+@property (readonly, retain) NSString* serverTime;
 @property (readonly, retain) LoginResponse* loginResponse;
 @property (readonly, retain) DetailResponse* detailResponse;
+@property (readonly, retain) UsernameExistResponse* existUsernameResponse;
+@property (readonly, retain) RoomInfoResponse* roomInfoResponse;
+@property (readonly, retain) CreateRoomResponse* createRoomResponse;
+@property (readonly, retain) List* list;
+@property (readonly, retain) IsExistNewMessageResponse* existNewMessageResponse;
 
 + (HTTPResponse*) defaultInstance;
 - (HTTPResponse*) defaultInstance;
@@ -97,6 +136,11 @@
 - (HTTPResponse_Builder*) setMsg:(NSString*) value;
 - (HTTPResponse_Builder*) clearMsg;
 
+- (BOOL) hasServerTime;
+- (NSString*) serverTime;
+- (HTTPResponse_Builder*) setServerTime:(NSString*) value;
+- (HTTPResponse_Builder*) clearServerTime;
+
 - (BOOL) hasLoginResponse;
 - (LoginResponse*) loginResponse;
 - (HTTPResponse_Builder*) setLoginResponse:(LoginResponse*) value;
@@ -110,5 +154,40 @@
 - (HTTPResponse_Builder*) setDetailResponseBuilder:(DetailResponse_Builder*) builderForValue;
 - (HTTPResponse_Builder*) mergeDetailResponse:(DetailResponse*) value;
 - (HTTPResponse_Builder*) clearDetailResponse;
+
+- (BOOL) hasExistUsernameResponse;
+- (UsernameExistResponse*) existUsernameResponse;
+- (HTTPResponse_Builder*) setExistUsernameResponse:(UsernameExistResponse*) value;
+- (HTTPResponse_Builder*) setExistUsernameResponseBuilder:(UsernameExistResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeExistUsernameResponse:(UsernameExistResponse*) value;
+- (HTTPResponse_Builder*) clearExistUsernameResponse;
+
+- (BOOL) hasRoomInfoResponse;
+- (RoomInfoResponse*) roomInfoResponse;
+- (HTTPResponse_Builder*) setRoomInfoResponse:(RoomInfoResponse*) value;
+- (HTTPResponse_Builder*) setRoomInfoResponseBuilder:(RoomInfoResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeRoomInfoResponse:(RoomInfoResponse*) value;
+- (HTTPResponse_Builder*) clearRoomInfoResponse;
+
+- (BOOL) hasCreateRoomResponse;
+- (CreateRoomResponse*) createRoomResponse;
+- (HTTPResponse_Builder*) setCreateRoomResponse:(CreateRoomResponse*) value;
+- (HTTPResponse_Builder*) setCreateRoomResponseBuilder:(CreateRoomResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeCreateRoomResponse:(CreateRoomResponse*) value;
+- (HTTPResponse_Builder*) clearCreateRoomResponse;
+
+- (BOOL) hasList;
+- (List*) list;
+- (HTTPResponse_Builder*) setList:(List*) value;
+- (HTTPResponse_Builder*) setListBuilder:(List_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeList:(List*) value;
+- (HTTPResponse_Builder*) clearList;
+
+- (BOOL) hasExistNewMessageResponse;
+- (IsExistNewMessageResponse*) existNewMessageResponse;
+- (HTTPResponse_Builder*) setExistNewMessageResponse:(IsExistNewMessageResponse*) value;
+- (HTTPResponse_Builder*) setExistNewMessageResponseBuilder:(IsExistNewMessageResponse_Builder*) builderForValue;
+- (HTTPResponse_Builder*) mergeExistNewMessageResponse:(IsExistNewMessageResponse*) value;
+- (HTTPResponse_Builder*) clearExistNewMessageResponse;
 @end
 

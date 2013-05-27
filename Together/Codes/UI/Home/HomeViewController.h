@@ -9,13 +9,15 @@
 #import "NavigationView.h"
 
 @class GMETTapView;
-@interface HomeViewController : UIViewController <NavigationViewDelegate>
+@interface HomeViewController : UIViewController <NavigationViewDelegate, CLLocationManagerDelegate>
 {
     NavigationView          *_navigationView;
     UIView                  *_mainView;
     
     UIPanGestureRecognizer  *_panGesture;
     GMETTapView             *_tapView;
+    
+    CLLocationManager       *_locationManager;
 }
 
 @end

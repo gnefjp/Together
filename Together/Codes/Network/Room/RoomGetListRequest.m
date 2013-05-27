@@ -10,6 +10,14 @@
 
 @implementation RoomGetListRequest
 
+#ifdef kIsSimulatedData
+- (NSString *) requestUrl
+{
+    return @"http://127.0.0.1/ROOM/GetRooms";
+}
+#endif
+
+
 - (id) init
 {
     self = [super init];
@@ -23,10 +31,23 @@
 
 - (ASIHTTPRequest *) _httpRequest
 {
-    NSURL* url = [NSURL URLWithString:self.requestUrl];
-    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:self.actionCode forKey:@"action"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.actionCode forKey:@"action"];
+    [dict setValue:[NSString stringWithInt:self.roomType] forKey:@"roomType"];
+    [dict setValue:@"0" forKey:@"roomStatus"];
     
+    [dict setValue:[NSString stringWithDouble:self.location.longitude] forKey:@"longitude"];
+    [dict setValue:[NSString stringWithDouble:self.location.latitude] forKey:@"latitude"];
+    [dict setValue:[NSString stringWithFloat:self.range] forKey:@"range"];
+    
+    [dict setValue:[NSString stringWithInt:self.pageNum + 1] forKey:@"pageNo"];
+    [dict setValue:[NSString stringWithInt:self.pageSize] forKey:@"pageSize"];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@?%@",
+                        self.requestUrl, [NSString urlArgsStringFromDictionary:dict]];
+
+    NSURL* url = [NSURL URLWithString:urlStr];
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:url];
     
     return request;
 }

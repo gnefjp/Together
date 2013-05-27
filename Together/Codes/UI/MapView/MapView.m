@@ -10,7 +10,7 @@
 #import "Annotation.h"
 #import "CustomAnnotationView.h"
 #import "Annotation.h"
-
+#import "TipViewManager.h"
 @implementation MapView
 
 @synthesize delegate = _delegate;
@@ -21,6 +21,11 @@
     [dropPin addTarget:self action:@selector(handleLongPress:)];
 	dropPin.minimumPressDuration = 0.5;
 	[_iMapView addGestureRecognizer:dropPin];
+    [[TipViewManager defaultManager] showTipText:@"长按地图选择"
+                                       imageName:@"ss"
+                                          inView:self
+                                              ID:self];
+    [[TipViewManager defaultManager] hideTipWithID:self animation:YES delay:1];
 }
 
 - (void)handleLongPress:(UITapGestureRecognizer*)tap
@@ -39,7 +44,38 @@
 
 - (IBAction)closeBtnDidPressed:(id)sender
 {
-    [self hideCenterToRightAnimation];
+    if (!([_delegate respondsToSelector:@selector(MapViewBackActionIsDelegate:)] &&
+          [_delegate MapViewBackActionIsDelegate:self]))
+    {
+        [self hideCenterToRightAnimation];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"0");
+            break;
+        case 1:
+        {
+            
+            NSString *str = [alertView textFieldAtIndex:0].text;
+            if ([str length] == 0) {
+                UIAlertView *aAlert = [[UIAlertView alloc] initWithTitle:nil message:@"没有选择的地点" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+                [[UIView rootView] addSubview:aAlert];
+                [aAlert show];
+                return;
+            }
+            [_delegate MapView:self
+                      location:_choosePosition.coordinate
+                  loactionAddr:str];
+            [self hideCenterToRightAnimation];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (IBAction)getCurrentChoosePosition:(id)sender
@@ -50,8 +86,17 @@
         [alert show];
         return;
     }
-    [_delegate MapView:self location:_choosePosition.coordinate];
-    [self hideCenterToRightAnimation];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"输入地址具体描述"
+                                                    message:@""
+                                                   delegate:self
+                                          cancelButtonTitle:@"取消"
+                                          otherButtonTitles:@"确定", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.delegate =self;
+    [alert show];
+    
+
 }
 
 - (IBAction)currentLocation:(id)sender
@@ -75,22 +120,6 @@
 {
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
-//    if ([annotation isKindOfClass:[Annotation class]]){
-//        // Try to dequeue an existing pin view first.
-//        CustomAnnotationView* pinView = (CustomAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
-//        if (!pinView){
-//            // If an existing pin view was not available, create one.
-//            pinView = [[CustomAnnotationView alloc] initWithAnnotation:annotation
-//                                                       reuseIdentifier:@"CustomPinAnnotationView"];
-//        }
-//        else
-//        {
-//            pinView.annotation = annotation;
-//        }
-//        [pinView setPinColor:MKPinAnnotationColorGreen];
-//        return pinView;
-//    }
-//    return nil;
     if ([annotation isKindOfClass:[Annotation class]])
     {
         Annotation *ann = (Annotation*)annotation;

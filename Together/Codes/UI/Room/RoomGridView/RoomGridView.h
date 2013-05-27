@@ -6,6 +6,35 @@
 //  Copyright (c) 2013年 GMET. All rights reserved.
 //
 
-@interface RoomGridView : UIView
+#import "NetRoomRequest.h"
+#import "NetRoomList.h"
+#import "SRRefreshView.h"
+#import "RoomMapView.h"
+
+@class GridBottomView;
+@interface RoomGridView : UIView <NetRoomRequestDelegate, SRRefreshDelegate>
+{
+    __weak IBOutlet UILabel     *_noLocationLabel;
+    
+    __weak IBOutlet UIButton    *_roomTypeBtn;
+    RoomType                    _roomType;
+    NSArray                     *_roomTypes;
+    
+    __weak IBOutlet UIButton    *_rangeBtn;
+    CGFloat                     _range;
+    NSArray                     *_ranges;
+    
+    SRRefreshView               *_refreshView;
+    GridBottomView              *_bottomView;
+}
+
+@property (strong, nonatomic) NetRoomList           *roomList;
+@property (weak, nonatomic) IBOutlet UITableView    *roomsTableView;
+
+- (void) refreshGrid;
+
+- (IBAction)roomTypeSelected:(id)sender;
+- (IBAction)distanceSelected:(id)sender;
+- (IBAction)showMapView:(id)sender;
 
 @end

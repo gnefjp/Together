@@ -13,13 +13,13 @@
 
 - (void) _requestFinished
 {
-    [self.delegate NetFileRequestFail:self];
+    [self.delegate NetFileRequestSuccess:self];
 }
 
 
 - (void) _requestFailed
 {
-    [self.delegate NetFileRequestSuccess:self];
+    [self.delegate NetFileRequestFail:self];
 }
 
 

@@ -17,29 +17,33 @@
 @private
   BOOL hasDistance_:1;
   BOOL hasRoomId_:1;
+  BOOL hasOwnerId_:1;
   BOOL hasType_:1;
   BOOL hasStatus_:1;
+  BOOL hasPicId_:1;
   BOOL hasGenderType_:1;
   BOOL hasJoinPersonCount_:1;
   BOOL hasLimitPersonCount_:1;
+  BOOL hasRecordId_:1;
+  BOOL hasJoinStatus_:1;
   BOOL hasTitle_:1;
-  BOOL hasOwnerId_:1;
   BOOL hasOwnerNickname_:1;
-  BOOL hasPicUrl_:1;
   BOOL hasCreateTime_:1;
   BOOL hasBeginTime_:1;
   BOOL hasAddress_:1;
   Float64 distance;
   int32_t roomId;
+  int32_t ownerId;
   int32_t type;
   int32_t status;
+  int32_t picId;
   int32_t genderType;
   int32_t joinPersonCount;
   int32_t limitPersonCount;
+  int32_t recordId;
+  int32_t joinStatus;
   NSString* title;
-  NSString* ownerId;
   NSString* ownerNickname;
-  NSString* picUrl;
   NSString* createTime;
   NSString* beginTime;
   Address* address;
@@ -50,28 +54,32 @@
 - (BOOL) hasOwnerNickname;
 - (BOOL) hasType;
 - (BOOL) hasStatus;
-- (BOOL) hasPicUrl;
+- (BOOL) hasPicId;
 - (BOOL) hasGenderType;
 - (BOOL) hasDistance;
 - (BOOL) hasJoinPersonCount;
 - (BOOL) hasLimitPersonCount;
+- (BOOL) hasRecordId;
 - (BOOL) hasCreateTime;
 - (BOOL) hasBeginTime;
 - (BOOL) hasAddress;
+- (BOOL) hasJoinStatus;
 @property (readonly) int32_t roomId;
 @property (readonly, retain) NSString* title;
-@property (readonly, retain) NSString* ownerId;
+@property (readonly) int32_t ownerId;
 @property (readonly, retain) NSString* ownerNickname;
 @property (readonly) int32_t type;
 @property (readonly) int32_t status;
-@property (readonly, retain) NSString* picUrl;
+@property (readonly) int32_t picId;
 @property (readonly) int32_t genderType;
 @property (readonly) Float64 distance;
 @property (readonly) int32_t joinPersonCount;
 @property (readonly) int32_t limitPersonCount;
+@property (readonly) int32_t recordId;
 @property (readonly, retain) NSString* createTime;
 @property (readonly, retain) NSString* beginTime;
 @property (readonly, retain) Address* address;
+@property (readonly) int32_t joinStatus;
 
 + (RoomInfo*) defaultInstance;
 - (RoomInfo*) defaultInstance;
@@ -118,8 +126,8 @@
 - (RoomInfo_Builder*) clearTitle;
 
 - (BOOL) hasOwnerId;
-- (NSString*) ownerId;
-- (RoomInfo_Builder*) setOwnerId:(NSString*) value;
+- (int32_t) ownerId;
+- (RoomInfo_Builder*) setOwnerId:(int32_t) value;
 - (RoomInfo_Builder*) clearOwnerId;
 
 - (BOOL) hasOwnerNickname;
@@ -137,10 +145,10 @@
 - (RoomInfo_Builder*) setStatus:(int32_t) value;
 - (RoomInfo_Builder*) clearStatus;
 
-- (BOOL) hasPicUrl;
-- (NSString*) picUrl;
-- (RoomInfo_Builder*) setPicUrl:(NSString*) value;
-- (RoomInfo_Builder*) clearPicUrl;
+- (BOOL) hasPicId;
+- (int32_t) picId;
+- (RoomInfo_Builder*) setPicId:(int32_t) value;
+- (RoomInfo_Builder*) clearPicId;
 
 - (BOOL) hasGenderType;
 - (int32_t) genderType;
@@ -162,6 +170,11 @@
 - (RoomInfo_Builder*) setLimitPersonCount:(int32_t) value;
 - (RoomInfo_Builder*) clearLimitPersonCount;
 
+- (BOOL) hasRecordId;
+- (int32_t) recordId;
+- (RoomInfo_Builder*) setRecordId:(int32_t) value;
+- (RoomInfo_Builder*) clearRecordId;
+
 - (BOOL) hasCreateTime;
 - (NSString*) createTime;
 - (RoomInfo_Builder*) setCreateTime:(NSString*) value;
@@ -178,6 +191,11 @@
 - (RoomInfo_Builder*) setAddressBuilder:(Address_Builder*) builderForValue;
 - (RoomInfo_Builder*) mergeAddress:(Address*) value;
 - (RoomInfo_Builder*) clearAddress;
+
+- (BOOL) hasJoinStatus;
+- (int32_t) joinStatus;
+- (RoomInfo_Builder*) setJoinStatus:(int32_t) value;
+- (RoomInfo_Builder*) clearJoinStatus;
 @end
 
 @interface Address : PBGeneratedMessage {
